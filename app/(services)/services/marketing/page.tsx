@@ -1,7 +1,7 @@
-import React from 'react'
-
 export default function MarketingServices() {
   return (
-    <div>MarketingServices</div>
-  )
+    <div className="min-h-screen flex justify-center items-center">
+      MarketingServices
+    </div>
+  );
 }

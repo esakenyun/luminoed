@@ -1,7 +1,7 @@
-import React from 'react'
-
 export default function Training() {
   return (
-    <div>Training</div>
-  )
+    <div className="min-h-screen flex justify-center items-center">
+      Training
+    </div>
+  );
 }

@@ -1,7 +1,7 @@
-import React from 'react'
-
 export default function AdditionalServices() {
   return (
-    <div>AdditionalServices</div>
-  )
+    <div className="min-h-screen flex justify-center items-center">
+      AdditionalServices
+    </div>
+  );
 }
