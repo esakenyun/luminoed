@@ -118,7 +118,7 @@ export default function Services() {
 
       {/* Large & Desktop Mode */}
       <div className="hidden tablet-landscape-max:block">
-        <div className="mx-auto flex px-24 gap-56">
+        <div className="max-w-7xl mx-auto flex gap-20 px-6 lg:px-8">
           <div className="relative w-2/5">
             <div>
               {STEPS.map((step, index) => (
