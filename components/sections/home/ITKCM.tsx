@@ -2,13 +2,17 @@
 
 import { motion } from "framer-motion";
 import { Database, Lightbulb } from "lucide-react";
+import Image from "next/image";
 
 export default function ITKCM() {
   return (
     <section className="w-full overflow-hidden">
       {/* HERO */}
-      <div className="relative bg-primary-green">
-        <div className="mx-auto grid max-w-400 grid-cols-1 items-center gap-12 md:grid-cols-2 px-6 py-20">
+      <div 
+        className="relative inset-0 -z-10 bg-[#DDF190]" style={{
+        clipPath: "polygon(0 10%, 100% 0, 100% 85%, 0 100%)",
+        }}>
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 md:grid-cols-2 px-6 py-20">
           {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -16,14 +20,14 @@ export default function ITKCM() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h1 className="text-3xl font-bold text-primary-blue md:text-4xl">
+            <h1 className="text-3xl lg:text-[48px] font-bold text-primary-blue md:text-4xl">
               IT KCM
             </h1>
-            <p className="mt-1 text-base font-medium text-primary-blue/80">
+            <p className="lg:text-[16px] mt-1 text-base font-bold text-primary-blue/80">
               PT Kibar Cendekia Muda
             </p>
 
-            <p className="mt-4 max-w-lg text-base leading-relaxed text-primary-blue/80">
+            <p className="mt-4 max-w-lg text-base lg:text-[16px] leading-relaxed text-primary-blue/80">
               Kibar Cendekia Muda adalah perusahaan pengembang teknologi
               informasi yang berfokus pada solusi untuk pendidikan, khususnya
               dalam implementasi Smart School dan Smart Class. Kami menyediakan
@@ -41,15 +45,19 @@ export default function ITKCM() {
             viewport={{ once: true }}
             className="flex justify-center md:justify-end"
           >
-            <div className="w-65 rounded-2xl bg-white/80 shadow-xl">
-              <div className="flex h-50 items-center justify-center">
-                {/* Mock Chart */}
-                <div className="flex items-end gap-2">
-                  <div className="h-10 w-6 rounded bg-blue-400" />
-                  <div className="h-14 w-6 rounded bg-blue-500" />
-                  <div className="h-20 w-6 rounded bg-cyan-400" />
-                  <div className="h-24 w-6 rounded bg-cyan-500" />
-                </div>
+            <div className="relative lg:h-[600px] flex items-center justify-end tablet-landscape-max::justify-end overflow-visible">
+              {/* BACK BLUE CARD */}
+              <div className="absolute right-6 tablet-landscape-max:right-[95px] top-[200px] w-[300px] h-[450px] bg-primary-blue rounded-[5px] z-0" />
+              {/* FRONT IMAGE CARD */}
+              <div className="relative w-full max-w-[320px] h-[340px] p-4 rounded-[5px] top-[135px] overflow-hidden shadow-2xl bg-white z-10">
+                <Image
+                  src="/bar.png"
+                  width={500}
+                  height={500}
+                  alt="Dashboard Preview"
+                  className="w-full h-full object-cover"
+                  priority
+                />
               </div>
             </div>
           </motion.div>
@@ -57,7 +65,7 @@ export default function ITKCM() {
       </div>
 
       {/* WHY CHOOSE US */}
-      <div className="mx-auto max-w-400 px-6 py-20">
+      <div className="mx-auto max-w-7xl px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
