@@ -91,8 +91,8 @@ export default function NotFound() {
             </h2>
 
             <p className="mx-auto max-w-md text-gray-600 text-sm sm:text-base leading-relaxed">
-              Looks like this page doesn’t exist anymore or the link is broken.
-              Let’s get you back on track.
+              Looks like this page doesn&apos;t exist anymore or the link is
+              broken. Let&apos;s get you back on track.
             </p>
           </div>
 
