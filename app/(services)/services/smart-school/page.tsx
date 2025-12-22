@@ -24,6 +24,7 @@ export default function SmartSchoolServices() {
       return (
         <>
           {/* Section 1 */}
+          <div className="max-w-7xl mx-auto">
           <div className="pt-10 flex justify-between items-center tablet-landscape-min:gap-12">
             <div>
               <h1 className="font-bold text-3xl tablet-landscape-max:text-6xl text-primary-blue">
@@ -124,6 +125,7 @@ export default function SmartSchoolServices() {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </>
       );

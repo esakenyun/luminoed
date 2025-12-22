@@ -17,7 +17,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-primary-blue text-white py-12 px-6">
       {/* TOP SECTION */}
-      <div className="max-w-400 mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
         {/* Left Menu */}
         <div className="space-y-3">
           {navLinks
