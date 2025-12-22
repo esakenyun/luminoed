@@ -70,7 +70,7 @@ export default function About() {
           <div className="absolute inset-0 bg-black/70" />
 
           {/* Content */}
-          <div className="relative z-10 max-w-400 mx-auto px-6 flex justify-center items-center h-screen">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 py-120 flex justify-center items-center h-screen">
             {/* LEFT */}
             <div>
               <p className="text-sm font-semibold tracking-[0.9em] text-white/90 uppercase">
@@ -149,8 +149,17 @@ export default function About() {
             commodi dolores maiores magni autem exercitationem.
           </p>
         </div>
+        <div className="relative overflow-hidden z-10">
+                <Image
+                  src="/palkon.png"
+                  width={500}
+                  height={500}
+                  alt="Dashboard Preview"
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
       </section>
-      <div className="pt-20"></div>
       <OurClient />
     </>
   );

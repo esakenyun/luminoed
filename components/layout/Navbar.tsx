@@ -129,7 +129,7 @@ export default function Navbar() {
       animate={hidden ? { y: "-100%" } : { y: 0 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
     >
-      <nav className="mx-auto flex items-center justify-between max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+      <nav className="mx-auto flex items-center justify-between max-w-7xl py-4">
         <Link href={"/"}>
           <Image
             src={cfg.logoSrc}
