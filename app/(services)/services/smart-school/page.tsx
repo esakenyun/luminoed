@@ -99,7 +99,7 @@ export default function SmartSchoolServices() {
           </div>
 
           {/* Section 3 */}
-          <div className="py-32">
+          <div className="pt-32">
             <h1 className="font-bold text-3xl tablet-landscape-max:text-4xl text-primary-blue">
               Pengelolaan Aset <br />
               Pendidik
@@ -375,7 +375,8 @@ export default function SmartSchoolServices() {
   };
 
   return (
-    <div className="relative min-h-screen max-w-400 mx-auto pt-20 pb-20 px-6">
+    <div>
+    <div className="relative min-h-screen max-w-7xl mx-10 md:mx-auto pr-3 pt-20 pb-20">
       {/* Navigation */}
       <div className="flex justify-between text-white items-center mb-8">
         <div className="flex gap-2 items-center">
@@ -445,9 +446,21 @@ export default function SmartSchoolServices() {
 
       {/* Konten */}
       <div className="">{renderContent()}</div>
+      </div>
+
+      <div className="relative overflow-hidden z-10">
+        <Image
+          src="/palkon.png"
+          width={500}
+          height={500}
+          alt="Dashboard Preview"
+          className="w-full h-full object-cover"
+          priority
+        />
+      </div>
 
       {/* Client Section */}
-      <div className="mt-16">
+      <div>
         <OurClient />
       </div>
     </div>
