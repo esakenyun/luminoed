@@ -46,48 +46,6 @@ const articles = [
     date: "Nov 5, 2024",
     readTime: "4 min read",
   },
-  {
-    id: 4,
-    category: "Design & Marketing",
-    title: "Building School Trust Through Design & Marketing",
-    imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAw2CzXq6Y3garnMd_ORpI-o8q7R7_Pp7SJKgT5_zQN3tsRrKx86-amZrkTVDRRbvoz7dZBOx3_W_krLnLa1Gzzx8aP2sIN3JsbKnd0HUE02YwSz41uWRSYs8qvrTRshxJ8214ct95zLjxFzanPwhB8AYw--xrZhiP79n_P0i3ggOexfz2bBPdb7yVF_VlOql8O7hPjp5Ah2xT3ABL_J3GlJiOy74FNGEB-LJ46ILfwLoMYpmjemAyoIt-jBvTtrSHZfeZ7lqeKpmSV",
-    description:
-      "Why strong visual identity and digital marketing matter for schools and educational foundations.",
-    author: "Ardelia Putri",
-    authorImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC3svm5Krp_TnsVURwgJ0whtQ6VfEt6xQw3h8kpdOXFMUUQAHSSh9v4eTgCOlO6-T5HidYgY9aKppIIw_ttiCVj6OZS2u98TZAMa6ONmIYzkeIfOloiF93dIzLOxkc53GqaIBLqqVxEfh6L5rtja148dttfPJ1FM8ZfajHzN4PnH7twmVqd90sxWhbkrCVRR28Xz_DGspd96S7Gl8FgpmeoW1vDoCQBZasGi2qlLALOB-4p2G7vKV6bxTlpn7afocl0sV3ixQfGtaNO",
-    date: "Nov 2, 2024",
-    readTime: "6 min read",
-  },
-  {
-    id: 5,
-    category: "Hybrid Learning",
-    title: "Creating Effective Hybrid Learning Environments",
-    imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDqz0tL_41PMc3DAHRMh_LQLr3Bu7LKwiFzD9cjuSgOBszK0o1BqDyd2dnauJtqb9XC0yJu56cmwfEu9i6p_3Mh3Op65d12O0UEbkEvZnvxcvu5RA7MEC3SY2LjwoGETf12j7TUoHm5Q6PQ428ozLNPlI2Ab91NgRCpLr358bh2Di5ME3ek7XYPW-M80BltockvP37xr4Vs86B-ZsubqwTPExTvNustCQe9aaaa9NBMxNukvfzLqfu7_Qo8qgiXq9iRvJc4WFl3BCk_",
-    description:
-      "Combining on-site and online learning with the right technology to support modern education needs.",
-    author: "Muhammad Khosy",
-    authorImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAJcC2NqKxeODFAoeeZRc5AP5jb8hH2px2Ch5TiRqkMAlIf8gImgn8O8AwcTwZVbYvEYgDQqH4Br01LNSsqfVb_l9ojS4e_n5WQNPqmyDpiJWtyt9Fg8ddo4hiNlYFyuZxeXnTRgOBtMk_KWsYc21pn7-kCT_F8nOQg8ifDXJWGZ2U1ksk_12SCU8AABHd1sGCcdIzeCWhc5Ag85QC38pBK1ZRgQ_3846DLwJtiEfgLlT1AVWi50E_hLZgAEstbt0G2VQ4QfFaf3Ir1",
-    date: "Oct 30, 2024",
-    readTime: "12 min read",
-  },
-  {
-    id: 6,
-    category: "Smart School",
-    title: "Smart School Management for Modern Institutions",
-    imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCiaEGFftR7pRBlB08Wd8iIrn6nNVXIEFbaUeocXuCIq5hUpmrCWpdfZHnk6Gg4org6_Wx0gqG8-bCD6wXXDOC6UMc7mdNYAi7caFL-rROjGb0YFbRzpcT_Zs8NBJGIodLywf141MM9L7UJUnItDvs_284eoJPyKv00qnRGZ4PyLRie_NuwxBKuI8nT9TMRPTpDgLX_Gq-v7uVD-fZAezoXCIrrDp6YQ33QThSp3SLX0_vkZgqKlVqGpCNRMbQP4uogLeuBqmKPveBF",
-    description:
-      "How integrated smart management systems help schools manage classes, assets, and academic data efficiently.",
-    author: "Ardelia Putri",
-    authorImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDfNvW9Zm-6A0yGrYw-GWphMvE1Hscz4HRI4-LMBs2DrbweOZl9ZvIec5s4YR53ulaKPSLoTafyOfqHWuBox4LQAjbUjsjO2rQJwuNQzC4f05gn7yRM2PllYybF53dQvgZSa1zRI_nL8nRrHNOTwvFMvDY6-cK2pxTZok8qstF8ElX73SL7NnSFWPhsZQlMMXmewRF_DGGFvXPMGwTGhmkH2uBdWj7p8gWOoKqnS3m9u2FLy-8zLVdZ_gjdTJFxWTHqvlsX7LQhxqij",
-    date: "Oct 28, 2024",
-    readTime: "7 min read",
-  },
 ];
 
 export default function BlogPage() {
@@ -128,17 +86,17 @@ export default function BlogPage() {
                 </div>
               </div>
             </div>
-            <h2 className="text-3xl font-bold border-b border-slate-200 pb-4">
+            <h2 className="text-3xl font-bold border-b border-slate-200 pb-4 text-center">
               Latest Articles
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            <div className="max-w-7xl mx-auto px-6 flex flex-col gap-12">
               {articles.map((item) => (
                 <Link
                   href={`/blog/${item.id}`}
                   key={item.id}
                   className="h-full block"
                 >
-                  <article className="flex flex-col h-full group cursor-pointer">
+                  <article className="flex flex-col h-full group cursor-pointer max-w-4xl mx-auto">
                     <div className="relative w-full aspect-16/10 overflow-hidden rounded-xl mb-4">
                       <div
                         className="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
@@ -176,13 +134,6 @@ export default function BlogPage() {
                   </article>
                 </Link>
               ))}
-            </div>
-
-            <div className="flex justify-center mt-8 pb-10">
-              <button className="flex items-center gap-2 px-6 py-3 rounded-full border border-slate-300 hover:bg-slate-100 font-bold transition-all">
-                Load more articles
-                <ChevronDown />
-              </button>
             </div>
           </div>
         </main>

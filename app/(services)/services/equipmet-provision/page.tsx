@@ -1,7 +1,9 @@
+import NotFound from "@/app/not-found";
+
 export default function EquipmentProvisionServices() {
   return (
-    <div className="min-h-screen flex justify-center items-center">
-      EquipmentProvisionServices
+    <div>
+      <NotFound />
     </div>
   );
 }

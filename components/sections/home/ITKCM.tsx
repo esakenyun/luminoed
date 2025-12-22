@@ -20,14 +20,14 @@ export default function ITKCM() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h1 className="pt-10 text-3xl lg:text-[48px] font-bold text-primary-blue md:text-4xl">
+            <h1 className="pt-30 md:pt-10 text-3xl lg:text-[64px] font-bold text-primary-blue md:text-4xl">
               IT KCM
             </h1>
-            <p className="lg:text-[16px] mt-1 text-base font-bold text-primary-blue/80">
+            <p className="lg:text-[24px] mt-1 text-base font-bold text-primary-blue/80">
               PT Kibar Cendekia Muda
             </p>
 
-            <p className="mt-4 max-w-lg text-base lg:text-[16px] leading-relaxed text-primary-blue/80">
+            <p className="mt-4 text-base lg:text-[18px] leading-relaxed text-primary-blue/80">
               Kibar Cendekia Muda adalah perusahaan pengembang teknologi
               informasi yang berfokus pada solusi untuk pendidikan, khususnya
               dalam implementasi Smart School dan Smart Class. Kami menyediakan
@@ -65,7 +65,7 @@ export default function ITKCM() {
       </div>
 
       {/* WHY CHOOSE US */}
-      <div className="mx-auto max-w-7xl px-6 pt-40">
+      <div className="mx-auto max-w-7xl px-6 pt-40 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -75,14 +75,14 @@ export default function ITKCM() {
         >
           {/* 1. Teks Bayangan/Latar Belakang (Warna Pudar) */}
           <h2
-            className="absolute bottom-4 text-xl md:text-4xl tablet-landscape-min:text-6xl left-0 font-extrabold text-gray-200 opacity-60 whitespace-nowrap"
+            className="absolute bottom-4 text-xl md:text-[48px] tablet-landscape-min:text-6xl left-0 font-extrabold text-gray-200 opacity-60 whitespace-nowrap"
             style={{ transform: "translate(2px, -2px)" }}
           >
             WHY YOU SHOULD CHOOSE US?
           </h2>
 
           {/* 2. Teks Utama (Warna Gelap) */}
-          <h2 className="relative z-10 text-xl md:text-4xl tablet-landscape-min:text-6xl font-extrabold text-primary-blue whitespace-nowrap">
+          <h2 className="relative z-10 text-xl md:text-[48px] tablet-landscape-min:text-6xl font-extrabold text-primary-blue whitespace-nowrap">
             WHY YOU SHOULD CHOOSE US?
           </h2>
         </motion.div>
@@ -96,7 +96,7 @@ export default function ITKCM() {
           WHY YOU SHOULD CHOOSE US?
         </motion.h2> */}
 
-        <div className="grid gap-10 md:grid-cols-2">
+        <div className="grid gap-20 md:grid-cols-2">
           {/* ITEM 1 */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -105,10 +105,10 @@ export default function ITKCM() {
             viewport={{ once: true }}
           >
             <div className="mb-3 items-center">
-              <Lightbulb className="mt-5 h-10 w-10 text-yellow-500"/>
-              <h3 className="mt-5 font-semibold text-purple-900">Innovation</h3>
+              <Lightbulb className="mt-10 h-12 w-12 text-yellow-500"/>
+              <h3 className="mt-5 text-[18px] md:text-[24px] font-semibold text-purple-900">Innovation</h3>
             </div>
-            <p className="text-slate-600">
+            <p className="text-[16px] md:text-[18px] text-slate-600">
               Menghadirkan inovasi teknologi untuk meningkatkan kualitas
               pendidikan di Indonesia melalui solusi Smart School dan Smart
               Class yang terintegrasi. Menyediakan platform yang dapat
@@ -124,11 +124,11 @@ export default function ITKCM() {
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <div className="mb-3 mt-5 items-center gap-3">
-              <Database className="h-10 w-10 text-blue-500" />
-              <h3 className="mt-5 font-semibold text-purple-900">Data Based</h3>
+            <div className="mb-3 mt-10 items-center gap-3">
+              <Database className="h-12 w-12 text-blue-500" />
+              <h3 className="text-[18px] md:text-[24px] mt-5 font-semibold text-purple-900">Data Based</h3>
             </div>
-            <p className="text-slate-600">
+            <p className="text-[16px] md:text-[18px] text-slate-600">
               Teknologi Terkini: Menggunakan teknologi terbaru seperti
               kecerdasan buatan dan analisis data untuk meningkatkan efisiensi
               dan efektivitas proses pendidikan.
@@ -138,6 +138,17 @@ export default function ITKCM() {
             </p>
           </motion.div>
         </div>
+
+        <motion.blockquote
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="mt-40 text-center italic text-[24px] md:text-[36px] text-primary-blue/80 font-medium relative before:content-[''] before:block before:w-24 before:h-[2px] before:bg-primary-blue/30 before:mx-auto before:mb-6 after:content-[''] after:block after:w-24 after:h-[2px] after:bg-primary-blue/30 after:mx-auto after:mt-6"
+        >
+          “Illuminate Minds. Transform Schools.”
+        </motion.blockquote>
+
       </div>
       <div className="relative overflow-hidden z-10">
         <Image

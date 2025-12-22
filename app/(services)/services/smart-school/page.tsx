@@ -12,9 +12,11 @@ import { CircleCheck, School } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import OurClient from "@/components/sections/home/OurClient";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 export default function SmartSchoolServices() {
-  const tabs = ["Smart Class", "Smart Talent", "Smart Asset"];
+  const tabs = ["Smart Class", "Smart Talent", "Smart Asset", "Smart Management"];
   const [activeTab, setActiveTab] = useState("default"); // default: full content
 
   // Render konten sesuai tab
@@ -369,6 +371,81 @@ export default function SmartSchoolServices() {
             </div>
           </>
         );
+        case "Smart Management":
+        return (
+          <>
+            <section className="w-full py-24">
+      <div className="mx-auto max-w-7xl px-6">
+
+        {/* HEADER */}
+        <div className="max-w-2xl mb-16">
+          <h1 className="text-4xl lg:text-5xl font-extrabold text-primary-blue">
+            Smart Management
+          </h1>
+          <p className="mt-4 text-lg text-slate-600">
+            Solusi manajemen sekolah terintegrasi dari LuminoED untuk
+            mengelola administrasi, akademik, guru, dan siswa dalam satu
+            sistem digital.
+          </p>
+        </div>
+
+        {/* FEATURES */}
+        <div className="grid gap-10 md:grid-cols-3 mb-24">
+          {[
+            {
+              title: "Centralized School Data",
+              desc: "Kelola data siswa, guru, kelas, dan akademik dalam satu dashboard terpusat.",
+            },
+            {
+              title: "Automated Administration",
+              desc: "Permudah administrasi sekolah dengan alur kerja otomatis dan efisien.",
+            },
+            {
+              title: "Real-Time Monitoring",
+              desc: "Pantau aktivitas sekolah dan performa akademik secara real-time.",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="rounded-xl bg-white p-6 shadow-sm border"
+            >
+              <h3 className="text-xl font-semibold text-primary-blue">
+                {item.title}
+              </h3>
+              <p className="mt-3 text-slate-600">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* SMARTSCHOOL PORTAL */}
+        <div className="relative overflow-hidden rounded-3xl bg-primary-blue p-10 md:p-14 text-white">
+          <div className="relative z-10 max-w-xl">
+            <h2 className="text-3xl font-bold">
+              SmartSchool Portal
+            </h2>
+            <p className="mt-4 text-white/80">
+              SmartSchool adalah produk unggulan LuminoED yang dirancang
+              khusus untuk mendukung transformasi digital sekolah melalui
+              sistem manajemen yang modern dan terintegrasi.
+            </p>
+
+            <Link
+              href="#" //url smartschool
+              target="_blank"
+              className="inline-flex items-center gap-2 mt-8 rounded-full bg-white px-6 py-3 font-semibold text-primary-blue hover:bg-slate-100 transition"
+            >
+              Visit SmartSchool Website
+              <ArrowUpRight size={18} />
+            </Link>
+          </div>
+        </div>
+
+      </div>
+    </section>
+          </>
+        );
       default:
         return null;
     }
@@ -379,12 +456,26 @@ export default function SmartSchoolServices() {
     <div className="relative min-h-screen max-w-7xl mx-10 md:mx-auto pr-3 pt-20 pb-20">
       {/* Navigation */}
       <div className="flex justify-between text-white items-center mb-8">
-        <div className="flex gap-2 items-center">
-          <School className="text-primary-blue" />
-          <p className="text-xs md:text-base text-primary-blue font-semibold">
+        <button
+          onClick={() => setActiveTab("default")}
+          className={`group flex items-center gap-2 cursor-pointer ${
+          activeTab === "default"
+            ? "text-primary-blue font-bold"
+            : "text-primary-green font-semibold"
+          }`}
+        >
+          <Image
+            src={"/navbar/services/smart-school.svg"}
+            alt="ai-tech"
+            width={50}
+            height={50}
+            className="w-5 h-5"
+            priority
+          />
+          <p className="text-xs md:text-base whitespace-nowrap">
             Smart School Management
           </p>
-        </div>
+        </button>
 
         {/* Desktop Tabs */}
         <ul className="hidden tablet-landscape-max:flex gap-5 text-primary-green">
@@ -399,22 +490,13 @@ export default function SmartSchoolServices() {
               {tab}
             </li>
           ))}
-          {/* Default */}
-          <li
-            onClick={() => setActiveTab("default")}
-            className={`cursor-pointer ${
-              activeTab === "default" ? "font-bold text-primary-blue" : ""
-            }`}
-          >
-            Smart Management
-          </li>
         </ul>
 
         {/* Mobile Dropdown */}
         <div className="tablet-landscape-max:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger className="bg-white text-black px-4 py-2 rounded-md text-xs md:text-base outline">
-              {activeTab === "default" ? "Smart Management" : activeTab}
+              {activeTab === "default" ? "Overview" : activeTab}
             </DropdownMenuTrigger>
 
             <DropdownMenuPortal>

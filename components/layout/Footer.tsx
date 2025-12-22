@@ -93,13 +93,13 @@ export default function Footer() {
         {/* Logo */}
         <div className="mt-10 items-center justify-center md:justify-center">
           <h2 className="text-4xl font-bold text-white">Elevate your business now, with creative solutions!</h2>
-                    <button
-                      onClick={() => (window.location.href = '/contact')}
-                      className="mt-10 flex gap-0.5 cursor-pointer py-2 px-4 bg-primary-green text-xl font-bold text-white rounded-full hover:text-primary-blue"
-                    >
-                      Start Your Project
-                      <ChevronRight className="mt-1" />
-                    </button>
+            <button
+              onClick={() => (window.location.href = '/contact')}
+              className="mt-10 flex gap-0.5 cursor-pointer py-2 px-4 bg-primary-green text-xl font-bold text-white rounded-full hover:text-primary-blue"
+            >
+              Start Your Project
+              <ChevronRight className="mt-1" />
+            </button>
         </div>
       </div>
 

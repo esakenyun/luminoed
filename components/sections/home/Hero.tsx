@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { ChevronRight } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -9,8 +12,8 @@ export default function Hero() {
       <div className="grid tablet-landscape-max:grid-cols-2 gap-12 lg:gap-1 items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8 max-w-2xl text-white">
           <h1 className="text-5xl sm:text-6xl lg:text-[77px] font-extrabold tracking-tight leading-[1.1] text-heading-light">
-            Smart education infrastructure <br />
-            to empower your school <br />
+            Powered by Technology, <br />
+            Guided by Faith. <br />
           </h1>
           <p className="text-lg sm:text-xl lg:text-[16px] leading-relaxed max-w-xl text-neutral-400">
             Join the growing number of schools that use LuminoED to integrate
@@ -20,6 +23,15 @@ export default function Hero() {
             workflows, and Google for Education Premium to create a more
             efficient, measurable, and meaningful educational experience.
           </p>
+          <div>
+            <button
+              onClick={() => (window.location.href = "/contact")}
+              className="flex gap-0.5 cursor-pointer py-3 px-6 bg-primary-green text-xl font-bold text-white rounded-full hover:text-primary-blue"
+            >
+              Let's Join With Us
+              <ChevronRight className="mt-1" />
+            </button>
+          </div>
         </div>
         <div className="relative lg:h-[600px] flex items-center justify-end tablet-landscape-max::justify-end overflow-visible">
           {/* BACK GREEN CARD */}
