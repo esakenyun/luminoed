@@ -58,7 +58,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
         <NavbarWrapper />
-        {/* <NavbarMobile /> */}
+        {/* <NavbarMobile /> s*/}
         {children}
         <Footer />
       </body>
