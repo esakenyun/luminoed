@@ -19,7 +19,7 @@ const STEPS: Step[] = [
     title: "Training",
     description:
       "Empower educators with practical training on digital tools, classroom technology, and AI-powered learning workflows.",
-    image: "/services/training.jpg",
+    image: "/services/training1.jpg",
     href: "/services/training",
   },
   {
@@ -27,7 +27,7 @@ const STEPS: Step[] = [
     title: "Marketing",
     description:
       "Boost your school’s visibility with data-driven digital marketing, branding, and social media management.",
-    image: "/services/marketing.jpg",
+    image: "/services/marketing1.jpg",
     href: "/services/marketing",
   },
   {
@@ -35,7 +35,7 @@ const STEPS: Step[] = [
     title: "Streaming",
     description:
       "Professional live streaming for school events—clear, stable, and high-quality broadcasts handled by our expert team.",
-    image: "/services/streaming.jpg",
+    image: "/services/streaming1.jpeg",
     href: "/services/streaming",
   },
   {
