@@ -336,7 +336,7 @@ export default function Navbar() {
                           className="w-5 h-5"
                           priority
                         />
-                        <Link href={"/training/trainingIT"} className="text-xs">
+                        <Link href={"/services/smart-school"} className="text-xs">
                           Smart Class
                         </Link>
                       </div>
@@ -351,7 +351,7 @@ export default function Navbar() {
                           priority
                         />
                         <Link
-                          href={"/training/googleworkspace"}
+                          href={"/services/smart-school"}
                           className="text-xs"
                         >
                           Smart Talent
@@ -368,7 +368,7 @@ export default function Navbar() {
                           priority
                         />
                         <Link
-                          href={"/training/aitechnology"}
+                          href={"/services/smart-school"}
                           className="text-xs"
                         >
                           Smart Asset
@@ -385,7 +385,7 @@ export default function Navbar() {
                           priority
                         />
                         <Link
-                          href={"/training/aitechnology"}
+                          href={"/services/smart-school"}
                           className="text-xs"
                         >
                           Smart Management
