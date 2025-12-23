@@ -1,3 +1,4 @@
+import OurClient from "@/components/sections/home/OurClient";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -138,6 +139,17 @@ export default function BlogPage() {
           </div>
         </main>
       </div>
+      <div className="relative overflow-hidden z-10">
+        <Image
+          src="/palkon.png"
+          width={500}
+          height={500}
+          alt="Dashboard Preview"
+          className="w-full h-full object-cover"
+          priority
+        />
+      </div>
+      <OurClient/>
     </div>
   );
 }
