@@ -122,7 +122,7 @@ export default function About() {
         <div className="relative z-20 max-w-6xl mx-auto px-6 -mt-20">
           <div className="relative w-full h-140 rounded-2xl overflow-hidden shadow-2xl">
             <Image
-              src="/about.jpg"
+              src="/abouts.jpg"
               alt="Workshop"
               fill
               className="object-cover"
