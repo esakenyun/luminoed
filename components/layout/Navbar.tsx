@@ -42,6 +42,10 @@ export default function Navbar() {
   const [hidden, setHidden] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
 
+  const [activeService, setActiveService] = React.useState<
+          "training" | "marketing" | "streaming" | "smartschool" | "additional"
+        >("training");
+
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -168,270 +172,95 @@ export default function Navbar() {
                 </svg>
               </NavigationMenu.Trigger>
 
-              <NavigationMenu.Content className="absolute top-full mt-2 w-137.5 right-0 bg-[#EBEFF1] rounded-md p-1 shadow-lg z-50">
-                <ul className="space-y-1">
-                  <div className="p-3 bg-white rounded-md">
-                    <h1 className="mb-3 font-semibold uppercase text-sm">
-                      Training
-                    </h1>
-                    <div className="flex flex-wrap gap-5">
-                      <div className="flex gap-3 items-center flex-[1_1_200px] hover:text-secondary-green-500">
-                        {/* <GiTeacher /> */}
-                        <Image
-                          src={"/navbar/services/it-training.svg"}
-                          alt="it-training"
-                          width={50}
-                          height={50}
-                          className="w-5 h-5"
-                          priority
-                        />
-                        <Link href={"/training/trainingIT"} className="text-xs">
-                          Training IT
-                        </Link>
-                      </div>
-                      <div className="flex gap-3 items-center flex-[1_1_200px] hover:text-secondary-green-500">
-                        {/* <FaGoogle /> */}
-                        <Image
-                          src={"/navbar/services/google-workspace.svg"}
-                          alt="google-workspace"
-                          width={50}
-                          height={50}
-                          className="w-5 h-5"
-                          priority
-                        />
-                        <Link
-                          href={"/training/googleworkspace"}
-                          className="text-xs"
-                        >
-                          Google Workspace for Education
-                        </Link>
-                      </div>
-                      <div className="flex gap-3 items-center flex-[1_1_200px] hover:text-secondary-green-500">
-                        {/* <RiRobot2Fill /> */}
-                        <Image
-                          src={"/navbar/services/ai-tech.svg"}
-                          alt="ai-tech"
-                          width={50}
-                          height={50}
-                          className="w-5 h-5"
-                          priority
-                        />
-                        <Link
-                          href={"/training/aitechnology"}
-                          className="text-xs"
-                        >
-                          AI Technology
-                        </Link>
-                      </div>
-                    </div>
+              <NavigationMenu.Content className="absolute top-full mt-2 right-0 w-[900px] bg-[#EBEFF1] rounded-xl p-2 shadow-xl z-50">
+                <div className="grid grid-cols-3 gap-2">
+
+                  {/* LEFT */}
+                  <div className="col-span-1 bg-white rounded-lg p-4 space-y-3">
+                    {[
+                      { key: "training", label: "Training" },
+                      { key: "marketing", label: "Marketing" },
+                      { key: "streaming", label: "Streaming" },
+                      { key: "smartschool", label: "Smartschool Management" },
+                      { key: "additional", label: "Additional Services" },
+                    ].map((item) => (
+                      <button
+                        key={item.key}
+                        onClick={() => setActiveService(item.key as any)}
+                        className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition
+                          ${
+                            activeService === item.key
+                              ? "bg-primary-blue text-white"
+                              : "hover:bg-slate-100 text-slate-700"
+                          }`}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
                   </div>
-                  <div className="p-3 bg-white rounded-md">
-                    <h1 className="mb-3 font-semibold uppercase text-sm">
-                      Marketing
-                    </h1>
-                    <div className="flex gap-3 items-center hover:text-secondary-green-500">
-                      {/* <MdDesignServices /> */}
-                      <Image
-                        src={"/navbar/services/design-marketing.svg"}
-                        alt="desain-marketing"
-                        width={50}
-                        height={50}
-                        className="w-5 h-5"
-                        priority
-                      />
-                      <Link href={"/training/aitechnology"} className="text-xs">
-                        Design & Marketing
-                      </Link>
-                    </div>
+
+                  {/* RIGHT */}
+                  <div className="col-span-2 bg-white rounded-lg p-5">
+
+                    {activeService === "training" && (
+                      <>
+                        <h1 className="mb-4 font-semibold uppercase text-sm">Training</h1>
+                        <div className="grid grid-cols-2 gap-5">
+                          <ServiceItem
+                            icon="/navbar/services/it-training.svg"
+                            label="Training IT"
+                            href="/training/trainingIT"
+                          />
+                          <ServiceItem
+                            icon="/navbar/services/google-workspace.svg"
+                            label="Google Workspace for Education"
+                            href="/training/googleworkspace"
+                          />
+                          <ServiceItem
+                            icon="/navbar/services/ai-tech.svg"
+                            label="AI Technology"
+                            href="/training/aitechnology"
+                          />
+                        </div>
+                      </>
+                    )}
+
+                    {activeService === "marketing" && (
+                      <>
+                        <h1 className="mb-4 font-semibold uppercase text-sm">Marketing</h1>
+                        <ServiceItem
+                          icon="/navbar/services/design-marketing.svg"
+                          label="Design & Marketing"
+                          href="/training/aitechnology"
+                        />
+                      </>
+                    )}
+
+                    {activeService === "streaming" && (
+                      <>
+                        <h1 className="mb-4 font-semibold uppercase text-sm">Streaming</h1>
+                        <div className="grid grid-cols-2 gap-5">
+                          <ServiceItem icon="/navbar/services/live-streaming.svg" label="Live Streaming" />
+                          <ServiceItem icon="/navbar/services/photography-videography.svg" label="Photography & Videography" />
+                          <ServiceItem icon="/navbar/services/hybrid-learning.svg" label="Hybrid Learning" />
+                        </div>
+                      </>
+                    )}
+
+                    {activeService === "smartschool" && (
+                      <>
+                        <h1 className="mb-4 font-semibold uppercase text-sm">Smartschool Management</h1>
+                        <div className="grid grid-cols-2 gap-5">
+                          <ServiceItem icon="/navbar/services/smart-class.svg" label="Smart Class" />
+                          <ServiceItem icon="/navbar/services/smart-talent.svg" label="Smart Talent" />
+                          <ServiceItem icon="/navbar/services/smart-asset.svg" label="Smart Asset" />
+                          <ServiceItem icon="/navbar/services/smart-management.svg" label="Smart Management" />
+                        </div>
+                      </>
+                    )}
+
                   </div>
-                  <div className="p-3 bg-white rounded-md">
-                    <h1 className="mb-3 font-semibold uppercase text-sm">
-                      Streaming
-                    </h1>
-                    <div className="grid grid-cols-2 gap-5">
-                      <div className="flex gap-3 items-center hover:text-secondary-green-500">
-                        {/* <CiStreamOn /> */}
-                        <Image
-                          src={"/navbar/services/live-streaming.svg"}
-                          alt="live-streaming"
-                          width={50}
-                          height={50}
-                          className="w-5 h-5"
-                          priority
-                        />
-                        <Link
-                          href={"/training/googleworkspace"}
-                          className="text-xs"
-                        >
-                          Live Streaming
-                        </Link>
-                      </div>
-                      <div className="flex gap-3 items-center hover:text-secondary-green-500">
-                        {/* <FaPhotoVideo /> */}
-                        <Image
-                          src={"/navbar/services/photography-videography.svg"}
-                          alt="photography-videography"
-                          width={50}
-                          height={50}
-                          className="w-5 h-5"
-                          priority
-                        />
-                        <Link
-                          href={"/training/aitechnology"}
-                          className="text-xs"
-                        >
-                          Photography & Videography
-                        </Link>
-                      </div>
-                      <div className="flex gap-3 items-center hover:text-secondary-green-500">
-                        {/* <FaPhotoVideo /> */}
-                        <Image
-                          src={"/navbar/services/hybrid-learning.svg"}
-                          alt="hybrid-learning"
-                          width={50}
-                          height={50}
-                          className="w-5 h-5"
-                          priority
-                        />
-                        <Link
-                          href={"/training/aitechnology"}
-                          className="text-xs"
-                        >
-                          Hybrid Learning
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-3 bg-white rounded-md">
-                    <div className="flex gap-3 items-center">
-                      {/* <FaTools /> */}
-                      <Image
-                        src={"/navbar/services/equipment-provision.svg"}
-                        alt="equipment-provision"
-                        width={50}
-                        height={50}
-                        className="w-5 h-5"
-                        priority
-                      />
-                      <h1 className="font-semibold uppercase text-sm">
-                        EQUIPEMENT PROVISION
-                      </h1>
-                    </div>
-                  </div>
-                  <div className="p-3 bg-white rounded-md">
-                    <Link
-                      href={"/services/smart-school"}
-                      className="font-semibold uppercase text-sm"
-                    >
-                      Smartschool Management
-                    </Link>
-                    <div className="mt-2 grid grid-cols-2 gap-5">
-                      <div className="flex gap-3 items-center hover:text-secondary-green-500">
-                        {/* <SiGoogleclassroom /> */}
-                        <Image
-                          src={"/navbar/services/smart-class.svg"}
-                          alt="smart-class"
-                          width={50}
-                          height={50}
-                          className="w-5 h-5"
-                          priority
-                        />
-                        <Link href={"/services/smart-school"} className="text-xs">
-                          Smart Class
-                        </Link>
-                      </div>
-                      <div className="flex gap-3 items-center hover:text-secondary-green-500">
-                        {/* <FaUsers /> */}
-                        <Image
-                          src={"/navbar/services/smart-talent.svg"}
-                          alt="smart-talent"
-                          width={50}
-                          height={50}
-                          className="w-5 h-5"
-                          priority
-                        />
-                        <Link
-                          href={"/services/smart-school"}
-                          className="text-xs"
-                        >
-                          Smart Talent
-                        </Link>
-                      </div>
-                      <div className="flex gap-3 items-center hover:text-secondary-green-500">
-                        {/* <FaBoxesStacked /> */}
-                        <Image
-                          src={"/navbar/services/smart-asset.svg"}
-                          alt="smart-asset"
-                          width={50}
-                          height={50}
-                          className="w-5 h-5"
-                          priority
-                        />
-                        <Link
-                          href={"/services/smart-school"}
-                          className="text-xs"
-                        >
-                          Smart Asset
-                        </Link>
-                      </div>
-                      <div className="flex gap-3 items-center hover:text-secondary-green-500">
-                        {/* <PiChartLineFill /> */}
-                        <Image
-                          src={"/navbar/services/smart-management.svg"}
-                          alt="smart-management"
-                          width={50}
-                          height={50}
-                          className="w-5 h-5"
-                          priority
-                        />
-                        <Link
-                          href={"/services/smart-school"}
-                          className="text-xs"
-                        >
-                          Smart Management
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-3 bg-white rounded-md">
-                    <h1 className="mb-3 font-semibold uppercase text-sm">
-                      Additional Services
-                    </h1>
-                    <div className="grid grid-cols-2 gap-5">
-                      <div className="flex gap-3 items-center hover:text-secondary-green-500">
-                        {/* <HiClipboardList /> */}
-                        <Image
-                          src={"/navbar/services/lesson-plan.svg"}
-                          alt="lesson-plan"
-                          width={50}
-                          height={50}
-                          className="w-5 h-5"
-                          priority
-                        />
-                        <Link href={"/training/trainingIT"} className="text-xs">
-                          Lesson Plan
-                        </Link>
-                      </div>
-                      <div className="flex gap-3 items-center hover:text-secondary-green-500">
-                        {/* <FaFileContract /> */}
-                        <Image
-                          src={"/navbar/services/eRapor.svg"}
-                          alt="eRapor"
-                          width={50}
-                          height={50}
-                          className="w-5 h-5"
-                          priority
-                        />
-                        <Link
-                          href={"/training/googleworkspace"}
-                          className="text-xs"
-                        >
-                          eRapor
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </ul>
+                </div>
               </NavigationMenu.Content>
             </NavigationMenu.Item>
 
@@ -460,3 +289,24 @@ export default function Navbar() {
     </motion.header>
   );
 }
+
+function ServiceItem({
+  icon,
+  label,
+  href = "#",
+}: {
+  icon: string;
+  label: string;
+  href?: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="flex items-center gap-3 text-sm hover:text-secondary-green-500"
+    >
+      <Image src={icon} alt={label} width={20} height={20} />
+      {label}
+    </Link>
+  );
+}
+
