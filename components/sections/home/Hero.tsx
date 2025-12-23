@@ -35,7 +35,7 @@ export default function Hero() {
         </div>
         <div className="relative lg:h-[600px] flex items-center justify-end tablet-landscape-max::justify-end overflow-visible">
           {/* BACK GREEN CARD */}
-          <div className="absolute right-6 tablet-landscape-max:right-[-200px] top-[-10px] w-[420px] h-[540px] bg-lime-200/50 rounded-[20px] z-0" />
+          <div className="absolute right-6 tablet-landscape-max:right-[-100px] top-[-10px] w-[420px] h-[540px] bg-lime-200/50 rounded-[20px] z-0" />
 
           {/* FRONT IMAGE CARD */}
           <div className="relative w-full max-w-[420px] h-[540px] rounded-[20px] overflow-hidden shadow-2xl bg-white z-10">
