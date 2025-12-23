@@ -120,9 +120,9 @@ export default function About() {
 
         {/* IMAGE CARD SECTION */}
         <div className="relative z-20 max-w-6xl mx-auto px-6 -mt-20">
-          <div className="relative w-full h-112.5 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative w-full h-140 rounded-2xl overflow-hidden shadow-2xl">
             <Image
-              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+              src="/about.jpg"
               alt="Workshop"
               fill
               className="object-cover"
@@ -131,22 +131,17 @@ export default function About() {
         </div>
 
         {/* BOTTOM TEXT */}
-        <div className="max-w-5xl mx-auto px-6 py-20 text-slate-400 text-lg">
+        <div className="max-w-5xl mx-auto px-6 py-20 text-slate-600 text-lg">
           <p className="mb-6">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt
-            eveniet aliquam neque ab laboriosam. Eveniet obcaecati provident vel
-            inventore, minus harum laborum itaque sapiente fugit sint maxime
-            velit omnis alias natus laboriosam deleniti, temporibus iure illum
-            cumque nostrum necessitatibus asperiores, esse aperiam! A qui id
-            eveniet nobis earum in exercitationem.
+            LuminoEd adalah perusahaan berbasis teknologi informasi yang berfokus pada pengembangan solusi digital di bidang pendidikan dan 
+            teknologi kreatif. Kami hadir untuk membantu institusi pendidikan, organisasi, dan individu dalam menghadapi transformasi digital
+             melalui layanan yang inovatif, efektif, dan mudah digunakan. Dengan menggabungkan teknologi modern, desain yang berorientasi pada 
+             pengguna, serta pendekatan edukatif, LuminoEd berkomitmen menciptakan solusi yang relevan dan berdampak nyata.
           </p>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum neque
-            et saepe earum ducimus totam reiciendis, dolorem quidem, eligendi
-            expedita dignissimos error sunt accusantium beatae sint voluptatibus
-            asperiores tenetur dolor? Necessitatibus ipsa sit minus assumenda,
-            inventore suscipit pariatur placeat quis optio omnis ea perspiciatis
-            commodi dolores maiores magni autem exercitationem.
+            Melalui berbagai layanan seperti SmartSchool, IT Training, streaming & hybrid learning, serta pengembangan desain dan aplikasi 
+            digital, LuminoEd menjadi mitra strategis dalam mendukung pertumbuhan dan kemajuan di era digital. Kami percaya bahwa teknologi 
+            bukan hanya alat, tetapi juga sarana untuk meningkatkan kualitas pembelajaran, efisiensi kerja, dan kolaborasi yang berkelanjutan.
           </p>
         </div>
         <div className="relative overflow-hidden z-10">

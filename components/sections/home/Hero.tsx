@@ -40,7 +40,7 @@ export default function Hero() {
           {/* FRONT IMAGE CARD */}
           <div className="relative w-full max-w-[420px] h-[540px] rounded-[20px] overflow-hidden shadow-2xl bg-white z-10">
             <Image
-              src="/brief.png"
+              src="/landing.jpg"
               width={500}
               height={500}
               alt="Dashboard Preview"

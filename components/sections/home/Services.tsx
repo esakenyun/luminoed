@@ -137,7 +137,7 @@ export default function Services() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="max-w-md"
                   >
-                    <h2 className="text-4xl font-bold tracking-tight text-primary-blue uppercase">
+                    <h2 className="text-4xl font-bold tracking-widest text-primary-blue uppercase">
                       {step.title}
                     </h2>
                     <p className="my-4 text-lg leading-relaxed text-neutral-600">

@@ -9,7 +9,7 @@ const articles = [
     category: "Education Technology",
     title: "Empowering Schools Through IT Training",
     imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDG8lJnP15oVTlQty9RGEBxOwJrN7Gi-qahVHarsoTXRCMWN1BT9_ACynADrj_GHRlVqCrGIYcuSVHDPdif-A9ZPyfSjPGZBEVGDr2TuvFdzZ7yV0Jv01u9L8F2vOkiyfpHl2TEWnKdROVjZXNxTnhTyPPE7m8WKz4kHswb6cJt1bJ8QfJXKZ6_94yaYkNpRk5X6v6SpO_qhuMVCFKmEW0gOPzK6ZoXguEd19OfC8F1_aclWO_MbIs63-LVhLxlu3-2KH4U_B9zTZzT",
+      "/about.jpg",
     description:
       "How structured IT training helps teachers and school staff adapt to digital tools and modern learning environments.",
     author: "Muhammad Khosy",
@@ -23,7 +23,7 @@ const articles = [
     category: "Google Workspace",
     title: "Optimizing School Collaboration with Google Workspace",
     imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAq74GIqwwF-0JFdorxC0CjomkwM5kzzXrgMmMgH200v-8QcF5Q70Fr73ihbQL-j_2ehgdpryoGUP6PDAXyygXZeRqlHMp35_dPYnFxHKCj9WW0ni3yazsYEBMG8yJetFbPbem4RmzDJCEFoatPeDSADATE3yymbE6aLiENqEX_gj1-FNJeQKYx0LKczfi4x5hZZELnX2yaiLQjv-D4BFT2xSc81rZQH62hqgDXNmOmK3ULkk6tvw3Avpvq3pusCSyH7fnDwnckA2GP",
+      "/blog.jpg",
     description:
       "A practical guide to using Google Workspace for Education to enhance communication, collaboration, and productivity.",
     author: "Ardelia Putri",
@@ -37,7 +37,7 @@ const articles = [
     category: "Artificial Intelligence",
     title: "AI Technology Transforming Education Management",
     imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD_2dZkPdQp4slbzhErqNnRbFWNLCwktBrd5iet9XaxoHK-_tNZLSy4ZXJlTj-WtNlJhGu6zuHtjczVwNjjc_6q5yiEZXlPsxypKT6jQSqhY2o_w2M9lzsro54wib1JDXudYSbfrDCTi5O8EOQSKF7WtDHBfNCxivlMTbaSfh8-QdA9C9cAtqKuuapnzNUxN_UoriXts-hYB0ELEG5NS0qjRBEpEriRqJVOzekMtC978D8G7JPqtrHiS-XZyJIDQrfRof7D-LcDrZRx",
+      "/blog3.jpg",
     description:
       "Exploring how AI technology supports smarter decision-making, automation, and personalized learning in schools.",
     author: "Muhammad Khosy",
