@@ -8,7 +8,7 @@ const articles = [
     id: 1,
     category: "Education Technology",
     title: "Empowering Schools Through IT Training",
-    imageUrl: "/About.jpg",
+    imageUrl: "/abouts.jpg",
     description:
       "How structured IT training helps teachers and school staff adapt to digital tools and modern learning environments.",
     author: "Muhammad Khosy",
