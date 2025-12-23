@@ -122,7 +122,7 @@ export default function About() {
         <div className="relative z-20 max-w-6xl mx-auto px-6 -mt-20">
           <div className="relative w-full h-140 rounded-2xl overflow-hidden shadow-2xl">
             <Image
-              src="/about.jpg"
+              src="/About.jpg"
               alt="Workshop"
               fill
               className="object-cover"
@@ -133,27 +133,34 @@ export default function About() {
         {/* BOTTOM TEXT */}
         <div className="max-w-5xl mx-auto px-6 py-20 text-slate-600 text-lg">
           <p className="mb-6">
-            LuminoEd adalah perusahaan berbasis teknologi informasi yang berfokus pada pengembangan solusi digital di bidang pendidikan dan 
-            teknologi kreatif. Kami hadir untuk membantu institusi pendidikan, organisasi, dan individu dalam menghadapi transformasi digital
-             melalui layanan yang inovatif, efektif, dan mudah digunakan. Dengan menggabungkan teknologi modern, desain yang berorientasi pada 
-             pengguna, serta pendekatan edukatif, LuminoEd berkomitmen menciptakan solusi yang relevan dan berdampak nyata.
+            LuminoEd adalah perusahaan berbasis teknologi informasi yang
+            berfokus pada pengembangan solusi digital di bidang pendidikan dan
+            teknologi kreatif. Kami hadir untuk membantu institusi pendidikan,
+            organisasi, dan individu dalam menghadapi transformasi digital
+            melalui layanan yang inovatif, efektif, dan mudah digunakan. Dengan
+            menggabungkan teknologi modern, desain yang berorientasi pada
+            pengguna, serta pendekatan edukatif, LuminoEd berkomitmen
+            menciptakan solusi yang relevan dan berdampak nyata.
           </p>
           <p>
-            Melalui berbagai layanan seperti SmartSchool, IT Training, streaming & hybrid learning, serta pengembangan desain dan aplikasi 
-            digital, LuminoEd menjadi mitra strategis dalam mendukung pertumbuhan dan kemajuan di era digital. Kami percaya bahwa teknologi 
-            bukan hanya alat, tetapi juga sarana untuk meningkatkan kualitas pembelajaran, efisiensi kerja, dan kolaborasi yang berkelanjutan.
+            Melalui berbagai layanan seperti SmartSchool, IT Training, streaming
+            & hybrid learning, serta pengembangan desain dan aplikasi digital,
+            LuminoEd menjadi mitra strategis dalam mendukung pertumbuhan dan
+            kemajuan di era digital. Kami percaya bahwa teknologi bukan hanya
+            alat, tetapi juga sarana untuk meningkatkan kualitas pembelajaran,
+            efisiensi kerja, dan kolaborasi yang berkelanjutan.
           </p>
         </div>
         <div className="relative overflow-hidden z-10">
-                <Image
-                  src="/palkon.png"
-                  width={500}
-                  height={500}
-                  alt="Dashboard Preview"
-                  className="w-full h-full object-cover"
-                  priority
-                />
-              </div>
+          <Image
+            src="/palkon.png"
+            width={500}
+            height={500}
+            alt="Dashboard Preview"
+            className="w-full h-full object-cover"
+            priority
+          />
+        </div>
       </section>
       <OurClient />
     </>

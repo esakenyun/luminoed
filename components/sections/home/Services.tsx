@@ -27,7 +27,7 @@ const STEPS: Step[] = [
     title: "Marketing",
     description:
       "Boost your school’s visibility with data-driven digital marketing, branding, and social media management.",
-    image: "/services/marketing1.jpg",
+    image: "/services/marketing1.JPG",
     href: "/services/marketing",
   },
   {

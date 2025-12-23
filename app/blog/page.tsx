@@ -1,5 +1,4 @@
 import OurClient from "@/components/sections/home/OurClient";
-import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { IoSearch } from "react-icons/io5";
@@ -9,8 +8,7 @@ const articles = [
     id: 1,
     category: "Education Technology",
     title: "Empowering Schools Through IT Training",
-    imageUrl:
-      "/about.jpg",
+    imageUrl: "/About.jpg",
     description:
       "How structured IT training helps teachers and school staff adapt to digital tools and modern learning environments.",
     author: "Muhammad Khosy",
@@ -23,8 +21,7 @@ const articles = [
     id: 2,
     category: "Google Workspace",
     title: "Optimizing School Collaboration with Google Workspace",
-    imageUrl:
-      "/blog.jpg",
+    imageUrl: "/blog.JPG",
     description:
       "A practical guide to using Google Workspace for Education to enhance communication, collaboration, and productivity.",
     author: "Ardelia Putri",
@@ -37,8 +34,7 @@ const articles = [
     id: 3,
     category: "Artificial Intelligence",
     title: "AI Technology Transforming Education Management",
-    imageUrl:
-      "/blog3.jpg",
+    imageUrl: "/blog3.JPG",
     description:
       "Exploring how AI technology supports smarter decision-making, automation, and personalized learning in schools.",
     author: "Muhammad Khosy",
@@ -149,7 +145,7 @@ export default function BlogPage() {
           priority
         />
       </div>
-      <OurClient/>
+      <OurClient />
     </div>
   );
 }

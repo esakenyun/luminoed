@@ -28,7 +28,7 @@ export default function Hero() {
               onClick={() => (window.location.href = "/contact")}
               className="flex gap-0.5 cursor-pointer py-3 px-6 bg-primary-green text-xl font-bold text-white rounded-full hover:text-primary-blue"
             >
-              Let's Join With Us
+              Let&apos;s Join With Us
               <ChevronRight className="mt-1" />
             </button>
           </div>
@@ -40,7 +40,7 @@ export default function Hero() {
           {/* FRONT IMAGE CARD */}
           <div className="relative w-full max-w-[420px] h-[540px] rounded-[20px] overflow-hidden shadow-2xl bg-white z-10">
             <Image
-              src="/landing.jpg"
+              src="/landing.JPG"
               width={500}
               height={500}
               alt="Dashboard Preview"
