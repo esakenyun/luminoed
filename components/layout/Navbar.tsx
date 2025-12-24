@@ -181,6 +181,7 @@ export default function Navbar() {
                       { key: "training", label: "Training" },
                       { key: "marketing", label: "Marketing" },
                       { key: "streaming", label: "Streaming" },
+                      { key: "equipment provision", label: "Equipment Provision" },
                       { key: "smartschool", label: "Smartschool Management" },
                       { key: "additional", label: "Additional Services" },
                     ].map((item) => (
@@ -231,30 +232,58 @@ export default function Navbar() {
                         <ServiceItem
                           icon="/navbar/services/design-marketing.svg"
                           label="Design & Marketing"
-                          href="/training/aitechnology"
+                          href="/design-marketing"
                         />
                       </>
                     )}
 
                     {activeService === "streaming" && (
                       <>
-                        <h1 className="mb-4 font-semibold uppercase text-sm">Streaming</h1>
-                        <div className="grid grid-cols-2 gap-5">
-                          <ServiceItem icon="/navbar/services/live-streaming.svg" label="Live Streaming" />
-                          <ServiceItem icon="/navbar/services/photography-videography.svg" label="Photography & Videography" />
-                          <ServiceItem icon="/navbar/services/hybrid-learning.svg" label="Hybrid Learning" />
+                        <a href="/services/streaming" className="font-semibold uppercase text-sm">Streaming</a>
+                        <div className="mt-4 grid grid-cols-2 gap-5">
+                          <ServiceItem 
+                            icon="/navbar/services/live-streaming.svg" 
+                            label="Live Streaming" 
+                            href="/services/streaming"
+                          />
+                          <ServiceItem 
+                            icon="/navbar/services/photography-videography.svg" 
+                            label="Photography & Videography"
+                            href="/services/streaming"
+                          />
+                          <ServiceItem 
+                            icon="/navbar/services/hybrid-learning.svg" 
+                            label="Hybrid Learning" 
+                            href="/services/streaming"
+                          />
                         </div>
                       </>
                     )}
 
                     {activeService === "smartschool" && (
                       <>
-                        <h1 className="mb-4 font-semibold uppercase text-sm">Smartschool Management</h1>
-                        <div className="grid grid-cols-2 gap-5">
-                          <ServiceItem icon="/navbar/services/smart-class.svg" label="Smart Class" />
-                          <ServiceItem icon="/navbar/services/smart-talent.svg" label="Smart Talent" />
-                          <ServiceItem icon="/navbar/services/smart-asset.svg" label="Smart Asset" />
-                          <ServiceItem icon="/navbar/services/smart-management.svg" label="Smart Management" />
+                        <a href="/services/smart-school" className="font-semibold uppercase text-sm">Smartschool Management</a>
+                        <div className="mt-4 grid grid-cols-2 gap-5">
+                          <ServiceItem 
+                            icon="/navbar/services/smart-class.svg" 
+                            label="Smart Class"
+                            href="/services/smart-school"
+                          />
+                          <ServiceItem 
+                            icon="/navbar/services/smart-talent.svg" 
+                            label="Smart Talent" 
+                            href="/services/smart-school"
+                          />
+                          <ServiceItem 
+                            icon="/navbar/services/smart-asset.svg" 
+                            label="Smart Asset" 
+                            href="/services/smart-school"
+                          />
+                          <ServiceItem 
+                            icon="/navbar/services/smart-management.svg" 
+                            label="Smart Management" 
+                            href="/services/smart-school"
+                          />
                         </div>
                       </>
                     )}
