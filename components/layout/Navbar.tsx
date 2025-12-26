@@ -267,22 +267,22 @@ export default function Navbar() {
                           <ServiceItem 
                             icon="/navbar/services/smart-class.svg" 
                             label="Smart Class"
-                            href="/services/smart-school"
+                            href="/services/smart-school/smart-class"
                           />
                           <ServiceItem 
                             icon="/navbar/services/smart-talent.svg" 
                             label="Smart Talent" 
-                            href="/services/smart-school"
+                            href="/services/smart-school/smart-talent"
                           />
                           <ServiceItem 
                             icon="/navbar/services/smart-asset.svg" 
                             label="Smart Asset" 
-                            href="/services/smart-school"
+                            href="/services/smart-school/smart-asset"
                           />
                           <ServiceItem 
                             icon="/navbar/services/smart-management.svg" 
                             label="Smart Management" 
-                            href="/services/smart-school"
+                            href="/services/smart-school/smart-management"
                           />
                         </div>
                       </>

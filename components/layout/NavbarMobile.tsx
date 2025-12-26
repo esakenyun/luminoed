@@ -91,25 +91,25 @@ const servicesSmartSchool = [
   {
     label: "Smart Class",
     image: "/navbar/services/smart-class.svg",
-    href: "/services/smart-class",
+    href: "/services/smart-school/smart-class",
     icon: IoPeople,
   },
   {
     label: "Smart Talent",
     image: "/navbar/services/smart-talent.svg",
-    href: "/services/smart-talent",
+    href: "/services/smart-school/smart-talent",
     icon: GiBrain,
   },
   {
     label: "Smart Asset",
-    href: "/services/smart-asset",
+    href: "/services/smart-school/smart-asset",
     image: "/navbar/services/smart-asset.svg",
     icon: IoCube,
   },
   {
     label: "Smart Management",
     image: "/navbar/services/smart-management.svg",
-    href: "/services/smart-management",
+    href: "/services/smart-school/smart-management",
     icon: IoSettings,
   },
 ];
