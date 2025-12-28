@@ -30,20 +30,20 @@ type MenuView = "main" | "services";
 const servicesTraining = [
   {
     label: "Training IT",
-    href: "/services/training-it",
+    href: "/services/training/training-it",
     image: "/navbar/services/it-training.svg",
     icon: IoSchool,
   },
   {
     label: "AI Technology",
     image: "/navbar/services/ai-tech.svg",
-    href: "/services/ai-technology",
+    href: "/services/training/ai-technology",
     icon: GiBrain,
   },
   {
     label: "Google Workspace for Education",
     image: "/navbar/services/google-workspace.svg",
-    href: "/services/google-workspace-education",
+    href: "/services/training/google-workspace-for-education",
     icon: IoLogoGoogle,
   },
 ];
@@ -52,7 +52,7 @@ const servicesMarketing = [
   {
     label: "Design & Marketing",
     image: "/navbar/services/design-marketing.svg",
-    href: "/services/design-marketing",
+    href: "/services/marketing/design-marketing",
     icon: IoColorPalette,
   },
 ];
@@ -61,19 +61,19 @@ const servicesStreaming = [
   {
     label: "Live Streaming",
     image: "/navbar/services/live-streaming.svg",
-    href: "/services/live-streaming",
+    href: "/services/streaming/live-streaming",
     icon: IoVideocam,
   },
   {
     label: "Photography & Videography",
     image: "/navbar/services/photography-videography.svg",
-    href: "/services/photography-videography",
+    href: "/services/streaming/photography-videography",
     icon: IoCamera,
   },
   {
     label: "Hybrid Learning",
     image: "/navbar/services/hybrid-learning.svg",
-    href: "/services/hybrid-learning",
+    href: "/services/streaming/hybrid-learning",
     icon: IoCamera,
   },
 ];
@@ -118,13 +118,13 @@ const servicesAdditional = [
   {
     label: "Lesson Plan",
     image: "/navbar/services/lesson-plan.svg",
-    href: "/services/lesson-plan",
+    href: "/services/additional/lesson-plan",
     icon: IoClipboard,
   },
   {
     label: "eRapor",
     image: "/navbar/services/eRapor.svg",
-    href: "/services/erapor",
+    href: "/services/additional/erapor",
     icon: IoDocumentText,
   },
 ];

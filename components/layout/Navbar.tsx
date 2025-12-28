@@ -43,7 +43,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = React.useState(false);
 
   const [activeService, setActiveService] = React.useState<
-          "training" | "marketing" | "streaming" | "smartschool" | "additional"
+          "training" | "marketing" | "streaming" | "equipment provision" | "smartschool" | "additional"
         >("training");
 
   const { scrollY } = useScroll();
@@ -205,22 +205,22 @@ export default function Navbar() {
 
                     {activeService === "training" && (
                       <>
-                        <h1 className="mb-4 font-semibold uppercase text-sm">Training</h1>
-                        <div className="grid grid-cols-2 gap-5">
+                        <a href="/services/training" className="font-semibold uppercase text-sm">Training</a>
+                        <div className="mt-4 grid grid-cols-2 gap-5">
                           <ServiceItem
                             icon="/navbar/services/it-training.svg"
                             label="Training IT"
-                            href="/training/trainingIT"
+                            href="/services/training/training-it"
                           />
                           <ServiceItem
                             icon="/navbar/services/google-workspace.svg"
                             label="Google Workspace for Education"
-                            href="/training/googleworkspace"
+                            href="/services/training/google-workspace-for-education"
                           />
                           <ServiceItem
                             icon="/navbar/services/ai-tech.svg"
                             label="AI Technology"
-                            href="/training/aitechnology"
+                            href="/services/training/ai-technology"
                           />
                         </div>
                       </>
@@ -228,12 +228,14 @@ export default function Navbar() {
 
                     {activeService === "marketing" && (
                       <>
-                        <h1 className="mb-4 font-semibold uppercase text-sm">Marketing</h1>
+                        <a href="/services/marketing" className="font-semibold uppercase text-sm">Marketing</a>
+                        <div className="mt-4 grid grid-cols-2 gap-5">
                         <ServiceItem
                           icon="/navbar/services/design-marketing.svg"
                           label="Design & Marketing"
-                          href="/design-marketing"
+                          href="/services/marketing/design-marketing"
                         />
+                        </div>
                       </>
                     )}
 
@@ -244,18 +246,31 @@ export default function Navbar() {
                           <ServiceItem 
                             icon="/navbar/services/live-streaming.svg" 
                             label="Live Streaming" 
-                            href="/services/streaming"
+                            href="/services/streaming/live-streaming"
                           />
                           <ServiceItem 
                             icon="/navbar/services/photography-videography.svg" 
                             label="Photography & Videography"
-                            href="/services/streaming"
+                            href="/services/streaming/photography-videography"
                           />
                           <ServiceItem 
                             icon="/navbar/services/hybrid-learning.svg" 
                             label="Hybrid Learning" 
-                            href="/services/streaming"
+                            href="/services/streaming/hybrid-learning"
                           />
+                        </div>
+                      </>
+                    )}
+
+                    {activeService === "equipment provision" && (
+                      <>
+                        <a href="/services/equipment-provision" className="font-semibold uppercase text-sm">Equipment Provision</a>
+                        <div className="mt-4 grid grid-cols-2 gap-5">
+                        <ServiceItem
+                          icon="/navbar/services/equipment-provision.svg"
+                          label="Equipment Provision"
+                          href="/services/equipment-provision"
+                        />
                         </div>
                       </>
                     )}
@@ -284,6 +299,24 @@ export default function Navbar() {
                             label="Smart Management" 
                             href="/services/smart-school/smart-management"
                           />
+                        </div>
+                      </>
+                    )}
+
+                    {activeService === "additional" && (
+                      <>
+                        <a href="/services/additional" className="font-semibold uppercase text-sm">Additional Services</a>
+                        <div className="mt-4 grid grid-cols-2 gap-5">
+                        <ServiceItem
+                          icon="/navbar/services/lesson-plan.svg"
+                          label="Lesson Plan"
+                          href="/services/additional/lesson-plan"
+                        />
+                        <ServiceItem
+                          icon="/navbar/services/eRapor.svg"
+                          label="E-Rapor"
+                          href="/services/additional/erapor"
+                        />
                         </div>
                       </>
                     )}
@@ -338,4 +371,3 @@ function ServiceItem({
     </Link>
   );
 }
-

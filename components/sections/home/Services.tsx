@@ -44,7 +44,7 @@ const STEPS: Step[] = [
     description:
       "High-quality equipment for learning and operations, including cameras, lighting, audio gear, laptops, and more.",
     image: "/services/equipment.png",
-    href: "/services/equipmentprovision",
+    href: "/services/equipment-provision",
   },
   {
     id: "smarschoolmanagement",
@@ -60,7 +60,7 @@ const STEPS: Step[] = [
     description:
       "Extra support including digital lesson plans, e-Report systems, templates, and tools to streamline school administration.",
     image: "/services/additional.jpg",
-    href: "/services/additionalservices",
+    href: "/services/additional",
   },
 ];
 

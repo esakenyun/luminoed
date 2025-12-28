@@ -13,10 +13,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const tabs = [
-  { label: "Design & Marketing", href: "/services/marketing/design-marketing" },
+  { label: "Lesson Plan", href: "/services/additional/lesson-plan" },
+  { label: "E-Rapor", href: "/services/additional/erapor" },
 ];
 
-export default function MarketingLayout({
+export default function AdditionalLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -34,21 +35,21 @@ export default function MarketingLayout({
 
           {/* LEFT TITLE */}
           <Link
-            href="/services/marketing"
+            href="/services/additional"
             className={`group flex items-center gap-2 ${
-              pathname === "/services/marketing"
+              pathname === "/services/additional"
                 ? "text-primary-blue font-bold"
                 : "text-primary-green font-semibold"
             }`}
           >
             <Image
-              src="/navbar/services/design-marketing.svg"
-              alt="Marketing"
+              src="/navbar/services/lesson-plan.svg"
+              alt="Additional Services"
               width={20}
               height={20}
             />
             <p className="text-xs md:text-base whitespace-nowrap">
-              Marketing
+              Additional Services
             </p>
           </Link>
 
@@ -87,9 +88,9 @@ export default function MarketingLayout({
                 >
                     <DropdownMenuItem asChild>
                     <Link
-                        href="/services/marketing"
+                        href="/services/additional"
                         className={`block px-4 py-2 ${
-                        pathname === "/services/marketing"
+                        pathname === "/services/additional"
                             ? "font-bold text-primary-blue"
                             : ""
                         }`}

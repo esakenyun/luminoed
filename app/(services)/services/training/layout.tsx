@@ -13,12 +13,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const tabs = [
-  { label: "Live Streaming", href: "/services/streaming/live-streaming" },
-  { label: "Photography & Videography", href: "/services/streaming/photography-videography" },
-  { label: "Hybrid Learning", href: "/services/streaming/hybrid-learning" },
+  { label: "Training IT", href: "/services/training/training-it" },
+  { label: "AI Technology", href: "/services/training/ai-technology" },
+  { label: "Google Workspace for Education", href: "/services/training/google-workspace-for-education" },
 ];
 
-export default function StreamingLayout({
+export default function TrainingLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -36,21 +36,21 @@ export default function StreamingLayout({
 
           {/* LEFT TITLE */}
           <Link
-            href="/services/streaming"
+            href="/services/training"
             className={`group flex items-center gap-2 ${
-              pathname === "/services/streaming"
+              pathname === "/services/training"
                 ? "text-primary-blue font-bold"
                 : "text-primary-green font-semibold"
             }`}
           >
             <Image
-              src="/navbar/services/live-streaming.svg"
-              alt="Streaming"
+              src="/navbar/services/it-training.svg"
+              alt="Training"
               width={20}
               height={20}
             />
             <p className="text-xs md:text-base whitespace-nowrap">
-              Streaming
+              Training
             </p>
           </Link>
 
@@ -89,9 +89,9 @@ export default function StreamingLayout({
                 >
                     <DropdownMenuItem asChild>
                     <Link
-                        href="/services/streaming"
+                        href="/services/training"
                         className={`block px-4 py-2 ${
-                        pathname === "/services/streaming"
+                        pathname === "/services/training"
                             ? "font-bold text-primary-blue"
                             : ""
                         }`}
