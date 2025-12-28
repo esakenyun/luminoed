@@ -1,13 +1,5 @@
 "use client";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuPortal,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
 import Image from "next/image";
 import { useState } from "react";
 import OurClient from "@/components/sections/home/OurClient";
@@ -16,19 +8,16 @@ import { Video, Camera, Wifi, Headphones, CircleCheck} from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function StreamingServices() {
-  const tabs = ["Live Streaming", "Photography & Videography", "Hybrid Learning"];
-  const [activeTab, setActiveTab] = useState("default"); // default: full content
 
-  // Render konten sesuai tab
-    const renderContent = () => {
-      if (activeTab === "default") {
-        // Konten full seperti halaman sekarang
-        return (
-          <>
-            <section className="w-full">
+  const [activeTab] = useState("default");
+
+  const renderContent = () => {
+    if (activeTab === "default") {
+      return (
+        <section className="w-full">
 
                   {/* HERO */}
-                  <div className="relative bg-primary-blue text-white py-32 overflow-hidden rounded-xl">
+                  <div className="relative bg-primary-blue text-white py-32 max-w-7xl mx-auto rounded-xl overflow-hidden">
                     <div className="mx-auto max-w-7xl px-20 grid md:grid-cols-2 gap-16 items-center">
                       
                       <motion.div
@@ -169,7 +158,7 @@ export default function StreamingServices() {
                   </div>
 
                   {/* CTA */}
-                  <div className="bg-primary-blue py-20 text-center text-white rounded-xl mt-24">
+                  <div className="bg-primary-blue py-20 text-center text-white">
                     <h2 className="text-3xl font-bold">
                       Ready to Go Streaming with LuminoED?
                     </h2>
@@ -187,130 +176,33 @@ export default function StreamingServices() {
                   </div>
 
                 </section>
-          </>
-        );
-      }
-      switch (activeTab) {
-            case "Live Streaming":
-              return (
-                <>
-                  
-                </>
-              );
-            case "Photography & Videography":
-              return (
-                <>
-                  <p className="items-center text-center text-lg font-bold">
-                    Photography & Videography Service
-                  </p>
-                </>
-              );
-            case "Hybrid Learning":
-              return (
-                <>
-                  <p className="items-center text-center text-lg font-bold">
-                    Hybrid learning Service
-                  </p>
-                </>
-              );
-            default:
-              return null;
-          }
-        };
-        return (
-            <div>
-            <div className="relative min-h-screen max-w-7xl mx-10 md:mx-auto pr-3 pt-20 pb-20">
-              {/* Navigation */}
-              <div className="flex justify-between text-white items-center mb-8">
-                <button
-                  onClick={() => setActiveTab("default")}
-                  className={`group flex items-center gap-2 cursor-pointer ${
-                  activeTab === "default"
-                    ? "text-primary-blue font-bold"
-                    : "text-primary-green font-semibold"
-                  }`}
-                >
-                  <Image
-                    src={"/navbar/services/live-streaming.svg"}
-                    alt="ai-tech"
-                    width={50}
-                    height={50}
-                    className="w-5 h-5"
-                    priority
-                  />
-                  <p className="text-xs md:text-base whitespace-nowrap">
-                    Streaming
-                  </p>
-                </button>
-        
-                {/* Desktop Tabs */}
-                <ul className="hidden tablet-landscape-max:flex gap-5 text-primary-green">
-                  {tabs.map((tab) => (
-                    <li
-                      key={tab}
-                      onClick={() => setActiveTab(tab)}
-                      className={`cursor-pointer ${
-                        activeTab === tab ? "font-bold text-primary-blue" : ""
-                      }`}
-                    >
-                      {tab}
-                    </li>
-                  ))}
-                </ul>
-        
-                {/* Mobile Dropdown */}
-                <div className="tablet-landscape-max:hidden">
-                  <DropdownMenu>
-                    <DropdownMenuTrigger className="bg-white text-black px-4 py-2 rounded-md text-xs md:text-base outline">
-                      {activeTab === "default" ? "Overview" : activeTab}
-                    </DropdownMenuTrigger>
-        
-                    <DropdownMenuPortal>
-                      <DropdownMenuContent
-                        side="bottom"
-                        align="start"
-                        className="bg-white rounded-md shadow-md w-40"
-                      >
-                        <DropdownMenuItem
-                          className="cursor-pointer px-4 py-2 hover:bg-gray-100"
-                          onClick={() => setActiveTab("default")}
-                        >
-                          Overview
-                        </DropdownMenuItem>
-                        {tabs.map((tab) => (
-                          <DropdownMenuItem
-                            key={tab}
-                            className="cursor-pointer px-4 py-2 hover:bg-gray-100"
-                            onClick={() => setActiveTab(tab)}
-                          >
-                            {tab}
-                          </DropdownMenuItem>
-                        ))}
-                      </DropdownMenuContent>
-                    </DropdownMenuPortal>
-                  </DropdownMenu>
-                </div>
-              </div>
-        
-              {/* Konten */}
-              <div className="">{renderContent()}</div>
-              </div>
-        
-              <div className="relative overflow-hidden z-10">
-                <Image
-                  src="/palkon.png"
-                  width={500}
-                  height={500}
-                  alt="Dashboard Preview"
-                  className="w-full h-full object-cover"
-                  priority
-                />
-              </div>
-        
-              {/* Client Section */}
-              <div>
-                <OurClient />
-              </div>
-            </div>
-          );
+      );
+    }
+
+    return null;
+  };
+
+  return (
+    <>
+      <div className="relative min-h-screen">
+        {renderContent()}
+      </div>
+
+      {/* WAVE */}
+      <div className="relative overflow-hidden">
+        <Image
+          src="/palkon.png"
+          width={1920}
+          height={400}
+          alt="Wave"
+          className="w-full"
+        />
+      </div>
+
+      {/* CLIENT */}
+      <div className="max-w-7xl mx-auto px-6">
+        <OurClient />
+      </div>
+    </>
+  );
 }

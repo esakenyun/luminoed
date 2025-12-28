@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import OurClient from "@/components/sections/home/OurClient";
 
 export default function SmartManagementPage() {
     return (
@@ -75,6 +76,21 @@ export default function SmartManagementPage() {
                     </div>
                     </div>
                 </div>
+                {/* FULL WIDTH (wave / image) */}
+                    <div className="relative overflow-hidden">
+                        <Image
+                        src="/palkon.png"
+                        alt="Wave"
+                        width={1920}
+                        height={400}
+                        className="w-full"
+                        />
+                    </div>
+
+                    {/* CLIENT */}
+                    <div className="max-w-7xl mx-auto px-6">
+                        <OurClient />
+                    </div>
             </section>
         </>
     );
