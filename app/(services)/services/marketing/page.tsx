@@ -132,7 +132,7 @@ export default function MarketingServices() {
               "Evaluasi & Optimasi",
             ].map((step, i) => (
               <motion.div key={i} variants={fadeUp}>
-                <div className="w-16 h-16 mx-auto rounded-full bg-blue-600 text-white flex items-center justify-center font-bold mb-4">
+                <div className="w-16 h-16 mx-auto rounded-full bg-primary-blue text-white flex items-center justify-center font-bold mb-4">
                   {i + 1}
                 </div>
                 <p className="font-medium">{step}</p>
@@ -143,20 +143,20 @@ export default function MarketingServices() {
       </section>
 
       {/* WAVE */}
-                    <div className="relative overflow-hidden">
-                      <Image
-                        src="/palkon.png"
-                        width={1920}
-                        height={400}
-                        alt="Wave"
-                        className="w-full"
-                      />
-                    </div>
-              
-                    {/* CLIENT */}
-                    <div className="max-w-7xl mx-auto px-6">
-                      <OurClient />
-                    </div>
+        <div className="relative overflow-hidden">
+            <Image
+            src="/palkon.png"
+            width={1920}
+            height={400}
+            alt="Wave"
+            className="w-full"
+            />
+        </div>
+    
+        {/* CLIENT */}
+        <div className="max-w-7xl mx-auto px-6">
+            <OurClient />
+        </div>
 
       {/* ================= CTA ================= */}
       <section className="bg-primary-blue text-white py-24">
