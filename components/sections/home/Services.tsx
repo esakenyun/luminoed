@@ -43,7 +43,7 @@ const STEPS: Step[] = [
     title: "Equipment Provision",
     description:
       "High-quality equipment for learning and operations, including cameras, lighting, audio gear, laptops, and more.",
-    image: "/services/equipment.png",
+    image: "/services/equipment-provision.png",
     href: "/services/equipment-provision",
   },
   {
@@ -51,7 +51,7 @@ const STEPS: Step[] = [
     title: "SmartSchool Management",
     description:
       "A fully integrated system to manage academics, staff, assets, and school operations in one unified digital platform.",
-    image: "/services/smartschool.png",
+    image: "/services/smart-school.png",
     href: "/services/smart-school",
   },
   {
