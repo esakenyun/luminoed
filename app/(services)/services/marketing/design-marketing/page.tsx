@@ -5,7 +5,7 @@ import { fadeUp, fadeLeft, fadeRight, stagger } from "@/lib/motion";
 import Image from "next/image";
 import OurClient from "@/components/sections/home/OurClient";
 
-export default function MarketingDetailPage() {
+export default function DesignMarketingServices() {
   return (
     <main className="overflow-hidden">
 

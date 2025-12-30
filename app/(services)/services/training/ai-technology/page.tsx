@@ -24,7 +24,7 @@ export default function AITechnologyServices() {
 
       {/* ================= HERO ================= */}
       <section className="relative px-4 sm:px-6">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-indigo-700 to-purple-700 max-w-7xl mx-auto px-6 md:px-20 rounded-xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-indigo-900 to-primary-blue max-w-7xl mx-auto px-6 md:px-20 rounded-xl" />
         <div className="max-w-7xl mx-auto px-30 relative py-40 text-white">
 
           <motion.div
