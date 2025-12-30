@@ -123,7 +123,7 @@ export default function ContactUsPage() {
             </div>
           </motion.div>
 
-          {/* ================= FORM ================= */}
+          {/* ================= FORM =================
           <motion.div
             variants={fadeRight}
             className="bg-gray-50 rounded-3xl p-12 shadow-sm"
@@ -173,7 +173,7 @@ export default function ContactUsPage() {
                 Kirim Pesan
               </button>
             </form>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </section>
 

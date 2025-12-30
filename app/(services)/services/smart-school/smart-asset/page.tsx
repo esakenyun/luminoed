@@ -40,7 +40,7 @@ export default function SmartAssetPage() {
 
           {/* IMAGE (NO ANIMATION) */}
           <Image
-            className="hidden tablet-landscape-max:block rounded-2xl absolute -right-36 top-[-2%] object-cover"
+            className="hidden tablet-landscape-max:block rounded-2xl absolute -right-36 top-[-1%] object-cover"
             src={"/services/smart-asset/smartasset.png"}
             width={800}
             height={800}
@@ -137,7 +137,7 @@ export default function SmartAssetPage() {
                   <div className="mt-10 flex flex-wrap gap-4">
 
                     <motion.a
-                      href="#"
+                      href="/contact"
                       whileHover={{ y: -4 }}
                       whileTap={{ scale: 0.96 }}
                       className="px-8 py-4 rounded-xl bg-white border border-primary-blue text-primary-blue font-semibold hover:bg-primary-blue hover:text-white transition"

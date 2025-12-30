@@ -264,13 +264,18 @@ export default function Navbar() {
 
                     {activeService === "equipment provision" && (
                       <>
-                        <a href="/services/equipment-provision" className="font-semibold uppercase text-sm">Equipment Provision</a>
-                        <div className="mt-4 grid grid-cols-2 gap-5">
+                        <div className="">
                         <ServiceItem
                           icon="/navbar/services/equipment-provision.svg"
-                          label="Equipment Provision"
+                          label="EQUIPMENT PROVISION"
                           href="/services/equipment-provision"
                         />
+                        <button
+                          onClick={() => (window.location.href = '/services/equipment-provision')}
+                          className="mt-5 flex gap-0.5 cursor-pointer py-2 px-4 bg-primary-blue text-sm font-bold text-white hover:bg-blue-600"
+                        >
+                          Discover More
+                        </button>
                         </div>
                       </>
                     )}
