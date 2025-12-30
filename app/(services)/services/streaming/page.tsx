@@ -112,7 +112,7 @@ export default function StreamingServices() {
           </div>
 
           {/* WHAT WE PROVIDE */}
-          <div className="bg-slate-50 py-24">
+          <div className="bg-slate-50 py-24 h-100 bg-gradient-to-b to-white">
             <div className="mx-auto max-w-7xl px-6">
               <h2 className="text-3xl font-bold text-primary-blue mb-12">
                 What We Provide
@@ -157,6 +157,22 @@ export default function StreamingServices() {
             </div>
           </div>
 
+          {/* WAVE */}
+      <div className="relative overflow-hidden">
+        <Image
+          src="/palkon.png"
+          width={1920}
+          height={400}
+          alt="Wave"
+          className="w-full"
+        />
+      </div>
+
+      {/* CLIENT */}
+      <div className="max-w-7xl mx-auto px-6">
+        <OurClient />
+      </div>
+
           {/* CTA */}
           <div className="bg-primary-blue py-20 text-center text-white">
             <h2 className="text-3xl font-bold">
@@ -186,22 +202,6 @@ export default function StreamingServices() {
     <>
       <div className="relative min-h-screen">
         {renderContent()}
-      </div>
-
-      {/* WAVE */}
-      <div className="relative overflow-hidden">
-        <Image
-          src="/palkon.png"
-          width={1920}
-          height={400}
-          alt="Wave"
-          className="w-full"
-        />
-      </div>
-
-      {/* CLIENT */}
-      <div className="max-w-7xl mx-auto px-6">
-        <OurClient />
       </div>
     </>
   );
