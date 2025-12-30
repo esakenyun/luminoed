@@ -4,6 +4,8 @@ import { CircleCheck } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import OurClient from "@/components/sections/home/OurClient";
+import { motion } from "framer-motion";
+import { fadeUp, fadeLeft, fadeRight, stagger } from "@/lib/motion";
 
 export default function SmartSchoolServices() {
 
@@ -15,14 +17,20 @@ export default function SmartSchoolServices() {
         <div className="max-w-7xl mx-auto px-6">
 
           {/* SECTION 1 */}
-          <div className="flex justify-between items-center tablet-landscape-min:gap-12">
-            <div>
+          <motion.div
+            className="flex justify-between items-center tablet-landscape-min:gap-12"
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <motion.div variants={fadeLeft}>
               <h1 className="font-bold text-3xl tablet-landscape-max:text-5xl text-primary-blue">
                 Pengelolaan <br /> Kurikulum Sekolah
               </h1>
 
               <div className="flex flex-col gap-10 mt-10">
-                <div>
+                <motion.div variants={fadeUp}>
                   <CircleCheck className="text-primary-green" />
                   <h3 className="font-semibold mt-2 text-2xl">
                     Otomatisasi Modul Ajar
@@ -31,9 +39,9 @@ export default function SmartSchoolServices() {
                     Mengintegrasikan teknologi untuk memfasilitasi otomatisasi
                     modul ajar yang memenuhi standar kurikulum nasional.
                   </p>
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div variants={fadeUp}>
                   <CircleCheck className="text-primary-green" />
                   <h3 className="font-semibold mt-2 text-2xl">
                     Penilaian yang Autentik
@@ -41,10 +49,11 @@ export default function SmartSchoolServices() {
                   <p className="mt-5 font-medium tablet-landscape-max:w-3/4 text-slate-500 text-lg">
                     Memastikan standar penilaian yang akurat dan konsisten untuk meningkatkan kualitas pendidikan.
                   </p>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
+            <motion.div variants={fadeRight}>
             <Image
               className="hidden tablet-landscape-min:block rounded-2xl"
               src="/services/smartschool.png"
@@ -53,16 +62,29 @@ export default function SmartSchoolServices() {
               alt="Smart School"
               priority
             />
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* SECTION 2 */}
-          <div className="pt-16 tablet-landscape-max:pt-40">
-            <h1 className="font-bold text-3xl tablet-landscape-max:text-4xl text-primary-blue text-center">
+          <motion.div
+            className="pt-16 tablet-landscape-max:pt-40"
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <motion.h1 variants={fadeUp} className="font-bold text-3xl tablet-landscape-max:text-4xl text-primary-blue text-center">
             Pengelolaan Tenaga <br /> Pendidik
-            </h1>
+            </motion.h1>
             <div className="flex flex-col md:flex-row justify-center gap-16 pt-20">
-              <div className="bg-white rounded-xl shadow-2xl max-w-md">
-                  <div className="h-2 bg-primary-green rounded-t-xl"></div>
+              <motion.div
+                variants={fadeUp}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-xl shadow-2xl max-w-md"
+              >
+                  <div className="h-2 bg-primary-green rounded-t-xl">
+                  </div>
                     <div className="p-8 flex flex-col gap-3">
                       <h1 className="font-bold text-primary-blue text-lg">
                         Manajemen Kehadiran dan Agenda Kerja
@@ -72,9 +94,15 @@ export default function SmartSchoolServices() {
                       </p>
                       <hr />
                     </div>
-                  </div>
-              <div className="bg-white rounded-xl shadow-2xl max-w-md">
-                <div className=" h-2 bg-primary-green rounded-t-xl"></div>
+              </motion.div>
+              <motion.div
+                variants={fadeUp}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-xl shadow-2xl max-w-md"
+              >
+                <div className=" h-2 bg-primary-green rounded-t-xl">
+                </div>
                   <div className="p-8 flex flex-col gap-3">
                     <h1 className="font-bold text-primary-blue text-lg">
                       Manajemen Mutabaah
@@ -84,28 +112,39 @@ export default function SmartSchoolServices() {
                     </p>
                     <hr />
                   </div>
-                </div>
+                </motion.div>
               </div>
-          </div>
+          </motion.div>
 
           {/* SECTION 3 */}
-          <div className="pt-32">
-            <h1 className="font-bold text-3xl tablet-landscape-max:text-4xl text-primary-blue">
+          <motion.div
+            className="pt-32"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <motion.h1 variants={fadeUp} className="font-bold text-3xl tablet-landscape-max:text-4xl text-primary-blue">
               Pengelolaan Aset
-            </h1>
+            </motion.h1>
 
-            <div className="bg-white shadow-2xl rounded-2xl mt-7">
+            <motion.div
+              variants={fadeUp}
+              className="bg-white shadow-2xl rounded-2xl mt-7"
+            >
               <div className="relative p-8 min-h-[300px]">
-                <div className="max-w-md">
+                <motion.div variants={fadeLeft} className="max-w-md">
                   <h1 className="pt-5 font-semibold text-2xl mb-4">
                     Manajemen Aset
                   </h1>
                   <p className="text-slate-500 pt-2 text-lg">
                     Sistem yang memungkinkan sekolah untuk mengelola aset dengan efisien, termasuk pemeliharaan dan peningkatan kualitas layanan sekolah.
                   </p>
-                </div>
+                </motion.div>
 
-                <div className="absolute right-0 bottom-0 top-10 w-[45%] hidden tablet-landscape-max:block overflow-hidden">
+                <motion.div
+                  variants={fadeRight}
+                  className="absolute right-0 bottom-0 top-10 w-[45%] hidden tablet-landscape-max:block overflow-hidden"
+                >
                   <Image
                     src="/services/smartschool.png"
                     alt="Manajemen Aset"
@@ -113,11 +152,10 @@ export default function SmartSchoolServices() {
                     className="object-cover rounded-tl-2xl rounded-br-2xl"
                     priority
                   />
-                </div>
+                </motion.div>
               </div>
-            </div>
-          </div>
-
+            </motion.div>
+          </motion.div>
         </div>
       );
     }

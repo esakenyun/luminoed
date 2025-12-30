@@ -199,6 +199,22 @@ export default function TrainingITServices() {
         </div>
       </section>
 
+      {/* ================= WAVE ================= */}
+        <div className="relative overflow-hidden">
+          <Image
+            src="/palkon.png"
+            width={1920}
+            height={400}
+            alt="Wave"
+            className="w-full"
+          />
+        </div>
+  
+        {/* ================= CLIENT ================= */}
+        <div className="max-w-7xl mx-auto px-6">
+          <OurClient />
+        </div>
+
       {/* ================= CTA ================= */}
       <section className="bg-primary-blue text-white py-32">
         <div className="max-w-7xl mx-auto px-6 text-center">
@@ -220,23 +236,6 @@ export default function TrainingITServices() {
           </Link>
         </div>
       </section>
-
-      {/* ================= WAVE ================= */}
-            <div className="relative overflow-hidden">
-              <Image
-                src="/palkon.png"
-                width={1920}
-                height={400}
-                alt="Wave"
-                className="w-full"
-              />
-            </div>
-      
-            {/* ================= CLIENT ================= */}
-            <div className="max-w-7xl mx-auto px-6">
-              <OurClient />
-            </div>
-
     </main>
   );
 }

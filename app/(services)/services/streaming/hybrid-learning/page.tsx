@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { fadeUp, fadeLeft, fadeRight, stagger } from "@/lib/motion";
 import Image from "next/image";
 import OurClient from "@/components/sections/home/OurClient";
+import Link from "next/link";
 
 /* ================= PAGE ================= */
 export default function HybridLearningServices() {
@@ -195,6 +196,43 @@ export default function HybridLearningServices() {
             <OurClient />
         </div>
 
+        {/* ================= CTA ================= */}
+          <section className="py-32 bg-primary-blue">
+            <motion.div
+              className="max-w-7xl mx-auto px-6 text-center text-white"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.4 }}
+              variants={stagger}
+            >
+              <motion.h2
+                variants={fadeUp}
+                className="text-3xl md:text-4xl font-bold"
+              >
+                Siap Menerapkan Hybrid Learning di Sekolah Anda?
+              </motion.h2>
+
+              <motion.p
+                variants={fadeUp}
+                className="mt-6 max-w-2xl mx-auto text-white/80 text-lg"
+              >
+                Tingkatkan kualitas pembelajaran dengan sistem hybrid terintegrasi
+                Google Meet dan YouTube, didukung teknologi LuminoED.
+              </motion.p>
+
+              <motion.div
+                variants={fadeUp}
+                className="mt-10 flex flex-col sm:flex-row justify-center gap-4"
+              >
+                <Link
+                  href="/contact"
+                  className="px-8 py-4 rounded-full bg-primary-green text-white font-semibold hover:opacity-90 transition text-center"
+                >
+                  Konsultasi Sekarang
+                </Link>
+              </motion.div>
+            </motion.div>
+          </section>
     </main>
   );
 }

@@ -1,168 +1,142 @@
-import OurClient from "@/components/sections/home/OurClient";
-import Image from "next/image";
+"use client";
 
-export default function About() {
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeUp, stagger } from "@/lib/motion";
+import OurClient from "@/components/sections/home/OurClient";
+
+export default function AboutUsSection() {
   return (
-    <>
-      {/* <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="relative text-white overflow-hidden mt-20">
+
+      {/* ================= HERO ================= */}
+      <div className="relative min-h-screen flex items-center py-20">
+        {/* Background */}
         <Image
-          src="https://images.unsplash.com/photo-1513711487224-63b774e12f4d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="LuminoEd Background"
+          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+          alt="Technology Background"
           fill
-          className="object-cover"
           priority
+          className="object-cover scale-100"
         />
 
-        <div className="absolute inset-0 bg-black/20" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/75 to-black/95" />
 
-        <div className="relative z-10 mx-auto max-w-400 px-6 py-24 text-white">
-          <div className="">
-            <div className="relative">
-              <span className="tracking-[0.3em] text-sm font-semibold uppercase">
-                About Us
-              </span>
+        {/* Glow */}
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-primary-blue/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary-green/20 rounded-full blur-3xl" />
 
-              <h1 className="text-4xl md:text-5xl font-bold mt-2">LuminoEd</h1>
-            </div>
-            <div className="mt-6 flex items-center gap-5">
-              <div className="h-2 w-2 bg-white rounded-full"></div>
-              <p className="max-w-xl text-xl leading-relaxed">
-                LuminoEd hadir dari keyakinan bahwa pendidikan sejati bukan
-                hanya soal pengetahuan, tetapi tentang cahaya yang membimbing
-                generasi dengan petunjuk Ilahi.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-              <div className="hidden md:block"></div>
-              <p className="mt-6 max-w-xl text-xl leading-relaxed flex gap-10 items-center">
-                Kami menghadirkan teknologi pintar yang menghubungkan guru,
-                siswa, dan manajemen sekolah dalam satu ekosistem digital. Di
-                dalamnya terdapat AI untuk mengakselerasi dan efisiensi proses
-                pendidikan, otomatisasi adm pembelajaran, pengelolan SDM secara
-                digital, hybrid learning, hingga pengelolaan aset dengan data
-                real-time semua tersambung dengan lisensi Google for Education
-                Premium.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-              <p className="mt-6 max-w-xl text-xl leading-relaxed flex gap-10 items-center">
-                Dengan semangat integrasi spiritual dan digital, LuminoED bukan
-                hanya sistem manajemen sekolah, tapi cahaya yang menuntun masa
-                depan pendidikan Indonesia.
-              </p>
-            </div>
+        {/* Content */}
+        <motion.div
+          className="relative z-10 max-w-7xl mx-auto px-6"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={stagger}
+        >
+          <div className="max-w-4xl">
+            <motion.p
+              variants={fadeUp}
+              className="text-sm font-semibold tracking-[0.5em] uppercase text-white/70 -mt-10"
+            >
+              About Us
+            </motion.p>
+
+            <motion.h1
+              variants={fadeUp}
+              className="text-5xl md:text-7xl font-extrabold leading-tight"
+            >
+              Lumino<span className="text-primary-green">ED</span>
+            </motion.h1>
+
+            <motion.div
+              variants={fadeUp}
+              className="mt-6 h-1 w-24 bg-primary-green rounded-full"
+            />
+
+            {/* Glass Card Story */}
+            <motion.div
+              variants={stagger}
+              className="mt-14 grid gap-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-10"
+            >
+              {[
+                "LuminoEd lahir dari keyakinan bahwa pendidikan sejati bukan hanya soal pengetahuan, tetapi tentang cahaya yang membimbing generasi dengan petunjuk ilahi.",
+                "Kami menghadirkan teknologi pintar yang menghubungkan guru, siswa, dan manajemen sekolah dalam satu ekosistem digital berbasis AI, otomatisasi, hybrid learning, dan integrasi Google Workspace for Education Premium.",
+                "Dengan semangat integrasi spiritual dan digital, LuminoED bukan hanya sistem manajemen sekolah, tetapi cahaya yang menuntun masa depan pendidikan Indonesia.",
+              ].map((text, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className="flex gap-4 items-start text-slate-300"
+                >
+                  <span className="mt-2 w-2.5 h-2.5 rounded-full bg-primary-green shrink-0" />
+                  <p className="leading-relaxed">{text}</p>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
-        </div>
-      </section> */}
-      <section className="relative text-white overflow-hidden">
-        {/* TOP SECTION */}
-        <div className="relative min-h-screen">
-          {/* Background Image */}
+        </motion.div>
+      </div>
+
+      {/* ================= IMAGE CARD ================= */}
+      <motion.div
+        className="relative z-20 max-w-6xl mx-auto px-6 -mt-10"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+      >
+        <div className="relative w-full h-[480px] rounded-3xl overflow-hidden shadow-xl">
           <Image
-            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
-            alt="Technology Background"
+            src="/abouts.jpg"
+            alt="LuminoED Activity"
             fill
-            priority
             className="object-cover"
           />
-
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/70" />
-
-          {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-6 py-120 flex justify-center items-center h-screen">
-            {/* LEFT */}
-            <div>
-              <p className="text-sm font-semibold tracking-[0.9em] text-white/90 uppercase">
-                ABOUT US
-              </p>
-
-              <h1 className="text-4xl md:text-5xl font-bold mt-2">LuminoEd</h1>
-              {/* <h2 className="text-4xl md:text-5xl font-bold mb-6">LuminEd</h2> */}
-
-              <div className="py-12 text-slate-300 text-sm md:text-xl">
-                <div className="grid grid-cols-1 tablet-landscape-min:grid-cols-2 gap-8 tablet-landscape-min:gap-16">
-                  <div className="flex gap-5 items-center">
-                    <div className="w-3 h-3 shrink-0 rounded-full bg-slate-300"></div>
-                    <p>
-                      LuminoEd lahir dari keyakinan bahwa pendidikan sejati
-                      bukan hanya soal pengetahuan, tetapi tentang cahaya yang
-                      membimbing generasi dengan petunjuk ilahi.
-                    </p>
-                  </div>
-
-                  <div className="flex gap-5 items-center tablet-landscape-min:col-start-2 tablet-landscape-min:row-start-2">
-                    <div className="w-3 h-3 shrink-0 rounded-full bg-slate-300"></div>
-                    <p>
-                      Kami menghadirkan teknologi pintar yang menghubungkan
-                      guru, siswa, dan manajemen sekolah dalam satu ekosistem
-                      digital. Di dalamnya terdapat AI untuk mengakselerasi dan
-                      efisiensi proses pendidikan, otomatisasi adm pembelajaran,
-                      pengelolan SDM secara digital, hybrid learning, hingga
-                      pengelolaan aset dengan data real-time semua tersambung
-                      dengan lisensi Google for Education Premium.
-                    </p>
-                  </div>
-
-                  <div className="flex gap-5 items-center tablet-landscape-min:row-start-3">
-                    <div className="w-3 h-3 shrink-0 rounded-full bg-slate-300"></div>
-                    <p>
-                      Dengan semangat integrasi spiritual dan digital, LuminoED
-                      bukan hanya sistem manajemen sekolah, tapi cahaya yang
-                      menuntun masa depan pendidikan Indonesia.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         </div>
+      </motion.div>
 
-        {/* IMAGE CARD SECTION */}
-        <div className="relative z-20 max-w-6xl mx-auto px-6 -mt-20">
-          <div className="relative w-full h-140 rounded-2xl overflow-hidden shadow-2xl">
-            <Image
-              src="/abouts.jpg"
-              alt="Workshop"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
+      {/* ================= STORY TEXT ================= */}
+      <motion.div
+        className="max-w-6xl mx-auto px-6 py-32 text-slate-600 text-lg leading-relaxed"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.4 }}
+        variants={stagger}
+      >
+        <motion.p variants={fadeUp} className="mb-8">
+          LuminoEd adalah perusahaan berbasis teknologi informasi yang berfokus pada pengembangan solusi digital di bidang pendidikan dan teknologi kreatif. Kami hadir sebagai jawaban atas kebutuhan institusi pendidikan, organisasi, dan individu dalam menghadapi tantangan transformasi digital yang terus berkembang. Dengan menggabungkan inovasi teknologi, pendekatan strategis, dan pemahaman mendalam terhadap dunia pendidikan, LuminoEd berkomitmen menghadirkan solusi yang tidak hanya modern, tetapi juga relevan, efektif, dan mudah digunakan oleh seluruh pemangku kepentingan.
+        </motion.p>
 
-        {/* BOTTOM TEXT */}
-        <div className="max-w-5xl mx-auto px-6 py-20 text-slate-600 text-lg">
-          <p className="mb-6">
-            LuminoEd adalah perusahaan berbasis teknologi informasi yang
-            berfokus pada pengembangan solusi digital di bidang pendidikan dan
-            teknologi kreatif. Kami hadir untuk membantu institusi pendidikan,
-            organisasi, dan individu dalam menghadapi transformasi digital
-            melalui layanan yang inovatif, efektif, dan mudah digunakan. Dengan
-            menggabungkan teknologi modern, desain yang berorientasi pada
-            pengguna, serta pendekatan edukatif, LuminoEd berkomitmen
-            menciptakan solusi yang relevan dan berdampak nyata.
-          </p>
-          <p>
-            Melalui berbagai layanan seperti SmartSchool, IT Training, streaming
-            & hybrid learning, serta pengembangan desain dan aplikasi digital,
-            LuminoEd menjadi mitra strategis dalam mendukung pertumbuhan dan
-            kemajuan di era digital. Kami percaya bahwa teknologi bukan hanya
-            alat, tetapi juga sarana untuk meningkatkan kualitas pembelajaran,
-            efisiensi kerja, dan kolaborasi yang berkelanjutan.
-          </p>
-        </div>
-        <div className="relative overflow-hidden z-10">
-          <Image
-            src="/palkon.png"
-            width={500}
-            height={500}
-            alt="Dashboard Preview"
-            className="w-full h-full object-cover"
-            priority
-          />
-        </div>
-      </section>
+        <motion.p variants={fadeUp} className="mb-8">
+          Kami percaya bahwa teknologi seharusnya menjadi alat yang mempermudah, mempercepat, dan meningkatkan kualitas proses pembelajaran serta manajemen pendidikan. Oleh karena itu, setiap solusi yang kami kembangkan dirancang dengan mengedepankan efisiensi, integrasi sistem, dan pengalaman pengguna yang intuitif. LuminoEd tidak hanya menyediakan platform digital, tetapi juga membangun ekosistem yang mendukung kolaborasi, transparansi, dan pengambilan keputusan berbasis data.
+        </motion.p>
+
+        <motion.p variants={fadeUp} className="mb-8">
+          Melalui berbagai layanan unggulan seperti SmartSchool, IT Training, streaming & hybrid learning, serta pengembangan desain dan aplikasi digital, LuminoEd berperan sebagai mitra strategis bagi institusi pendidikan dalam meningkatkan kualitas pembelajaran, efisiensi operasional, dan daya saing di era digital. Kami mendampingi klien mulai dari tahap perencanaan, implementasi, hingga pengembangan berkelanjutan, sehingga setiap solusi dapat tumbuh dan beradaptasi seiring kebutuhan organisasi.
+        </motion.p>
+
+        <motion.p variants={fadeUp}>
+          Dengan semangat inovasi dan kolaborasi, LuminoEd berkomitmen untuk terus menghadirkan teknologi yang berdampak nyata—membantu menciptakan lingkungan belajar yang lebih efektif, sistem kerja yang lebih efisien, serta hubungan yang lebih kuat antara teknologi dan manusia demi masa depan pendidikan yang berkelanjutan.
+        </motion.p>
+      </motion.div>
+
+      {/* ================= WAVE ================= */}
+      <div className="relative overflow-hidden">
+        <Image
+          src="/palkon.png"
+          width={1920}
+          height={400}
+          alt="Wave"
+          className="w-full"
+          priority
+        />
+      </div>
+
+      {/* ================= OUR CLIENT ================= */}
       <OurClient />
-    </>
+    </section>
   );
 }
