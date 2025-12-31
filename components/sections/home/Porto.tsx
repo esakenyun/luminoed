@@ -48,6 +48,29 @@ export default function PortfolioSection() {
 
   return (
     <section className="py-32 text-white overflow-hidden bg-gradient-to-br from-primary-blue via-primary-blue to-primary-green opacity-100 mt-40 mb-30">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.h2
+          className="text-4xl md:text-5xl font-extrabold text-white leading-tight text-center mb-5"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          Software Implementation <br />
+          & Customization
+        </motion.h2>
+        <motion.p 
+          className="max-w-7xl mx-auto text-center text-lg md:text-lg text-white/50 mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          Berikut adalah beberapa proyek yang telah kami kerjakan untuk
+          mengimplementasikan dan menyesuaikan solusi perangkat lunak sesuai
+          kebutuhan klien kami di berbagai sektor.
+        </motion.p>
+      </div>
         {/* ================= SLIDER ================= */}
         <div className="relative overflow-hidden perspective-[1200px]">
           <motion.div
