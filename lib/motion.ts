@@ -57,3 +57,35 @@ export const textVariants: Variants = {
     },
   },
 };
+
+export const fade: Variants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.8 } },
+};
+
+export const slideUp: Variants = {
+  hidden: { opacity: 0, y: 60 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, ease: "easeOut" },
+  },
+};
+
+export const slideLeft: Variants = {
+  hidden: { opacity: 0, x: 80 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.9, ease: "easeOut" },
+  },
+};
+
+export const slideRight: Variants = {
+  hidden: { opacity: 0, x: -80 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.9, ease: "easeOut" },
+  },
+};
