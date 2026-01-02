@@ -30,7 +30,7 @@ export default function OurClient() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-center font-black uppercase text-primary-blue text-3xl md:text-3xl"
+          className="text-center font-black uppercase text-primary-blue text-3xl md:text-3xl tracking-wide"
         >
           Clients That Grows With Us
         </motion.blockquote>
