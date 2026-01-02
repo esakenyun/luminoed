@@ -61,9 +61,9 @@ export default function AboutUsSection() {
               className="mt-14 grid gap-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-10"
             >
               {[
-                "LuminoEd lahir dari keyakinan bahwa pendidikan sejati bukan hanya soal pengetahuan, tetapi tentang cahaya yang membimbing generasi dengan petunjuk ilahi.",
-                "Kami menghadirkan teknologi pintar yang menghubungkan guru, siswa, dan manajemen sekolah dalam satu ekosistem digital berbasis AI, otomatisasi, hybrid learning, dan integrasi Google Workspace for Education Premium.",
-                "Dengan semangat integrasi spiritual dan digital, LuminoED bukan hanya sistem manajemen sekolah, tetapi cahaya yang menuntun masa depan pendidikan Indonesia.",
+                "LuminoED lahir dari keyakinan bahwa pendidikan sejati bukan hanya soal pengetahuan, tetapi tentang cahaya yang membimbing generasi dengan petunjuk Ilahi.",
+                "Kami menghadirkan teknologi pintar yang menghubungkan guru, siswa, dan manajemen sekolah dalam satu ekosistem digital. Didalamnya terdapat AI untuk mengakselerasi dan efisiensi proses pendidikan, otomatisasi adm pembelajaran, pengelolaan SDM secara digital, hybrid learning, hingga pengelolaan aset dengan data real-time—semua tersambung dengan lisensi Google for Education Premium.",
+                "Dengan semangat integrasi spiritual dan digital, LuminoED bukan hanya sistem manajemen sekolah, tapi cahaya yang menuntun masa depan pendidikan Indonesia.",
               ].map((text, i) => (
                 <motion.div
                   key={i}
@@ -100,7 +100,7 @@ export default function AboutUsSection() {
 
       {/* ================= STORY TEXT ================= */}
       <motion.div
-        className="max-w-6xl mx-auto px-6 py-32 text-slate-600 text-lg leading-relaxed"
+        className="max-w-6xl mx-auto px-6 py-16 text-slate-600 text-lg leading-relaxed"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.4 }}
