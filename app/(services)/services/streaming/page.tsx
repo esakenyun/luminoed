@@ -89,7 +89,7 @@ export default function StreamingServices() {
           </div>
 
           <section id="services" className="py-24 px-6">
-            <div className="mx-auto max-w-7xl px-6">
+            <div className="mx-auto max-w-7xl">
             <h2 className="text-3xl font-bold text-primary-blue mb-12">
               Our Streaming Services
             </h2>
