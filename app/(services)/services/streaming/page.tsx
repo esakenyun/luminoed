@@ -6,6 +6,29 @@ import OurClient from "@/components/sections/home/OurClient";
 import Link from "next/link";
 import { Video, Camera, Wifi, Headphones, CircleCheck} from "lucide-react";
 import { motion } from "framer-motion";
+import { container, itemAnim } from "@/lib/motion";
+import { ChevronRight } from "lucide-react";
+
+const services = [
+  {
+    title: "Live Streaming",
+    desc: "Siaran langsung kegiatan sekolah, seminar, dan event dengan kualitas audio-visual profesional.",
+    icon: Video,
+    href: "/services/streaming/live-streaming",
+  },
+  {
+    title: "Photography & Videography",
+    desc: "Dokumentasi visual berkualitas tinggi untuk konten promosi, arsip, dan branding institusi.",
+    icon: Camera,
+    href: "/services/streaming/photography-videography",
+  },
+  {
+    title: "Hybrid Learning",
+    desc: "Integrasi pembelajaran tatap muka dan online dalam satu sistem yang efisien dan mudah digunakan.",
+    icon: Wifi,
+    href: "/services/streaming/hybrid-learning",
+  },
+];
 
 export default function StreamingServices() {
 
@@ -65,60 +88,94 @@ export default function StreamingServices() {
             </div>
           </div>
 
-          {/* SERVICES */}
-          <div id="services" className="mx-auto max-w-7xl px-6 py-24">
+          <section id="services" className="py-24 px-6">
+            <div className="mx-auto max-w-7xl px-6">
             <h2 className="text-3xl font-bold text-primary-blue mb-12">
               Our Streaming Services
             </h2>
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center border border-slate-200 rounded-2xl shadow-sm">
 
-            <div className="grid gap-10 md:grid-cols-3">
-              {[
-                {
-                  icon: <Video />,
-                  title: "Live Streaming",
-                  desc: "Streaming acara sekolah seperti wisuda, seminar, pelatihan, dan event institusi secara real-time.",
-                },
-                {
-                  icon: <Camera />,
-                  title: "Photography & Videography",
-                  desc: "Menyediakan dokumentasi foto dan video profesional untuk acara sekolah dan institusi Anda.",
-                },
-                {
-                  icon: <Wifi />,
-                  title: "Hybrid Learning",
-                  desc: "Menghubungkan kelas offline dan online agar siswa dapat belajar dari mana saja tanpa hambatan.",
-                },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="rounded-2xl border bg-white p-6 shadow-sm"
-                >
-                  <div className="mb-4 text-primary-blue">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-primary-blue">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-slate-600">
-                    {item.desc}
-                  </p>
-                </motion.div>
-              ))}
+              {/* IMAGE LEFT */}
+              <motion.div
+                initial={{ opacity: 0, x: -60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="relative h-full rounded-tl-2xl rounded-bl-2xl overflow-hidden"
+              >
+                <Image
+                  src="/services/streaming.jpg"
+                  alt="Additional Services"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent" />
+              </motion.div>
+
+              {/* SERVICE LIST */}
+              <div className="">
+                {services.map((item, i) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <Link href={item.href} key={i} className="block">
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 40 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.15, duration: 0.6 }}
+                      className="group flex items-center justify-between bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all m-6"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="p-3 rounded-lg bg-lime-100 border border-slate-200 text-lime-600">
+                          <Icon size={24} />
+                        </div>
+                        <div>
+                          <h3 className="text-lg text-lime-500 font-semibold">
+                            {item.title}
+                          </h3>
+                          <p className="text-sm text-slate-600 mt-1 leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="ml-4 flex items-center justify-center w-10 h-10 rounded-lg text-white 
+                                      group-hover:translate-x-1 transition-transform">
+                        <ChevronRight size={30} color="lime" />
+                      </div>
+                    </motion.div>
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+            </div>
+          </section>
 
           {/* WHAT WE PROVIDE */}
-          <div className="bg-slate-50 py-24 h-100 bg-gradient-to-b to-white">
+          <section className="bg-slate-50 py-24 bg-gradient-to-b to-white">
             <div className="mx-auto max-w-7xl px-6">
-              <h2 className="text-3xl font-bold text-primary-blue mb-12">
-                What We Provide
-              </h2>
 
-              <div className="grid gap-10 md:grid-cols-4">
+              {/* TITLE */}
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-3xl font-bold text-primary-blue mb-12"
+              >
+                What We Provide
+              </motion.h2>
+
+              {/* GRID */}
+              <motion.div
+                variants={container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="grid gap-10 md:grid-cols-4"
+              >
                 {[
                   {
                     icon: <Camera />,
@@ -141,37 +198,45 @@ export default function StreamingServices() {
                     desc: "Rekaman acara untuk dokumentasi dan distribusi ulang.",
                   },
                 ].map((item, i) => (
-                  <div key={i} className="rounded-xl bg-white p-6 border">
+                  <motion.div
+                    key={i}
+                    variants={itemAnim}
+                    whileHover={{
+                      y: -6,
+                      boxShadow: "0 12px 30px rgba(0,0,0,0.08)",
+                    }}
+                    className="rounded-xl bg-white p-6 border border-slate-200 transition-all"
+                  >
                     <div className="mb-4 text-primary-blue">
                       {item.icon}
                     </div>
                     <h4 className="font-semibold text-primary-blue">
                       {item.title}
                     </h4>
-                    <p className="mt-2 text-slate-600 text-sm">
+                    <p className="mt-2 text-slate-600 text-sm leading-relaxed">
                       {item.desc}
                     </p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </section>
 
           {/* WAVE */}
-      <div className="relative overflow-hidden">
-        <Image
-          src="/palkon.png"
-          width={1920}
-          height={400}
-          alt="Wave"
-          className="w-full"
-        />
-      </div>
+          <div className="relative overflow-hidden">
+            <Image
+              src="/palkon.png"
+              width={1920}
+              height={400}
+              alt="Wave"
+              className="w-full"
+            />
+          </div>
 
-      {/* CLIENT */}
-      <div className="max-w-7xl mx-auto px-6">
-        <OurClient />
-      </div>
+          {/* CLIENT */}
+          <div className="max-w-7xl mx-auto px-6">
+            <OurClient />
+          </div>
 
           {/* CTA */}
           <div className="bg-primary-blue py-20 text-center text-white">
@@ -190,7 +255,6 @@ export default function StreamingServices() {
               Contact Us Now
             </Link>
           </div>
-
         </section>
       );
     }
