@@ -59,7 +59,7 @@ const STEPS: Step[] = [
     title: "Additional Services",
     description:
       "Extra support including digital lesson plans, e-Report systems, templates, and tools to streamline school administration.",
-    image: "/services/additional.jpg",
+    image: "/services/additionalservice.JPG",
     href: "/services/additional",
   },
 ];

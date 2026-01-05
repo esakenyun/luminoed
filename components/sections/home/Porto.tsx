@@ -11,15 +11,14 @@ const GAP = 48;
 
 const projects = [
   {
-    title: "App Sheet",
-    image: "/abouts.jpg",
-    detail:
-      "Sebuah dashboard HR berbasis web yang dirancang untuk membantu tim rekrutmen dalam mengelola proses seleksi secara lebih terstruktur dan efisien. Aplikasi ini menampilkan data kandidat secara real-time, mempermudah pemantauan progres, serta meningkatkan akurasi pengambilan keputusan melalui visualisasi data yang jelas dan intuitif.",
+    title: "App Sheet Smart Teacher",
+    image: "/services/appsheet.png",
+    detail: "AppSheet Smart Teacher adalah aplikasi manajemen aktivitas guru berbasis AppSheet yang dirancang untuk membantu sekolah dalam mendata, memantau, dan mengevaluasi kegiatan guru selama masa kerja secara terstruktur, digital, dan real-time. Aplikasi ini menjadi solusi praktis untuk menggantikan pencatatan manual sehingga proses administrasi menjadi lebih efisien, akurat, dan transparan.",
   },
   {
-    title: "LuminoED Blog",
-    image: "/blog.JPG",
-    detail: "Platform blog edukasi yang dikembangkan untuk mendukung distribusi informasi, artikel, dan insight seputar teknologi serta pendidikan digital. Dengan tampilan yang modern dan responsif, LuminoED Blog memudahkan pengguna dalam mengakses konten, meningkatkan engagement pembaca, serta memperkuat branding digital perusahaan.",
+    title: "Smart School",
+    image: "/services/smartschool.png",
+    detail: "Solusi digital terpadu untuk mendukung manajemen dan aktivitas pembelajaran di lingkungan sekolah. Smart School dirancang untuk mempermudah pengelolaan data akademik, komunikasi antara guru dan siswa, serta meningkatkan efektivitas proses belajar mengajar melalui sistem yang terintegrasi dan mudah digunakan.",
   },
   {
     title: "Smart School",
