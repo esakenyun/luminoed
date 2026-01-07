@@ -140,7 +140,7 @@ export default function ITKCM() {
               transition={{ duration: 0.7 }}
               className="w-full"
             >
-              <div className="relative aspect-[9/11] overflow-hidden shadow-2xl">
+              <div className="relative aspect-[9/10] overflow-hidden shadow-2xl">
                 <video
                   src="/highlight.mp4"
                   autoPlay
