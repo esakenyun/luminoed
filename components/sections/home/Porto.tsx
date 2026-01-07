@@ -188,7 +188,7 @@ export default function PortfolioSection() {
       </div>
 
       {/* ================= INFO & NAV ================= */}
-      <div className="max-w-7xl mx-auto px-6 mt-24 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-30">
+      <div className="max-w-7xl mx-auto px-6 mt-20 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-30">
         <div className="md:ml-20 min-h-[220px]">
           <motion.h3
             key={projects[active].title}
