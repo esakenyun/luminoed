@@ -46,7 +46,7 @@ export default function PortfolioSection() {
   const [active, setActive] = useState(2);
 
   return (
-    <section className="py-32 text-white overflow-hidden bg-gradient-to-br from-primary-blue via-primary-blue to-primary-green opacity-100 mt-40 mb-30">
+    <section id="portfolio" className="py-32 text-white overflow-hidden bg-gradient-to-br from-primary-blue via-primary-blue to-primary-green opacity-100 mt-40 mb-30">
       <div className="max-w-7xl mx-auto px-6">
         <motion.h2
           className="text-4xl md:text-5xl font-extrabold text-white leading-tight text-center mb-5"

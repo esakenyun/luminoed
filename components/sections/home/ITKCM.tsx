@@ -71,31 +71,18 @@ export default function ITKCM() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="relative inline-block mb-10" // Animasi diterapkan pada kontainer ini
+          className="relative inline-block mb-10"
         >
-          {/* 1. Teks Bayangan/Latar Belakang (Warna Pudar) */}
           <h2
             className="absolute bottom-4 text-xl md:text-[48px] tablet-landscape-min:text-6xl left-0 font-extrabold text-gray-200 opacity-60 whitespace-nowrap"
             style={{ transform: "translate(2px, -2px)" }}
           >
             WHY YOU SHOULD CHOOSE US?
           </h2>
-
-          {/* 2. Teks Utama (Warna Gelap) */}
           <h2 className="relative z-10 text-xl md:text-[48px] tablet-landscape-min:text-6xl font-extrabold text-primary-blue whitespace-nowrap">
             WHY YOU SHOULD CHOOSE US?
           </h2>
         </motion.div>
-        {/* <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mb-12 text-2xl font-bold text-purple-900"
-        >
-          WHY YOU SHOULD CHOOSE US?
-        </motion.h2> */}
-
         <div className="grid gap-20 md:grid-cols-2">
           {/* ITEM 1 */}
           <motion.div
@@ -139,6 +126,69 @@ export default function ITKCM() {
           </motion.div>
         </div>
       </div>
+
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            {/* VIDEO LEFT */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="w-full"
+            >
+              <div className="relative aspect-[9/11] overflow-hidden shadow-2xl">
+                <video
+                  src="/highlight.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+
+            {/* TEXT RIGHT */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="space-y-6"
+            >
+              <h2 className="text-3xl font-bold text-primary-blue">
+                Mendukung Transformasi Digital Pendidikan
+              </h2>
+
+              <p className="text-slate-600 leading-relaxed">
+                Mendukung transformasi digital di lingkungan pendidikan melalui sistem
+                yang terintegrasi, efisien, dan mudah digunakan. Solusi ini dirancang
+                untuk membantu institusi pendidikan mengelola aktivitas pembelajaran
+                dan administrasi secara lebih tertata, modern, dan berkelanjutan.
+              </p>
+
+              <ul className="space-y-3 text-slate-600">
+                <li>✔ Pengelolaan aktivitas pendidikan yang lebih terstruktur</li>
+                <li>✔ Proses kerja yang efisien dan terdokumentasi dengan baik</li>
+                <li>✔ Akses informasi yang mudah dan terintegrasi</li>
+              </ul>
+            
+              <button className="inline-flex items-center gap-2 rounded-sm bg-lime-500 px-6 py-3 text-white font-medium hover:bg-lime-600 transition"
+              onClick={() => (window.location.href = '#portfolio')}>
+                Lihat Produk Kami
+              </button>
+            </motion.div>
+
+          </div>
+
+        </div>
+      </section>
+
     </section>
   );
 }
