@@ -114,20 +114,26 @@ export default function TrainingITServices() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="
+              relative 
+              w-full 
+              aspect-[4/3]
+              mx-auto
+            "
           >
             <Image
-              src="/services/smartschool.png"
+              src="/services/trainingit.jpeg"
               alt="Training IT"
-              width={520}
-              height={520}
-              className="rounded-2xl shadow-2xl"
+              fill
+              className="rounded-2xl shadow-2xl object-cover"
               priority
             />
           </motion.div>
+
         </div>
       </section>
 

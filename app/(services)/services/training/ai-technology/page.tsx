@@ -23,9 +23,9 @@ export default function AITechnologyServices() {
     <main className="w-full overflow-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="relative px-4 sm:px-6">
+      <section className="relative px-6 sm:px-6">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-indigo-900 to-primary-blue max-w-7xl mx-auto px-6 md:px-20 rounded-xl" />
-        <div className="max-w-7xl mx-auto px-30 relative py-40 text-white">
+        <div className="max-w-7xl mx-auto md:px-30 relative py-40 text-white">
 
           <motion.div
             variants={fadeUp}
@@ -76,7 +76,7 @@ export default function AITechnologyServices() {
         whileInView="show"
         viewport={{ once: true }}
       >
-        <div className="max-w-7xl mx-auto px-30 grid md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-10 grid md:grid-cols-2 gap-16 items-center">
           <motion.div variants={fadeUp}>
             <h2 className="text-3xl md:text-4xl font-bold text-primary-blue">
               AI untuk Pendidikan & Manajemen
@@ -89,13 +89,12 @@ export default function AITechnologyServices() {
           </motion.div>
 
           <motion.div variants={fadeUp} className="relative">
-            <div className="absolute inset-0 bg-primary-blue/10 rounded-3xl blur-3xl" />
+            <div className="relative inset-0 bg-primary-blue/10 rounded-3xl blur-3xl w-full aspect-[4/3] mx-auto" />
             <Image
               src="/services/additional.jpg"
               alt="AI Illustration"
-              width={500}
-              height={500}
-              className="relative rounded-2xl"
+              fill
+              className="relative rounded-2xl object-cover"
             />
           </motion.div>
         </div>

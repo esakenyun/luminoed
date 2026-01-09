@@ -65,7 +65,25 @@ export default function TrainingServices() {
 
             <div className="hidden md:block">
               <div className="aspect-video bg-black/30 rounded-2xl flex items-center justify-center">
-                <span className="text-white/60">Training Preview</span>
+                <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="w-full"
+            >
+              <div className="relative aspect-[9/10] overflow-hidden shadow-2xl">
+                <video
+                  src="/services/training.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                />
+              </div>
+            </motion.div>
               </div>
             </div>
           </div>
