@@ -7,13 +7,13 @@ import Image from "next/image";
 export default function ITKCM() {
   return (
     <section className="w-full overflow-hidden">
-      {/* HERO */}
-      <div 
-        className="relative inset-0 -z-10 bg-[#DDF190]" style={{
-        clipPath: "polygon(0 10%, 100% 0, 100% 85%, 0 100%)",
-        }}>
+      <div
+        className="relative inset-0 -z-10 bg-[#DDF190]"
+        style={{
+          clipPath: "polygon(0 10%, 100% 0, 100% 85%, 0 100%)",
+        }}
+      >
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 md:grid-cols-2 px-10 py-20">
-          {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +37,6 @@ export default function ITKCM() {
             </p>
           </motion.div>
 
-          {/* RIGHT CARD */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -46,9 +45,7 @@ export default function ITKCM() {
             className="flex justify-center md:justify-end"
           >
             <div className="relative lg:h-[600px] flex items-center justify-end tablet-landscape-max::justify-end overflow-visible">
-              {/* BACK BLUE CARD */}
               <div className="absolute right-6 tablet-landscape-max:right-[95px] top-[200px] w-[300px] h-[450px] shadow-2xl bg-primary-blue rounded-[5px] z-0" />
-              {/* FRONT IMAGE CARD */}
               <div className="relative w-full max-w-[320px] h-[340px] p-4 rounded-[5px] top-[135px] overflow-hidden shadow-2xl bg-white z-10">
                 <Image
                   src="/bar.png"
@@ -64,7 +61,6 @@ export default function ITKCM() {
         </div>
       </div>
 
-      {/* WHY CHOOSE US */}
       <div className="mx-auto max-w-7xl px-6 pt-40 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -84,7 +80,6 @@ export default function ITKCM() {
           </h2>
         </motion.div>
         <div className="grid gap-20 md:grid-cols-2">
-          {/* ITEM 1 */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,8 +87,10 @@ export default function ITKCM() {
             viewport={{ once: true }}
           >
             <div className="mb-3 items-center">
-              <Lightbulb className="mt-10 h-12 w-12 text-yellow-500"/>
-              <h3 className="mt-5 text-[18px] md:text-[24px] font-semibold text-purple-900">Innovation</h3>
+              <Lightbulb className="mt-10 h-12 w-12 text-yellow-500" />
+              <h3 className="mt-5 text-[18px] md:text-[24px] font-semibold text-purple-900">
+                Innovation
+              </h3>
             </div>
             <p className="text-[16px] md:text-[18px] text-slate-600">
               Menghadirkan inovasi teknologi untuk meningkatkan kualitas
@@ -104,7 +101,6 @@ export default function ITKCM() {
             </p>
           </motion.div>
 
-          {/* ITEM 2 */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +109,9 @@ export default function ITKCM() {
           >
             <div className="mb-3 mt-10 items-center gap-3">
               <Database className="h-12 w-12 text-blue-500" />
-              <h3 className="text-[18px] md:text-[24px] mt-5 font-semibold text-purple-900">Data Based</h3>
+              <h3 className="text-[18px] md:text-[24px] mt-5 font-semibold text-purple-900">
+                Data Based
+              </h3>
             </div>
             <p className="text-[16px] md:text-[18px] text-slate-600">
               Teknologi Terkini: Menggunakan teknologi terbaru seperti
@@ -129,10 +127,7 @@ export default function ITKCM() {
 
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6">
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-            {/* VIDEO LEFT */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -140,7 +135,7 @@ export default function ITKCM() {
               transition={{ duration: 0.7 }}
               className="w-full"
             >
-              <div className="relative aspect-[9/10] overflow-hidden shadow-2xl">
+              <div className="relative aspect-9/10 overflow-hidden shadow-2xl">
                 <video
                   src="/highlight.mp4"
                   autoPlay
@@ -153,7 +148,6 @@ export default function ITKCM() {
               </div>
             </motion.div>
 
-            {/* TEXT RIGHT */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -166,29 +160,33 @@ export default function ITKCM() {
               </h2>
 
               <p className="text-slate-600 leading-relaxed">
-                Mendukung transformasi digital di lingkungan pendidikan melalui sistem
-                yang terintegrasi, efisien, dan mudah digunakan. Solusi ini dirancang
-                untuk membantu institusi pendidikan mengelola aktivitas pembelajaran
-                dan administrasi secara lebih tertata, modern, dan berkelanjutan.
+                Mendukung transformasi digital di lingkungan pendidikan melalui
+                sistem yang terintegrasi, efisien, dan mudah digunakan. Solusi
+                ini dirancang untuk membantu institusi pendidikan mengelola
+                aktivitas pembelajaran dan administrasi secara lebih tertata,
+                modern, dan berkelanjutan.
               </p>
 
               <ul className="space-y-3 text-slate-600">
-                <li>✔ Pengelolaan aktivitas pendidikan yang lebih terstruktur</li>
-                <li>✔ Proses kerja yang efisien dan terdokumentasi dengan baik</li>
+                <li>
+                  ✔ Pengelolaan aktivitas pendidikan yang lebih terstruktur
+                </li>
+                <li>
+                  ✔ Proses kerja yang efisien dan terdokumentasi dengan baik
+                </li>
                 <li>✔ Akses informasi yang mudah dan terintegrasi</li>
               </ul>
-            
-              <button className="inline-flex items-center gap-2 rounded-sm bg-lime-500 px-6 py-3 text-white font-medium hover:bg-lime-600 transition"
-              onClick={() => (window.location.href = '#portfolio')}>
+
+              <button
+                className="inline-flex items-center gap-2 rounded-sm bg-lime-500 px-6 py-3 text-white font-medium hover:bg-lime-600 transition"
+                onClick={() => (window.location.href = "#portfolio")}
+              >
                 Lihat Produk Kami
               </button>
             </motion.div>
-
           </div>
-
         </div>
       </section>
-
     </section>
   );
 }

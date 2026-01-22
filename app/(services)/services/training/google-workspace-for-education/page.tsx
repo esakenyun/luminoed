@@ -2,25 +2,17 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 import OurClient from "@/components/sections/home/OurClient";
-import {
-  fadeUp,
-  staggerContainer,
-} from "@/lib/animation";
-
-/* ================= PAGE ================= */
+import { fadeUp, staggerContainer } from "@/lib/animation";
 
 export default function GoogleWorkspaceForEducationServices() {
   return (
     <main className="w-full overflow-hidden">
-
-      {/* ================= HERO ================= */}
       <section className="pt-24 pb-32">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -33,7 +25,8 @@ export default function GoogleWorkspaceForEducationServices() {
 
             <p className="mt-6 text-lg text-slate-600 max-w-xl">
               Transformasi pembelajaran dan manajemen sekolah melalui ekosistem
-              Google Workspace for Education yang terintegrasi, aman, dan kolaboratif.
+              Google Workspace for Education yang terintegrasi, aman, dan
+              kolaboratif.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -67,7 +60,6 @@ export default function GoogleWorkspaceForEducationServices() {
         </div>
       </section>
 
-      {/* ================= WHY ================= */}
       <section className="bg-slate-50 py-32">
         <motion.div
           className="max-w-7xl mx-auto px-6 text-center"
@@ -81,8 +73,9 @@ export default function GoogleWorkspaceForEducationServices() {
           </h2>
 
           <p className="mt-6 max-w-3xl mx-auto text-slate-600">
-            Google Workspace for Education membantu sekolah meningkatkan efektivitas
-            pembelajaran, kolaborasi guru-siswa, dan efisiensi administrasi.
+            Google Workspace for Education membantu sekolah meningkatkan
+            efektivitas pembelajaran, kolaborasi guru-siswa, dan efisiensi
+            administrasi.
           </p>
         </motion.div>
 
@@ -93,17 +86,27 @@ export default function GoogleWorkspaceForEducationServices() {
           whileInView="show"
           viewport={{ once: true }}
         >
-          <Feature title="Kolaboratif" desc="Belajar dan bekerja bersama secara real-time." />
-          <Feature title="Cloud Based" desc="Akses dokumen kapan saja dan di mana saja." />
-          <Feature title="Aman & Terkontrol" desc="Manajemen akun dan keamanan tingkat institusi." />
-          <Feature title="Efisien" desc="Mengurangi beban administrasi sekolah." />
+          <Feature
+            title="Kolaboratif"
+            desc="Belajar dan bekerja bersama secara real-time."
+          />
+          <Feature
+            title="Cloud Based"
+            desc="Akses dokumen kapan saja dan di mana saja."
+          />
+          <Feature
+            title="Aman & Terkontrol"
+            desc="Manajemen akun dan keamanan tingkat institusi."
+          />
+          <Feature
+            title="Efisien"
+            desc="Mengurangi beban administrasi sekolah."
+          />
         </motion.div>
       </section>
 
-      {/* ================= FEATURES ================= */}
       <section id="features" className="py-32">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-
           <motion.div
             variants={staggerContainer(0.12)}
             initial="hidden"
@@ -145,46 +148,38 @@ export default function GoogleWorkspaceForEducationServices() {
             className="hidden lg:block"
           >
             <div>
-                <Image
-                    src="/services/additional.jpg"
-                    alt="AI Illustration"
-                    width={500}
-                    height={500}
-                    className="relative rounded-2xl"
-                />
+              <Image
+                src="/services/additional.jpg"
+                alt="AI Illustration"
+                width={500}
+                height={500}
+                className="relative rounded-2xl"
+              />
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* WAVE */}
-        <div className="relative overflow-hidden">
-          <Image
-            src="/palkon.png"
-            width={1920}
-            height={400}
-            alt="Wave"
-            className="w-full"
-          />
-        </div>
+      <div className="relative overflow-hidden">
+        <Image
+          src="/wave.png"
+          width={1920}
+          height={400}
+          alt="Wave"
+          className="w-full"
+        />
+      </div>
 
-      {/* ================= CLIENT ================= */}
       <section className="max-w-7xl mx-auto px-6">
         <OurClient />
       </section>
-
     </main>
   );
 }
 
-/* ================= COMPONENT ================= */
-
 function Feature({ title, desc }: { title: string; desc: string }) {
   return (
-    <motion.div
-      variants={fadeUp}
-      className="bg-white rounded-xl p-6 shadow"
-    >
+    <motion.div variants={fadeUp} className="bg-white rounded-xl p-6 shadow">
       <h3 className="font-bold text-primary-blue">{title}</h3>
       <p className="mt-2 text-slate-600">{desc}</p>
     </motion.div>

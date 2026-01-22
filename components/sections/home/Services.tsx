@@ -76,10 +76,9 @@ export default function Services() {
       </h1>
       <div className="mb-28 h-1.5 w-40 bg-primary-green mx-auto"></div>
 
-      {/* Mobile & Tablet Mode */}
       <div className="mx-auto px-6 tablet-landscape-max:hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-          {STEPS.map((step) => (
+          {STEPS.map((step, index) => (
             <div
               key={step.id}
               className="flex flex-col rounded-2xl overflow-hidden shadow-md"
@@ -91,7 +90,7 @@ export default function Services() {
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover"
-                  priority
+                  priority={index === 0}
                 />
               </div>
               <div className="p-4">
@@ -116,7 +115,6 @@ export default function Services() {
         </div>
       </div>
 
-      {/* Large & Desktop Mode */}
       <div className="hidden tablet-landscape-max:block">
         <div className="max-w-7xl mx-auto flex gap-20 px-6 lg:px-8">
           <div className="relative w-2/5">

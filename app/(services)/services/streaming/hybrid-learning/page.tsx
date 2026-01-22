@@ -6,13 +6,10 @@ import Image from "next/image";
 import OurClient from "@/components/sections/home/OurClient";
 import Link from "next/link";
 
-/* ================= PAGE ================= */
 export default function HybridLearningServices() {
   return (
     <main className="overflow-hidden">
-
-      {/* ================= HERO ================= */}
-      <section className="py-32 bg-gradient-to-b from-white to-primary-blue/10">
+      <section className="py-32 bg-linear-to-b from-white to-primary-blue/10">
         <motion.div
           className="max-w-7xl mx-auto px-6 text-center"
           initial="hidden"
@@ -45,7 +42,6 @@ export default function HybridLearningServices() {
         </motion.div>
       </section>
 
-      {/* ================= INTEGRATION FLOW ================= */}
       <section className="py-28 bg-white">
         <motion.div
           className="max-w-7xl mx-auto px-6"
@@ -83,8 +79,8 @@ export default function HybridLearningServices() {
                 Live ke YouTube
               </h3>
               <p className="text-gray-600">
-                Sesi pembelajaran disiarkan secara real-time ke YouTube
-                tanpa konfigurasi rumit.
+                Sesi pembelajaran disiarkan secara real-time ke YouTube tanpa
+                konfigurasi rumit.
               </p>
             </motion.div>
 
@@ -96,15 +92,14 @@ export default function HybridLearningServices() {
                 Akses Siswa
               </h3>
               <p className="text-gray-600">
-                Siswa dapat mengikuti secara live atau menonton ulang
-                kapan saja sesuai kebutuhan.
+                Siswa dapat mengikuti secara live atau menonton ulang kapan saja
+                sesuai kebutuhan.
               </p>
             </motion.div>
           </div>
         </motion.div>
       </section>
 
-      {/* ================= USE CASE ================= */}
       <section className="py-28 bg-primary-blue">
         <motion.div
           className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 text-white"
@@ -113,28 +108,23 @@ export default function HybridLearningServices() {
           viewport={{ once: true, amount: 0.4 }}
         >
           <motion.div variants={fadeLeft}>
-            <h3 className="text-2xl font-bold mb-4">
-              Siswa di Kelas
-            </h3>
+            <h3 className="text-2xl font-bold mb-4">Siswa di Kelas</h3>
             <p className="text-white/80">
-              Tetap mendapatkan pengalaman belajar tatap muka,
-              dengan materi yang sama seperti siswa jarak jauh.
+              Tetap mendapatkan pengalaman belajar tatap muka, dengan materi
+              yang sama seperti siswa jarak jauh.
             </p>
           </motion.div>
 
           <motion.div variants={fadeRight}>
-            <h3 className="text-2xl font-bold mb-4">
-              Siswa Jarak Jauh
-            </h3>
+            <h3 className="text-2xl font-bold mb-4">Siswa Jarak Jauh</h3>
             <p className="text-white/80">
-              Mengikuti pembelajaran dari mana saja melalui YouTube
-              dengan kualitas audio dan video yang stabil.
+              Mengikuti pembelajaran dari mana saja melalui YouTube dengan
+              kualitas audio dan video yang stabil.
             </p>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* ================= FEATURES ================= */}
       <section className="py-28 bg-white">
         <motion.div
           className="max-w-7xl mx-auto px-6"
@@ -180,59 +170,56 @@ export default function HybridLearningServices() {
         </motion.div>
       </section>
 
-      {/* WAVE */}
-        <div className="relative overflow-hidden">
-            <Image
-            src="/palkon.png"
-            width={1920}
-            height={400}
-            alt="Wave"
-            className="w-full"
-            />
-        </div>
+      <div className="relative overflow-hidden">
+        <Image
+          src="/wave.png"
+          width={1920}
+          height={400}
+          alt="Wave"
+          className="w-full"
+        />
+      </div>
 
-        {/* CLIENT */}
-        <div className="max-w-7xl mx-auto px-6">
-            <OurClient />
-        </div>
+      <div className="max-w-7xl mx-auto px-6">
+        <OurClient />
+      </div>
 
-        {/* ================= CTA ================= */}
-          <section className="py-32 bg-primary-blue">
-            <motion.div
-              className="max-w-7xl mx-auto px-6 text-center text-white"
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.4 }}
-              variants={stagger}
+      <section className="py-32 bg-primary-blue">
+        <motion.div
+          className="max-w-7xl mx-auto px-6 text-center text-white"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={stagger}
+        >
+          <motion.h2
+            variants={fadeUp}
+            className="text-3xl md:text-4xl font-bold"
+          >
+            Siap Menerapkan Hybrid Learning di Sekolah Anda?
+          </motion.h2>
+
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 max-w-2xl mx-auto text-white/80 text-lg"
+          >
+            Tingkatkan kualitas pembelajaran dengan sistem hybrid terintegrasi
+            Google Meet dan YouTube, didukung teknologi LuminoED.
+          </motion.p>
+
+          <motion.div
+            variants={fadeUp}
+            className="mt-10 flex flex-col sm:flex-row justify-center gap-4"
+          >
+            <Link
+              href="/contact"
+              className="px-8 py-4 rounded-full bg-primary-green text-white font-semibold hover:opacity-90 transition text-center"
             >
-              <motion.h2
-                variants={fadeUp}
-                className="text-3xl md:text-4xl font-bold"
-              >
-                Siap Menerapkan Hybrid Learning di Sekolah Anda?
-              </motion.h2>
-
-              <motion.p
-                variants={fadeUp}
-                className="mt-6 max-w-2xl mx-auto text-white/80 text-lg"
-              >
-                Tingkatkan kualitas pembelajaran dengan sistem hybrid terintegrasi
-                Google Meet dan YouTube, didukung teknologi LuminoED.
-              </motion.p>
-
-              <motion.div
-                variants={fadeUp}
-                className="mt-10 flex flex-col sm:flex-row justify-center gap-4"
-              >
-                <Link
-                  href="/contact"
-                  className="px-8 py-4 rounded-full bg-primary-green text-white font-semibold hover:opacity-90 transition text-center"
-                >
-                  Konsultasi Sekarang
-                </Link>
-              </motion.div>
-            </motion.div>
-          </section>
+              Konsultasi Sekarang
+            </Link>
+          </motion.div>
+        </motion.div>
+      </section>
     </main>
   );
 }

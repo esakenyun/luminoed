@@ -185,7 +185,7 @@ export default function NavbarMobile() {
     about: {
       logoSrc: "/logo/logo-color.png",
       menuClass:
-        "py-1.5 px-3 rounded-full bg-slate-100/10 backdrop-blur-lg text-white",
+        "py-1.5 px-3 rounded-full bg-primary-green/50 backdrop-blur-lg text-primary-blue",
     },
     blog: {
       logoSrc: "/logo/logo-color.png",
@@ -233,7 +233,6 @@ export default function NavbarMobile() {
               transition={{ duration: 0.3, ease: "easeOut" }}
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Header */}
               <div className="shrink-0 flex justify-between items-center border-b border-dashed p-6">
                 <AnimatePresence mode="wait">
                   {menuView === "services" ? (
@@ -279,7 +278,6 @@ export default function NavbarMobile() {
                 </button>
               </div>
 
-              {/* Content */}
               <div className="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain touch-pan-y">
                 <AnimatePresence mode="wait">
                   {menuView === "main" && (
@@ -317,7 +315,6 @@ export default function NavbarMobile() {
                       animate={{ x: 0, opacity: 1 }}
                       exit={{ x: -30, opacity: 0 }}
                     >
-                      {/* BY STAGE */}
                       <div className="px-6 pt-6">
                         <p className="text-xs font-semibold text-gray-400 mb-3">
                           Training
@@ -329,7 +326,6 @@ export default function NavbarMobile() {
                                 href={item.href}
                                 className="flex items-center gap-4 text-lg active:scale-[0.98] transition"
                               >
-                                {/* <item.icon className="text-xl text-primary-green" /> */}
                                 <Image
                                   src={item.image}
                                   width={50}
@@ -347,7 +343,6 @@ export default function NavbarMobile() {
 
                       <div className="my-6 border-t border-dashed" />
 
-                      {/* Marketing */}
                       <div className="px-6">
                         <p className="text-xs font-semibold text-gray-400 mb-3">
                           Marketing
@@ -376,7 +371,6 @@ export default function NavbarMobile() {
 
                       <div className="my-6 border-t border-dashed" />
 
-                      {/* Streaming */}
                       <div className="px-6">
                         <p className="text-xs font-semibold text-gray-400 mb-3">
                           Streaming
@@ -405,7 +399,6 @@ export default function NavbarMobile() {
 
                       <div className="my-6 border-t border-dashed" />
 
-                      {/* Equipment Provision */}
                       <div className="px-6">
                         <p className="text-xs font-semibold text-gray-400 mb-3">
                           Equipment Provision
@@ -434,7 +427,6 @@ export default function NavbarMobile() {
 
                       <div className="my-6 border-t border-dashed" />
 
-                      {/* SmartSchool Management */}
                       <div className="px-6">
                         <p className="text-xs font-semibold text-gray-400 mb-3">
                           SmartSchool Management
@@ -463,7 +455,6 @@ export default function NavbarMobile() {
 
                       <div className="my-6 border-t border-dashed" />
 
-                      {/* Additional Services */}
                       <div className="px-6">
                         <p className="text-xs font-semibold text-gray-400 mb-3">
                           Additional Services
@@ -509,7 +500,6 @@ export default function NavbarMobile() {
         )}
       </AnimatePresence>
 
-      {/* Lock scroll */}
       {isModalOpen && (
         <style jsx global>{`
           body {

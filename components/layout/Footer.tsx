@@ -18,9 +18,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-primary-blue text-white py-30 px-6">
-      {/* TOP SECTION */}
       <div className="max-w-7xl px-6 mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-        {/* Left Menu */}
         <div className="space-y-3">
           {navLinks
             .filter((link) => link.href !== "/services")
@@ -37,7 +35,6 @@ export default function Footer() {
             ))}
         </div>
 
-        {/* Social + Contact */}
         <div className="space-y-4 pr-10">
           <p className="text-lime-300">Follow Us On</p>
           <div className="flex items-center gap-3">
@@ -90,41 +87,41 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Logo */}
         <div className="mt-10 items-center justify-center md:justify-center">
-          <h2 className="text-4xl font-bold text-white">Elevate your business now, with creative solutions!</h2>
-            <button
-              onClick={() => (window.location.href = '/contact')}
-              className="mt-10 flex gap-0.5 cursor-pointer py-2 px-4 bg-primary-green text-xl font-bold text-white rounded-full hover:text-primary-blue"
-            >
-              Start Your Project
-              <ChevronRight className="mt-1" />
-            </button>
+          <h2 className="text-4xl font-bold text-white">
+            Elevate your business now, with creative solutions!
+          </h2>
+          <button
+            onClick={() => (window.location.href = "/contact")}
+            className="mt-10 flex gap-0.5 cursor-pointer py-2 px-4 bg-primary-green text-xl font-bold text-white rounded-full hover:text-primary-blue"
+          >
+            Start Your Project
+            <ChevronRight className="mt-1" />
+          </button>
         </div>
       </div>
 
-      {/* TOP SECTION */}
       <div className="mt-30 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-        {/* Left Menu */}
         <div className="flex justify-center md:justify-center">
           <Image
             src="/logo/logo-color.png"
             alt="LuminoED Logo"
             width={500}
             height={10}
-            className="p-10 rounded-[5px] bg-white p-3"
+            className="p-10 rounded-[5px] bg-white"
           />
         </div>
 
-        {/* Social + Contact */}
         <div className="mt-10 space-y-4">
           <p className="text-white font-bold">Copyright © 2025 LuminoED</p>
-          <p className="text-white">LuminoEd is a trademark of PT Kibar Cendekia Muda. Registered in the Directorate General of Intellectual 
-            Property of the Republic of Indonesia.</p>
+          <p className="text-white">
+            LuminoEd is a trademark of PT Kibar Cendekia Muda. Registered in the
+            Directorate General of Intellectual Property of the Republic of
+            Indonesia.
+          </p>
         </div>
       </div>
 
-      {/* Divider */}
       <div className="max-w-7xl mx-auto mt-20">
         <div className="h-0.5 bg-primary-green"></div>
       </div>

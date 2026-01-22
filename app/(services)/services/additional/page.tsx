@@ -9,8 +9,6 @@ import { fadeUp, stagger } from "@/lib/motion";
 export default function AdditionalServices() {
   return (
     <main className="overflow-hidden bg-white">
-
-      {/* ================= HERO ================= */}
       <section className="relative bg-white py-32">
         <motion.div
           variants={fadeUp}
@@ -24,13 +22,12 @@ export default function AdditionalServices() {
           </h1>
           <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
             Layanan pendukung yang menyempurnakan ekosistem Smart Education
-            LuminoED untuk administrasi pembelajaran yang lebih efektif,
-            akurat, dan terintegrasi.
+            LuminoED untuk administrasi pembelajaran yang lebih efektif, akurat,
+            dan terintegrasi.
           </p>
         </motion.div>
       </section>
 
-      {/* ================= WHY SECTION ================= */}
       <section className="py-24">
         <motion.div
           variants={stagger}
@@ -70,7 +67,6 @@ export default function AdditionalServices() {
         </motion.div>
       </section>
 
-      {/* ================= LESSON PLAN ================= */}
       <section className="py-24 bg-primary-blue/5">
         <motion.div
           variants={stagger}
@@ -79,7 +75,6 @@ export default function AdditionalServices() {
           viewport={{ once: true }}
           className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center"
         >
-          {/* Text */}
           <motion.div variants={fadeUp}>
             <h2 className="text-3xl font-bold text-primary-blue">
               Lesson Plan Digital
@@ -104,7 +99,6 @@ export default function AdditionalServices() {
             </Link>
           </motion.div>
 
-          {/* Visual */}
           <motion.div
             variants={fadeUp}
             whileHover={{ scale: 1.03 }}
@@ -122,7 +116,6 @@ export default function AdditionalServices() {
         </motion.div>
       </section>
 
-      {/* ================= ERAPOR ================= */}
       <section className="py-24">
         <motion.div
           variants={stagger}
@@ -131,7 +124,6 @@ export default function AdditionalServices() {
           viewport={{ once: true }}
           className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center"
         >
-          {/* Visual */}
           <motion.div
             variants={fadeUp}
             whileHover={{ scale: 1.03 }}
@@ -147,7 +139,6 @@ export default function AdditionalServices() {
             />
           </motion.div>
 
-          {/* Text */}
           <motion.div variants={fadeUp} className="order-1 md:order-2">
             <h2 className="text-3xl font-bold text-primary-green">
               eRapor Terintegrasi
@@ -174,36 +165,33 @@ export default function AdditionalServices() {
         </motion.div>
       </section>
 
-      {/* ================= WAVE ================= */}
-        <motion.div
+      <motion.div
         className="relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        >
+      >
         <Image
-            src="/palkon.png"
-            alt="Wave"
-            width={1920}
-            height={400}
-            className="w-full"
+          src="/wave.png"
+          alt="Wave"
+          width={1920}
+          height={400}
+          className="w-full"
         />
-        </motion.div>
+      </motion.div>
 
-        {/* ================= CLIENT ================= */}
-        <motion.div
+      <motion.div
         className="max-w-7xl mx-auto px-6"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        >
+      >
         <OurClient />
-        </motion.div>
+      </motion.div>
 
-      {/* ================= CTA ================= */}
-      <section className="py-32 bg-gradient-to-r from-primary-green to-primary-blue">
+      <section className="py-32 bg-linear-to-r from-primary-green to-primary-blue">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -235,7 +223,6 @@ export default function AdditionalServices() {
           </div>
         </motion.div>
       </section>
-
     </main>
   );
 }

@@ -6,11 +6,25 @@ import { ArrowRight } from "lucide-react";
 import OurClient from "@/components/sections/home/OurClient";
 import { motion } from "framer-motion";
 
-/* ================= ANIMATION VARIANTS ================= */
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   show: { opacity: 1, y: 0 },
 };
+
+interface TrainingCardProps {
+  title: string;
+  desc: string;
+  href: string;
+}
+
+interface MethodItemProps {
+  title: string;
+  desc: string;
+}
+
+interface TargetItemProps {
+  text: string;
+}
 
 const stagger = {
   show: {
@@ -23,8 +37,6 @@ const stagger = {
 export default function TrainingServices() {
   return (
     <main className="w-full">
-
-      {/* ================= HERO ================= */}
       <section className="px-4 sm:px-6">
         <motion.div
           variants={fadeUp}
@@ -33,7 +45,7 @@ export default function TrainingServices() {
           transition={{ duration: 0.7 }}
           className="relative bg-primary-blue max-w-7xl mx-auto px-6 md:px-20 text-white py-32 rounded-xl overflow-hidden"
         >
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid xl:grid-cols-2 gap-16 items-center">
             <div>
               <h1 className="text-4xl lg:text-6xl font-extrabold leading-tight">
                 Membangun Kompetensi Digital <br />
@@ -66,31 +78,30 @@ export default function TrainingServices() {
             <div className="hidden md:block">
               <div className="aspect-video bg-black/30 rounded-2xl flex items-center justify-center">
                 <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="w-full"
-            >
-              <div className="relative aspect-[9/10] overflow-hidden shadow-2xl">
-                <video
-                  src="/services/training.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  className="absolute inset-0 w-full h-full object-cover rounded-lg"
-                />
-              </div>
-            </motion.div>
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 }}
+                  className="w-full"
+                >
+                  <div className="relative aspect-9/10 overflow-hidden shadow-2xl">
+                    <video
+                      src="/services/training.mp4"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                </motion.div>
               </div>
             </div>
           </div>
         </motion.div>
       </section>
 
-      {/* ================= PROGRAM ================= */}
       <motion.section
         id="program"
         className="py-32"
@@ -127,7 +138,6 @@ export default function TrainingServices() {
         </div>
       </motion.section>
 
-      {/* ================= METODE ================= */}
       <motion.section
         className="bg-slate-50 py-32"
         variants={stagger}
@@ -144,15 +154,26 @@ export default function TrainingServices() {
           </motion.h2>
 
           <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
-            <MethodItem title="Hybrid Learning" desc="Offline, online, dan hybrid sesuai kebutuhan." />
-            <MethodItem title="Project Based" desc="Belajar melalui studi kasus dan project nyata." />
-            <MethodItem title="Mentor Profesional" desc="Didampingi trainer dan praktisi berpengalaman." />
-            <MethodItem title="Sertifikasi" desc="Sertifikat resmi sebagai bukti kompetensi." />
+            <MethodItem
+              title="Hybrid Learning"
+              desc="Offline, online, dan hybrid sesuai kebutuhan."
+            />
+            <MethodItem
+              title="Project Based"
+              desc="Belajar melalui studi kasus dan project nyata."
+            />
+            <MethodItem
+              title="Mentor Profesional"
+              desc="Didampingi trainer dan praktisi berpengalaman."
+            />
+            <MethodItem
+              title="Sertifikasi"
+              desc="Sertifikat resmi sebagai bukti kompetensi."
+            />
           </div>
         </div>
       </motion.section>
 
-      {/* ================= TARGET ================= */}
       <motion.section
         className="py-32"
         variants={stagger}
@@ -178,10 +199,9 @@ export default function TrainingServices() {
         </div>
       </motion.section>
 
-      {/* ================= WAVE ================= */}
       <div className="relative overflow-hidden">
         <Image
-          src="/palkon.png"
+          src="/wave.png"
           width={1920}
           height={400}
           alt="Wave"
@@ -189,7 +209,6 @@ export default function TrainingServices() {
         />
       </div>
 
-      {/* ================= CLIENT ================= */}
       <div className="max-w-7xl mx-auto px-6">
         <OurClient />
       </div>
@@ -197,9 +216,7 @@ export default function TrainingServices() {
   );
 }
 
-/* ================= COMPONENTS ================= */
-
-function TrainingCard({ title, desc, href }: any) {
+function TrainingCard({ title, desc, href }: TrainingCardProps) {
   return (
     <motion.div
       variants={fadeUp}
@@ -219,19 +236,16 @@ function TrainingCard({ title, desc, href }: any) {
   );
 }
 
-function MethodItem({ title, desc }: any) {
+function MethodItem({ title, desc }: MethodItemProps) {
   return (
-    <motion.div
-      variants={fadeUp}
-      className="bg-white rounded-xl shadow p-6"
-    >
+    <motion.div variants={fadeUp} className="bg-white rounded-xl shadow p-6">
       <h3 className="font-bold text-lg text-primary-blue">{title}</h3>
       <p className="mt-2 text-slate-600">{desc}</p>
     </motion.div>
   );
 }
 
-function TargetItem({ text }: any) {
+function TargetItem({ text }: TargetItemProps) {
   return (
     <motion.div
       variants={fadeUp}

@@ -4,15 +4,13 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import OurClient from "@/components/sections/home/OurClient";
-import { fade, stagger, slideLeft, slideUp } from "@/lib/motion";
+import { stagger, slideLeft, slideUp } from "@/lib/motion";
 
 export default function LessonPlanServices() {
   return (
     <main className="bg-white overflow-hidden">
-
-      {/* ================= HERO CANVAS ================= */}
-      <section className="relative min-h-screen flex max-w-7xl mx-auto rounded-xl items-center bg-gradient-to-br from-primary-blue via-primary-blue/90 to-primary-green text-white overflow-hidden px-6 py-32">
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-20 grid md:grid-cols-2 gap-16 items-center">
+      <section className="relative min-h-screen flex max-w-7xl mx-auto xl:rounded-xl items-center bg-linear-to-br from-primary-blue via-primary-blue/90 to-primary-green text-white overflow-hidden px-6 py-32">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-20 grid xl:grid-cols-2 gap-16 items-center">
           <motion.div variants={stagger} initial="hidden" animate="show">
             <motion.span
               variants={slideUp}
@@ -25,25 +23,19 @@ export default function LessonPlanServices() {
               variants={slideUp}
               className="text-4xl md:text-5xl font-bold leading-tight"
             >
-              Otomatisasi Modul Ajar  
+              Otomatisasi Modul Ajar
               <span className="block text-primary-green">
                 Tanpa Ribet Spreadsheet
               </span>
             </motion.h1>
 
-            <motion.p
-              variants={slideUp}
-              className="mt-6 text-white/90 text-lg"
-            >
-              LuminoED membantu guru menyusun modul ajar dan RPP
-              secara otomatis melalui integrasi spreadsheet,
-              template kurikulum, dan sistem pintar berbasis AI.
+            <motion.p variants={slideUp} className="mt-6 text-white/90 text-lg">
+              LuminoED membantu guru menyusun modul ajar dan RPP secara otomatis
+              melalui integrasi spreadsheet, template kurikulum, dan sistem
+              pintar berbasis AI.
             </motion.p>
 
-            <motion.div
-              variants={slideUp}
-              className="mt-10 flex gap-4"
-            >
+            <motion.div variants={slideUp} className="mt-10 flex gap-4">
               <Link
                 href="/contact"
                 className="bg-white text-primary-blue px-8 py-4 rounded-xl font-semibold hover:bg-white/90 transition"
@@ -53,7 +45,6 @@ export default function LessonPlanServices() {
             </motion.div>
           </motion.div>
 
-          {/* Visual */}
           <motion.div
             variants={slideLeft}
             initial="hidden"
@@ -72,8 +63,7 @@ export default function LessonPlanServices() {
         </div>
       </section>
 
-      {/* ================= AUTOMATION FLOW ================= */}
-      <section className="mt-20 py-32 bg-gradient-to-b from-white to-primary-blue/5">
+      <section className="mt-20 py-32 bg-linear-to-b from-white to-primary-blue/5">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -88,7 +78,7 @@ export default function LessonPlanServices() {
             Alur Otomatisasi Modul Ajar
           </motion.h2>
 
-          <div className="mt-20 grid md:grid-cols-4 gap-10">
+          <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
             {[
               {
                 title: "Template Kurikulum",
@@ -126,7 +116,6 @@ export default function LessonPlanServices() {
         </motion.div>
       </section>
 
-      {/* ================= SPREADSHEET POWER ================= */}
       <section className="py-32">
         <motion.div
           variants={stagger}
@@ -140,10 +129,9 @@ export default function LessonPlanServices() {
               Kekuatan Spreadsheet Terintegrasi
             </h2>
             <p className="mt-6 text-gray-600">
-              Tidak perlu belajar sistem baru yang rumit.
-              Guru cukup menggunakan spreadsheet seperti Google Sheets
-              yang sudah familiar, sementara sistem LuminoED
-              mengelola otomatisasi di belakang layar.
+              Tidak perlu belajar sistem baru yang rumit. Guru cukup menggunakan
+              spreadsheet seperti Google Sheets yang sudah familiar, sementara
+              sistem LuminoED mengelola otomatisasi di belakang layar.
             </p>
 
             <ul className="mt-8 space-y-4 text-gray-700">
@@ -171,36 +159,33 @@ export default function LessonPlanServices() {
         </motion.div>
       </section>
 
-      {/* ================= WAVE ================= */}
-        <motion.div
+      <motion.div
         className="relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        >
+      >
         <Image
-            src="/palkon.png"
-            alt="Wave"
-            width={1920}
-            height={400}
-            className="w-full"
+          src="/wave.png"
+          alt="Wave"
+          width={1920}
+          height={400}
+          className="w-full"
         />
-        </motion.div>
+      </motion.div>
 
-        {/* ================= CLIENT ================= */}
-        <motion.div
+      <motion.div
         className="max-w-7xl mx-auto px-6"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        >
+      >
         <OurClient />
-        </motion.div>
+      </motion.div>
 
-      {/* ================= CTA ================= */}
-      <section className="py-32 bg-gradient-to-r from-primary-blue to-primary-green">
+      <section className="py-32 bg-linear-to-r from-primary-blue to-primary-green">
         <motion.div
           variants={slideUp}
           initial="hidden"
@@ -212,7 +197,8 @@ export default function LessonPlanServices() {
             Waktunya Guru Fokus Mengajar
           </h2>
           <p className="mt-6 text-white/90">
-            Biarkan LuminoED mengurus administrasi dan modul ajar secara otomatis.
+            Biarkan LuminoED mengurus administrasi dan modul ajar secara
+            otomatis.
           </p>
 
           <Link
@@ -223,7 +209,6 @@ export default function LessonPlanServices() {
           </Link>
         </motion.div>
       </section>
-
     </main>
   );
 }

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import OurClient from "@/components/sections/home/OurClient";
 import Link from "next/link";
-import { Video, Camera, Wifi, Headphones, CircleCheck} from "lucide-react";
+import { Video, Camera, Wifi, Headphones } from "lucide-react";
 import { motion } from "framer-motion";
 import { container, itemAnim } from "@/lib/motion";
 import { ChevronRight } from "lucide-react";
@@ -31,17 +31,15 @@ const services = [
 ];
 
 export default function StreamingServices() {
-
   const [activeTab] = useState("default");
 
   const renderContent = () => {
     if (activeTab === "default") {
       return (
         <section className="w-full">
-          {/* HERO */}
           <div className="px-4 sm:px-6">
             <div className="relative bg-primary-blue max-w-7xl mx-auto px-6 md:px-20 text-white py-32 rounded-xl overflow-hidden">
-              <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="grid xl:grid-cols-2 gap-16 items-center">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -76,12 +74,9 @@ export default function StreamingServices() {
                   </div>
                 </motion.div>
 
-                {/* Visual Placeholder */}
                 <div className="hidden md:block">
                   <div className="aspect-video rounded-2xl bg-black/30 flex items-center justify-center">
-                    <span className="text-white/60">
-                        Streaming Preview
-                    </span>
+                    <span className="text-white/60">Streaming Preview</span>
                   </div>
                 </div>
               </div>
@@ -90,74 +85,70 @@ export default function StreamingServices() {
 
           <section id="services" className="py-24 px-6">
             <div className="mx-auto max-w-7xl">
-            <h2 className="text-3xl font-bold text-primary-blue mb-12">
-              Our Streaming Services
-            </h2>
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center border border-slate-200 rounded-2xl shadow-sm">
+              <h2 className="text-3xl font-bold text-primary-blue mb-12">
+                Our Streaming Services
+              </h2>
+              <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center border border-slate-200 rounded-2xl shadow-sm">
+                <motion.div
+                  initial={{ opacity: 0, x: -60 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="relative h-full rounded-tl-2xl rounded-bl-2xl overflow-hidden"
+                >
+                  <Image
+                    src="/services/streaming.jpg"
+                    alt="Additional Services"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-tr from-black/40 to-transparent" />
+                </motion.div>
 
-              {/* IMAGE LEFT */}
-              <motion.div
-                initial={{ opacity: 0, x: -60 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="relative h-full rounded-tl-2xl rounded-bl-2xl overflow-hidden"
-              >
-                <Image
-                  src="/services/streaming.jpg"
-                  alt="Additional Services"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent" />
-              </motion.div>
+                <div className="">
+                  {services.map((item, i) => {
+                    const Icon = item.icon;
 
-              {/* SERVICE LIST */}
-              <div className="">
-                {services.map((item, i) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <Link href={item.href} key={i} className="block">
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 40 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.15, duration: 0.6 }}
-                      className="group flex items-center justify-between bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all m-6"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className="p-3 rounded-lg bg-lime-100 border border-slate-200 text-lime-600">
-                          <Icon size={24} />
-                        </div>
-                        <div>
-                          <h3 className="text-lg text-lime-500 font-semibold">
-                            {item.title}
-                          </h3>
-                          <p className="text-sm text-slate-600 mt-1 leading-relaxed">
-                            {item.desc}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="ml-4 flex items-center justify-center w-10 h-10 rounded-lg text-white 
-                                      group-hover:translate-x-1 transition-transform">
-                        <ChevronRight size={30} color="lime" />
-                      </div>
-                    </motion.div>
-                    </Link>
-                  );
-                })}
+                    return (
+                      <Link href={item.href} key={i} className="block">
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, y: 40 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: i * 0.15, duration: 0.6 }}
+                          className="group flex items-center justify-between bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all m-6"
+                        >
+                          <div className="flex items-center gap-4">
+                            <div className="p-3 rounded-lg bg-lime-100 border border-slate-200 text-lime-600">
+                              <Icon size={24} />
+                            </div>
+                            <div>
+                              <h3 className="text-lg text-lime-500 font-semibold">
+                                {item.title}
+                              </h3>
+                              <p className="text-sm text-slate-600 mt-1 leading-relaxed">
+                                {item.desc}
+                              </p>
+                            </div>
+                          </div>
+                          <div
+                            className="ml-4 flex items-center justify-center w-10 h-10 rounded-lg text-white 
+                                      group-hover:translate-x-1 transition-transform"
+                          >
+                            <ChevronRight size={30} color="lime" />
+                          </div>
+                        </motion.div>
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
             </div>
           </section>
 
-          {/* WHAT WE PROVIDE */}
-          <section className="bg-slate-50 py-24 bg-gradient-to-b to-white">
+          <section className="bg-slate-50 py-24 bg-linear-to-b to-white">
             <div className="mx-auto max-w-7xl px-6">
-
-              {/* TITLE */}
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -168,7 +159,6 @@ export default function StreamingServices() {
                 What We Provide
               </motion.h2>
 
-              {/* GRID */}
               <motion.div
                 variants={container}
                 initial="hidden"
@@ -207,9 +197,7 @@ export default function StreamingServices() {
                     }}
                     className="rounded-xl bg-white p-6 border border-slate-200 transition-all"
                   >
-                    <div className="mb-4 text-primary-blue">
-                      {item.icon}
-                    </div>
+                    <div className="mb-4 text-primary-blue">{item.icon}</div>
                     <h4 className="font-semibold text-primary-blue">
                       {item.title}
                     </h4>
@@ -222,10 +210,9 @@ export default function StreamingServices() {
             </div>
           </section>
 
-          {/* WAVE */}
           <div className="relative overflow-hidden">
             <Image
-              src="/palkon.png"
+              src="/wave.png"
               width={1920}
               height={400}
               alt="Wave"
@@ -233,12 +220,10 @@ export default function StreamingServices() {
             />
           </div>
 
-          {/* CLIENT */}
           <div className="max-w-7xl mx-auto px-6">
             <OurClient />
           </div>
 
-          {/* CTA */}
           <div className="bg-primary-blue py-20 text-center text-white">
             <h2 className="text-3xl font-bold">
               Ready to Go Streaming with LuminoED?
@@ -264,9 +249,7 @@ export default function StreamingServices() {
 
   return (
     <>
-      <div className="relative min-h-screen">
-        {renderContent()}
-      </div>
+      <div className="relative min-h-screen">{renderContent()}</div>
     </>
   );
 }

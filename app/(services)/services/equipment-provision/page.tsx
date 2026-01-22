@@ -3,9 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import OurClient from "@/components/sections/home/OurClient";
-import { fadeUp, fadeScale, fadeLeft, fadeRight, stagger } from "@/lib/motion";
+import { fadeUp, fadeScale, stagger } from "@/lib/motion";
 
-/* ================= DATA ================= */
 const equipments = [
   {
     name: "Chromebook Education",
@@ -39,12 +38,9 @@ const equipments = [
   },
 ];
 
-/* ================= PAGE ================= */
 export default function EquipmentProvisionServices() {
   return (
     <main className="overflow-hidden">
-
-      {/* ================= INTRO ================= */}
       <section className="mt-20 py-40 bg-primary-blue text-white">
         <motion.div
           className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center"
@@ -58,19 +54,18 @@ export default function EquipmentProvisionServices() {
             </span>
 
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-              Penyediaan Perangkat  
+              Penyediaan Perangkat
               <br />
               Pendukung Pendidikan Digital
             </h1>
 
             <p className="mt-6 text-white/80 max-w-xl">
-              LuminoED menyediakan berbagai perangkat teknologi pendidikan
-              mulai dari Chromebook, PC, IFP, hingga infrastruktur pendukung
-              untuk memastikan ekosistem pembelajaran berjalan optimal.
+              LuminoED menyediakan berbagai perangkat teknologi pendidikan mulai
+              dari Chromebook, PC, IFP, hingga infrastruktur pendukung untuk
+              memastikan ekosistem pembelajaran berjalan optimal.
             </p>
           </motion.div>
 
-          {/* VISUAL BLOCK */}
           <motion.div
             variants={fadeScale}
             className="h-72 rounded-3xl bg-white/10 border border-white/20 flex items-center justify-center text-white/50 text-lg"
@@ -80,7 +75,6 @@ export default function EquipmentProvisionServices() {
         </motion.div>
       </section>
 
-      {/* ================= EQUIPMENT GRID ================= */}
       <section className="py-28 bg-white">
         <motion.div
           className="max-w-7xl mx-auto px-6"
@@ -111,9 +105,7 @@ export default function EquipmentProvisionServices() {
                   {item.name}
                 </h3>
 
-                <p className="mt-3 text-gray-600">
-                  {item.desc}
-                </p>
+                <p className="mt-3 text-gray-600">{item.desc}</p>
 
                 <div className="absolute bottom-6 right-6 text-primary-blue opacity-0 group-hover:opacity-100 transition">
                   →
@@ -124,8 +116,7 @@ export default function EquipmentProvisionServices() {
         </motion.div>
       </section>
 
-      {/* ================= VALUE SECTION ================= */}
-      <section className="py-28 bg-primary-blue/5 h-75 bg-gradient-to-b to-white">
+      <section className="py-28 bg-primary-blue/5 h-75 bg-linear-to-b to-white">
         <motion.div
           className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12"
           initial="hidden"
@@ -137,7 +128,8 @@ export default function EquipmentProvisionServices() {
               Original & Bergaransi
             </h4>
             <p className="text-gray-600">
-              Seluruh perangkat resmi dan memiliki garansi sesuai standar pabrikan.
+              Seluruh perangkat resmi dan memiliki garansi sesuai standar
+              pabrikan.
             </p>
           </motion.div>
 
@@ -155,65 +147,64 @@ export default function EquipmentProvisionServices() {
               Terintegrasi Sistem LuminoED
             </h4>
             <p className="text-gray-600">
-              Perangkat dapat diintegrasikan dengan SmartSchool & Google Workspace.
+              Perangkat dapat diintegrasikan dengan SmartSchool & Google
+              Workspace.
             </p>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* WAVE */}
-        <div className="relative overflow-hidden">
-            <Image
-            src="/palkon.png"
-            width={1920}
-            height={400}
-            alt="Wave"
-            className="w-full"
-            />
-        </div>
+      <div className="relative overflow-hidden">
+        <Image
+          src="/wave.png"
+          width={1920}
+          height={400}
+          alt="Wave"
+          className="w-full"
+        />
+      </div>
 
-        {/* CLIENT */}
-        <div className="max-w-7xl mx-auto px-6">
-            <OurClient />
-        </div>
+      <div className="max-w-7xl mx-auto px-6">
+        <OurClient />
+      </div>
 
-      {/* ================= CTA ================= */}
-        <section className="py-32 bg-gradient-to-r from-primary-blue to-primary-blue/90">
-          <motion.div
-            className="max-w-7xl mx-auto px-6 text-center text-white"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.4 }}
-            variants={stagger}
+      <section className="py-32 bg-linear-to-r from-primary-blue to-primary-blue/90">
+        <motion.div
+          className="max-w-7xl mx-auto px-6 text-center text-white"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={stagger}
+        >
+          <motion.h2
+            variants={fadeUp}
+            className="text-3xl md:text-4xl font-bold"
           >
-            <motion.h2
-              variants={fadeUp}
-              className="text-3xl md:text-4xl font-bold"
-            >
-              Siap Melengkapi Perangkat Digital Sekolah Anda?
-            </motion.h2>
+            Siap Melengkapi Perangkat Digital Sekolah Anda?
+          </motion.h2>
 
-            <motion.p
-              variants={fadeUp}
-              className="mt-6 max-w-2xl mx-auto text-white/80 text-lg"
-            >
-              Konsultasikan kebutuhan perangkat pendidikan Anda bersama tim LuminoED.
-              Kami siap membantu mulai dari pemilihan, pengadaan, hingga instalasi.
-            </motion.p>
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 max-w-2xl mx-auto text-white/80 text-lg"
+          >
+            Konsultasikan kebutuhan perangkat pendidikan Anda bersama tim
+            LuminoED. Kami siap membantu mulai dari pemilihan, pengadaan, hingga
+            instalasi.
+          </motion.p>
 
-            <motion.div
-              variants={fadeUp}
-              className="mt-10 flex flex-col sm:flex-row justify-center gap-4"
+          <motion.div
+            variants={fadeUp}
+            className="mt-10 flex flex-col sm:flex-row justify-center gap-4"
+          >
+            <a
+              href="/contact"
+              className="px-8 py-4 rounded-full bg-primary-green text-white font-semibold hover:opacity-90 transition text-center"
             >
-              <a
-                href="/contact"
-                className="px-8 py-4 rounded-full bg-primary-green text-white font-semibold hover:opacity-90 transition text-center"
-              >
-                Konsultasi Sekarang
-              </a>
-            </motion.div>
+              Konsultasi Sekarang
+            </a>
           </motion.div>
-        </section>
+        </motion.div>
+      </section>
     </main>
   );
 }

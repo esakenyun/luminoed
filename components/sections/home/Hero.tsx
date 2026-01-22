@@ -10,12 +10,12 @@ export default function Hero() {
         <div className="absolute -z-2 top-0 w-full h-3/4 lg:h-full left-0 bg-primary-blue"></div>
       </div>
       <div className="grid tablet-landscape-max:grid-cols-2 gap-12 lg:gap-1 items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-8 max-w-2xl text-white">
-          <h1 className="text-5xl sm:text-6xl lg:text-[77px] font-extrabold tracking-tight leading-[1.1] text-heading-light">
+        <div className="flex flex-col gap-8 xl:max-w-2xl text-white md:items-center">
+          <h1 className="text-5xl sm:text-6xl lg:text-[77px] font-extrabold tracking-tight leading-[1.1] text-heading-light md:mt-20 md:text-center xl:text-left lg:mt-40 xl:mt-0">
             Powered by Technology, <br />
             Guided by Faith. <br />
           </h1>
-          <p className="text-lg sm:text-xl lg:text-[16px] leading-relaxed max-w-xl text-neutral-400">
+          <p className="text-lg sm:text-xl lg:text-[16px] leading-relaxed xl:max-w-xl text-neutral-400 md:text-center xl:text-left">
             Join the growing number of schools that use LuminoED to integrate
             learning, teacher and student management, academic administration,
             and asset monitoring into a single digital ecosystem. LuminoED
@@ -33,20 +33,23 @@ export default function Hero() {
             </button>
           </div>
         </div>
-        <div className="relative lg:h-[600px] flex items-center justify-end tablet-landscape-max::justify-end overflow-visible">
-          {/* BACK GREEN CARD */}
-          <div className="absolute right-6 tablet-landscape-max:right-[-100px] top-[-10px] w-[420px] h-[540px] bg-lime-200/50 rounded-[20px] z-0" />
 
-          {/* FRONT IMAGE CARD */}
-          <div className="relative w-full max-w-[420px] h-[540px] rounded-[20px] overflow-hidden shadow-2xl bg-white z-10">
-            <Image
-              src="/landing.JPG"
-              width={500}
-              height={500}
-              alt="Dashboard Preview"
-              className="w-full h-full object-cover"
-              priority
-            />
+        <div className="hidden md:block h-[450px] xl:hidden"></div>
+
+        <div className="md:hidden xl:block">
+          <div className="relative lg:h-[600px] flex items-center justify-end tablet-landscape-max:justify-end overflow-visible">
+            <div className="absolute right-6 tablet-landscape-max:right-[-100px] top-[-10px] w-[420px] h-[540px] bg-lime-200/50 rounded-[20px] z-0" />
+
+            <div className="relative w-full max-w-[420px] h-[540px] rounded-[20px] overflow-hidden shadow-2xl bg-white z-10">
+              <Image
+                src="/landing.JPG"
+                width={500}
+                height={500}
+                alt="Dashboard Preview"
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
           </div>
         </div>
       </div>

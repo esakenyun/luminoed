@@ -4,15 +4,13 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import OurClient from "@/components/sections/home/OurClient";
-import { fade, fadeUp, slideRight, stagger } from "@/lib/motion";
+import { fadeUp, slideRight, stagger } from "@/lib/motion";
 
 export default function ERaporServices() {
   return (
     <main className="bg-white overflow-hidden">
-
-      {/* ================= HERO ================= */}
-      <section className="relative min-h-screen max-w-7xl mx-auto rounded-xl overflow-hidden bg-gradient-to-b from-primary-green to-primary-blue text-white flex items-center">
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-20 grid md:grid-cols-2 gap-16 items-center">
+      <section className="relative min-h-screen max-w-7xl mx-auto xl:rounded-xl overflow-hidden bg-linear-to-b from-primary-green to-primary-blue text-white flex items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-20 grid xl:grid-cols-2 gap-16 items-center">
           <motion.div variants={stagger} initial="hidden" animate="show">
             <motion.span
               variants={fadeUp}
@@ -25,19 +23,16 @@ export default function ERaporServices() {
               variants={fadeUp}
               className="text-4xl md:text-5xl font-bold leading-tight"
             >
-              Rapor Digital Terintegrasi  
+              Rapor Digital Terintegrasi
               <span className="block text-primary-green/90">
                 Akurat, Transparan, Real-Time
               </span>
             </motion.h1>
 
-            <motion.p
-              variants={fadeUp}
-              className="mt-6 text-lg text-white/90"
-            >
-              LuminoED eRapor membantu sekolah mengelola nilai, rapor,
-              dan laporan perkembangan siswa secara otomatis,
-              terstruktur, dan siap dipertanggungjawabkan.
+            <motion.p variants={fadeUp} className="mt-6 text-lg text-white/90">
+              LuminoED eRapor membantu sekolah mengelola nilai, rapor, dan
+              laporan perkembangan siswa secara otomatis, terstruktur, dan siap
+              dipertanggungjawabkan.
             </motion.p>
 
             <motion.div
@@ -53,7 +48,6 @@ export default function ERaporServices() {
             </motion.div>
           </motion.div>
 
-          {/* Visual */}
           <motion.div
             variants={slideRight}
             initial="hidden"
@@ -72,8 +66,7 @@ export default function ERaporServices() {
         </div>
       </section>
 
-      {/* ================= VALUE SECTION ================= */}
-      <section className="py-32 bg-gradient-to-b from-white to-primary-blue/5">
+      <section className="py-32 bg-linear-to-b from-white to-primary-blue/5">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -122,7 +115,6 @@ export default function ERaporServices() {
         </motion.div>
       </section>
 
-      {/* ================= ERAPOR FLOW ================= */}
       <section className="py-32">
         <motion.div
           variants={stagger}
@@ -136,8 +128,8 @@ export default function ERaporServices() {
               Alur Kerja eRapor Digital
             </h2>
             <p className="mt-6 text-gray-600">
-              Dari input nilai hingga rapor diterima wali murid,
-              semuanya berjalan otomatis dan terdokumentasi.
+              Dari input nilai hingga rapor diterima wali murid, semuanya
+              berjalan otomatis dan terdokumentasi.
             </p>
 
             <ul className="mt-8 space-y-4 text-gray-700">
@@ -166,36 +158,33 @@ export default function ERaporServices() {
         </motion.div>
       </section>
 
-      {/* ================= WAVE ================= */}
-        <motion.div
+      <motion.div
         className="relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        >
+      >
         <Image
-            src="/palkon.png"
-            alt="Wave"
-            width={1920}
-            height={400}
-            className="w-full"
+          src="/wave.png"
+          alt="Wave"
+          width={1920}
+          height={400}
+          className="w-full"
         />
-        </motion.div>
+      </motion.div>
 
-        {/* ================= CLIENT ================= */}
-        <motion.div
+      <motion.div
         className="max-w-7xl mx-auto px-6"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        >
+      >
         <OurClient />
-        </motion.div>
+      </motion.div>
 
-      {/* ================= CTA ================= */}
-      <section className="py-32 bg-gradient-to-r from-primary-green to-primary-blue">
+      <section className="py-32 bg-linear-to-r from-primary-green to-primary-blue">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -207,8 +196,8 @@ export default function ERaporServices() {
             Wujudkan Rapor Digital yang Profesional
           </h2>
           <p className="mt-6 text-white/90">
-            Tingkatkan kepercayaan wali murid dan efisiensi sekolah
-            dengan sistem eRapor LuminoED.
+            Tingkatkan kepercayaan wali murid dan efisiensi sekolah dengan
+            sistem eRapor LuminoED.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -221,7 +210,6 @@ export default function ERaporServices() {
           </div>
         </motion.div>
       </section>
-
     </main>
   );
 }

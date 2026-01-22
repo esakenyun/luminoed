@@ -1,4 +1,3 @@
-// animation.ts
 import { Variants } from "framer-motion";
 
 export const easeOut = [0.16, 1, 0.3, 1] as const;
@@ -38,10 +37,7 @@ export const scaleUp: Variants = {
   },
 };
 
-export const staggerContainer = (
-  stagger = 0.15,
-  delay = 0
-): Variants => ({
+export const staggerContainer = (stagger = 0.15, delay = 0): Variants => ({
   hidden: {},
   show: {
     transition: {

@@ -32,19 +32,40 @@ const ListItem = React.forwardRef<HTMLAnchorElement, ListItemProps>(
         </NavigationMenu.Link>
       </li>
     );
-  }
+  },
 );
 
 ListItem.displayName = "ListItem";
+
+type ServiceKey =
+  | "training"
+  | "marketing"
+  | "streaming"
+  | "equipment provision"
+  | "smartschool"
+  | "additional";
+
+type ServiceMenuItem = {
+  key: ServiceKey;
+  label: string;
+};
+
+const SERVICES: readonly ServiceMenuItem[] = [
+  { key: "training", label: "Training" },
+  { key: "marketing", label: "Marketing" },
+  { key: "streaming", label: "Streaming" },
+  { key: "equipment provision", label: "Equipment Provision" },
+  { key: "smartschool", label: "Smartschool Management" },
+  { key: "additional", label: "Additional Services" },
+];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [hidden, setHidden] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
 
-  const [activeService, setActiveService] = React.useState<
-          "training" | "marketing" | "streaming" | "equipment provision" | "smartschool" | "additional"
-        >("training");
+  const [activeService, setActiveService] =
+    React.useState<ServiceKey>("training");
 
   const { scrollY } = useScroll();
 
@@ -120,7 +141,7 @@ export default function Navbar() {
 
   const navItemClass = (href: string) => {
     const isActive =
-      href === "/" ? pathname === "/" : pathname?.startsWith(href) ?? false;
+      href === "/" ? pathname === "/" : (pathname?.startsWith(href) ?? false);
 
     return `relative px-3 py-2 text-xl rounded-md transition-colors duration-150 ${
       isActive ? cfg.activeClass : cfg.textClass
@@ -133,7 +154,7 @@ export default function Navbar() {
       animate={hidden ? { y: "-100%" } : { y: 0 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
     >
-      <nav className="mx-auto flex items-center justify-between max-w-7xl py-4">
+      <nav className="mx-auto flex items-center justify-between px-5 xl:px-0 lg:max-w-7xl py-4">
         <Link href={"/"}>
           <Image
             src={cfg.logoSrc}
@@ -155,7 +176,7 @@ export default function Navbar() {
             <NavigationMenu.Item>
               <NavigationMenu.Trigger
                 className={`group flex items-center gap-1 ${navItemClass(
-                  "/services"
+                  "/services",
                 )} focus:shadow-[0_0_0_2px] focus:shadow-blue-400`}
               >
                 Services
@@ -172,40 +193,34 @@ export default function Navbar() {
                 </svg>
               </NavigationMenu.Trigger>
 
-              <NavigationMenu.Content className="absolute top-full mt-2 right-0 w-[900px] bg-[#EBEFF1] rounded-xl p-2 shadow-xl z-50">
+              <NavigationMenu.Content className="absolute top-full mt-2 right-0 w-[700px] lg:w-[900px] bg-[#EBEFF1] rounded-xl p-2 shadow-xl z-50">
                 <div className="grid grid-cols-3 gap-2">
-
-                  {/* LEFT */}
                   <div className="col-span-1 bg-white rounded-lg p-4 space-y-3">
-                    {[
-                      { key: "training", label: "Training" },
-                      { key: "marketing", label: "Marketing" },
-                      { key: "streaming", label: "Streaming" },
-                      { key: "equipment provision", label: "Equipment Provision" },
-                      { key: "smartschool", label: "Smartschool Management" },
-                      { key: "additional", label: "Additional Services" },
-                    ].map((item) => (
+                    {SERVICES.map((item) => (
                       <button
                         key={item.key}
-                        onClick={() => setActiveService(item.key as any)}
+                        onClick={() => setActiveService(item.key)}
                         className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition
-                          ${
-                            activeService === item.key
-                              ? "bg-primary-blue text-white"
-                              : "hover:bg-slate-100 text-slate-700"
-                          }`}
+      ${
+        activeService === item.key
+          ? "bg-primary-blue text-white"
+          : "hover:bg-slate-100 text-slate-700"
+      }`}
                       >
                         {item.label}
                       </button>
                     ))}
                   </div>
 
-                  {/* RIGHT */}
                   <div className="col-span-2 bg-white rounded-lg p-5">
-
                     {activeService === "training" && (
                       <>
-                        <a href="/services/training" className="font-semibold uppercase text-sm">Training</a>
+                        <a
+                          href="/services/training"
+                          className="font-semibold uppercase text-sm"
+                        >
+                          Training
+                        </a>
                         <div className="mt-4 grid grid-cols-2 gap-5">
                           <ServiceItem
                             icon="/navbar/services/it-training.svg"
@@ -228,34 +243,44 @@ export default function Navbar() {
 
                     {activeService === "marketing" && (
                       <>
-                        <a href="/services/marketing" className="font-semibold uppercase text-sm">Marketing</a>
+                        <a
+                          href="/services/marketing"
+                          className="font-semibold uppercase text-sm"
+                        >
+                          Marketing
+                        </a>
                         <div className="mt-4 grid grid-cols-2 gap-5">
-                        <ServiceItem
-                          icon="/navbar/services/design-marketing.svg"
-                          label="Design & Marketing"
-                          href="/services/marketing/design-marketing"
-                        />
+                          <ServiceItem
+                            icon="/navbar/services/design-marketing.svg"
+                            label="Design & Marketing"
+                            href="/services/marketing/design-marketing"
+                          />
                         </div>
                       </>
                     )}
 
                     {activeService === "streaming" && (
                       <>
-                        <a href="/services/streaming" className="font-semibold uppercase text-sm">Streaming</a>
+                        <a
+                          href="/services/streaming"
+                          className="font-semibold uppercase text-sm"
+                        >
+                          Streaming
+                        </a>
                         <div className="mt-4 grid grid-cols-2 gap-5">
-                          <ServiceItem 
-                            icon="/navbar/services/live-streaming.svg" 
-                            label="Live Streaming" 
+                          <ServiceItem
+                            icon="/navbar/services/live-streaming.svg"
+                            label="Live Streaming"
                             href="/services/streaming/live-streaming"
                           />
-                          <ServiceItem 
-                            icon="/navbar/services/photography-videography.svg" 
+                          <ServiceItem
+                            icon="/navbar/services/photography-videography.svg"
                             label="Photography & Videography"
                             href="/services/streaming/photography-videography"
                           />
-                          <ServiceItem 
-                            icon="/navbar/services/hybrid-learning.svg" 
-                            label="Hybrid Learning" 
+                          <ServiceItem
+                            icon="/navbar/services/hybrid-learning.svg"
+                            label="Hybrid Learning"
                             href="/services/streaming/hybrid-learning"
                           />
                         </div>
@@ -265,43 +290,51 @@ export default function Navbar() {
                     {activeService === "equipment provision" && (
                       <>
                         <div className="">
-                        <ServiceItem
-                          icon="/navbar/services/equipment-provision.svg"
-                          label="EQUIPMENT PROVISION"
-                          href="/services/equipment-provision"
-                        />
-                        <button
-                          onClick={() => (window.location.href = '/services/equipment-provision')}
-                          className="mt-5 flex gap-0.5 cursor-pointer py-2 px-4 bg-primary-blue text-sm font-bold text-white hover:bg-blue-600"
-                        >
-                          Discover More
-                        </button>
+                          <ServiceItem
+                            icon="/navbar/services/equipment-provision.svg"
+                            label="EQUIPMENT PROVISION"
+                            href="/services/equipment-provision"
+                          />
+                          <button
+                            onClick={() =>
+                              (window.location.href =
+                                "/services/equipment-provision")
+                            }
+                            className="mt-5 flex gap-0.5 cursor-pointer py-2 px-4 bg-primary-blue text-sm font-bold text-white hover:bg-blue-600"
+                          >
+                            Discover More
+                          </button>
                         </div>
                       </>
                     )}
 
                     {activeService === "smartschool" && (
                       <>
-                        <a href="/services/smart-school" className="font-semibold uppercase text-sm">Smartschool Management</a>
+                        <a
+                          href="/services/smart-school"
+                          className="font-semibold uppercase text-sm"
+                        >
+                          Smartschool Management
+                        </a>
                         <div className="mt-4 grid grid-cols-2 gap-5">
-                          <ServiceItem 
-                            icon="/navbar/services/smart-class.svg" 
+                          <ServiceItem
+                            icon="/navbar/services/smart-class.svg"
                             label="Smart Class"
                             href="/services/smart-school/smart-class"
                           />
-                          <ServiceItem 
-                            icon="/navbar/services/smart-talent.svg" 
-                            label="Smart Talent" 
+                          <ServiceItem
+                            icon="/navbar/services/smart-talent.svg"
+                            label="Smart Talent"
                             href="/services/smart-school/smart-talent"
                           />
-                          <ServiceItem 
-                            icon="/navbar/services/smart-asset.svg" 
-                            label="Smart Asset" 
+                          <ServiceItem
+                            icon="/navbar/services/smart-asset.svg"
+                            label="Smart Asset"
                             href="/services/smart-school/smart-asset"
                           />
-                          <ServiceItem 
-                            icon="/navbar/services/smart-management.svg" 
-                            label="Smart Management" 
+                          <ServiceItem
+                            icon="/navbar/services/smart-management.svg"
+                            label="Smart Management"
                             href="/services/smart-school/smart-management"
                           />
                         </div>
@@ -310,22 +343,26 @@ export default function Navbar() {
 
                     {activeService === "additional" && (
                       <>
-                        <a href="/services/additional" className="font-semibold uppercase text-sm">Additional Services</a>
+                        <a
+                          href="/services/additional"
+                          className="font-semibold uppercase text-sm"
+                        >
+                          Additional Services
+                        </a>
                         <div className="mt-4 grid grid-cols-2 gap-5">
-                        <ServiceItem
-                          icon="/navbar/services/lesson-plan.svg"
-                          label="Lesson Plan"
-                          href="/services/additional/lesson-plan"
-                        />
-                        <ServiceItem
-                          icon="/navbar/services/eRapor.svg"
-                          label="E-Rapor"
-                          href="/services/additional/erapor"
-                        />
+                          <ServiceItem
+                            icon="/navbar/services/lesson-plan.svg"
+                            label="Lesson Plan"
+                            href="/services/additional/lesson-plan"
+                          />
+                          <ServiceItem
+                            icon="/navbar/services/eRapor.svg"
+                            label="E-Rapor"
+                            href="/services/additional/erapor"
+                          />
                         </div>
                       </>
                     )}
-
                   </div>
                 </div>
               </NavigationMenu.Content>

@@ -8,10 +8,7 @@ import OurClient from "@/components/sections/home/OurClient";
 export default function AboutUsSection() {
   return (
     <section className="relative text-white overflow-hidden mt-20">
-
-      {/* ================= HERO ================= */}
       <div className="relative min-h-screen flex items-center py-20">
-        {/* Background */}
         <Image
           src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
           alt="Technology Background"
@@ -20,14 +17,11 @@ export default function AboutUsSection() {
           className="object-cover scale-100"
         />
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/75 to-black/95" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/90 via-black/75 to-black/95" />
 
-        {/* Glow */}
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-primary-blue/30 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary-green/20 rounded-full blur-3xl" />
 
-        {/* Content */}
         <motion.div
           className="relative z-10 max-w-7xl mx-auto px-6"
           initial="hidden"
@@ -55,7 +49,6 @@ export default function AboutUsSection() {
               className="mt-6 h-1 w-24 bg-primary-green rounded-full"
             />
 
-            {/* Glass Card Story */}
             <motion.div
               variants={stagger}
               className="mt-14 grid gap-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-10"
@@ -79,7 +72,6 @@ export default function AboutUsSection() {
         </motion.div>
       </div>
 
-      {/* ================= IMAGE CARD ================= */}
       <motion.div
         className="relative z-20 max-w-6xl mx-auto px-6 -mt-10"
         initial="hidden"
@@ -94,11 +86,10 @@ export default function AboutUsSection() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
         </div>
       </motion.div>
 
-      {/* ================= STORY TEXT ================= */}
       <motion.div
         className="max-w-6xl mx-auto px-6 py-16 text-slate-600 text-lg leading-relaxed"
         initial="hidden"
@@ -107,26 +98,51 @@ export default function AboutUsSection() {
         variants={stagger}
       >
         <motion.p variants={fadeUp} className="mb-8">
-          LuminoEd adalah perusahaan berbasis teknologi informasi yang berfokus pada pengembangan solusi digital di bidang pendidikan dan teknologi kreatif. Kami hadir sebagai jawaban atas kebutuhan institusi pendidikan, organisasi, dan individu dalam menghadapi tantangan transformasi digital yang terus berkembang. Dengan menggabungkan inovasi teknologi, pendekatan strategis, dan pemahaman mendalam terhadap dunia pendidikan, LuminoEd berkomitmen menghadirkan solusi yang tidak hanya modern, tetapi juga relevan, efektif, dan mudah digunakan oleh seluruh pemangku kepentingan.
+          LuminoEd adalah perusahaan berbasis teknologi informasi yang berfokus
+          pada pengembangan solusi digital di bidang pendidikan dan teknologi
+          kreatif. Kami hadir sebagai jawaban atas kebutuhan institusi
+          pendidikan, organisasi, dan individu dalam menghadapi tantangan
+          transformasi digital yang terus berkembang. Dengan menggabungkan
+          inovasi teknologi, pendekatan strategis, dan pemahaman mendalam
+          terhadap dunia pendidikan, LuminoEd berkomitmen menghadirkan solusi
+          yang tidak hanya modern, tetapi juga relevan, efektif, dan mudah
+          digunakan oleh seluruh pemangku kepentingan.
         </motion.p>
 
         <motion.p variants={fadeUp} className="mb-8">
-          Kami percaya bahwa teknologi seharusnya menjadi alat yang mempermudah, mempercepat, dan meningkatkan kualitas proses pembelajaran serta manajemen pendidikan. Oleh karena itu, setiap solusi yang kami kembangkan dirancang dengan mengedepankan efisiensi, integrasi sistem, dan pengalaman pengguna yang intuitif. LuminoEd tidak hanya menyediakan platform digital, tetapi juga membangun ekosistem yang mendukung kolaborasi, transparansi, dan pengambilan keputusan berbasis data.
+          Kami percaya bahwa teknologi seharusnya menjadi alat yang mempermudah,
+          mempercepat, dan meningkatkan kualitas proses pembelajaran serta
+          manajemen pendidikan. Oleh karena itu, setiap solusi yang kami
+          kembangkan dirancang dengan mengedepankan efisiensi, integrasi sistem,
+          dan pengalaman pengguna yang intuitif. LuminoEd tidak hanya
+          menyediakan platform digital, tetapi juga membangun ekosistem yang
+          mendukung kolaborasi, transparansi, dan pengambilan keputusan berbasis
+          data.
         </motion.p>
 
         <motion.p variants={fadeUp} className="mb-8">
-          Melalui berbagai layanan unggulan seperti SmartSchool, IT Training, streaming & hybrid learning, serta pengembangan desain dan aplikasi digital, LuminoEd berperan sebagai mitra strategis bagi institusi pendidikan dalam meningkatkan kualitas pembelajaran, efisiensi operasional, dan daya saing di era digital. Kami mendampingi klien mulai dari tahap perencanaan, implementasi, hingga pengembangan berkelanjutan, sehingga setiap solusi dapat tumbuh dan beradaptasi seiring kebutuhan organisasi.
+          Melalui berbagai layanan unggulan seperti SmartSchool, IT Training,
+          streaming & hybrid learning, serta pengembangan desain dan aplikasi
+          digital, LuminoEd berperan sebagai mitra strategis bagi institusi
+          pendidikan dalam meningkatkan kualitas pembelajaran, efisiensi
+          operasional, dan daya saing di era digital. Kami mendampingi klien
+          mulai dari tahap perencanaan, implementasi, hingga pengembangan
+          berkelanjutan, sehingga setiap solusi dapat tumbuh dan beradaptasi
+          seiring kebutuhan organisasi.
         </motion.p>
 
         <motion.p variants={fadeUp}>
-          Dengan semangat inovasi dan kolaborasi, LuminoEd berkomitmen untuk terus menghadirkan teknologi yang berdampak nyata—membantu menciptakan lingkungan belajar yang lebih efektif, sistem kerja yang lebih efisien, serta hubungan yang lebih kuat antara teknologi dan manusia demi masa depan pendidikan yang berkelanjutan.
+          Dengan semangat inovasi dan kolaborasi, LuminoEd berkomitmen untuk
+          terus menghadirkan teknologi yang berdampak nyata—membantu menciptakan
+          lingkungan belajar yang lebih efektif, sistem kerja yang lebih
+          efisien, serta hubungan yang lebih kuat antara teknologi dan manusia
+          demi masa depan pendidikan yang berkelanjutan.
         </motion.p>
       </motion.div>
 
-      {/* ================= WAVE ================= */}
       <div className="relative overflow-hidden">
         <Image
-          src="/palkon.png"
+          src="/wave.png"
           width={1920}
           height={400}
           alt="Wave"
@@ -135,7 +151,6 @@ export default function AboutUsSection() {
         />
       </div>
 
-      {/* ================= OUR CLIENT ================= */}
       <OurClient />
     </section>
   );

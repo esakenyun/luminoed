@@ -10,7 +10,7 @@ const CARD_HEIGHT = 520;
 const LANDSCAPE_WIDTH = 720;
 const LANDSCAPE_HEIGHT = 405;
 const GAP = 48;
-const MAX_CARD_WIDTH = LANDSCAPE_WIDTH;
+// const MAX_CARD_WIDTH = LANDSCAPE_WIDTH;
 
 type ImageProject = {
   type: "image";
@@ -84,9 +84,8 @@ export default function PortfolioSection() {
   return (
     <section
       id="portfolio"
-      className="py-32 text-white overflow-hidden bg-gradient-to-br from-primary-blue via-primary-blue to-primary-green mt-40"
+      className="py-32 text-white overflow-hidden bg-linear-to-br from-primary-blue via-primary-blue to-primary-green mt-40"
     >
-      {/* ================= HEADER ================= */}
       <div className="max-w-7xl mx-auto px-6 text-center">
         <motion.h2
           className="text-4xl md:text-5xl font-extrabold leading-tight mb-5"
@@ -111,14 +110,12 @@ export default function PortfolioSection() {
         </motion.p>
       </div>
 
-      {/* ================= SLIDER ================= */}
-      <div className="relative overflow-hidden perspective-[1200px] items-center justify-center center text-center">
+      <div className="relative overflow-hidden perspective-distant items-center justify-center center text-center">
         <motion.div
           className="flex gap-12"
           animate={{
             x: getTranslateX(),
           }}
-
           transition={{
             type: "spring",
             stiffness: 70,
@@ -128,17 +125,11 @@ export default function PortfolioSection() {
           {projects.map((item, index) => {
             const offset = index - active;
 
-            // 👉 LOGIKA UKURAN CARD
-            const isLandscape =
-              item.type === "video" && item.aspect === "16/9";
+            const isLandscape = item.type === "video" && item.aspect === "16/9";
 
-            const cardWidth = isLandscape
-              ? LANDSCAPE_WIDTH
-              : CARD_WIDTH;
+            const cardWidth = isLandscape ? LANDSCAPE_WIDTH : CARD_WIDTH;
 
-            const cardHeight = isLandscape
-              ? LANDSCAPE_HEIGHT
-              : CARD_HEIGHT;
+            const cardHeight = isLandscape ? LANDSCAPE_HEIGHT : CARD_HEIGHT;
 
             return (
               <motion.div
@@ -157,7 +148,6 @@ export default function PortfolioSection() {
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                {/* IMAGE */}
                 {item.type === "image" && (
                   <>
                     <Image
@@ -170,7 +160,6 @@ export default function PortfolioSection() {
                   </>
                 )}
 
-                {/* VIDEO */}
                 {item.type === "video" && (
                   <video
                     src={item.video}
@@ -187,7 +176,6 @@ export default function PortfolioSection() {
         </motion.div>
       </div>
 
-      {/* ================= INFO & NAV ================= */}
       <div className="max-w-7xl mx-auto px-6 mt-20 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-30">
         <div className="md:ml-20 min-h-[220px]">
           <motion.h3

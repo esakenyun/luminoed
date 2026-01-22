@@ -10,8 +10,6 @@ export default function SmartClassServices() {
     <>
       <section className="w-full">
         <div className="max-w-7xl mx-auto px-6">
-
-          {/* ================= SECTION 1 ================= */}
           <motion.div
             className="flex flex-col md:flex-row justify-center gap-16 pt-6"
             variants={stagger}
@@ -33,8 +31,8 @@ export default function SmartClassServices() {
                   Manajemen Kelas
                 </h2>
                 <p className="mt-5 font-medium text-slate-500 text-lg">
-                  Menyediakan layanan hybrid yang memungkinkan akses mudah
-                  bagi siswa dan orang tua terhadap materi ajar dan proses
+                  Menyediakan layanan hybrid yang memungkinkan akses mudah bagi
+                  siswa dan orang tua terhadap materi ajar dan proses
                   pembelajaran harian secara real-time.
                 </p>
               </div>
@@ -62,7 +60,6 @@ export default function SmartClassServices() {
             </motion.div>
           </motion.div>
 
-          {/* ================= SECTION 2 ================= */}
           <motion.div
             className="pt-16 tablet-landscape-max:pt-36"
             initial="hidden"
@@ -108,7 +105,8 @@ export default function SmartClassServices() {
                   priority
                 />
                 <h2 className="mt-5 text-2xl font-bold text-center text-primary-blue/80">
-                  Akibat Dari Revolusi Pendidikan yang Terjadi di Lingkungan Sekitar
+                  Akibat Dari Revolusi Pendidikan yang Terjadi di Lingkungan
+                  Sekitar
                 </h2>
               </motion.div>
             </div>
@@ -132,58 +130,54 @@ export default function SmartClassServices() {
           </motion.div>
         </div>
 
-        {/* ================= CTA SMART CLASS ================= */}
-          <section className="py-32 bg-white">
+        <section className="py-32 bg-white">
+          <motion.div
+            className="max-w-7xl mx-auto px-6"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+            variants={stagger}
+          >
             <motion.div
-              className="max-w-7xl mx-auto px-6"
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.4 }}
-              variants={stagger}
+              variants={fadeUp}
+              className="relative overflow-hidden rounded-3xl border border-gray-200 bg-linear-to-br from-primary-blue/5 to-primary-green/5 p-16 grid xl:grid-cols-2 gap-12 items-center"
             >
-              <motion.div
-                variants={fadeUp}
-                className="relative overflow-hidden rounded-3xl border border-gray-200 bg-gradient-to-br from-primary-blue/5 to-primary-green/5 p-16 grid md:grid-cols-2 gap-12 items-center"
-              >
-                {/* TEXT */}
-                <div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-primary-blue leading-tight">
-                    Wujudkan Smart Class  
-                    <br />
-                    di Sekolah Anda
-                  </h2>
+              <div className="order-2 xl:order-1">
+                <h2 className="text-3xl md:text-4xl font-bold text-primary-blue leading-tight">
+                  Wujudkan Smart Class
+                  <br />
+                  di Sekolah Anda
+                </h2>
 
-                  <p className="mt-6 text-gray-600 text-lg max-w-xl">
-                    Tingkatkan kualitas pembelajaran dengan konsep Smart Class yang
-                    mendukung hybrid learning, interaksi digital, dan pemanfaatan
-                    teknologi pendidikan terkini.
-                  </p>
+                <p className="mt-6 text-gray-600 text-lg max-w-xl">
+                  Tingkatkan kualitas pembelajaran dengan konsep Smart Class
+                  yang mendukung hybrid learning, interaksi digital, dan
+                  pemanfaatan teknologi pendidikan terkini.
+                </p>
 
-                  <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                    <a
-                      href="/contact"
-                      className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-primary-blue text-white font-semibold hover:opacity-90 transition"
-                    >
-                      Konsultasi Smart Class
-                    </a>
-                  </div>
+                <div className="mt-10 flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="/contact"
+                    className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-primary-blue text-white font-semibold hover:opacity-90 transition"
+                  >
+                    Konsultasi Smart Class
+                  </a>
                 </div>
+              </div>
 
-                {/* VISUAL */}
-                <div className="hidden md:flex justify-center">
-                  <Image
-                    src="/services/smartschool.png"
-                    alt="Smart Class Illustration"
-                    width={420}
-                    height={420}
-                    className="object-contain rounded-xl"
-                  />
-                </div>
-              </motion.div>
+              <div className="hidden md:flex justify-center order-1 xl:order-2">
+                <Image
+                  src="/services/smartschool.png"
+                  alt="Smart Class Illustration"
+                  width={600}
+                  height={500}
+                  className="object-contain rounded-xl w-full"
+                />
+              </div>
             </motion.div>
-          </section>
+          </motion.div>
+        </section>
 
-        {/* ================= FULL WIDTH IMAGE ================= */}
         <motion.div
           className="relative overflow-hidden"
           initial={{ opacity: 0 }}
@@ -192,7 +186,7 @@ export default function SmartClassServices() {
           viewport={{ once: true }}
         >
           <Image
-            src="/palkon.png"
+            src="/wave.png"
             alt="Wave"
             width={1920}
             height={400}
@@ -200,7 +194,6 @@ export default function SmartClassServices() {
           />
         </motion.div>
 
-        {/* ================= CLIENT ================= */}
         <motion.div
           className="max-w-7xl mx-auto px-6"
           initial={{ opacity: 0, y: 30 }}
