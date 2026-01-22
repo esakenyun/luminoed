@@ -32,7 +32,7 @@ type Project = ImageProject | VideoProject;
 const projects: Project[] = [
   {
     title: "App Sheet Smart Teacher",
-    image: "/services/appsheet.png",
+    image: "/porto/appsheet.webp",
     type: "image",
     detail:
       "AppSheet Smart Teacher adalah aplikasi manajemen aktivitas guru berbasis AppSheet yang dirancang untuk membantu sekolah dalam mendata, memantau, dan mengevaluasi kegiatan guru selama masa kerja secara terstruktur, digital, dan real-time. Aplikasi ini menjadi solusi praktis untuk menggantikan pencatatan manual sehingga proses administrasi menjadi lebih efisien, akurat, dan transparan.",
@@ -40,7 +40,7 @@ const projects: Project[] = [
   {
     title: "Smart Talent",
     type: "image",
-    image: "/services/smartschool.png",
+    image: "/porto/smartschool.webp",
     detail:
       "Smart Talent adalah sistem manajemen SDM sekolah yang memungkinkan manajemen memantau presensi, keterlambatan, jurnal kerja, dan mutabaah pendidik serta tenaga kependidikan secara real-time melalui dashboard terintegrasi. Pendidik dan tenaga kependidikan juga dapat melihat capaian kinerja pribadi sebagai bahan evaluasi untuk meningkatkan performa kerja.",
   },

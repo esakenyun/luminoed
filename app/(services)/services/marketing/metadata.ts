@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "LuminoED",
     images: [
       {
-        url: "/services/marketing.jpg",
+        url: "/services/marketing1.webp",
         width: 1200,
         height: 630,
         alt: "Marketing Services LuminoED",
@@ -35,6 +35,6 @@ export const metadata: Metadata = {
     title: "Marketing Services | LuminoED",
     description:
       "Design & marketing strategis untuk meningkatkan citra dan kepercayaan institusi pendidikan.",
-    images: ["/services/marketing.jpg"],
+    images: ["/services/marketing1.webp"],
   },
 };

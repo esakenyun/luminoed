@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "LuminoED",
     images: [
       {
-        url: "/services/additional.png",
+        url: "/services/additionalservice.webp",
         width: 1200,
         height: 630,
         alt: "LuminoED Additional Services",
@@ -35,6 +35,6 @@ export const metadata: Metadata = {
     title: "Additional Services | LuminoED",
     description:
       "Lesson Plan Digital dan eRapor terintegrasi untuk administrasi sekolah modern.",
-    images: ["/services/additional.png"],
+    images: ["/services/additionalservice.webp"],
   },
 };

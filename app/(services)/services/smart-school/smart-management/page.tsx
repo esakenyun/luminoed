@@ -161,7 +161,7 @@ export default function SmartManagementPage() {
         </motion.section>
         <div className="relative overflow-hidden">
           <Image
-            src="/wave.png"
+            src="/wave.webp"
             alt="Wave"
             width={1920}
             height={400}

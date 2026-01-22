@@ -39,7 +39,7 @@ export default function ContactUsPage() {
             className="hidden md:flex justify-center"
           >
             <Image
-              src="/abouts.jpg"
+              src="/abouts.webp"
               width={420}
               height={420}
               alt="Contact Illustration"
@@ -127,7 +127,7 @@ export default function ContactUsPage() {
 
       <div className="relative overflow-hidden">
         <Image
-          src="/wave.png"
+          src="/wave.webp"
           alt="Wave"
           width={1920}
           height={400}

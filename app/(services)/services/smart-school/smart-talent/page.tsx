@@ -110,7 +110,7 @@ export default function SmartTalentServices() {
           viewport={{ once: true }}
         >
           <Image
-            src="/wave.png"
+            src="/wave.webp"
             alt="Wave"
             width={1920}
             height={400}

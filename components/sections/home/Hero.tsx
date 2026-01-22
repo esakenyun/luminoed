@@ -42,7 +42,7 @@ export default function Hero() {
 
             <div className="relative w-full max-w-[420px] h-[540px] rounded-[20px] overflow-hidden shadow-2xl bg-white z-10">
               <Image
-                src="/landing.JPG"
+                src="/landing.webp"
                 width={500}
                 height={500}
                 alt="Dashboard Preview"

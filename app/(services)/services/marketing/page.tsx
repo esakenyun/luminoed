@@ -135,7 +135,7 @@ export default function MarketingServices() {
 
       <div className="relative overflow-hidden">
         <Image
-          src="/wave.png"
+          src="/wave.webp"
           width={1920}
           height={400}
           alt="Wave"

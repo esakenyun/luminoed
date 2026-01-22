@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: "LuminoED",
     images: [
       {
-        url: "/services/streaming.jpg",
+        url: "/services/streaming.webp",
         width: 1200,
         height: 630,
         alt: "Streaming Services LuminoED",
@@ -34,6 +34,6 @@ export const metadata: Metadata = {
     title: "Streaming Services | LuminoED",
     description:
       "Live streaming, hybrid learning, dan dokumentasi visual profesional untuk pendidikan.",
-    images: ["/services/streaming.jpg"],
+    images: ["/services/streaming.webp"],
   },
 };

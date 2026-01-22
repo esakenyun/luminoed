@@ -3,7 +3,7 @@ export const articles = [
     id: 1,
     category: "Education Technology",
     title: "Empowering Schools Through IT Training",
-    imageUrl: "/abouts.jpg",
+    imageUrl: "/blog.webp",
     description:
       "How structured IT training helps teachers and school staff adapt to digital tools and modern learning environments.",
     author: "Muhammad Khosy",
@@ -20,7 +20,7 @@ export const articles = [
     id: 2,
     category: "Google Workspace",
     title: "Optimizing School Collaboration with Google Workspace",
-    imageUrl: "/blog.JPG",
+    imageUrl: "/blog2.webp",
     description:
       "A practical guide to using Google Workspace for Education to enhance communication, collaboration, and productivity.",
     author: "Ardelia Putri",
@@ -37,7 +37,7 @@ export const articles = [
     id: 3,
     category: "Artificial Intelligence",
     title: "AI Technology Transforming Education Management",
-    imageUrl: "/blog3.JPG",
+    imageUrl: "/blog3.webp",
     description:
       "Exploring how AI technology supports smarter decision-making, automation, and personalized learning in schools.",
     author: "Muhammad Khosy",

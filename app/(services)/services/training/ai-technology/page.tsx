@@ -97,7 +97,7 @@ export default function AITechnologyServices() {
           <motion.div variants={fadeUp} className="relative">
             <div className="relative inset-0 bg-primary-blue/10 rounded-3xl blur-3xl w-full aspect-4/3 mx-auto" />
             <Image
-              src="/services/additional.jpg"
+              src="/services/ai-technology/ai-technology.webp"
               alt="AI Illustration"
               fill
               className="relative rounded-2xl object-cover"
@@ -196,7 +196,7 @@ export default function AITechnologyServices() {
 
       <div className="relative overflow-hidden">
         <Image
-          src="/wave.png"
+          src="/wave.webp"
           width={1920}
           height={400}
           alt="Wave"

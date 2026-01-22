@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "LuminoED",
     images: [
       {
-        url: "/services/equipment-provision.png",
+        url: "/services/equipment.webp",
         width: 1200,
         height: 630,
         alt: "Equipment Provision LuminoED",
@@ -35,6 +35,6 @@ export const metadata: Metadata = {
     title: "Equipment Provision | LuminoED",
     description:
       "Penyediaan perangkat pendidikan dan teknologi sekolah oleh LuminoED.",
-    images: ["/services/equipment-provision.png"],
+    images: ["/services/equipment.webp"],
   },
 };

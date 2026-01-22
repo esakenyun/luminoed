@@ -81,7 +81,7 @@ export default function AboutUsSection() {
       >
         <div className="relative w-full h-[480px] rounded-3xl overflow-hidden shadow-xl">
           <Image
-            src="/abouts.jpg"
+            src="/abouts.webp"
             alt="LuminoED Activity"
             fill
             className="object-cover"
@@ -142,7 +142,7 @@ export default function AboutUsSection() {
 
       <div className="relative overflow-hidden">
         <Image
-          src="/wave.png"
+          src="/wave.webp"
           width={1920}
           height={400}
           alt="Wave"

@@ -5,7 +5,7 @@ import { fadeUp, fadeLeft, fadeRight, stagger } from "@/lib/motion";
 import Image from "next/image";
 import OurClient from "@/components/sections/home/OurClient";
 
-const photoboothImages = ["/abouts.jpg", "/brief.png", "/landing.JPG"];
+const photoboothImages = ["/photography1.webp", "/photography2.webp", "/photography3.webp"];
 
 export default function PhotoVideoServices() {
   return (
@@ -186,7 +186,7 @@ export default function PhotoVideoServices() {
 
       <div className="relative overflow-hidden">
         <Image
-          src="/wave.png"
+          src="/wave.webp"
           width={1920}
           height={400}
           alt="Wave"

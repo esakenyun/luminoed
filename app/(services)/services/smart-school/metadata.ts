@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "LuminoED",
     images: [
       {
-        url: "/services/smartschool.png",
+        url: "/services/smartschool.webp",
         width: 1200,
         height: 630,
         alt: "Smart School System LuminoED",
@@ -36,6 +36,6 @@ export const metadata: Metadata = {
     title: "Smart School Management | LuminoED",
     description:
       "Sistem Smart School terintegrasi untuk manajemen sekolah digital modern.",
-    images: ["/services/smartschool.png"],
+    images: ["/services/smartschool.webp"],
   },
 };

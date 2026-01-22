@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: "LuminoED",
     images: [
       {
-        url: "/abouts.jpg",
+        url: "/abouts.webp",
         width: 1200,
         height: 630,
         alt: "About LuminoED",
@@ -34,6 +34,6 @@ export const metadata: Metadata = {
     title: "About LuminoED",
     description:
       "Mengenal LuminoED, perusahaan teknologi pendidikan yang berfokus pada Smart School dan transformasi digital.",
-    images: ["/abouts.jpg"],
+    images: ["/abouts.webp"],
   },
 };

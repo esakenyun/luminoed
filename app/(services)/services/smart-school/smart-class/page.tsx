@@ -20,7 +20,7 @@ export default function SmartClassServices() {
             <motion.div variants={fadeUp} className="grid gap-5 max-w-lg">
               <Image
                 className="rounded-2xl"
-                src={"/services/smartschool.png"}
+                src={"/porto/smartschool.webp"}
                 width={500}
                 height={500}
                 alt="Smart School"
@@ -41,7 +41,7 @@ export default function SmartClassServices() {
             <motion.div variants={fadeUp} className="grid gap-5 max-w-lg">
               <Image
                 className="rounded-2xl"
-                src={"/services/smartschool.png"}
+                src={"/services/smart-school.webp"}
                 width={500}
                 height={500}
                 alt="Smart School"
@@ -167,7 +167,7 @@ export default function SmartClassServices() {
 
               <div className="hidden md:flex justify-center order-1 xl:order-2">
                 <Image
-                  src="/services/smartschool.png"
+                  src="/services/smartschool.webp"
                   alt="Smart Class Illustration"
                   width={600}
                   height={500}
@@ -186,7 +186,7 @@ export default function SmartClassServices() {
           viewport={{ once: true }}
         >
           <Image
-            src="/wave.png"
+            src="/wave.webp"
             alt="Wave"
             width={1920}
             height={400}

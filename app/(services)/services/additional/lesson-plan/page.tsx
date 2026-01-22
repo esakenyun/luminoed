@@ -53,7 +53,7 @@ export default function LessonPlanServices() {
           >
             <div className="absolute -inset-8 bg-primary-green/30 blur-3xl rounded-full" />
             <Image
-              src="/abouts.jpg"
+              src="/abouts.webp"
               alt="Lesson Plan Automation"
               width={620}
               height={520}
@@ -149,7 +149,7 @@ export default function LessonPlanServices() {
           >
             <div className="absolute inset-0 bg-primary-blue/20 blur-3xl rounded-3xl" />
             <Image
-              src="/abouts.jpg"
+              src="/abouts.webp"
               alt="Spreadsheet Integration"
               width={600}
               height={420}
@@ -167,7 +167,7 @@ export default function LessonPlanServices() {
         viewport={{ once: true }}
       >
         <Image
-          src="/wave.png"
+          src="/wave.webp"
           alt="Wave"
           width={1920}
           height={400}

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "LuminoED",
     images: [
       {
-        url: "/services/training1.jpg",
+        url: "/services/training1.webp",
         width: 1200,
         height: 630,
         alt: "Training Services LuminoED",
@@ -35,6 +35,6 @@ export const metadata: Metadata = {
     title: "Training Services | LuminoED",
     description:
       "Training IT, Google Workspace, dan AI untuk pendidikan dan profesional.",
-    images: ["/services/training1.jpg"],
+    images: ["/services/training1.webp"],
   },
 };

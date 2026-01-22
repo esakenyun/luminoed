@@ -106,7 +106,7 @@ export default function AdditionalServices() {
           >
             <div className="absolute inset-0 bg-primary-blue/20 rounded-3xl blur-3xl" />
             <Image
-              src="/abouts.jpg"
+              src="/abouts.webp"
               alt="Lesson Plan Digital"
               width={600}
               height={420}
@@ -131,7 +131,7 @@ export default function AdditionalServices() {
           >
             <div className="absolute inset-0 bg-primary-green/20 rounded-3xl blur-3xl" />
             <Image
-              src="/abouts.jpg"
+              src="/abouts.webp"
               alt="eRapor"
               width={600}
               height={420}
@@ -173,7 +173,7 @@ export default function AdditionalServices() {
         viewport={{ once: true }}
       >
         <Image
-          src="/wave.png"
+          src="/wave.webp"
           alt="Wave"
           width={1920}
           height={400}

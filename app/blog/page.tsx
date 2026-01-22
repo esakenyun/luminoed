@@ -98,7 +98,7 @@ export default function BlogPage() {
       </div>
       <div className="relative overflow-hidden z-10">
         <Image
-          src="/wave.png"
+          src="/wave.webp"
           width={500}
           height={500}
           alt="Dashboard Preview"

@@ -97,7 +97,7 @@ export default function StreamingServices() {
                   className="relative h-full rounded-tl-2xl rounded-bl-2xl overflow-hidden"
                 >
                   <Image
-                    src="/services/streaming.jpg"
+                    src="/services/streaming.webp"
                     alt="Additional Services"
                     fill
                     className="object-cover"
@@ -212,7 +212,7 @@ export default function StreamingServices() {
 
           <div className="relative overflow-hidden">
             <Image
-              src="/wave.png"
+              src="/wave.webp"
               width={1920}
               height={400}
               alt="Wave"

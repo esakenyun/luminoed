@@ -54,7 +54,7 @@ export default function SmartSchoolServices() {
             <motion.div variants={fadeRight}>
               <Image
                 className="hidden tablet-landscape-min:block rounded-2xl"
-                src="/services/smartschool.png"
+                src="/services/smart-school.webp"
                 width={500}
                 height={500}
                 alt="Smart School"
@@ -150,7 +150,7 @@ export default function SmartSchoolServices() {
                   className="absolute right-0 bottom-0 top-10 w-[45%] hidden tablet-landscape-max:block overflow-hidden"
                 >
                   <Image
-                    src="/services/smartschool.png"
+                    src="/porto/smartschool.webp"
                     alt="Manajemen Aset"
                     fill
                     className="object-cover rounded-tl-2xl rounded-br-2xl"
@@ -173,7 +173,7 @@ export default function SmartSchoolServices() {
 
       <div className="relative overflow-hidden">
         <Image
-          src="/wave.png"
+          src="/wave.webp"
           width={1920}
           height={400}
           alt="Wave"

@@ -120,7 +120,7 @@ export default function TrainingITServices() {
             "
           >
             <Image
-              src="/services/trainingit.jpeg"
+              src="/services/training-it/trainingit.webp"
               alt="Training IT"
               fill
               className="rounded-2xl shadow-2xl object-cover"
@@ -196,7 +196,7 @@ export default function TrainingITServices() {
 
       <div className="relative overflow-hidden">
         <Image
-          src="/wave.png"
+          src="/wave.webp"
           width={1920}
           height={400}
           alt="Wave"

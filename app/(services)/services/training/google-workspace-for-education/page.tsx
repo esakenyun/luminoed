@@ -149,7 +149,7 @@ export default function GoogleWorkspaceForEducationServices() {
           >
             <div>
               <Image
-                src="/services/additional.jpg"
+                src="/services/ai-technology/ai-technology.webp"
                 alt="AI Illustration"
                 width={500}
                 height={500}
@@ -162,7 +162,7 @@ export default function GoogleWorkspaceForEducationServices() {
 
       <div className="relative overflow-hidden">
         <Image
-          src="/wave.png"
+          src="/wave.webp"
           width={1920}
           height={400}
           alt="Wave"

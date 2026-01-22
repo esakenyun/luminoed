@@ -19,7 +19,7 @@ const STEPS: Step[] = [
     title: "Training",
     description:
       "Empower educators with practical training on digital tools, classroom technology, and AI-powered learning workflows.",
-    image: "/services/training1.jpg",
+    image: "/services/training1.webp",
     href: "/services/training",
   },
   {
@@ -27,7 +27,7 @@ const STEPS: Step[] = [
     title: "Marketing",
     description:
       "Boost your school’s visibility with data-driven digital marketing, branding, and social media management.",
-    image: "/services/marketing1.JPG",
+    image: "/services/marketing1.webp",
     href: "/services/marketing",
   },
   {
@@ -35,7 +35,7 @@ const STEPS: Step[] = [
     title: "Streaming",
     description:
       "Professional live streaming for school events—clear, stable, and high-quality broadcasts handled by our expert team.",
-    image: "/services/streaming1.jpeg",
+    image: "/services/streaming.webp",
     href: "/services/streaming",
   },
   {
@@ -43,7 +43,7 @@ const STEPS: Step[] = [
     title: "Equipment Provision",
     description:
       "High-quality equipment for learning and operations, including cameras, lighting, audio gear, laptops, and more.",
-    image: "/services/equipment-provision.png",
+    image: "/services/equipment.webp",
     href: "/services/equipment-provision",
   },
   {
@@ -51,7 +51,7 @@ const STEPS: Step[] = [
     title: "SmartSchool Management",
     description:
       "A fully integrated system to manage academics, staff, assets, and school operations in one unified digital platform.",
-    image: "/services/smart-school.png",
+    image: "/services/smart-school.webp",
     href: "/services/smart-school",
   },
   {
@@ -59,7 +59,7 @@ const STEPS: Step[] = [
     title: "Additional Services",
     description:
       "Extra support including digital lesson plans, e-Report systems, templates, and tools to streamline school administration.",
-    image: "/services/additionalservice.JPG",
+    image: "/services/additionalservice.webp",
     href: "/services/additional",
   },
 ];

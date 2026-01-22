@@ -56,7 +56,7 @@ export default function ERaporServices() {
           >
             <div className="absolute -inset-10 bg-primary-green/40 blur-3xl rounded-full" />
             <Image
-              src="/abouts.jpg"
+              src="/abouts.webp"
               alt="eRapor Dashboard"
               width={640}
               height={520}
@@ -148,7 +148,7 @@ export default function ERaporServices() {
           >
             <div className="absolute inset-0 bg-primary-blue/25 blur-3xl rounded-3xl" />
             <Image
-              src="/abouts.jpg"
+              src="/abouts.webp"
               alt="eRapor Workflow"
               width={600}
               height={440}
@@ -166,7 +166,7 @@ export default function ERaporServices() {
         viewport={{ once: true }}
       >
         <Image
-          src="/wave.png"
+          src="/wave.webp"
           alt="Wave"
           width={1920}
           height={400}
