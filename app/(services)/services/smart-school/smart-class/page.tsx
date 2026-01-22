@@ -167,7 +167,7 @@ export default function SmartClassServices() {
 
               <div className="hidden md:flex justify-center order-1 xl:order-2">
                 <Image
-                  src="/services/smartschool.webp"
+                  src="/services/smart-school.webp"
                   alt="Smart Class Illustration"
                   width={600}
                   height={500}
