@@ -204,7 +204,7 @@ export default function NavbarMobile() {
             src={cfg.logoSrc}
             width={500}
             height={500}
-            className="w-28"
+            className="w-28 h-7"
             alt="Logo"
             priority
           />
@@ -261,7 +261,7 @@ export default function NavbarMobile() {
                           src={"/logo/logo-color.png"}
                           width={500}
                           height={500}
-                          className="w-28"
+                          className="w-28 h-7"
                           alt="Logo"
                           priority
                         />
