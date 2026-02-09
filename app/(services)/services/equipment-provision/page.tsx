@@ -2,14 +2,18 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import OurClient from "@/components/sections/home/OurClient";
 import { fadeUp, fadeScale, stagger } from "@/lib/motion";
+
+const MotionLink = motion(Link);
 
 const equipments = [
   {
     name: "Chromebook Education",
     desc: "Perangkat belajar berbasis cloud dengan manajemen terpusat.",
     tag: "Education Device",
+    link: "/services/equipment-provision/chromebook",
   },
   {
     name: "Interactive Flat Panel (IFP)",
@@ -41,9 +45,10 @@ const equipments = [
 export default function EquipmentProvisionServices() {
   return (
     <main className="overflow-hidden">
-      <section className="mt-20 py-40 bg-primary-blue text-white">
+      {/* HERO */}
+      <section className="mt-16 sm:mt-20 py-20 sm:py-28 lg:py-40 bg-primary-blue text-white">
         <motion.div
-          className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center"
+          className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.6 }}
@@ -53,13 +58,13 @@ export default function EquipmentProvisionServices() {
               Equipment Provision
             </span>
 
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               Penyediaan Perangkat
               <br />
               Pendukung Pendidikan Digital
             </h1>
 
-            <p className="mt-6 text-white/80 max-w-xl">
+            <p className="mt-6 text-white/80 max-w-xl text-base sm:text-lg">
               LuminoED menyediakan berbagai perangkat teknologi pendidikan mulai
               dari Chromebook, PC, IFP, hingga infrastruktur pendukung untuk
               memastikan ekosistem pembelajaran berjalan optimal.
@@ -68,14 +73,15 @@ export default function EquipmentProvisionServices() {
 
           <motion.div
             variants={fadeScale}
-            className="h-72 rounded-3xl bg-white/10 border border-white/20 flex items-center justify-center text-white/50 text-lg"
+            className="h-48 sm:h-64 lg:h-72 rounded-3xl bg-white/10 border border-white/20 flex items-center justify-center text-white/50 text-sm sm:text-lg"
           >
             Equipment Showcase
           </motion.div>
         </motion.div>
       </section>
 
-      <section className="py-28 bg-white">
+      {/* PRODUK */}
+      <section className="py-20 sm:py-24 lg:py-28 bg-white">
         <motion.div
           className="max-w-7xl mx-auto px-6"
           variants={stagger}
@@ -85,107 +91,121 @@ export default function EquipmentProvisionServices() {
         >
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-4xl font-bold text-primary-blue mb-16"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-blue mb-12 sm:mb-16"
           >
             Produk & Perangkat yang Kami Sediakan
           </motion.h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             {equipments.map((item, i) => (
-              <motion.div
+              <MotionLink
                 key={i}
+                href={item.link ?? "/contact"}
                 variants={fadeUp}
-                className="group relative p-8 rounded-2xl border border-gray-200 hover:border-primary-blue transition"
+                className="group relative block p-6 sm:p-8 rounded-2xl border border-gray-200 hover:border-primary-blue hover:-translate-y-1 hover:shadow-lg transition-all"
               >
                 <span className="text-xs font-semibold text-primary-green">
                   {item.tag}
                 </span>
 
-                <h3 className="mt-4 text-xl font-semibold text-primary-blue">
+                <h3 className="mt-4 text-lg sm:text-xl font-semibold text-primary-blue">
                   {item.name}
                 </h3>
 
-                <p className="mt-3 text-gray-600">{item.desc}</p>
+                <p className="mt-3 text-sm sm:text-base text-gray-600">
+                  {item.desc}
+                </p>
 
                 <div className="absolute bottom-6 right-6 text-primary-blue opacity-0 group-hover:opacity-100 transition">
                   →
                 </div>
-              </motion.div>
+              </MotionLink>
             ))}
           </div>
         </motion.div>
       </section>
 
-      <section className="py-28 bg-primary-blue/5 h-75 bg-linear-to-b to-white">
+      {/* KEUNGGULAN */}
+      <section className="py-20 sm:py-24 lg:py-28 bg-primary-blue/5 bg-linear-to-b to-white">
         <motion.div
-          className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12"
+          className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
         >
-          <motion.div variants={fadeUp}>
-            <h4 className="text-xl font-semibold text-primary-blue mb-3">
-              Original & Bergaransi
-            </h4>
-            <p className="text-gray-600">
-              Seluruh perangkat resmi dan memiliki garansi sesuai standar
-              pabrikan.
-            </p>
-          </motion.div>
-
-          <motion.div variants={fadeUp}>
-            <h4 className="text-xl font-semibold text-primary-blue mb-3">
-              Instalasi & Setup
-            </h4>
-            <p className="text-gray-600">
-              Termasuk konfigurasi awal agar perangkat siap langsung digunakan.
-            </p>
-          </motion.div>
-
-          <motion.div variants={fadeUp}>
-            <h4 className="text-xl font-semibold text-primary-blue mb-3">
-              Terintegrasi Sistem LuminoED
-            </h4>
-            <p className="text-gray-600">
-              Perangkat dapat diintegrasikan dengan SmartSchool & Google
-              Workspace.
-            </p>
-          </motion.div>
+          {[
+            {
+              title: "Original & Bergaransi",
+              desc: "Seluruh perangkat resmi dan memiliki garansi sesuai standar pabrikan.",
+            },
+            {
+              title: "Instalasi & Setup",
+              desc: "Termasuk konfigurasi awal agar perangkat siap langsung digunakan.",
+            },
+            {
+              title: "Terintegrasi Sistem LuminoED",
+              desc: "Perangkat dapat diintegrasikan dengan SmartSchool & Google Workspace.",
+            },
+          ].map((item, i) => (
+            <motion.div key={i} variants={fadeUp}>
+              <h4 className="text-lg sm:text-xl font-semibold text-primary-blue mb-3">
+                {item.title}
+              </h4>
+              <p className="text-sm sm:text-base text-gray-600">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
         </motion.div>
       </section>
 
-      <div className="relative overflow-hidden">
+      {/* WAVE */}
+      <motion.div
+        className="relative overflow-hidden"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <Image
           src="/wave.webp"
+          alt="Wave"
           width={1920}
           height={400}
-          alt="Wave"
-          className="w-full"
+          className="w-full h-auto object-cover"
         />
-      </div>
+      </motion.div>
 
-      <div className="max-w-7xl mx-auto px-6">
+      {/* CLIENT */}
+      <motion.div
+        className="max-w-7xl mx-auto px-6"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <OurClient />
-      </div>
+      </motion.div>
 
-      <section className="py-32 bg-linear-to-r from-primary-blue to-primary-blue/90">
+      {/* CTA */}
+      <section className="py-20 sm:py-28 lg:py-32 bg-linear-to-r from-primary-blue to-primary-blue/90">
         <motion.div
           className="max-w-7xl mx-auto px-6 text-center text-white"
+          variants={stagger}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
-          variants={stagger}
         >
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-4xl font-bold"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold"
           >
             Siap Melengkapi Perangkat Digital Sekolah Anda?
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="mt-6 max-w-2xl mx-auto text-white/80 text-lg"
+            className="mt-6 max-w-2xl mx-auto text-white/80 text-base sm:text-lg"
           >
             Konsultasikan kebutuhan perangkat pendidikan Anda bersama tim
             LuminoED. Kami siap membantu mulai dari pemilihan, pengadaan, hingga
@@ -194,14 +214,14 @@ export default function EquipmentProvisionServices() {
 
           <motion.div
             variants={fadeUp}
-            className="mt-10 flex flex-col sm:flex-row justify-center gap-4"
+            className="mt-10 flex justify-center"
           >
-            <a
+            <Link
               href="/contact"
-              className="px-8 py-4 rounded-full bg-primary-green text-white font-semibold hover:opacity-90 transition text-center"
+              className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-primary-green text-white font-semibold hover:opacity-90 transition"
             >
               Konsultasi Sekarang
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </section>

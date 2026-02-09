@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import NavbarWrapper from "@/components/layout/NavbarWrapper";
 import { sitemetadata } from "./metadata";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body className={`${inter.variable} antialiased`}>
+        <Toaster position="top-right" richColors />
         <NavbarWrapper />
         {/* <NavbarMobile />*/}
         {children}
