@@ -1,19 +1,22 @@
 export default async function postFormChromeBook(formData: FormData) {
-     try {
-    const res = await fetch(
-      "https://script.google.com/macros/s/AKfycbzaSFh5GIlf9Bcoou1KYA8UxZajUwCJUhPYPgIAIcfWDxErQ9H5KDNS1HqKcUfQ8ILD8w/exec",
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
+  try {
+    const url = process.env.NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL;
 
-    if (res.ok) {
-        return { success: true };
-    } else {
-        return { success: false, error: "Failed to submit" };
+    if (!url) {
+      throw new Error("Apps Script URL belum diset di ENV");
     }
-    } catch (error) {
-        return { success: false, error: (error as Error).message };
+
+    const res = await fetch(url, {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!res.ok) {
+      return { success: false, error: "Failed to submit" };
     }
+
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: (error as Error).message };
+  }
 }
