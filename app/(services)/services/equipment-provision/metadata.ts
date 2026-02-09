@@ -35,6 +35,6 @@ export const metadata: Metadata = {
     title: "Equipment Provision | LuminoED",
     description:
       "Penyediaan perangkat pendidikan dan teknologi sekolah oleh LuminoED.",
-    images: ["/services/equipment.webp"],
+    images: ["/services/chromebook.png"],
   },
 };

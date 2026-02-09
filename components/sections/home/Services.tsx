@@ -43,7 +43,7 @@ const STEPS: Step[] = [
     title: "Equipment Provision",
     description:
       "High-quality equipment for learning and operations, including cameras, lighting, audio gear, laptops, and more.",
-    image: "/services/equipment.webp",
+    image: "/services/chromebook.png",
     href: "/services/equipment-provision",
   },
   {
