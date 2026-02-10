@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "LuminoED",
     images: [
       {
-        url: "/services/equipment.webp",
+        url: "/services/chromebook.webp",
         width: 1200,
         height: 630,
         alt: "Equipment Provision LuminoED",
