@@ -38,3 +38,4 @@ export const metadata: Metadata = {
     images: ["/services/chromebook.webp"],
   },
 };
+//metadata
