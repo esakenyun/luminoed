@@ -1,18 +1,18 @@
 "use client";
 
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { fadeUp, fadeScale, stagger } from "@/lib/motion";
 import OurClient from "@/components/sections/home/OurClient";
 import Image from "next/image";
 import React from "react";
 import postFormChromeBook from "@/services/postFormChromeBook";
-import getDataStok from "@/services/getDataStok";
 import { toast } from "sonner";
-import { data } from "framer-motion/client";
+import getStokData from "@/services/getDataStok";
 
 export default function ChromebookPage() {
   const [loading, setLoading] = useState(false);
+  const [stok, setStok] = useState<number>(0);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -59,6 +59,15 @@ export default function ChromebookPage() {
       ease: "easeOut",
     });
   };
+
+  useEffect(() => {
+    const fetchStok = async () => {
+      const stokData = await getStokData();
+      setStok(stokData ?? 0);
+    };
+
+    fetchStok();
+  }, []);
 
   return (
     <main className="overflow-hidden">
@@ -359,7 +368,7 @@ export default function ChromebookPage() {
             <br />
             (Prioritas 1 kelas full Level 7)
             <br />
-            Sisa Kuota : <strong>{getDataStok()}</strong>
+            Sisa Kuota : <strong>{stok}</strong>
           </p>
 
           {/* ANIMATED PRICE BADGE */}

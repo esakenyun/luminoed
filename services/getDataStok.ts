@@ -1,14 +1,23 @@
-"use client";
-import { useEffect, useState } from "react";
+export default async function getStokData() {
+  try {
+    const url = process.env.NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL_STOK;
 
-export default function Page() {
-  const [data, setData] = useState("");
+    if (!url) {
+      throw new Error(
+        "Env NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL_STOK belum diset",
+      );
+    }
 
-  useEffect(() => {
-    fetch("https://script.google.com/macros/s/AKfycbyLZ4-f0gxmSom6deFXPvTnLYJDpGxYIM-_WRwLn1ZEE-3CRriWV6lvMjLTFAqxOEwTUg/exec")
-      .then(res => res.json())
-      .then(res => setData(res.value));
-  }, []);
+    const res = await fetch(url);
 
-  return data
+    if (!res.ok) {
+      throw new Error(`Fetch gagal: ${res.status} ${res.statusText}`);
+    }
+
+    const data = await res.json();
+    return data.value;
+  } catch (error) {
+    console.error("Error getStokData2:", error);
+    return null; // atau [] / throw error lagi, sesuai kebutuhan
+  }
 }
