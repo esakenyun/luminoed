@@ -20,4 +20,3 @@ export default async function postFormChromeBook(formData: FormData) {
     return { success: false, error: (error as Error).message };
   }
 }
-// update foto
