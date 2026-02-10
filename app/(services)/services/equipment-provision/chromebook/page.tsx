@@ -249,7 +249,7 @@ export default function ChromebookPage() {
         >
           <motion.div variants={fadeScale}>
             <Image
-              src="/services/chromebook.png"
+              src="/services/chromebook.webp"
               width={1000}
               height={1000}
               alt="Lenovo Chromebook"
