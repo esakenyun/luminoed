@@ -7,7 +7,9 @@ import OurClient from "@/components/sections/home/OurClient";
 import Image from "next/image";
 import React from "react";
 import postFormChromeBook from "@/services/postFormChromeBook";
+import getDataStok from "@/services/getDataStok";
 import { toast } from "sonner";
+import { data } from "framer-motion/client";
 
 export default function ChromebookPage() {
   const [loading, setLoading] = useState(false);
@@ -356,6 +358,8 @@ export default function ChromebookPage() {
             Kuota <strong>25 Unit Pertama</strong>
             <br />
             (Prioritas 1 kelas full Level 7)
+            <br />
+            Sisa Kuota : <strong>{getDataStok()}</strong>
           </p>
 
           {/* ANIMATED PRICE BADGE */}
