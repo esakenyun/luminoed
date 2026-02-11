@@ -458,6 +458,14 @@ export default function ChromebookPage() {
         </motion.div>
       </section>
 
+      <Image
+        src="/services/alur.jpeg"
+        alt="Wave"
+        width={1920}
+        height={400}
+        className="w-full h-auto object-cover"
+      />
+
       {/* ORDER FORM */}
       <section id="order" className="py-28 bg-white">
         <motion.div
