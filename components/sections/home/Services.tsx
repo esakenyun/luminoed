@@ -116,7 +116,7 @@ export default function Services() {
       </div>
 
       <div className="hidden tablet-landscape-max:block">
-        <div className="max-w-7xl mx-auto flex gap-20 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex gap-20 px-6 lg:px-8 border-l-2 border-dashed border-gray-200">
           <div className="relative w-2/5">
             <div>
               {STEPS.map((step, index) => (

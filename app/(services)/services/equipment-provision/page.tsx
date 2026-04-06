@@ -16,6 +16,12 @@ const equipments = [
     link: "/services/equipment-provision/chromebook",
   },
   {
+    name: "Hybrid Learning",
+    desc: "Perangkat untuk pembelajaran hybrid: webcam, mic, pc, tripod, dll.",
+    tag: "Hybrid Learning",
+    link: "/services/equipment-provision/hybrid-learning",
+  },
+  {
     name: "Interactive Flat Panel (IFP)",
     desc: "Layar interaktif untuk kelas digital & presentasi modern.",
     tag: "Smart Classroom",

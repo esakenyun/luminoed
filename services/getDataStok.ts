@@ -1,6 +1,6 @@
 export default async function getStokData() {
   try {
-    const url = process.env.NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL_STOK;
+    const url = "https://script.google.com/macros/s/AKfycbwLQqRy1txrubCeOk61VSV6OVcWfd2C-F1CZ9VhGxKI8fWoJDuL67wsn61PBZjQCpic1A/exec";
 
     if (!url) {
       throw new Error(

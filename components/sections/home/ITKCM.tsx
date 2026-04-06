@@ -7,27 +7,34 @@ import Image from "next/image";
 export default function ITKCM() {
   return (
     <section className="w-full overflow-hidden">
+      <div className="mt-20 relative">
+
+        <div className="absolute inset-y-0 h-15 left-0 w-1/6 top-[-15px] bg-primary-green rotate-[-2.5deg]" />
+        <div className="absolute inset-y-0 h-15 left-0 w-1/3 top-[10px] bg-primary-blue rotate-[-2.5deg] opacity-75" />
+        
       <div
-        className="relative inset-0 -z-10 bg-[#DDF190]"
+        className="relative inset-0 overflow-hidden bg-[#DDF190]"
         style={{
           clipPath: "polygon(0 10%, 100% 0, 100% 85%, 0 100%)",
         }}
       >
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 md:grid-cols-2 px-10 py-20">
+        <div className="absolute inset-y-0 h-15 right-0 w-1/3 bg-[#D7D7D7] rotate-[-2.5deg]" />
+        <div className="absolute inset-y-0 h-12 right-20 w-1/6 bg-primary-blue top-[30px] rotate-[-2.5deg] opacity-75" />
+        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 md:grid-cols-2 px-10 py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h1 className="pt-30 md:pt-10 text-3xl lg:text-[64px] font-bold text-primary-blue md:text-4xl">
+            <h1 className="pt-30 md:pt-10 text-3xl lg:text-[64px] font-bold text-primary-blue md:text-4xl tracking-widest">
               IT KCM
             </h1>
-            <p className="lg:text-[24px] mt-1 text-base font-bold text-primary-blue/80">
+            <p className="lg:text-[24px] mt-1 text-base font-bold text-primary-blue/80 tracking-tighter">
               PT Kibar Cendekia Muda
             </p>
 
-            <p className="mt-4 text-base lg:text-[18px] leading-relaxed text-primary-blue/80">
+            <p className="mt-10 text-base lg:text-[18px] leading-relaxed text-primary-blue/80">
               Kibar Cendekia Muda adalah perusahaan pengembang teknologi
               informasi yang berfokus pada solusi untuk pendidikan, khususnya
               dalam implementasi Smart School dan Smart Class. Kami menyediakan
@@ -60,8 +67,9 @@ export default function ITKCM() {
           </motion.div>
         </div>
       </div>
+      </div>
 
-      <div className="mx-auto max-w-7xl px-6 pt-40 pb-20">
+      <div className="mx-auto max-w-7xl px-6 pt-40 pb-20 border-l-2 border-dashed border-gray-200">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -126,7 +134,7 @@ export default function ITKCM() {
       </div>
 
       <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 border-l-2 border-dashed border-gray-200">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -40 }}

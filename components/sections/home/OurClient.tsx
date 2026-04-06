@@ -42,7 +42,7 @@ export default function OurClient() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
         viewport={{ once: true }}
-        className="text-center font-black uppercase text-primary-blue text-3xl md:text-3xl tracking-wide"
+        className="text-center font-black uppercase text-primary-blue text-lg md:text-3xl tracking-wide"
       >
         Clients That Grows With Us
       </motion.blockquote>
@@ -51,12 +51,12 @@ export default function OurClient() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
         viewport={{ once: true }}
-        className="text-center my-1 font-medium text-lg leading-relaxed text-neutral-400 mb-10"
+        className="text-center my-1 font-medium text-sm px-4 md:text-lg leading-relaxed text-neutral-400 mb-20"
       >
         Our clients are our top priority, and we are committed to providing them
         with the highest level of services.
       </motion.blockquote>
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-6 pb-30 place-items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-2 pb-30 place-items-center">
         {clients.map((client: Client, index: number) => (
           <Image
             key={index}
