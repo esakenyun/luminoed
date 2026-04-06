@@ -16,6 +16,12 @@ const equipments = [
     link: "/services/equipment-provision/chromebook",
   },
   {
+    name: "Hybrid Learning",
+    desc: "Perangkat untuk pembelajaran hybrid: webcam, mic, pc, tripod, dll.",
+    tag: "Hybrid Learning",
+    link: "/services/equipment-provision/hybrid-learning",
+  },
+  {
     name: "Interactive Flat Panel (IFP)",
     desc: "Layar interaktif untuk kelas digital & presentasi modern.",
     tag: "Smart Classroom",
@@ -151,9 +157,7 @@ export default function EquipmentProvisionServices() {
               <h4 className="text-lg sm:text-xl font-semibold text-primary-blue mb-3">
                 {item.title}
               </h4>
-              <p className="text-sm sm:text-base text-gray-600">
-                {item.desc}
-              </p>
+              <p className="text-sm sm:text-base text-gray-600">{item.desc}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -212,10 +216,7 @@ export default function EquipmentProvisionServices() {
             instalasi.
           </motion.p>
 
-          <motion.div
-            variants={fadeUp}
-            className="mt-10 flex justify-center"
-          >
+          <motion.div variants={fadeUp} className="mt-10 flex justify-center">
             <Link
               href="/contact"
               className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-primary-green text-white font-semibold hover:opacity-90 transition"

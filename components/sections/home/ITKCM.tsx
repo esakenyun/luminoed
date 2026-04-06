@@ -6,13 +6,21 @@ import Image from "next/image";
 
 export default function ITKCM() {
   return (
-    <section className="w-full overflow-hidden">
+    <section className="w-full relative pt-10 overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-24 z-20 pointer-events-none">
+        <div className="bg-[#BEDF3E] w-1/5 h-10 lg:h-16 -rotate-13 md:-rotate-4 lg:-rotate-3 absolute -left-2 top-[75px] md:top-8 lg:top-5"></div>
+        <div className="bg-[#110A34] w-1/3 h-10 lg:h-16 -rotate-13 md:-rotate-4 lg:-rotate-3 absolute -left-2 top-[86px] md:top-12 lg:top-10 2xl:top-11 opacity-80"></div>
+      </div>
+
       <div
         className="relative inset-0 -z-10 bg-[#DDF190]"
         style={{
           clipPath: "polygon(0 10%, 100% 0, 100% 85%, 0 100%)",
         }}
       >
+        <div className="bg-[#D7D7D7] w-1/3 h-10 lg:h-16 -rotate-13 md:-rotate-4 lg:-rotate-3 -right-2 absolute top-3 md:top-2 lg:top-2 xl:top-2.5"></div>
+        <div className="bg-[#110A34] w-1/5 h-10 lg:h-16 -rotate-13 md:-rotate-4 lg:-rotate-3 right-[3%] md:right-[5%] lg:right-[7%] absolute opacity-80 top-8 lg:top-12"></div>
+
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 md:grid-cols-2 px-10 py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

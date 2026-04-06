@@ -3,12 +3,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoSearch } from "react-icons/io5";
 import { metadata as blogMetadata } from "./metadata";
+import { prisma } from "@/lib/prisma";
 
 export const metadata = blogMetadata;
 
-import { articles } from "./data";
+export const dynamic = "force-dynamic";
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const publishedBlogs = await prisma.blog.findMany({
+    where: { status: "PUBLISHED" },
+    include: {
+      author: true,
+      category: true,
+    },
+    orderBy: { createdAt: "desc" },
+  });
+
+  console.log(publishedBlogs);
+
   return (
     <div className="bg-[#F6F6F8] text-slate-900 selection:bg-primary-green/30">
       <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
@@ -48,50 +60,75 @@ export default function BlogPage() {
               Latest Articles
             </h2>
             <div className="max-w-7xl mx-auto px-6 flex flex-col gap-12">
-              {articles.map((item) => (
-                <Link
-                  href={`/blog/${item.id}`}
-                  key={item.id}
-                  className="h-full block"
-                >
-                  <article className="flex flex-col h-full group cursor-pointer max-w-4xl mx-auto">
-                    <div className="relative w-full aspect-16/10 overflow-hidden rounded-xl mb-4">
-                      <div
-                        className="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
-                        style={{ backgroundImage: `url(${item.imageUrl})` }}
-                      />
-                    </div>
-
-                    <div className="flex flex-col gap-2 flex-1">
-                      <div className="text-xs text-slate-500 flex gap-2">
-                        <span>{item.date}</span>
+              {publishedBlogs.length === 0 ? (
+                <div className="text-center py-20 text-gray-500">
+                  No published articles yet.
+                </div>
+              ) : (
+                publishedBlogs.map((item) => (
+                  <Link
+                    href={`/blog/${item.id}`}
+                    key={item.id}
+                    className="h-full block"
+                  >
+                    <article className="flex flex-col h-full group cursor-pointer max-w-4xl mx-auto">
+                      <div className="relative w-full aspect-16/10 overflow-hidden rounded-xl mb-4 bg-gray-200">
+                        {item.image && (
+                          <div
+                            className="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
+                            style={{ backgroundImage: `url(${item.image})` }}
+                          />
+                        )}
                       </div>
 
-                      <h3 className="text-xl font-bold group-hover:text-primary">
-                        {item.title}
-                      </h3>
+                      <div className="flex flex-col gap-2 flex-1">
+                        <div className="text-xs text-slate-500 flex gap-2 items-center">
+                          <span className="bg-gray-100 text-secondary-green-700 px-2 py-1 rounded-full font-semibold">
+                            {item.category.name}
+                          </span>
+                          <span>
+                            {new Date(item.createdAt).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              },
+                            )}
+                          </span>
+                        </div>
 
-                      <p className="text-slate-600 line-clamp-2">
-                        {item.description}
-                      </p>
+                        <h3 className="text-xl font-bold group-hover:text-primary">
+                          {item.title}
+                        </h3>
 
-                      <div className="flex items-center gap-3 mt-auto pt-3 border-t">
-                        <Image
-                          width={50}
-                          height={50}
-                          src={item.authorImage}
-                          alt={item.author}
-                          className="size-8 rounded-full"
-                          priority
-                        />
-                        <span className="text-sm font-medium">
-                          {item.author}
-                        </span>
+                        <p className="text-slate-600 line-clamp-2">
+                          {item.subtitle}
+                        </p>
+
+                        <div className="flex items-center gap-3 mt-auto pt-3 border-t">
+                          {item.author.image ? (
+                            <Image
+                              width={50}
+                              height={50}
+                              src={item.author.image}
+                              alt={item.author.name || "Author"}
+                              className="size-8 rounded-full object-cover"
+                            />
+                          ) : (
+                            <div className="size-8 rounded-full bg-gray-300 flex items-center justify-center text-sm font-bold text-gray-600">
+                              {(item.author.name || "U")[0]}
+                            </div>
+                          )}
+                          <span className="text-sm font-medium">
+                            {item.author.name || "Unknown Author"}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </article>
-                </Link>
-              ))}
+                    </article>
+                  </Link>
+                ))
+              )}
             </div>
           </div>
         </main>

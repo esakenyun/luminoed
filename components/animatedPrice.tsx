@@ -1,12 +1,12 @@
 "use client";
 
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function AnimatedPrice() {
   const price = useMotionValue(0);
   const rounded = useTransform(price, (v) =>
-    Math.round(v).toLocaleString("id-ID")
+    Math.round(v).toLocaleString("id-ID"),
   );
 
   const [started, setStarted] = useState(false);
