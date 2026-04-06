@@ -1051,7 +1051,7 @@ export default function ChromebookPage() {
                 name={field.name}
                 placeholder={field.placeholder}
                 type={field.type}
-                required={field.name !== "email"}
+                required
                 className="input border-2 border-gray-300 focus:border-primary-green focus:outline-none rounded-xl px-4 py-3 transition-all duration-300 hover:border-primary-green/50"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
