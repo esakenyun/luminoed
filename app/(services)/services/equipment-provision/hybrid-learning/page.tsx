@@ -6,6 +6,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import OurClient from "@/components/sections/home/OurClient";
 import { fadeScale, fadeUp, stagger } from "@/lib/motion";
+import { img } from "framer-motion/client";
+import { title } from "process";
 
 const DEVICES = [
   {
@@ -110,6 +112,42 @@ const DEVICES = [
     detail:
       "Membantu manajemen kabel, pembagian daya, dan perlindungan perangkat agar setup lebih aman, rapi, dan mudah dipelihara.",
   },
+  {
+    id: "maxhub",
+    img: "/services/hybrid-learning/ifp.webp",
+    title: "Interactive Flat Panel (IFP)",
+    desc: "Layar interaktif untuk presentasi dinamis, kolaborasi, dan visualisasi materi pembelajaran yang lebih menarik.",
+    brand: "IFP Maxhub interactive V5 Classic Series C75FA 76 Inch",
+    detail:
+      "Mendukung fitur whiteboard digital, annotasi langsung, dan konektivitas yang memudahkan pengajar dalam menyampaikan materi secara interaktif.",
+  },
+  {
+    id: "bracket maxhub",
+    img: "/services/hybrid-learning/bracket_ifp.webp",
+    title: "Bracket untuk IFP",
+    desc: "Menyediakan dukungan stabil dan fleksibel untuk memasang Interactive Flat Panel (IFP) di ruang kelas.",
+    brand: "Maxhub Bracket",
+    detail:
+      "Didesain untuk memastikan IFP tetap aman dan terposisi dengan baik, memudahkan akses dan penggunaan selama proses pembelajaran.",
+  },
+  {
+    id: "coocaa",
+    img: "/services/hybrid-learning/coocaa.webp",
+    title: "Coocaa Interactive Display",
+    desc: "Layar interaktif dengan teknologi touch yang memungkinkan kolaborasi dan presentasi yang lebih menarik.",
+    brand: "Coocaa Interactive Display",
+    detail:
+      "Menyediakan pengalaman belajar yang imersif dengan layar besar dan responsivitas tinggi.",
+  },
+  {
+    id: "bracket coocaa",
+    img: "/services/hybrid-learning/bracket_coocaa.webp",
+    title: "Bracket untuk Coocaa",
+    desc: "Menyediakan dukungan stabil dan fleksibel untuk memasang Coocaa Interactive Display di ruang kelas.",
+    brand: "Coocaa Bracket",
+    detail:
+      "Didesain untuk memastikan Coocaa tetap aman dan terposisi dengan baik, memudahkan akses dan penggunaan selama proses pembelajaran.",
+  }
 ];
 
 export default function HybridLearningPage() {
