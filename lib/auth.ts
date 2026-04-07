@@ -82,8 +82,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         }
       }
 
-      // Fetch role from DB carefully if user object is not available but we have the token
-      if (finalToken.email) {
+      // Only fetch role from DB if it's not already in the token
+      if (finalToken.email && !finalToken.role) {
         const dbUser = await prisma.user.findUnique({
           where: { email: finalToken.email as string },
         });
