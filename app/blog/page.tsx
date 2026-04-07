@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 export default async function BlogPage() {
   let publishedBlogs: any[] = [];
   let hasError = false;
-  
+
   try {
     publishedBlogs = await prisma.blog.findMany({
       where: { status: "PUBLISHED" },
@@ -69,8 +69,12 @@ export default async function BlogPage() {
             <div className="max-w-7xl mx-auto px-6 flex flex-col gap-12">
               {hasError ? (
                 <div className="text-center py-20">
-                  <p className="text-red-500 font-semibold mb-2">Error Connecting to Database</p>
-                  <p className="text-gray-500 text-sm">Please check your connection or try again later.</p>
+                  <p className="text-red-500 font-semibold mb-2">
+                    Error Connecting to Database
+                  </p>
+                  <p className="text-gray-500 text-sm">
+                    Please check your connection or try again later.
+                  </p>
                 </div>
               ) : publishedBlogs.length === 0 ? (
                 <div className="text-center py-20 text-gray-500">
