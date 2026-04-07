@@ -35,7 +35,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Category } from "@/src/generated/client";
+import { Category } from "@prisma/client";
 import { toast } from "sonner";
 import { createBlogSchema } from "@/features/blog/schemas/blog.schema";
 import HardBreak from "@tiptap/extension-hard-break";
