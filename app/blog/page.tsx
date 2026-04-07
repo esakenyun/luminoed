@@ -10,16 +10,23 @@ export const metadata = blogMetadata;
 export const dynamic = "force-dynamic";
 
 export default async function BlogPage() {
-  const publishedBlogs = await prisma.blog.findMany({
-    where: { status: "PUBLISHED" },
-    include: {
-      author: true,
-      category: true,
-    },
-    orderBy: { createdAt: "desc" },
-  });
-
-  console.log(publishedBlogs);
+  let publishedBlogs: any[] = [];
+  let hasError = false;
+  
+  try {
+    publishedBlogs = await prisma.blog.findMany({
+      where: { status: "PUBLISHED" },
+      include: {
+        author: true,
+        category: true,
+      },
+      orderBy: { createdAt: "desc" },
+    });
+    console.log("Fetched blogs:", publishedBlogs.length);
+  } catch (error) {
+    console.error("Database error while fetching blogs:", error);
+    hasError = true;
+  }
 
   return (
     <div className="bg-[#F6F6F8] text-slate-900 selection:bg-primary-green/30">
@@ -60,7 +67,12 @@ export default async function BlogPage() {
               Latest Articles
             </h2>
             <div className="max-w-7xl mx-auto px-6 flex flex-col gap-12">
-              {publishedBlogs.length === 0 ? (
+              {hasError ? (
+                <div className="text-center py-20">
+                  <p className="text-red-500 font-semibold mb-2">Error Connecting to Database</p>
+                  <p className="text-gray-500 text-sm">Please check your connection or try again later.</p>
+                </div>
+              ) : publishedBlogs.length === 0 ? (
                 <div className="text-center py-20 text-gray-500">
                   No published articles yet.
                 </div>
