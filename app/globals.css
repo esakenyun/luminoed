@@ -184,11 +184,8 @@ body {
 
 .mesh-gradient {
   background-color: hsla(0, 0%, 100%, 1);
-  background-image: radial-gradient(
-      at 89% 0%,
-      hsla(249, 76%, 71%, 1) 0px,
-      transparent 50%
-    ),
+  background-image:
+    radial-gradient(at 89% 0%, hsla(249, 76%, 71%, 1) 0px, transparent 50%),
     radial-gradient(at 4% 9%, hsla(320, 86%, 65%, 1) 0px, transparent 50%),
     radial-gradient(at 89% 90%, hsla(276, 71%, 70%, 1) 0px, transparent 50%),
     radial-gradient(at 4% 92%, hsla(214, 84%, 70%, 1) 0px, transparent 50%),
@@ -217,3 +214,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Fix Google Drive Picker rendering underneath/being blocked by Radix Dialogs */
+.picker-dialog-bg {
+  z-index: 99999 !important;
+}
+
+.picker-dialog {
+  z-index: 100000 !important;
+}
+
+.picker-dialog,
+.picker-dialog-bg,
+.picker {
+  pointer-events: auto !important;
+}

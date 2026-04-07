@@ -1,18 +1,21 @@
 import Image from "next/image";
-import { articles } from "../data";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { prisma } from "@/lib/prisma";
 
 type Props = {
   params: { id: string };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params; // ✅ WAJIB di App Router terbaru
+  const { id } = await params;
 
-  const article = articles.find((item) => item.id === Number(id));
+  const article = await prisma.blog.findUnique({
+    where: { id },
+    include: { author: true },
+  });
 
-  if (!article) {
+  if (!article || article.status !== "PUBLISHED") {
     return {
       title: "Artikel Tidak Ditemukan | LuminoED Blog",
       description: "Artikel yang Anda cari tidak ditemukan di Blog LuminoED.",
@@ -21,37 +24,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${article.title} | LuminoED Blog`,
-    description: article.description,
-    authors: [{ name: article.author }],
+    description: article.subtitle,
+    authors: [{ name: article.author.name || "Unknown Author" }],
     openGraph: {
       title: article.title,
-      description: article.description,
+      description: article.subtitle,
       url: `https://luminoed.id/blog/${article.id}`,
       siteName: "LuminoED",
-      images: [
-        {
-          url: article.imageUrl,
-          width: 1200,
-          height: 630,
-          alt: article.title,
-        },
-      ],
+      images: article.image
+        ? [
+            {
+              url: article.image,
+              width: 1200,
+              height: 630,
+              alt: article.title,
+            },
+          ]
+        : [],
       type: "article",
       locale: "id_ID",
     },
     twitter: {
       card: "summary_large_image",
       title: article.title,
-      description: article.description,
-      images: [article.imageUrl],
+      description: article.subtitle,
+      images: article.image ? [article.image] : [],
     },
   };
 }
+
 export default async function ArticleById({ params }: Props) {
   const { id } = await params;
-  const article = articles.find((item) => item.id === parseInt(id));
 
-  if (!article) {
+  const article = await prisma.blog.findUnique({
+    where: { id },
+    include: { author: true, category: true },
+  });
+
+  if (!article || article.status !== "PUBLISHED") {
     notFound();
   }
 
@@ -62,7 +72,7 @@ export default async function ArticleById({ params }: Props) {
           <div className="flex gap-3 mb-6">
             <div className="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors pl-4 pr-4 border border-gray-200">
               <span className="text-secondary-green-700 text-xs font-bold uppercase tracking-wider">
-                {article.category}
+                {article.category.name}
               </span>
             </div>
           </div>
@@ -72,48 +82,61 @@ export default async function ArticleById({ params }: Props) {
               {article.title}
             </h1>
             <p className="text-gray-500 text-xl md:text-2xl font-light leading-normal">
-              {article.description}
+              {article.subtitle}
             </p>
           </div>
 
           <div className="flex items-center justify-between border-b border-gray-200 pb-8 mb-8">
             <div className="flex items-center gap-4">
-              <div
-                className="bg-center bg-no-repeat bg-cover rounded-full h-12 w-12 border border-gray-200"
-                data-alt={`Close up portrait of the author ${article.author}`}
-                style={{
-                  backgroundImage: `url("${article.authorImage}")`,
-                }}
-              ></div>
+              {article.author.image ? (
+                <div
+                  className="bg-center bg-no-repeat bg-cover rounded-full h-12 w-12 border border-gray-200"
+                  data-alt={`Close up portrait of the author ${article.author.name}`}
+                  style={{
+                    backgroundImage: `url("${article.author.image}")`,
+                  }}
+                ></div>
+              ) : (
+                <div className="rounded-full h-12 w-12 border border-gray-200 bg-gray-300 flex items-center justify-center text-lg font-bold text-gray-600">
+                  {(article.author.name || "U")[0]}
+                </div>
+              )}
               <div className="flex flex-col justify-center">
                 <div className="flex items-center gap-2">
                   <p className="text-black text-base font-bold leading-tight">
-                    {article.author}
+                    {article.author.name || "Unknown Author"}
                   </p>
-                  <span className="text-secondary-green-700 text-sm font-medium hover:underline cursor-pointer">
-                    Follow
+                  <span className="text-secondary-green-700 text-sm font-medium  cursor-pointer">
+                    | Author
                   </span>
                 </div>
                 <p className="text-gray-500 text-sm font-normal">
-                  {article.date} • {article.readTime}
+                  {new Date(article.createdAt).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}{" "}
+                  {/* Note: dynamic readTime might require a helper function if you implement that calculation */}
                 </p>
               </div>
             </div>
           </div>
 
           <div className="w-full mb-10 rounded-xl overflow-hidden shadow-2xl shadow-gray-200/50">
-            <div className="relative w-full aspect-video">
-              <Image
-                src={article.imageUrl}
-                alt={article.title}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+            {article.image ? (
+              <div className="relative w-full aspect-video bg-gray-100">
+                <Image
+                  src={article.image}
+                  alt={article.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            ) : null}
             <div className="bg-gray-50 p-3 text-center border-t border-gray-100">
               <p className="text-gray-400 text-sm italic">
-                Image credit: LuminoED
+                Image credit: {article.imageCredit || "LuminoED"}
               </p>
             </div>
           </div>

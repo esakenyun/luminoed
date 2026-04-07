@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
-import NavbarWrapper from "@/components/layout/NavbarWrapper";
 import { sitemetadata } from "./metadata";
 import { Toaster } from "sonner";
+import NavbarWrapper from "@/components/layout/NavbarWrapper";
+import { AuthProvider } from "@/components/providers/session-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,11 +23,14 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body className={`${inter.variable} antialiased`}>
-        <Toaster position="top-right" richColors />
-        <NavbarWrapper />
-        {/* <NavbarMobile />*/}
-        {children}
-        <Footer />
+        <AuthProvider>
+          <Toaster position="top-right" richColors />
+          {/* <Navbar /> */}
+          <NavbarWrapper />
+          {/* <NavbarMobile /> */}
+          {children}
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

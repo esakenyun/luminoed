@@ -9,6 +9,10 @@ import { ChevronRight } from "lucide-react";
 export default function Footer() {
   const pathname = usePathname();
 
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
+
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/blog", label: "Blog" },
