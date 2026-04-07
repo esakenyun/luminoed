@@ -6,37 +6,22 @@ import Image from "next/image";
 
 export default function ITKCM() {
   return (
-<<<<<<< HEAD
-    <section className="w-full overflow-hidden">
-      <div className="mt-20 relative">
-
-        <div className="absolute inset-y-0 h-15 left-0 w-1/6 top-[-15px] bg-primary-green rotate-[-2.5deg]" />
-        <div className="absolute inset-y-0 h-15 left-0 w-1/3 top-[10px] bg-primary-blue rotate-[-2.5deg] opacity-75" />
-        
-=======
     <section className="w-full relative pt-10 overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-24 z-20 pointer-events-none">
         <div className="bg-[#BEDF3E] w-1/5 h-10 lg:h-16 -rotate-13 md:-rotate-4 lg:-rotate-3 absolute -left-2 top-[75px] md:top-8 lg:top-5"></div>
         <div className="bg-[#110A34] w-1/3 h-10 lg:h-16 -rotate-13 md:-rotate-4 lg:-rotate-3 absolute -left-2 top-[86px] md:top-12 lg:top-10 2xl:top-11 opacity-80"></div>
       </div>
 
->>>>>>> b8e661f5fe571dfd38f4c72dbc9a55c3026fe8c0
       <div
         className="relative inset-0 overflow-hidden bg-[#DDF190]"
         style={{
           clipPath: "polygon(0 10%, 100% 0, 100% 85%, 0 100%)",
         }}
       >
-<<<<<<< HEAD
-        <div className="absolute inset-y-0 h-15 right-0 w-1/3 bg-[#D7D7D7] rotate-[-2.5deg]" />
-        <div className="absolute inset-y-0 h-12 right-20 w-1/6 bg-primary-blue top-[30px] rotate-[-2.5deg] opacity-75" />
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 md:grid-cols-2 px-10 py-20">
-=======
         <div className="bg-[#D7D7D7] w-1/3 h-10 lg:h-16 -rotate-13 md:-rotate-4 lg:-rotate-3 -right-2 absolute top-3 md:top-2 lg:top-2 xl:top-2.5"></div>
         <div className="bg-[#110A34] w-1/5 h-10 lg:h-16 -rotate-13 md:-rotate-4 lg:-rotate-3 right-[3%] md:right-[5%] lg:right-[7%] absolute opacity-80 top-8 lg:top-12"></div>
 
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 md:grid-cols-2 px-10 py-20">
->>>>>>> b8e661f5fe571dfd38f4c72dbc9a55c3026fe8c0
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +67,6 @@ export default function ITKCM() {
             </div>
           </motion.div>
         </div>
-      </div>
       </div>
 
       <div className="mx-auto max-w-7xl px-6 pt-40 pb-20 border-l-2 border-dashed border-gray-200">
