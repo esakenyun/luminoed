@@ -116,6 +116,10 @@ export function CreatePostModal({
   const handleOpenPicker = () => {
     if (!googleConfig) return;
 
+    // Prevent scrolling by adding a class to the html element
+    const html = document.documentElement;
+    html.classList.add("picker-open");
+
     const google = (window as any).google;
 
     openPicker({
@@ -136,6 +140,9 @@ export function CreatePostModal({
           ]
         : undefined,
       callbackFunction: (data) => {
+        // Restore scrolling by removing the class
+        html.classList.remove("picker-open");
+
         if (data.action === "picked") {
           const file = data.docs[0];
 

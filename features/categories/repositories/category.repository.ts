@@ -11,6 +11,9 @@ export const categoryRepository = {
         id: true,
         name: true,
         createdAt: true,
+        _count: {
+          select: { blogs: true },
+        },
       },
       orderBy: {
         createdAt: "desc",

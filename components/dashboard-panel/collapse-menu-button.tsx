@@ -47,15 +47,18 @@ interface CollapseMenuButtonProps {
 export function CollapseMenuButton({
   icon: Icon,
   label,
+  active,
   submenus,
   isOpen,
   activeColor,
   activeHoverColor,
 }: CollapseMenuButtonProps) {
   const pathname = usePathname();
-  const isSubmenuActive = submenus.some((submenu) =>
-    submenu.active === undefined ? submenu.href === pathname : submenu.active,
-  );
+  const isSubmenuActive =
+    active ||
+    submenus.some((submenu) =>
+      submenu.active === undefined ? submenu.href === pathname : submenu.active,
+    );
   const [isCollapsed, setIsCollapsed] = useState<boolean>(isSubmenuActive);
 
   return isOpen ? (

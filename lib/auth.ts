@@ -15,20 +15,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         });
 
         if (!existingUser) {
-          return "/admin/login?error=AccessDenied"; // Redirect back to login with error
+          return "/admin/login?error=AccessDenied";
         }
       }
       return true;
     },
     async jwt({ token, user, account }) {
-      // Capture the Google access_token and refresh_token upon initial login
       if (account && user) {
         token.accessToken = account.access_token;
         token.refreshToken = account.refresh_token;
         token.expiresAt =
           Math.floor(Date.now() / 1000) + (account.expires_in as number);
 
-        // Initialize the role during sign-in
         token.id = user.id as string;
         token.role = (user as any).role || "ADMIN";
 
@@ -43,14 +41,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         return token;
       }
 
-      // If token does not have expiration date or it hasn't expired yet, return it untouched
       let finalToken = token;
 
       if (
         token.expiresAt &&
         Math.floor(Date.now() / 1000) >= (token.expiresAt as number)
       ) {
-        // Access token has expired, try to update it
         try {
           const response = await fetch("https://oauth2.googleapis.com/token", {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -74,7 +70,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             accessToken: refreshedTokens.access_token,
             expiresAt:
               Math.floor(Date.now() / 1000) + refreshedTokens.expires_in,
-            refreshToken: refreshedTokens.refresh_token ?? token.refreshToken, // Fall back to old refresh token
+            refreshToken: refreshedTokens.refresh_token ?? token.refreshToken,
           };
         } catch (error) {
           console.error("Error refreshing access token", error);
@@ -82,7 +78,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         }
       }
 
-      // Only fetch role from DB if it's not already in the token
       if (finalToken.email && !finalToken.role) {
         const dbUser = await prisma.user.findUnique({
           where: { email: finalToken.email as string },

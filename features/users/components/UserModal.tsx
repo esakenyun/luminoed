@@ -16,6 +16,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  User,
+  Mail,
+  Shield,
+  Loader2,
+} from "lucide-react";
 
 import {
   baseUserSchema,
@@ -81,119 +87,141 @@ export default function UserModal({
   }, [isOpen, initialData, reset]);
 
   const onSubmitForm = (data: UserFormData) => {
-    // If it's an edit and password is empty, we don't send it or handle it in the parent
     onSubmit(data);
   };
 
-  if (!isOpen) return null;
-
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md p-0 overflow-hidden bg-white rounded-2xl border-none">
-        <DialogHeader className="p-6 border-b border-slate-100 pb-4">
-          <DialogTitle className="text-xl font-bold text-slate-800">
+      <DialogContent className="sm:max-w-md p-0 overflow-hidden bg-white rounded-[2rem] border-none shadow-2xl">
+        <DialogHeader className="p-8 pb-4 relative">
+          <DialogTitle className="text-2xl font-extrabold text-gray-900 tracking-tight">
             {title}
           </DialogTitle>
+          <p className="text-sm text-gray-500 mt-1">
+            {initialData ? "Update existing user credentials." : "Assign access to a new administrator."}
+          </p>
         </DialogHeader>
 
         <form
           onSubmit={handleSubmit(onSubmitForm)}
-          className="p-6 pt-2 space-y-4"
+          className="p-8 pt-2 space-y-6"
         >
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">
-              Name
-            </label>
-            <input
-              type="text"
-              {...register("name")}
-              className={`w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-primary-blue outline-none transition-all ${
-                errors.name ? "border-red-500" : "border-slate-200"
-              }`}
-              placeholder="John Doe"
-            />
-            {errors.name && (
-              <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
-            )}
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              {...register("email")}
-              className={`w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-primary-blue outline-none transition-all ${
-                errors.email ? "border-red-500" : "border-slate-200"
-              }`}
-              placeholder="john@example.com"
-            />
-            {errors.email && (
-              <p className="mt-1 text-sm text-red-500">
-                {errors.email.message}
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">
-              Role
-            </label>
-            <Controller
-              name="role"
-              control={control}
-              render={({ field }) => (
-                <Select value={field.value} onValueChange={field.onChange}>
-                  <SelectTrigger
-                    className={`w-full px-4 py-2 h-auto border rounded-xl focus:ring-2 focus:ring-primary-blue focus:border-primary-blue outline-none transition-all bg-white font-normal data-[state=open]:border-primary-blue data-[state=open]:ring-2 data-[state=open]:ring-primary-blue text-base hover:bg-slate-50 focus:ring-offset-0 shadow-none ${
-                      errors.role ? "border-red-500" : "border-slate-200"
-                    }`}
-                  >
-                    <SelectValue placeholder="Select a role" />
-                  </SelectTrigger>
-                  <SelectContent className="rounded-xl border-slate-200 z-100 bg-white">
-                    <SelectItem
-                      value="SUPERADMIN"
-                      className="rounded-lg cursor-pointer py-2 px-4 focus:bg-slate-50"
-                    >
-                      Super Admin
-                    </SelectItem>
-                    <SelectItem
-                      value="ADMIN"
-                      className="rounded-lg cursor-pointer py-2 px-4 focus:bg-slate-50"
-                    >
-                      Admin
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
+          <div className="space-y-4">
+            {/* Name Input */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold uppercase tracking-wider text-gray-400 ml-1">
+                Full Name
+              </label>
+              <div className="relative group">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-blue-500 transition-colors pointer-events-none">
+                  <User size={18} />
+                </div>
+                <input
+                  type="text"
+                  {...register("name")}
+                  className={`w-full pl-12 pr-4 py-3 rounded-2xl bg-gray-50 border-2 outline-none transition-all ${
+                    errors.name 
+                      ? "border-red-100 focus:border-red-500 focus:ring-4 focus:ring-red-500/10" 
+                      : "border-transparent focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+                  }`}
+                  placeholder="Enter user's name"
+                />
+              </div>
+              {errors.name && (
+                <p className="text-xs font-semibold text-red-500 ml-1">{errors.name.message}</p>
               )}
-            />
-            {errors.role && (
-              <p className="mt-1 text-sm text-red-500">{errors.role.message}</p>
-            )}
+            </div>
+
+            {/* Email Input */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold uppercase tracking-wider text-gray-400 ml-1">
+                Email Address
+              </label>
+              <div className="relative">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none">
+                  <Mail size={18} />
+                </div>
+                <input
+                  type="email"
+                  {...register("email")}
+                  className={`w-full pl-12 pr-4 py-3 rounded-2xl bg-gray-50 border-2 outline-none transition-all ${
+                    errors.email 
+                      ? "border-red-100 focus:border-red-500 focus:ring-4 focus:ring-red-500/10" 
+                      : "border-transparent focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+                  }`}
+                  placeholder="name@example.com"
+                />
+              </div>
+              {errors.email && (
+                <p className="text-xs font-semibold text-red-500 ml-1">{errors.email.message}</p>
+              )}
+            </div>
+
+            {/* Role Input */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold uppercase tracking-wider text-gray-400 ml-1">
+                Access Level
+              </label>
+              <Controller
+                name="role"
+                control={control}
+                render={({ field }) => (
+                <div className="relative">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none z-10">
+                    <Shield size={18} />
+                  </div>
+                  <Select value={field.value} onValueChange={field.onChange}>
+                    <SelectTrigger
+                      className={`w-full pl-12 pr-4 h-[52px] rounded-2xl bg-gray-50 border-2 outline-none transition-all text-sm font-medium hover:bg-gray-100 focus:ring-4 focus:ring-blue-500/10 shadow-none border-transparent data-[state=open]:border-blue-500 data-[state=open]:bg-white ${
+                        errors.role ? "border-red-500" : ""
+                      } relative`}
+                    >
+                      <SelectValue placeholder="Select a role" />
+                    </SelectTrigger>
+                    <SelectContent className="rounded-2xl border-gray-100 shadow-xl overflow-hidden p-1 bg-white">
+                      <SelectItem
+                        value="SUPERADMIN"
+                        className="rounded-xl cursor-pointer py-3 px-4 focus:bg-blue-50 focus:text-blue-700 transition-colors font-medium"
+                      >
+                        Super Admin
+                      </SelectItem>
+                      <SelectItem
+                        value="ADMIN"
+                        className="rounded-xl cursor-pointer py-3 px-4 focus:bg-blue-50 focus:text-blue-700 transition-colors font-medium"
+                      >
+                        Administrator
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                )}
+              />
+              {errors.role && (
+                <p className="text-xs font-semibold text-red-500 ml-1">{errors.role.message}</p>
+              )}
+            </div>
           </div>
 
-          <div className="pt-4 flex gap-3">
+          <div className="flex gap-3 pt-4">
             <button
               type="button"
               onClick={onClose}
               disabled={isLoading}
-              className="flex-1 px-4 py-2 border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors font-medium cursor-pointer disabled:opacity-50"
+              className="flex-1 px-6 py-3.5 border-2 border-gray-100 text-gray-600 rounded-2xl hover:bg-gray-50 hover:border-gray-200 transition-all font-bold text-sm disabled:opacity-50"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isLoading}
-              className="flex-1 flex justify-center items-center px-4 py-2 bg-emerald-400 hover:bg-emerald-500 text-white rounded-xl transition-colors font-medium shadow-sm cursor-pointer disabled:opacity-50"
+              className="flex-1 flex justify-center items-center gap-2 px-6 py-3.5 bg-gray-900 hover:bg-gray-800 text-white rounded-2xl transition-all font-bold text-sm shadow-lg shadow-gray-200 active:scale-[0.98] disabled:opacity-50"
             >
               {isLoading ? (
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              ) : initialData ? (
-                "Save Changes"
+                <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
-                "Create User"
+                <>
+                  {initialData ? "Apply Changes" : "Create Account"}
+                </>
               )}
             </button>
           </div>

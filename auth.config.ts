@@ -13,7 +13,8 @@ export const authConfig = {
           prompt: "consent",
           access_type: "offline",
           response_type: "code",
-          scope: "openid profile email",
+          scope:
+            "openid profile email https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly",
         },
       },
     }),

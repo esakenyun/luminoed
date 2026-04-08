@@ -34,6 +34,7 @@ export function getMenuList(pathname: string, role?: string): Group[] {
           href: "/admin/dashboard",
           label: "Dashboard",
           icon: LayoutGrid,
+          active: pathname === "/admin/dashboard",
           submenus: [],
         },
       ],
@@ -45,14 +46,17 @@ export function getMenuList(pathname: string, role?: string): Group[] {
           href: "",
           label: "Blogs",
           icon: SquarePen,
+          active: pathname.startsWith("/admin/dashboard/blogs"),
           submenus: [
             {
               href: "/admin/dashboard/blogs",
               label: "All Blogs",
+              active: pathname === "/admin/dashboard/blogs",
             },
             {
-              href: "/posts/new",
+              href: "/admin/dashboard/blogs/create",
               label: "New Post",
+              active: pathname === "/admin/dashboard/blogs/create",
             },
           ],
         },
@@ -60,6 +64,7 @@ export function getMenuList(pathname: string, role?: string): Group[] {
           href: "/admin/dashboard/categories",
           label: "Categories",
           icon: Bookmark,
+          active: pathname.startsWith("/admin/dashboard/categories"),
         },
       ],
     },
@@ -72,6 +77,7 @@ export function getMenuList(pathname: string, role?: string): Group[] {
                 href: "/admin/dashboard/account",
                 label: "Account",
                 icon: Settings,
+                active: pathname.startsWith("/admin/dashboard/account"),
               },
             ]
           : []),
