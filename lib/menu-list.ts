@@ -68,20 +68,20 @@ export function getMenuList(pathname: string, role?: string): Group[] {
         },
       ],
     },
-    {
-      groupLabel: "Settings",
-      menus: [
-        ...(role === "SUPERADMIN"
-          ? [
+    ...(role === "SUPERADMIN"
+      ? [
+          {
+            groupLabel: "Settings",
+            menus: [
               {
                 href: "/admin/dashboard/account",
                 label: "Account",
                 icon: Settings,
                 active: pathname.startsWith("/admin/dashboard/account"),
               },
-            ]
-          : []),
-      ],
-    },
+            ],
+          },
+        ]
+      : []),
   ];
 }

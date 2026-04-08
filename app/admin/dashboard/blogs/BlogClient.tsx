@@ -91,7 +91,7 @@ export default function BlogClient() {
   };
 
   return (
-    <div className="max-w-[1400px] mx-auto space-y-8">
+    <div className="space-y-8">
       <DeleteModal
         isOpen={isDeleteModalOpen}
         onClose={() => {
@@ -184,7 +184,7 @@ export default function BlogClient() {
             </thead>
 
             <tbody className="divide-y divide-gray-50">
-              <AnimatePresence mode="wait">
+              <AnimatePresence>
                 {isLoading ? (
                   Array.from({ length: 5 }).map((_, i) => (
                     <motion.tr

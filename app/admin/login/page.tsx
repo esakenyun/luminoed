@@ -35,6 +35,7 @@ export default function LoginPage() {
               <Image
                 src="/logo/logo-color.png"
                 alt="LuminoED Logo"
+                sizes="(max-width: 768px) 100vw, 300px"
                 fill
                 className="object-contain"
                 priority

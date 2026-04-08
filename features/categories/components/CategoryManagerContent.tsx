@@ -33,7 +33,7 @@ export default function CategoryManagerContent() {
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 5;
 
   // Sub-modal states
   const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
@@ -159,7 +159,7 @@ export default function CategoryManagerContent() {
   );
 
   return (
-    <div className="max-w-[1400px] mx-auto space-y-8">
+    <div className="space-y-8">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="space-y-1">
@@ -208,7 +208,7 @@ export default function CategoryManagerContent() {
             <input
               type="text"
               className="block w-full pl-14 pr-6 py-4 bg-indigo-50/30 border-2 border-transparent focus:border-indigo-100 focus:bg-white rounded-[2rem] outline-none transition-all text-sm font-semibold placeholder:text-indigo-300"
-              placeholder="Explore categorized taxonomy..."
+              placeholder="Explore categorized..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />

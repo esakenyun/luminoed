@@ -7,7 +7,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import {
   FileText,
   Tags,
-  Plus,
   Settings,
   ChevronRight,
   Clock,
@@ -79,7 +78,7 @@ function StatsLoading() {
 
 async function RecentPostsList() {
   const recentPostsData = await prisma.blog.findMany({
-    take: 5,
+    take: 6,
     orderBy: { createdAt: "desc" },
     include: { category: true },
   });
@@ -220,8 +219,8 @@ export default async function DashboardPage() {
 
   return (
     <ContentLayout title="Dashboard Overview">
-      <div className="max-w-[1400px] mx-auto space-y-8">
-        {/* Header Section */}
+      <div className="space-y-8">
+        {/* Header Section
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 items-center">
           <div>
             <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -246,7 +245,7 @@ export default async function DashboardPage() {
               New Post
             </Link>
           </div>
-        </div>
+        </div> */}
 
         {/* Stats Grid */}
         <Suspense fallback={<StatsLoading />}>
