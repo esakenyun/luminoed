@@ -6,6 +6,7 @@ import { sitemetadata } from "./metadata";
 import { Toaster } from "sonner";
 import NavbarWrapper from "@/components/layout/NavbarWrapper";
 import { AuthProvider } from "@/components/providers/session-provider";
+import NavbarMobile from "@/components/layout/NavbarMobile";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -27,7 +28,7 @@ export default function RootLayout({
           <Toaster position="top-right" richColors />
           {/* <Navbar /> */}
           <NavbarWrapper />
-          {/* <NavbarMobile /> */}
+          <NavbarMobile />
           {children}
           <Footer />
         </AuthProvider>

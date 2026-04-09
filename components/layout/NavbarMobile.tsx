@@ -148,6 +148,10 @@ export default function NavbarMobile() {
     setMenuView("main");
   };
 
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
+
   // Tutup modal & reset menu saat navigasi
   useEffect(() => {
     startTransition(() => {
