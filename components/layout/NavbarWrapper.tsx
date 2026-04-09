@@ -4,13 +4,8 @@ import dynamic from "next/dynamic";
 import React, { Suspense } from "react";
 import { usePathname } from "next/navigation";
 
-const Navbar = dynamic(() => import("./Navbar"), {
-  ssr: false,
-});
-
-const NavbarMobile = dynamic(() => import("./NavbarMobile"), {
-  ssr: false,
-});
+import Navbar from "./Navbar";
+import NavbarMobile from "./NavbarMobile";
 
 export default function NavbarWrapper() {
   const pathname = usePathname();
