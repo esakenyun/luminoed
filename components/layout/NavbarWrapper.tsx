@@ -1,11 +1,15 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import React, { Suspense } from "react";
 import { usePathname } from "next/navigation";
 
-import Navbar from "./Navbar";
-import NavbarMobile from "./NavbarMobile";
+const Navbar = dynamic(() => import("./Navbar"), {
+  ssr: false,
+});
+
+const NavbarMobile = dynamic(() => import("./NavbarMobile"), {
+  ssr: false,
+});
 
 export default function NavbarWrapper() {
   const pathname = usePathname();
@@ -17,9 +21,7 @@ export default function NavbarWrapper() {
   return (
     <>
       <Navbar />
-      <Suspense fallback={null}>
-        <NavbarMobile />
-      </Suspense>
+      <NavbarMobile />
     </>
   );
 }
