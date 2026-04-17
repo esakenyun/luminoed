@@ -358,7 +358,7 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
                 <Input
                   {...register("subtitle")}
                   placeholder="Ex: Exploring how AI is transforming classrooms for the next generation of learners."
-                  className={`border-none px-0 text-xl font-medium placeholder:text-gray-200 shadow-none focus-visible:ring-0 italic ${errors.subtitle ? "text-red-500" : "text-gray-500"}`}
+                  className={`bg-gray-50/50 border-gray-100 focus:bg-white text-xl font-extrabold placeholder:text-gray-200 shadow-none focus-visible:ring-0 italic ${errors.subtitle ? "text-red-500" : "text-gray-500"}`}
                 />
                 {errors.subtitle && (
                   <p className="text-red-500 text-xs font-medium">
@@ -373,7 +373,7 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
                   {...register("slug")}
                   readOnly
                   placeholder="Ex: the-future-of-tech"
-                  className={`border-none px-0 text-xl font-medium placeholder:text-gray-200 shadow-none focus-visible:ring-0 italic ${errors.slug ? "text-red-500" : "text-gray-500"}`}
+                  className={`bg-gray-50/50 border-gray-100 focus:bg-white text-xl font-extrabold placeholder:text-gray-200 shadow-none focus-visible:ring-0 italic ${errors.slug ? "text-red-500" : "text-gray-500"}`}
                 />
                 {errors.slug && (
                   <p className="text-red-500 text-xs font-medium">
@@ -477,7 +477,7 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
 
                 <EditorContent
                   editor={editor}
-                  className={`min-h-[400px] rounded-2xl border-2 border-transparent focus-within:border-blue-100 transition-all ${errors.content ? "bg-red-50/30" : ""}`}
+                  className={`min-h-[400px] rounded-2xl border-2 border-blue-50 focus-within:border-blue-100 transition-all ${errors.content ? "bg-red-50/30" : ""}`}
                 />
                 {errors.content && (
                   <p className="text-red-500 text-xs font-medium">

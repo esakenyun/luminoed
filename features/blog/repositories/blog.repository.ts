@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 import { CreateBlogInput, UpdateBlogInput } from "../schemas/blog.schema";
 
 export const blogRepository = {
@@ -30,26 +31,28 @@ export const blogRepository = {
     }),
 
   create: (data: CreateBlogInput) => {
-    // publishedAt needs conversion to Date if it's a string, or undefined/null
-    const rawSlug = data.slug || data.title;
+    const { publishedAt, slug, ...rest } = data;
+    const rawSlug = slug || rest.title;
     const generatedSlug = rawSlug
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)+/g, "");
 
-    const formattedData = {
-      ...data,
+    const formattedData: Prisma.BlogUncheckedCreateInput = {
+      ...rest,
       slug: generatedSlug,
-      publishedAt: data.publishedAt ? new Date(data.publishedAt) : null,
+      publishedAt: publishedAt ? new Date(publishedAt) : null,
     };
     return prisma.blog.create({ data: formattedData });
   },
 
   update: (id: number, data: UpdateBlogInput) => {
-    const formattedData = {
-      ...data,
-      ...(data.publishedAt !== undefined && {
-        publishedAt: data.publishedAt ? new Date(data.publishedAt) : null,
+    const { publishedAt, slug, ...rest } = data;
+    const formattedData: Prisma.BlogUncheckedUpdateInput = {
+      ...rest,
+      ...(slug != null && { slug }),
+      ...(publishedAt !== undefined && {
+        publishedAt: publishedAt ? new Date(publishedAt) : null,
       }),
     };
     return prisma.blog.update({ where: { id }, data: formattedData });
