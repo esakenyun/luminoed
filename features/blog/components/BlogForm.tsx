@@ -14,10 +14,9 @@ import {
   ListOrdered,
   CloudUpload,
   ChevronLeft,
-  X,
   Save,
   Loader2,
-  FileText
+  FileText,
 } from "lucide-react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import useDrivePicker from "react-google-drive-picker";
@@ -34,12 +33,16 @@ import {
 } from "@/components/ui/select";
 import { Category } from "@prisma/client";
 import { toast } from "sonner";
-import { createBlogSchema } from "@/features/blog/schemas/blog.schema";
+import {
+  createBlogSchema,
+  CreateBlogInput,
+} from "@/features/blog/schemas/blog.schema";
 import HardBreak from "@tiptap/extension-hard-break";
 import BulletList from "@tiptap/extension-bullet-list";
 import OrderedList from "@tiptap/extension-ordered-list";
 import ListItem from "@tiptap/extension-list-item";
-import { AnimatedCard } from "@/components/admin/components/dashboard-client";
+import { useForm, Controller, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 interface BlogFormProps {
   initialData?: any;
@@ -50,16 +53,6 @@ interface BlogFormProps {
 export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
   const router = useRouter();
   const { data: session } = useSession();
-
-  // Form State
-  const [title, setTitle] = useState(initialData?.title || "");
-  const [subtitle, setSubtitle] = useState(initialData?.subtitle || "");
-  const [image, setImage] = useState(initialData?.image || "");
-  const [imageCredit, setImageCredit] = useState(initialData?.imageCredit || "");
-  const [categoryId, setCategoryId] = useState(initialData?.categoryId || "");
-  const [authorId, setAuthorId] = useState(initialData?.authorId || "");
-  const [status, setStatus] = useState(initialData?.status || "DRAFT");
-  const [errors, setErrors] = useState<Record<string, string[]>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Data State
@@ -73,23 +66,68 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
 
   const [openPicker, authResponse] = useDrivePicker();
 
+  // React Hook Form
+  const form = useForm<CreateBlogInput>({
+    resolver: zodResolver(createBlogSchema),
+    defaultValues: {
+      title: initialData?.title || "",
+      slug: initialData?.slug || "",
+      subtitle: initialData?.subtitle || "",
+      image: initialData?.image || "",
+      imageCredit: initialData?.imageCredit || "",
+      categoryId: initialData?.categoryId || undefined,
+      authorId: initialData?.authorId || undefined,
+      status: (initialData?.status as "DRAFT" | "PUBLISHED") || "DRAFT",
+      content: initialData?.content || "",
+      publishedAt: initialData?.publishedAt
+        ? new Date(initialData.publishedAt).toISOString().split("T")[0]
+        : "",
+    },
+  });
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    setValue,
+    watch,
+    formState: { errors },
+  } = form;
+
+  const watchTitle = watch("title");
+  const watchStatus = watch("status");
+  const watchImage = watch("image");
+
   // Editor setup
   const CustomHeading = Heading.configure({ levels: [1, 2] }).extend({
     renderHTML({ node, HTMLAttributes }) {
       const level = node.attrs.level;
-      const classes = level === 1 ? "text-3xl font-bold mt-6 mb-3" : "text-xl font-semibold mt-5 mb-2";
+      const classes =
+        level === 1
+          ? "text-3xl font-bold mt-6 mb-3"
+          : "text-xl font-semibold mt-5 mb-2";
       return [`h${level}`, { ...HTMLAttributes, class: classes }, 0];
     },
   });
 
   const CustomHardBreak = HardBreak.extend({
-    renderHTML() { return ["br"]; },
-    addKeyboardShortcuts() { return { "Shift-Enter": () => this.editor.commands.setHardBreak() }; },
+    renderHTML() {
+      return ["br"];
+    },
+    addKeyboardShortcuts() {
+      return { "Shift-Enter": () => this.editor.commands.setHardBreak() };
+    },
   });
 
   const editor = useEditor({
     extensions: [
-      StarterKit.configure({ heading: false, hardBreak: false, bulletList: false, orderedList: false, listItem: false }),
+      StarterKit.configure({
+        heading: false,
+        hardBreak: false,
+        bulletList: false,
+        orderedList: false,
+        listItem: false,
+      }),
       CustomHeading,
       CustomHardBreak,
       BulletList.configure({ HTMLAttributes: { class: "list-disc pl-6" } }),
@@ -101,8 +139,19 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
     immediatelyRender: false,
     editorProps: {
       attributes: {
-        class: "min-h-[400px] w-full bg-transparent text-slate-700 outline-none p-4 prose prose-neutral max-w-none leading-7",
+        class:
+          "min-h-[400px] w-full bg-transparent text-slate-700 outline-none p-4 prose prose-neutral max-w-none leading-7",
       },
+    },
+    onUpdate: ({ editor }) => {
+      const rawHtml = editor.getHTML();
+      const cleanContent = rawHtml
+        .replace(/<p><\/p>/g, "")
+        .replace(/<p>\s*<\/p>/g, "")
+        .trim();
+      setValue("content", cleanContent === "<p></p>" ? "" : cleanContent, {
+        shouldValidate: true,
+      });
     },
   });
 
@@ -112,9 +161,9 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
         const [usersRes, catsRes, config] = await Promise.all([
           fetch("/api/user"),
           fetch("/api/category"),
-          getGooglePickerConfig()
+          getGooglePickerConfig(),
         ]);
-        
+
         if (usersRes.ok) {
           const data = await usersRes.json();
           setUsers(Array.isArray(data) ? data : data?.data || []);
@@ -124,7 +173,11 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
           setCategories(data);
         }
         if (config.clientId && config.apiKey && config.appId) {
-          setGoogleConfig({ clientId: config.clientId, apiKey: config.apiKey, appId: config.appId });
+          setGoogleConfig({
+            clientId: config.clientId,
+            apiKey: config.apiKey,
+            appId: config.appId,
+          });
         }
       } catch (err) {
         console.error("Failed to load form data", err);
@@ -136,7 +189,6 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
   const handleOpenPicker = () => {
     if (!googleConfig) return;
 
-    // Prevent scrolling by adding a class to the html element
     const html = document.documentElement;
     html.classList.add("picker-open");
 
@@ -150,42 +202,41 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
       showUploadFolders: true,
       supportDrives: true,
       multiselect: false,
-      customViews: google ? [
-        new google.picker.DocsView().setIncludeFolders(true).setEnableDrives(true),
-        new google.picker.DocsView(google.picker.ViewId.SHARED_DRIVES),
-      ] : undefined,
+      customViews: google
+        ? [
+            new google.picker.DocsView()
+              .setIncludeFolders(true)
+              .setEnableDrives(true),
+            new google.picker.DocsView(google.picker.ViewId.SHARED_DRIVES),
+          ]
+        : undefined,
       callbackFunction: (data) => {
-        // Restore scrolling by removing the class
         html.classList.remove("picker-open");
-        
+
         if (data.action === "picked") {
-          setImage(`https://drive.google.com/thumbnail?id=${data.docs[0].id}&sz=w1600`);
+          const imageUrl = `https://drive.google.com/thumbnail?id=${data.docs[0].id}&sz=w1600`;
+          setValue("image", imageUrl, { shouldValidate: true });
         }
       },
     });
   };
 
-  const handleSubmit = async () => {
-    const rawHtml = editor?.getHTML() || "";
-    const cleanContent = rawHtml.replace(/<p><\/p>/g, "").replace(/<p>\s*<\/p>/g, "").trim();
+  useEffect(() => {
+    if (!watchTitle) return;
 
-    const parsed = createBlogSchema.safeParse({
-      title,
-      subtitle,
-      categoryId,
-      authorId,
-      image,
-      imageCredit,
-      status,
-      content: cleanContent === "<p></p>" ? "" : cleanContent,
-    });
+    const generatedSlug = watchTitle
+      .toLowerCase()
+      .trim()
+      .split(/\s+/)
+      .join("-")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9-]/g, "");
 
-    if (!parsed.success) {
-      setErrors(parsed.error.flatten().fieldErrors as Record<string, string[]>);
-      toast.error("Please check the form for errors.");
-      return;
-    }
+    setValue("slug", generatedSlug);
+  }, [watchTitle, setValue]);
 
+  const onSubmit: SubmitHandler<CreateBlogInput> = async (data) => {
     try {
       setIsSubmitting(true);
       const url = initialData?.id ? `/api/blog/${initialData.id}` : "/api/blog";
@@ -194,7 +245,7 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
       const response = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, subtitle, image, imageCredit, categoryId, content: cleanContent, status, authorId }),
+        body: JSON.stringify(data),
       });
 
       if (!response.ok) {
@@ -202,7 +253,11 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
         throw new Error(errorData.message || "Failed to save post");
       }
 
-      toast.success(initialData?.id ? "Blog post updated successfully!" : "Blog post created successfully!");
+      toast.success(
+        initialData?.id
+          ? "Blog post updated successfully!"
+          : "Blog post created successfully!",
+      );
       if (onSuccess) onSuccess();
       else {
         router.push("/admin/dashboard/blogs");
@@ -213,6 +268,11 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const onError = (errors: any) => {
+    console.log("Form errors:", errors);
+    toast.error("Please check the form for errors.");
   };
 
   if (!editor) return null;
@@ -246,7 +306,7 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
             Cancel
           </Button>
           <Button
-            onClick={handleSubmit}
+            onClick={handleSubmit(onSubmit, onError)}
             disabled={isSubmitting}
             className="rounded-xl px-8 bg-gray-900 text-white font-semibold hover:bg-gray-800 transition-all shadow-lg shadow-gray-200 active:scale-95"
           >
@@ -280,14 +340,13 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
                   Article Title
                 </Label>
                 <Input
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
+                  {...register("title")}
                   placeholder="The Future of EdTech..."
-                  className={`border-none px-0 text-4xl font-extrabold placeholder:text-gray-200 shadow-none focus-visible:ring-0 ${errors.title ? "text-red-500" : "text-gray-900"}`}
+                  className={`bg-gray-50/50 border-gray-100 focus:bg-white text-4xl font-extrabold placeholder:text-gray-200 shadow-none focus-visible:ring-0 ${errors.title ? "text-red-500" : "text-gray-900"}`}
                 />
                 {errors.title && (
                   <p className="text-red-500 text-xs font-medium">
-                    {errors.title[0]}
+                    {errors.title.message}
                   </p>
                 )}
               </div>
@@ -297,14 +356,28 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
                   Subtitle
                 </Label>
                 <Input
-                  value={subtitle}
-                  onChange={(e) => setSubtitle(e.target.value)}
+                  {...register("subtitle")}
                   placeholder="Ex: Exploring how AI is transforming classrooms for the next generation of learners."
                   className={`border-none px-0 text-xl font-medium placeholder:text-gray-200 shadow-none focus-visible:ring-0 italic ${errors.subtitle ? "text-red-500" : "text-gray-500"}`}
                 />
                 {errors.subtitle && (
                   <p className="text-red-500 text-xs font-medium">
-                    {errors.subtitle[0]}
+                    {errors.subtitle.message}
+                  </p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <Label className="text-sm font-bold text-gray-700">Slug</Label>
+                <Input
+                  {...register("slug")}
+                  readOnly
+                  placeholder="Ex: the-future-of-tech"
+                  className={`border-none px-0 text-xl font-medium placeholder:text-gray-200 shadow-none focus-visible:ring-0 italic ${errors.slug ? "text-red-500" : "text-gray-500"}`}
+                />
+                {errors.slug && (
+                  <p className="text-red-500 text-xs font-medium">
+                    {errors.slug.message}
                   </p>
                 )}
               </div>
@@ -408,7 +481,7 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
                 />
                 {errors.content && (
                   <p className="text-red-500 text-xs font-medium">
-                    {errors.content[0]}
+                    {errors.content.message}
                   </p>
                 )}
               </div>
@@ -424,13 +497,13 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
               Article Cover
             </h3>
             <div
-              className={`group relative border-2 border-dashed border-gray-100 rounded-3xl bg-gray-50/50 text-center transition-all hover:bg-white hover:border-blue-500 cursor-pointer overflow-hidden ${!image ? "p-8" : "p-1"}`}
+              className={`group relative border-2 border-dashed border-gray-100 rounded-3xl bg-gray-50/50 text-center transition-all hover:bg-white hover:border-blue-500 cursor-pointer overflow-hidden ${!watchImage ? "p-8" : "p-1"}`}
               onClick={handleOpenPicker}
             >
-              {image ? (
+              {watchImage ? (
                 <div className="relative aspect-video rounded-2xl overflow-hidden bg-gray-200">
                   <img
-                    src={image}
+                    src={watchImage}
                     alt="cover"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
@@ -458,7 +531,7 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
             </div>
             {errors.image && (
               <p className="text-red-500 text-xs font-medium mt-2">
-                {errors.image[0]}
+                {errors.image.message}
               </p>
             )}
 
@@ -468,14 +541,13 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
                   Image Credit
                 </Label>
                 <Input
-                  value={imageCredit}
-                  onChange={(e) => setImageCredit(e.target.value)}
+                  {...register("imageCredit")}
                   placeholder="Photo by Unsplash"
                   className="rounded-xl bg-gray-50/50 border-gray-100 h-11 focus:bg-white"
                 />
                 {errors.imageCredit && (
                   <p className="text-red-500 text-xs font-medium">
-                    {errors.imageCredit[0]}
+                    {errors.imageCredit.message}
                   </p>
                 )}
               </div>
@@ -488,56 +560,92 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
               Publishing Settings
             </h3>
             <div className="space-y-6">
-              <div className="space-y-2">
-                <Label className="text-xs font-bold text-gray-500 uppercase">
-                  Category
-                </Label>
-                <Select value={categoryId} onValueChange={setCategoryId}>
-                  <SelectTrigger className="rounded-xl h-11 bg-gray-50/50 border-gray-100 focus:bg-white">
-                    <SelectValue placeholder="Select topic..." />
-                  </SelectTrigger>
-                  <SelectContent className="rounded-2xl shadow-xl border-gray-100">
-                    {categories.map((cat) => (
-                      <SelectItem
-                        key={cat.id}
-                        value={cat.id}
-                        className="rounded-xl mx-1 my-0.5"
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="space-y-2">
+                  <Label className="text-xs font-bold text-gray-500 uppercase">
+                    Author
+                  </Label>
+                  <Controller
+                    name="authorId"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        onValueChange={(val) => field.onChange(Number(val))}
+                        value={field.value ? String(field.value) : ""}
                       >
-                        {cat.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                {errors.categoryId && (
-                  <p className="text-red-500 text-xs font-medium">
-                    {errors.categoryId[0]}
-                  </p>
-                )}
+                        <SelectTrigger className="rounded-xl h-11 bg-gray-50/50 border-gray-100 focus:bg-white w-full">
+                          <SelectValue placeholder="Assign author..." />
+                        </SelectTrigger>
+                        <SelectContent className="rounded-2xl shadow-xl border-gray-100">
+                          {users.map((user) => (
+                            <SelectItem
+                              key={user.id}
+                              value={String(user.id)}
+                              className="rounded-xl mx-1 my-0.5"
+                            >
+                              {user.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
+                  {errors.authorId && (
+                    <p className="text-red-500 text-xs font-medium">
+                      {errors.authorId.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Label className="text-xs font-bold text-gray-500 uppercase">
+                    Category
+                  </Label>
+                  <Controller
+                    name="categoryId"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        onValueChange={(val) => field.onChange(Number(val))}
+                        value={field.value ? String(field.value) : ""}
+                      >
+                        <SelectTrigger className="rounded-xl h-11 bg-gray-50/50 border-gray-100 focus:bg-white w-full">
+                          <SelectValue placeholder="Select topic..." />
+                        </SelectTrigger>
+                        <SelectContent className="rounded-2xl shadow-xl border-gray-100">
+                          {categories.map((cat) => (
+                            <SelectItem
+                              key={cat.id}
+                              value={String(cat.id)}
+                              className="rounded-xl mx-1 my-0.5"
+                            >
+                              {cat.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
+                  {errors.categoryId && (
+                    <p className="text-red-500 text-xs font-medium">
+                      {errors.categoryId.message}
+                    </p>
+                  )}
+                </div>
               </div>
 
               <div className="space-y-2">
                 <Label className="text-xs font-bold text-gray-500 uppercase">
-                  Author
+                  Published Date
                 </Label>
-                <Select value={authorId} onValueChange={setAuthorId}>
-                  <SelectTrigger className="rounded-xl h-11 bg-gray-50/50 border-gray-100 focus:bg-white">
-                    <SelectValue placeholder="Assign author..." />
-                  </SelectTrigger>
-                  <SelectContent className="rounded-2xl shadow-xl border-gray-100">
-                    {users.map((user) => (
-                      <SelectItem
-                        key={user.id}
-                        value={user.id}
-                        className="rounded-xl mx-1 my-0.5"
-                      >
-                        {user.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                {errors.authorId && (
+                <Input
+                  type="date"
+                  {...register("publishedAt")}
+                  className="rounded-xl h-11 bg-gray-50/50 border-gray-100 focus:bg-white"
+                />
+                {errors.publishedAt && (
                   <p className="text-red-500 text-xs font-medium">
-                    {errors.authorId[0]}
+                    {errors.publishedAt.message}
                   </p>
                 )}
               </div>
@@ -548,18 +656,25 @@ export function BlogForm({ initialData, onSuccess, onCancel }: BlogFormProps) {
                 </Label>
                 <div className="grid grid-cols-2 gap-2 p-1 bg-gray-50 rounded-2xl border border-gray-100">
                   <button
-                    onClick={() => setStatus("DRAFT")}
-                    className={`py-2 text-xs font-bold rounded-xl transition-all ${status === "DRAFT" ? "bg-white text-amber-600 shadow-sm" : "text-gray-400 hover:text-gray-600"}`}
+                    type="button"
+                    onClick={() => setValue("status", "DRAFT")}
+                    className={`py-2 text-xs font-bold rounded-xl transition-all ${watchStatus === "DRAFT" ? "bg-white text-amber-600 shadow-sm" : "text-gray-400 hover:text-gray-600"}`}
                   >
                     DRAFT
                   </button>
                   <button
-                    onClick={() => setStatus("PUBLISHED")}
-                    className={`py-2 text-xs font-bold rounded-xl transition-all ${status === "PUBLISHED" ? "bg-white text-green-600 shadow-sm" : "text-gray-400 hover:text-gray-600"}`}
+                    type="button"
+                    onClick={() => setValue("status", "PUBLISHED")}
+                    className={`py-2 text-xs font-bold rounded-xl transition-all ${watchStatus === "PUBLISHED" ? "bg-white text-green-600 shadow-sm" : "text-gray-400 hover:text-gray-600"}`}
                   >
                     PUBLISHED
                   </button>
                 </div>
+                {errors.status && (
+                  <p className="text-red-500 text-xs font-medium">
+                    {errors.status.message}
+                  </p>
+                )}
               </div>
             </div>
           </div>

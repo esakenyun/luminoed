@@ -58,6 +58,7 @@ export function CreatePostModal({
 
   // Form State
   const [title, setTitle] = useState("");
+  const [slug, setSlug] = useState("");
   const [subtitle, setSubtitle] = useState("");
   const [image, setImage] = useState("");
   const [imageCredit, setImageCredit] = useState("");
@@ -252,11 +253,14 @@ export function CreatePostModal({
 
       if (initialData) {
         setTitle(initialData.title || "");
+        setSlug(initialData.slug || "");
         setSubtitle(initialData.subtitle || "");
         setImage(initialData.image || "");
         setImageCredit(initialData.imageCredit || "");
-        setCategoryId(initialData.categoryId || "");
-        setAuthorId(initialData.authorId || "");
+        setCategoryId(
+          initialData.categoryId ? String(initialData.categoryId) : "",
+        );
+        setAuthorId(initialData.authorId ? String(initialData.authorId) : "");
         setStatus(initialData.status || "DRAFT");
         // Ensure editor is ready before setting content
         if (editor) {
@@ -265,6 +269,7 @@ export function CreatePostModal({
       } else {
         // Reset form completely if not editing
         setTitle("");
+        setSlug("");
         setSubtitle("");
         setImage("");
         setImageCredit("");
@@ -277,6 +282,21 @@ export function CreatePostModal({
       }
     }
   }, [open, initialData, editor]);
+
+  useEffect(() => {
+    if (!title) return;
+
+    const generatedSlug = title
+      .toLowerCase()
+      .trim()
+      .split(/\s+/)
+      .join("-")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9-]/g, "");
+
+    setSlug(generatedSlug);
+  }, [title]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -292,9 +312,10 @@ export function CreatePostModal({
     // Zod Validation
     const parsed = createBlogSchema.safeParse({
       title,
+      slug,
       subtitle,
-      categoryId,
-      authorId,
+      categoryId: categoryId ? Number(categoryId) : undefined,
+      authorId: authorId ? Number(authorId) : undefined,
       image,
       imageCredit,
       status,
@@ -327,13 +348,14 @@ export function CreatePostModal({
           },
           body: JSON.stringify({
             title,
+            slug,
             subtitle,
             image,
             imageCredit,
-            categoryId,
+            categoryId: Number(categoryId),
             content: cleanContent,
             status: status,
-            authorId: authorId,
+            authorId: Number(authorId),
           }),
         });
 
@@ -455,7 +477,7 @@ export function CreatePostModal({
                 </SelectTrigger>
                 <SelectContent>
                   {categories.map((cat) => (
-                    <SelectItem key={cat.id} value={cat.id}>
+                    <SelectItem key={cat.id} value={`${cat.id}`}>
                       {cat.name}
                     </SelectItem>
                   ))}
@@ -478,7 +500,7 @@ export function CreatePostModal({
                 </SelectTrigger>
                 <SelectContent>
                   {users.map((user) => (
-                    <SelectItem key={user.id} value={user.id}>
+                    <SelectItem key={user.id} value={`${user.id}`}>
                       {user.name}
                     </SelectItem>
                   ))}

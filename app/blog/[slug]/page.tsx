@@ -4,14 +4,14 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
+  const { slug } = await params;
 
   const article = await prisma.blog.findUnique({
-    where: { id },
+    where: { slug },
     include: { author: true },
   });
 
@@ -25,11 +25,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${article.title} | LuminoED Blog`,
     description: article.subtitle,
-    authors: [{ name: article.author.name || "Unknown Author" }],
+    authors: [{ name: article.author?.name || "Unknown Author" }],
     openGraph: {
       title: article.title,
       description: article.subtitle,
-      url: `https://luminoed.id/blog/${article.id}`,
+      url: `https://luminoed.id/blog/${article.slug}`,
       siteName: "LuminoED",
       images: article.image
         ? [
@@ -53,11 +53,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ArticleById({ params }: Props) {
-  const { id } = await params;
+export default async function ArticleBySlug({ params }: Props) {
+  const { slug } = await params;
 
   const article = await prisma.blog.findUnique({
-    where: { id },
+    where: { slug },
     include: { author: true, category: true },
   });
 
@@ -111,7 +111,9 @@ export default async function ArticleById({ params }: Props) {
                   </span>
                 </div>
                 <p className="text-gray-500 text-sm font-normal">
-                  {new Date(article.createdAt).toLocaleDateString("en-US", {
+                  {new Date(
+                    article.publishedAt || article.createdAt,
+                  ).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "short",
                     day: "numeric",

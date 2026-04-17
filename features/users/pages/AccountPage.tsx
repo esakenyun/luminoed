@@ -316,7 +316,7 @@ export function AccountClientPage() {
                               <h4 className="font-bold text-gray-900 truncate group-hover:text-blue-600 transition-colors">
                                 {account.name}
                               </h4>
-                              {account.id === currentUserId && (
+                              {String(account.id) === currentUserId && (
                                 <span className="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded font-bold uppercase tracking-tighter">
                                   You
                                 </span>
@@ -366,14 +366,14 @@ export function AccountClientPage() {
                           </button>
                           <button
                             onClick={() => handleOpenDeleteModal(account)}
-                            disabled={account.id === currentUserId}
+                            disabled={String(account.id) === currentUserId}
                             className={`p-2.5 rounded-xl border transition-all shadow-sm shrink-0 active:scale-90 ${
-                              account.id === currentUserId
+                              String(account.id) === currentUserId
                                 ? "bg-gray-50 text-gray-300 border-gray-100 cursor-not-allowed"
                                 : "bg-white text-red-600 border-gray-100 hover:bg-red-50 hover:border-red-100"
                             }`}
                             title={
-                              account.id === currentUserId
+                              String(account.id) === currentUserId
                                 ? "Cannot delete self"
                                 : "Delete User"
                             }
@@ -417,7 +417,11 @@ export function AccountClientPage() {
         isOpen={isUserModalOpen}
         onClose={handleCloseUserModal}
         onSubmit={handleUserSubmit}
-        initialData={selectedUser}
+        initialData={
+          selectedUser
+            ? { ...selectedUser, id: String(selectedUser.id) }
+            : undefined
+        }
         title={selectedUser ? "Edit Account" : "Create New Account"}
         isLoading={isSubmitLoading}
       />

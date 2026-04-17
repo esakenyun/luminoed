@@ -8,8 +8,13 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> },
 ) {
   const { id } = await params;
+  const numericId = Number(id);
 
-  const user = await userService.getUserById(id);
+  if (isNaN(numericId)) {
+    return NextResponse.json({ message: "Invalid user ID" }, { status: 400 });
+  }
+
+  const user = await userService.getUserById(numericId);
 
   if (!user) {
     return NextResponse.json({ message: "User not found" }, { status: 404 });
@@ -23,6 +28,11 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> },
 ) {
   const { id } = await params;
+  const numericId = Number(id);
+
+  if (isNaN(numericId)) {
+    return NextResponse.json({ message: "Invalid user ID" }, { status: 400 });
+  }
 
   const session = await auth();
   if (!session || !session.user) {
@@ -43,7 +53,7 @@ export async function PUT(
     );
   }
 
-  const user = await userService.updateUser(id, parsed.data);
+  const user = await userService.updateUser(numericId, parsed.data);
 
   return NextResponse.json(user);
 }
@@ -53,6 +63,11 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> },
 ) {
   const { id } = await params;
+  const numericId = Number(id);
+
+  if (isNaN(numericId)) {
+    return NextResponse.json({ message: "Invalid user ID" }, { status: 400 });
+  }
 
   const session = await auth();
   if (!session || !session.user) {
@@ -63,7 +78,7 @@ export async function DELETE(
     return NextResponse.json({ message: "Forbidden" }, { status: 403 });
   }
 
-  if (session.user.id === id) {
+  if (session.user.id?.toString() === id) {
     return NextResponse.json(
       { message: "You cannot delete your own account" },
       { status: 400 },
@@ -71,7 +86,7 @@ export async function DELETE(
   }
 
   try {
-    await userService.deleteUser(id);
+    await userService.deleteUser(numericId);
     return NextResponse.json({ message: "User deleted" });
   } catch (error: any) {
     if (error.code === "P2003") {

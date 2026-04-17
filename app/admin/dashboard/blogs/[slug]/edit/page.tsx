@@ -4,16 +4,16 @@ import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 
 interface EditBlogPageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{
+    slug: string;
+  }>;
 }
 
 export default async function EditBlogPage({ params }: EditBlogPageProps) {
-  const { id } = await params;
+  const { slug } = await params;
 
   const blog = await prisma.blog.findUnique({
-    where: { id },
+    where: { slug },
   });
 
   if (!blog) {

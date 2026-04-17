@@ -34,14 +34,12 @@ async function DashboardStats() {
       value: totalPosts,
       icon: "FileText" as const,
       color: "bg-blue-600",
-      trend: "+12%",
     },
     {
       label: "Published",
       value: publishedPosts,
       icon: "CheckCircle" as const,
       color: "bg-green-600",
-      trend: "+8%",
     },
     {
       label: "Drafts",
@@ -84,13 +82,14 @@ async function RecentPostsList() {
   });
 
   return (
-    <div className="divide-y divide-gray-100">
+    <div className="divide-y divide-gray-100 w-full">
       {recentPostsData.map((post) => (
         <div
           key={post.id}
-          className="group flex items-center gap-4 py-4 first:pt-0 last:pb-0"
+          className="group flex flex-wrap items-center gap-3 sm:gap-4 py-4 first:pt-0 last:pb-0 min-w-0 w-full"
         >
-          <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-gray-100 shrink-0">
+          {/* Cover Image */}
+          <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-gray-100 shrink-0 shadow-sm">
             {post.image ? (
               <img
                 src={post.image}
@@ -99,20 +98,26 @@ async function RecentPostsList() {
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-gray-300">
-                <FileText className="w-6 h-6" />
+                <FileText className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
             )}
           </div>
 
-          <div className="flex-1 min-w-0">
-            <h4 className="font-semibold text-gray-900 truncate group-hover:text-blue-600 transition-colors">
-              {post.title}
-            </h4>
-            <div className="flex items-center gap-2 mt-1">
-              <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
+          {/* Title & Metadata */}
+          <div className="flex-1 min-w-0 overflow-hidden w-[200px] lg:max-w-none">
+            <Link
+              href={`/admin/dashboard/blogs/${post.slug}`}
+              className="block"
+            >
+              <h4 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors text-sm sm:text-base truncate">
+                {post.title}
+              </h4>
+            </Link>
+            <div className="flex items-center gap-2 mt-1 overflow-hidden">
+              <span className="text-[10px] sm:text-xs font-semibold text-gray-500 bg-gray-50 border border-gray-100 px-2 py-0.5 rounded-full shrink-0">
                 {post.category.name}
               </span>
-              <span className="text-xs text-gray-400 flex items-center gap-1">
+              <span className="text-[10px] sm:text-xs text-gray-400 flex items-center gap-1 shrink-0">
                 <Clock className="w-3 h-3" />
                 {new Date(post.createdAt).toLocaleDateString("en-GB", {
                   day: "numeric",
@@ -122,21 +127,24 @@ async function RecentPostsList() {
             </div>
           </div>
 
-          <div className="flex flex-col items-end gap-2">
-            <span
-              className={`text-[10px] uppercase tracking-wider font-bold px-2 py-1 rounded-lg ${
-                post.status === "PUBLISHED"
-                  ? "bg-green-50 text-green-700 border border-green-100"
-                  : "bg-amber-50 text-amber-700 border border-amber-100"
-              }`}
-            >
-              {post.status}
-            </span>
+          {/* Status & Actions */}
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0 pl-1">
+            <div className="hidden xs:block sm:flex flex-col items-end gap-1.5 shrink-0">
+              <span
+                className={`text-[9px] sm:text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-lg border ${
+                  post.status === "PUBLISHED"
+                    ? "bg-green-50 text-green-700 border-green-100"
+                    : "bg-amber-50 text-amber-700 border-amber-100"
+                }`}
+              >
+                {post.status}
+              </span>
+            </div>
             <Link
-              href={`/admin/dashboard/blogs/${post.id}`}
-              className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-900 transition-colors"
+              href={`/admin/dashboard/blogs/${post.slug}`}
+              className="p-1.5 sm:p-2 rounded-xl hover:bg-gray-100 text-gray-400 hover:text-gray-900 transition-all border border-transparent hover:border-gray-100 shadow-sm hover:shadow-md"
             >
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </Link>
           </div>
         </div>
@@ -253,7 +261,7 @@ export default async function DashboardPage() {
         </Suspense>
 
         {/* Main Content Grid */}
-        <div className="grid xl:grid-cols-3 gap-8">
+        <div className="grid xl:grid-cols-3 gap-8 w-full max-w-full">
           {/* Recent Posts - Takes up 2 columns on larger screens */}
           <div className="xl:col-span-2 space-y-6">
             <AnimatedCard className="h-full">

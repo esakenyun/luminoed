@@ -5,12 +5,15 @@ import { auth } from "@/lib/auth";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: Promise<{ id: string }> },
+  { params }: { params: Promise<{ slug: string }> },
 ) {
   try {
-    const { id } = await params;
+    const { slug } = await params;
+    const isNumericId = !isNaN(Number(slug)) && /^\d+$/.test(slug);
 
-    const blog = await blogService.getBlogById(id);
+    const blog = isNumericId
+      ? await blogService.getBlogById(Number(slug))
+      : await blogService.getBlogBySlug(slug);
 
     if (!blog) {
       return NextResponse.json({ message: "Blog not found" }, { status: 404 });
@@ -24,10 +27,16 @@ export async function GET(
 
 export async function PUT(
   req: NextRequest,
-  { params }: { params: Promise<{ id: string }> },
+  { params }: { params: Promise<{ slug: string }> },
 ) {
   try {
-    const { id } = await params;
+    const { slug } = await params;
+    const isNumericId = !isNaN(Number(slug)) && /^\d+$/.test(slug);
+
+    if (!isNumericId) {
+      return NextResponse.json({ message: "Invalid numeric ID" }, { status: 400 });
+    }
+    const numericId = Number(slug);
 
     const session = await auth();
     if (!session || !session.user) {
@@ -48,7 +57,7 @@ export async function PUT(
       );
     }
 
-    const blog = await blogService.updateBlog(id, parsed.data);
+    const blog = await blogService.updateBlog(numericId, parsed.data);
 
     return NextResponse.json(blog);
   } catch (error: unknown) {
@@ -68,10 +77,16 @@ export async function PUT(
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: Promise<{ id: string }> },
+  { params }: { params: Promise<{ slug: string }> },
 ) {
   try {
-    const { id } = await params;
+    const { slug } = await params;
+    const isNumericId = !isNaN(Number(slug)) && /^\d+$/.test(slug);
+
+    if (!isNumericId) {
+      return NextResponse.json({ message: "Invalid numeric ID" }, { status: 400 });
+    }
+    const numericId = Number(slug);
 
     const session = await auth();
     if (!session || !session.user) {
@@ -82,7 +97,7 @@ export async function DELETE(
       return NextResponse.json({ message: "Forbidden" }, { status: 403 });
     }
 
-    await blogService.deleteBlog(id);
+    await blogService.deleteBlog(numericId);
 
     return NextResponse.json({ message: "Blog deleted" });
   } catch (error: unknown) {

@@ -253,9 +253,11 @@ export default function BlogClient() {
                             )}
                           </div>
                           <div className="min-w-0 flex-1">
-                            <h4 className="font-bold text-gray-900 truncate group-hover:text-blue-600 transition-colors">
-                              {post.title}
-                            </h4>
+                            <Link href={`/admin/dashboard/blogs/${post.slug}`}>
+                              <h4 className="font-bold text-gray-900 truncate group-hover:text-blue-600 transition-colors">
+                                {post.title}
+                              </h4>
+                            </Link>
                             <p className="text-xs text-gray-500 truncate mt-0.5">
                               {post.subtitle}
                             </p>
@@ -308,14 +310,14 @@ export default function BlogClient() {
                       <td className="px-6 py-4 text-right">
                         <div className="flex justify-end gap-2">
                           <Link
-                            href={`/admin/dashboard/blogs/${post.id}`}
+                            href={`/admin/dashboard/blogs/${post.slug}`}
                             title="Preview"
                             className="p-2.5 rounded-xl border border-gray-100 bg-white text-blue-600 hover:bg-blue-50 hover:border-blue-100 transition-all shadow-sm shrink-0"
                           >
                             <Eye className="w-4 h-4" />
                           </Link>
                           <Link
-                            href={`/admin/dashboard/blogs/${post.id}/edit`}
+                            href={`/admin/dashboard/blogs/${post.slug}/edit`}
                             title="Edit"
                             className="p-2.5 rounded-xl border border-gray-100 bg-white text-amber-600 hover:bg-amber-50 hover:border-amber-100 transition-all shadow-sm shrink-0"
                           >

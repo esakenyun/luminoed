@@ -20,12 +20,12 @@ export const categoryRepository = {
       },
     }),
 
-  findById: (id: string) => prisma.category.findUnique({ where: { id } }),
+  findById: (id: number) => prisma.category.findUnique({ where: { id } }),
 
   create: (data: CreateCategoryInput) => prisma.category.create({ data }),
 
-  update: (id: string, data: UpdateCategoryInput) =>
+  update: (id: number, data: UpdateCategoryInput) =>
     prisma.category.update({ where: { id }, data }),
 
-  delete: (id: string) => prisma.category.delete({ where: { id } }),
+  delete: (id: number) => prisma.category.delete({ where: { id } }),
 };

@@ -303,24 +303,24 @@ export default function CategoryManagerContent() {
                     >
                       <td className="px-8 py-4">
                         <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 rounded-2xl bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-indigo-100 shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                          <div className="w-12 h-12 rounded-2xl bg-linear-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-100 shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform">
                             <span className="text-xl font-bold uppercase transition-transform">
                               {category.name.charAt(0)}
                             </span>
                           </div>
                           <div className="min-w-0">
-                            <h4 className="font-bold text-gray-900 text-lg group-hover:text-indigo-600 transition-colors">
+                            <h4 className="font-bold text-gray-900 text-lg group-hover:text-blue-600 transition-colors">
                               {category.name}
                             </h4>
                             <p className="text-xs text-gray-400 font-medium">
-                              Identifier: {category.id.slice(0, 8)}
+                              {/* Identifier: {category.id} */}
                             </p>
                           </div>
                         </div>
                       </td>
 
                       <td className="px-8 py-4 text-center">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-indigo-50 text-indigo-700 font-bold text-xs ring-1 ring-indigo-100">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 font-bold text-xs ring-1 ring-blue-100">
                           <FileText className="w-3.5 h-3.5" />
                           {category._count?.blogs || 0} Articles
                         </div>

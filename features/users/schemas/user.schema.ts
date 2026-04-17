@@ -16,7 +16,7 @@ export type CreateUserInput = z.infer<typeof createUserSchema>;
 export type UpdateUserInput = z.infer<typeof updateUserSchema>;
 
 export interface Account {
-  id: string; // Prisma uses string ID
+  id: number;
   name: string;
   email: string;
   role: "SUPERADMIN" | "ADMIN";

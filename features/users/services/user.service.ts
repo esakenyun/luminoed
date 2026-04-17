@@ -6,12 +6,12 @@ export const userService = {
     return userRepository.create(input);
   },
 
-  async updateUser(id: string, input: UpdateUserInput) {
+  async updateUser(id: number, input: UpdateUserInput) {
     const data = { ...input };
     return userRepository.update(id, data);
   },
 
   getUsers: () => userRepository.findAll(),
-  getUserById: (id: string) => userRepository.findById(id),
-  deleteUser: (id: string) => userRepository.delete(id),
+  getUserById: (id: number) => userRepository.findById(id),
+  deleteUser: (id: number) => userRepository.delete(id),
 };

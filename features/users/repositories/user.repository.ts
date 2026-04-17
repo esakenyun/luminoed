@@ -12,16 +12,16 @@ export const userRepository = {
         createdAt: true,
       },
       orderBy: {
-        createdAt: "asc",
+        createdAt: "desc",
       },
     }),
 
-  findById: (id: string) => prisma.user.findUnique({ where: { id } }),
+  findById: (id: number) => prisma.user.findUnique({ where: { id } }),
 
   create: (data: CreateUserInput) => prisma.user.create({ data }),
 
-  update: (id: string, data: UpdateUserInput) =>
+  update: (id: number, data: UpdateUserInput) =>
     prisma.user.update({ where: { id }, data }),
 
-  delete: (id: string) => prisma.user.delete({ where: { id } }),
+  delete: (id: number) => prisma.user.delete({ where: { id } }),
 };

@@ -3,12 +3,13 @@ import { CreateBlogInput, UpdateBlogInput } from "../schemas/blog.schema";
 
 export const blogService = {
   getBlogs: () => blogRepository.findAll(),
-  getBlogById: (id: string) => blogRepository.findById(id),
+  getBlogById: (id: number) => blogRepository.findById(id),
+  getBlogBySlug: (slug: string) => blogRepository.findBySlug(slug),
 
   createBlog: (input: CreateBlogInput) => blogRepository.create(input),
 
-  updateBlog: (id: string, input: UpdateBlogInput) =>
+  updateBlog: (id: number, input: UpdateBlogInput) =>
     blogRepository.update(id, input),
 
-  deleteBlog: (id: string) => blogRepository.delete(id),
+  deleteBlog: (id: number) => blogRepository.delete(id),
 };

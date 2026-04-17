@@ -9,8 +9,13 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
+    const numericId = Number(id);
 
-    const category = await categoryService.getCategoryById(id);
+    if (isNaN(numericId)) {
+      return NextResponse.json({ message: "Invalid category ID" }, { status: 400 });
+    }
+
+    const category = await categoryService.getCategoryById(numericId);
 
     if (!category) {
       return NextResponse.json(
@@ -31,6 +36,11 @@ export async function PUT(
 ) {
   try {
     const { id } = await params;
+    const numericId = Number(id);
+
+    if (isNaN(numericId)) {
+      return NextResponse.json({ message: "Invalid category ID" }, { status: 400 });
+    }
 
     const session = await auth();
     if (!session || !session.user) {
@@ -51,7 +61,7 @@ export async function PUT(
       );
     }
 
-    const category = await categoryService.updateCategory(id, parsed.data);
+    const category = await categoryService.updateCategory(numericId, parsed.data);
 
     return NextResponse.json(category);
   } catch (error: unknown) {
@@ -89,6 +99,11 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
+    const numericId = Number(id);
+
+    if (isNaN(numericId)) {
+      return NextResponse.json({ message: "Invalid category ID" }, { status: 400 });
+    }
 
     const session = await auth();
     if (!session || !session.user) {
@@ -99,7 +114,7 @@ export async function DELETE(
       return NextResponse.json({ message: "Forbidden" }, { status: 403 });
     }
 
-    await categoryService.deleteCategory(id);
+    await categoryService.deleteCategory(numericId);
 
     return NextResponse.json({ message: "Category deleted" });
   } catch (error: unknown) {

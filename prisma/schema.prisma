@@ -20,7 +20,7 @@ enum BlogStatus {
 }
 
 model User {
-  id            String    @id @default(uuid())
+  id            Int       @id @default(autoincrement())
   name          String?
   email         String    @unique
   emailVerified DateTime?
@@ -35,8 +35,8 @@ model User {
 }
 
 model Account {
-  id                String  @id @default(uuid())
-  userId            String
+  id                Int     @id @default(autoincrement())
+  userId            Int
   type              String
   provider          String
   providerAccountId String
@@ -44,7 +44,7 @@ model Account {
   access_token      String? @db.Text
   expires_at        Int?
   token_type        String?
-  scope             String?
+  scope             String? @db.Text
   id_token          String? @db.Text
   session_state     String?
 
@@ -57,9 +57,9 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(uuid())
+  id           Int      @id @default(autoincrement())
   sessionToken String   @unique
-  userId       String
+  userId       Int
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -78,7 +78,7 @@ model VerificationToken {
 // Optional for WebAuthn support
 model Authenticator {
   credentialID         String  @unique
-  userId               String
+  userId               Int
   providerAccountId    String
   credentialPublicKey  String
   counter              Int
@@ -92,7 +92,7 @@ model Authenticator {
 }
 
 model Category {
-  id    String @id @default(uuid())
+  id    Int    @id @default(autoincrement())
   name  String @unique
   blogs Blog[]
 
@@ -101,7 +101,8 @@ model Category {
 }
 
 model Blog {
-  id          String     @id @default(uuid())
+  id          Int        @id @default(autoincrement())
+  slug        String     @unique
   title       String
   subtitle    String
   image       String
@@ -109,8 +110,8 @@ model Blog {
   content     String @db.LongText
   status      BlogStatus @default(DRAFT)
 
-  authorId    String
-  categoryId  String
+  authorId    Int
+  categoryId  Int
 
   author     User     @relation(fields: [authorId], references: [id])
   category   Category @relation(fields: [categoryId], references: [id])

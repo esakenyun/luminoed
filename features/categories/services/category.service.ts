@@ -6,13 +6,13 @@ import {
 
 export const categoryService = {
   getCategories: () => categoryRepository.findAll(),
-  getCategoryById: (id: string) => categoryRepository.findById(id),
+  getCategoryById: (id: number) => categoryRepository.findById(id),
 
   createCategory: (input: CreateCategoryInput) =>
     categoryRepository.create(input),
 
-  updateCategory: (id: string, input: UpdateCategoryInput) =>
+  updateCategory: (id: number, input: UpdateCategoryInput) =>
     categoryRepository.update(id, input),
 
-  deleteCategory: (id: string) => categoryRepository.delete(id),
+  deleteCategory: (id: number) => categoryRepository.delete(id),
 };

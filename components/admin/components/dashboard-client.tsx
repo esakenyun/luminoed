@@ -69,7 +69,7 @@ export function AnimatedCard({
       animate={{ y: 0, opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay, ease: [0.23, 1, 0.32, 1] }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className={`bg-white rounded-[2rem] border border-gray-100 p-8 shadow-sm hover:shadow-xl hover:shadow-blue-500/5 transition-all ${className}`}
+      className={`bg-white rounded-[2rem] border border-gray-100 p-5 sm:p-8 shadow-sm hover:shadow-xl hover:shadow-blue-500/5 transition-all w-full max-w-full overflow-hidden ${className}`}
     >
       {children}
     </motion.div>
@@ -101,7 +101,7 @@ export function StatsGrid({
             key={s.label}
             variants={itemVariants}
             whileHover={{ y: -5, transition: { duration: 0.2 } }}
-            className="relative overflow-hidden bg-white rounded-[2rem] border border-gray-100 p-6 shadow-sm hover:shadow-xl hover:shadow-blue-500/5 transition-all group"
+            className="relative overflow-hidden bg-white rounded-[2rem] border border-gray-100 p-5 sm:p-6 shadow-sm hover:shadow-xl hover:shadow-blue-500/5 transition-all group"
           >
             <div
               className={`absolute top-0 right-0 w-32 h-32 -mr-8 -mt-8 rounded-full opacity-[0.03] group-hover:opacity-[0.08] transition-opacity ${s.color}`}

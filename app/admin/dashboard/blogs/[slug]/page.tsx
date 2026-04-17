@@ -9,11 +9,11 @@ import { BlogPreviewActions } from "@/features/blog/components/BlogPreviewAction
 export default async function PreviewBlog({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { id } = await params;
+  const { slug } = await params;
 
-  const post = await blogService.getBlogById(id);
+  const post = await blogService.getBlogBySlug(slug);
   console.log(post);
 
   if (!post) {

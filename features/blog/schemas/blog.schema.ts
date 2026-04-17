@@ -6,10 +6,11 @@ export const createBlogSchema = z.object({
   image: z.string().min(1, "Cover Image URL is required"),
   imageCredit: z.string().min(1, "Image Credit is required"),
   content: z.string().min(1, "Content is required"),
-  status: z.enum(["DRAFT", "PUBLISHED"]).default("DRAFT"),
-  authorId: z.string().min(1, "Author is required"),
-  categoryId: z.string().min(1, "Category is required"),
-  publishedAt: z.union([z.string(), z.date()]).optional().nullable(),
+  status: z.enum(["DRAFT", "PUBLISHED"]),
+  authorId: z.number().min(1, "Author is required"),
+  categoryId: z.number().min(1, "Category is required"),
+  slug: z.string().optional().nullable(),
+  publishedAt: z.string().optional().nullable(),
 });
 
 export const updateBlogSchema = createBlogSchema.partial();

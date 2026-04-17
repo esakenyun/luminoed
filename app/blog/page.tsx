@@ -83,7 +83,7 @@ export default async function BlogPage() {
               ) : (
                 publishedBlogs.map((item) => (
                   <Link
-                    href={`/blog/${item.id}`}
+                    href={`/blog/${item.slug}`}
                     key={item.id}
                     className="h-full block"
                   >
@@ -103,7 +103,7 @@ export default async function BlogPage() {
                             {item.category.name}
                           </span>
                           <span>
-                            {new Date(item.createdAt).toLocaleDateString(
+                            {new Date(item.publishedAt || item.createdAt).toLocaleDateString(
                               "en-US",
                               {
                                 year: "numeric",
