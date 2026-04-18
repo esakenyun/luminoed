@@ -6,6 +6,7 @@ import { sitemetadata } from "./metadata";
 import { Toaster } from "sonner";
 import NavbarWrapper from "@/components/layout/NavbarWrapper";
 import { AuthProvider } from "@/components/providers/session-provider";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -14,6 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = sitemetadata;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function RootLayout({
   children,
@@ -22,6 +24,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
+      <head>
+        <Script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '${GA_ID}');
+            `}
+        </Script>
+      </head>
       <body className={`${inter.variable} antialiased`}>
         <AuthProvider>
           <Toaster position="top-right" richColors />
