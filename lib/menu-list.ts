@@ -1,5 +1,6 @@
 import {
   Bookmark,
+  ChartScatter,
   LayoutGrid,
   LucideIcon,
   Settings,
@@ -65,6 +66,12 @@ export function getMenuList(pathname: string, role?: string): Group[] {
           label: "Categories",
           icon: Bookmark,
           active: pathname.startsWith("/admin/dashboard/categories"),
+        },
+        {
+          href: "/admin/dashboard/analytics",
+          label: "Analytics",
+          icon: ChartScatter,
+          active: pathname.startsWith("/admin/dashboard/analytics"),
         },
       ],
     },
