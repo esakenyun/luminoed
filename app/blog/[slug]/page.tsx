@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
@@ -64,6 +65,13 @@ export default async function ArticleBySlug({ params }: Props) {
   if (!article || article.status !== "PUBLISHED") {
     notFound();
   }
+
+  const recentArticles = await prisma.blog.findMany({
+    where: { status: "PUBLISHED", id: { not: article.id } },
+    orderBy: { createdAt: "desc" },
+    take: 3,
+    include: { author: true, category: true },
+  });
 
   return (
     <div className="bg-[#FFFFFF] font-display text-[#111318] min-h-screen flex flex-col overflow-x-hidden">
@@ -157,16 +165,75 @@ export default async function ArticleBySlug({ params }: Props) {
             </article>
           </div>
 
-          <section
-            className="mt-16 border-t border-gray-200 pt-10"
-            id="comments"
-          >
-            <h3 className="text-black text-2xl font-bold mb-8 flex items-center gap-2">
-              Discussion{" "}
-              <span className="text-gray-400 text-lg font-normal">(0)</span>
-            </h3>
-            <p className="text-gray-500">Comments section coming soon.</p>
-          </section>
+          {recentArticles.length > 0 && (
+            <section className="mt-16 border-t border-gray-200 pt-10">
+              <div className="flex justify-between items-center mb-8">
+                <h3 className="text-black text-2xl font-bold ">Recent Posts</h3>
+
+                <Link href={"/blog"}> See All</Link>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {recentArticles.map((item) => (
+                  <Link
+                    href={`/blog/${item.slug}`}
+                    key={item.id}
+                    className="h-full block"
+                  >
+                    <article className="flex flex-col h-full group cursor-pointer bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 overflow-hidden">
+                      <div className="relative w-full aspect-16/10 overflow-hidden bg-gray-200">
+                        {item.image && (
+                          <div
+                            className="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
+                            style={{ backgroundImage: `url(${item.image})` }}
+                          />
+                        )}
+                      </div>
+
+                      <div className="flex flex-col gap-2 flex-1 p-5">
+                        <div className="text-xs text-slate-500 flex gap-2 items-center">
+                          <span className="bg-gray-100 text-secondary-green-700 px-2 py-1 rounded-full font-semibold">
+                            {item.category?.name || "Uncategorized"}
+                          </span>
+                          <span>
+                            {new Date(
+                              item.publishedAt || item.createdAt,
+                            ).toLocaleDateString("en-US", {
+                              year: "numeric",
+                              month: "short",
+                              day: "numeric",
+                            })}
+                          </span>
+                        </div>
+
+                        <h3 className="text-lg font-bold group-hover:text-secondary-green-600 mt-2 line-clamp-2">
+                          {item.title}
+                        </h3>
+
+                        <div className="flex items-center gap-3 mt-auto pt-4">
+                          {item.author?.image ? (
+                            <Image
+                              width={32}
+                              height={32}
+                              src={item.author.image}
+                              alt={item.author.name || "Author"}
+                              className="size-8 rounded-full object-cover"
+                            />
+                          ) : (
+                            <div className="size-8 rounded-full bg-gray-300 flex items-center justify-center text-sm font-bold text-gray-600">
+                              {(item.author?.name || "U")[0]}
+                            </div>
+                          )}
+                          <span className="text-sm font-medium text-gray-700">
+                            {item.author?.name || "Unknown Author"}
+                          </span>
+                        </div>
+                      </div>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
       </main>
     </div>
