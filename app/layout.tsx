@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <head>
-        <meta name="google-site-verification" content={GSV} />
+        <meta name="google-site-verification" content={`${GSV}`} />
         <Script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
