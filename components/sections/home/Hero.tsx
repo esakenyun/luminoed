@@ -57,6 +57,7 @@ export default function Hero() {
                 alt="LuminoED Platform"
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 80vw, 50vw"
+                priority
               />
             </div>
 
