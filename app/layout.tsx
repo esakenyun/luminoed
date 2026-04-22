@@ -37,9 +37,9 @@ export default async function RootLayout({
         <Script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="gtag" strategy="afterInteractive">
+        <Script id="gtag" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}

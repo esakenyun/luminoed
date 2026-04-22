@@ -154,8 +154,7 @@ export default function Portfolio() {
                     alt={item.title}
                     fill
                     className="object-cover"
-                    sizes="520px"
-                    priority={index === 0}
+                    sizes="(max-width: 768px) 100vw, 520px"
                   />
                   <div className="absolute inset-0 bg-black/10" />
                 </motion.div>

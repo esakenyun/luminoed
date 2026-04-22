@@ -216,9 +216,9 @@ export default function NavbarMobile() {
         <Link href={"/"}>
           <Image
             src={cfg.logoSrc}
-            width={500}
-            height={500}
-            className="w-28 h-7"
+            width={112}
+            height={28}
+            className="w-28 h-7 object-contain"
             alt="Logo"
             priority
           />
@@ -273,9 +273,9 @@ export default function NavbarMobile() {
                       <Link href="/">
                         <Image
                           src={"/logo/logo-color.png"}
-                          width={500}
-                          height={500}
-                          className="w-28 h-7"
+                          width={112}
+                          height={28}
+                          className="w-28 h-7 object-contain"
                           alt="Logo"
                           priority
                         />

@@ -1,10 +1,12 @@
 // "use client";
 
 import Hero from "@/components/sections/home/Hero";
-import ITKCM from "@/components/sections/home/ITKCM";
-import OurClient from "@/components/sections/home/OurClient";
-import Portfolio from "@/components/sections/home/Porto";
-import Services from "@/components/sections/home/Services";
+import dynamic from "next/dynamic";
+
+const Services = dynamic(() => import("@/components/sections/home/Services"));
+const ITKCM = dynamic(() => import("@/components/sections/home/ITKCM"));
+const Portfolio = dynamic(() => import("@/components/sections/home/Porto"));
+const OurClient = dynamic(() => import("@/components/sections/home/OurClient"));
 
 export default function Home() {
   return (

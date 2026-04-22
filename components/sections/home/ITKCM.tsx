@@ -119,8 +119,12 @@ export default function ITKCM() {
                 muted
                 loop
                 playsInline
+                preload="none"
                 className="absolute inset-0 w-full h-full object-cover"
-              />
+                aria-label="Highlight video showing features"
+              >
+                <track kind="captions" srcLang="en" label="English" />
+              </video>
             </div>
           </motion.div>
 

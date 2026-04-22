@@ -51,6 +51,7 @@ export default function Footer() {
             <Link
               href="https://linkedin.com"
               target="_blank"
+              aria-label="LinkedIn"
               className="p-2 bg-white rounded-md hover:scale-110 transition-transform"
             >
               <Linkedin className="text-black" size={18} />
@@ -59,6 +60,7 @@ export default function Footer() {
             <Link
               href="https://instagram.com"
               target="_blank"
+              aria-label="Instagram"
               className="p-2 bg-white rounded-md hover:scale-110 transition-transform"
             >
               <Instagram className="text-black" size={18} />
@@ -71,6 +73,7 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <Link
               href="tel:+62 815 712 0816"
+              aria-label="Phone Number"
               className="p-2 bg-white rounded-md inline-block hover:scale-110 transition-transform"
             >
               <Phone className="text-black" size={18} />
@@ -81,6 +84,7 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <Link
               href="mailto:adminlumino@kibarcm.id"
+              aria-label="Email Address"
               className="p-2 bg-white rounded-md inline-block hover:scale-110 transition-transform"
             >
               <Mail className="text-black" size={18} />
@@ -92,6 +96,7 @@ export default function Footer() {
             <Link
               href="https://maps.google.com/?q=Jl. Bulutangkis No. 13, Arcamanik, Bandung, Jawa Barat 40293"
               target="_blank"
+              aria-label="Google Maps Location"
               className="p-2 bg-white rounded-md inline-block hover:scale-110 transition-transform"
             >
               <MapPin className="text-black" size={18} />
@@ -108,7 +113,7 @@ export default function Footer() {
           </h2>
           <button
             onClick={() => (window.location.href = "/contact")}
-            className="mt-10 flex items-center gap-2 cursor-pointer py-3 px-8 bg-primary-green text-xl font-bold text-white rounded-full hover:bg-white hover:text-primary-blue transition-all shadow-lg"
+            className="mt-10 flex items-center gap-2 cursor-pointer py-3 px-8 bg-primary-green text-xl font-bold text-primary-blue rounded-full hover:bg-white transition-all shadow-lg"
           >
             {t("footer.cta.button")}
             <ChevronRight className="w-6 h-6" />
