@@ -150,7 +150,7 @@ export default function Navbar() {
 
   return (
     <motion.header
-      className={`hidden md:block fixed top-0 z-50 w-full backdrop-blur transition-colors duration-300 ${headerBgClass}`}
+      className={`hidden lg:block fixed top-0 z-50 w-full backdrop-blur transition-colors duration-300 ${headerBgClass}`}
       animate={hidden ? { y: "-100%" } : { y: 0 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
     >

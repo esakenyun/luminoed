@@ -201,7 +201,7 @@ export default function NavbarMobile() {
   const cfg = pageConfig[pageKey] ?? pageConfig.home;
 
   return (
-    <header className="absolute top-0 left-0 w-full z-50 py-6 px-6 md:hidden">
+    <header className="absolute top-0 left-0 w-full z-50 py-6 px-6 lg:hidden">
       <nav className="flex justify-between items-center">
         <Link href={"/"}>
           <Image

@@ -16,6 +16,7 @@ const inter = Inter({
 
 export const metadata: Metadata = sitemetadata;
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GSV = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export default function RootLayout({
   children,
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <head>
+        <meta name="google-site-verification" content={GSV} />
         <Script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}

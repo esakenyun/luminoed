@@ -1,0 +1,348 @@
+.
+├── actions
+│   ├── auth.ts
+│   └── google.ts
+├── app
+│   ├── about
+│   │   ├── layout.tsx
+│   │   ├── metadata.ts
+│   │   └── page.tsx
+│   ├── admin
+│   │   ├── dashboard
+│   │   │   ├── account
+│   │   │   │   └── page.tsx
+│   │   │   ├── analytics
+│   │   │   │   └── page.tsx
+│   │   │   ├── blogs
+│   │   │   │   ├── BlogClient.tsx
+│   │   │   │   ├── create
+│   │   │   │   │   └── page.tsx
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── [slug]
+│   │   │   │       ├── edit
+│   │   │   │       │   └── page.tsx
+│   │   │   │       └── page.tsx
+│   │   │   ├── categories
+│   │   │   │   └── page.tsx
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
+│   │   └── login
+│   │       └── page.tsx
+│   ├── api
+│   │   ├── analytics
+│   │   │   └── route.ts
+│   │   ├── auth
+│   │   │   ├── me
+│   │   │   │   └── route.ts
+│   │   │   └── [...nextauth]
+│   │   │       └── route.ts
+│   │   ├── blog
+│   │   │   ├── route.ts
+│   │   │   └── [slug]
+│   │   │       └── route.ts
+│   │   ├── category
+│   │   │   ├── [id]
+│   │   │   │   └── route.ts
+│   │   │   └── route.ts
+│   │   └── user
+│   │       ├── [id]
+│   │       │   └── route.ts
+│   │       └── route.ts
+│   ├── blog
+│   │   ├── metadata.ts
+│   │   ├── page.tsx
+│   │   └── [slug]
+│   │       └── page.tsx
+│   ├── contact
+│   │   ├── layout.tsx
+│   │   ├── metadata.ts
+│   │   └── page.tsx
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── metadata.ts
+│   ├── not-found.tsx
+│   ├── page.tsx
+│   ├── robots.ts
+│   ├── (services)
+│   │   └── services
+│   │       ├── additional
+│   │       │   ├── erapor
+│   │       │   │   └── page.tsx
+│   │       │   ├── layout.client.tsx
+│   │       │   ├── layout.tsx
+│   │       │   ├── lesson-plan
+│   │       │   │   └── page.tsx
+│   │       │   ├── metadata.ts
+│   │       │   └── page.tsx
+│   │       ├── equipment-provision
+│   │       │   ├── chromebook
+│   │       │   │   ├── animatedPrice.tsx
+│   │       │   │   └── page.tsx
+│   │       │   ├── hybrid-learning
+│   │       │   │   └── page.tsx
+│   │       │   ├── layout.tsx
+│   │       │   ├── metadata.ts
+│   │       │   └── page.tsx
+│   │       ├── marketing
+│   │       │   ├── design-marketing
+│   │       │   │   └── page.tsx
+│   │       │   ├── layout.client.tsx
+│   │       │   ├── layout.tsx
+│   │       │   ├── metadata.ts
+│   │       │   └── page.tsx
+│   │       ├── smart-school
+│   │       │   ├── layout.client.tsx
+│   │       │   ├── layout.tsx
+│   │       │   ├── metadata.ts
+│   │       │   ├── page.tsx
+│   │       │   ├── smart-asset
+│   │       │   │   └── page.tsx
+│   │       │   ├── smart-class
+│   │       │   │   └── page.tsx
+│   │       │   ├── smart-management
+│   │       │   │   └── page.tsx
+│   │       │   └── smart-talent
+│   │       │       └── page.tsx
+│   │       ├── streaming
+│   │       │   ├── hybrid-learning
+│   │       │   │   └── page.tsx
+│   │       │   ├── layout.client.tsx
+│   │       │   ├── layout.tsx
+│   │       │   ├── live-streaming
+│   │       │   │   └── page.tsx
+│   │       │   ├── metadata.ts
+│   │       │   ├── page.tsx
+│   │       │   └── photography-videography
+│   │       │       └── page.tsx
+│   │       └── training
+│   │           ├── ai-technology
+│   │           │   └── page.tsx
+│   │           ├── google-workspace-for-education
+│   │           │   └── page.tsx
+│   │           ├── layout.client.tsx
+│   │           ├── layout.tsx
+│   │           ├── metadata.ts
+│   │           ├── page.tsx
+│   │           └── training-it
+│   │               └── page.tsx
+│   └── sitemap.ts
+├── auth.config.ts
+├── components
+│   ├── admin
+│   │   └── components
+│   │       └── dashboard-client.tsx
+│   ├── animatedPrice.tsx
+│   ├── dashboard-panel
+│   │   ├── collapse-menu-button.tsx
+│   │   ├── content-layout.tsx
+│   │   ├── dashboard-layout.tsx
+│   │   ├── menu.tsx
+│   │   ├── navbar.tsx
+│   │   ├── sheet-menu.tsx
+│   │   ├── sidebar-toggle.tsx
+│   │   ├── sidebar.tsx
+│   │   └── user-nav.tsx
+│   ├── layout
+│   │   ├── Footer.tsx
+│   │   ├── NavbarMobile.tsx
+│   │   ├── Navbar.tsx
+│   │   └── NavbarWrapper.tsx
+│   ├── providers
+│   │   └── session-provider.tsx
+│   ├── sections
+│   │   ├── home
+│   │   │   ├── Hero.tsx
+│   │   │   ├── ITKCM.tsx
+│   │   │   ├── OurClient.tsx
+│   │   │   ├── Porto.tsx
+│   │   │   └── Services.tsx
+│   │   └── WaveDivider.tsx
+│   └── ui
+│       ├── alert-dialog.tsx
+│       ├── avatar.tsx
+│       ├── button.tsx
+│       ├── collapsible.tsx
+│       ├── DeleteModal.tsx
+│       ├── dialog.tsx
+│       ├── dropdown-menu.tsx
+│       ├── input.tsx
+│       ├── label.tsx
+│       ├── scroll-area.tsx
+│       ├── select.tsx
+│       ├── separator.tsx
+│       ├── sheet.tsx
+│       ├── skeleton.tsx
+│       └── tooltip.tsx
+├── components.json
+├── eslint.config.mjs
+├── features
+│   ├── analytics
+│   │   └── pages
+│   │       └── AdminAnalytics.tsx
+│   ├── auth
+│   │   ├── hooks
+│   │   │   └── use-role-settings.ts
+│   │   └── services
+│   │       └── auth-services.ts
+│   ├── blog
+│   │   ├── components
+│   │   │   ├── BlogForm.tsx
+│   │   │   ├── BlogModal.tsx
+│   │   │   └── BlogPreviewActions.tsx
+│   │   ├── repositories
+│   │   │   └── blog.repository.ts
+│   │   ├── schemas
+│   │   │   └── blog.schema.ts
+│   │   └── services
+│   │       └── blog.service.ts
+│   ├── categories
+│   │   ├── components
+│   │   │   ├── CategoryManagerContent.tsx
+│   │   │   ├── CategoryModal.tsx
+│   │   │   └── ManageCategoriesButton.tsx
+│   │   ├── repositories
+│   │   │   └── category.repository.ts
+│   │   ├── schemas
+│   │   │   └── category.schema.ts
+│   │   └── services
+│   │       └── category.service.ts
+│   └── users
+│       ├── components
+│       │   └── UserModal.tsx
+│       ├── pages
+│       │   └── AccountPage.tsx
+│       ├── repositories
+│       │   └── user.repository.ts
+│       ├── schemas
+│       │   └── user.schema.ts
+│       └── services
+│           └── user.service.ts
+├── hooks
+│   ├── useScrollFocus.ts
+│   ├── use-sidebar.ts
+│   └── use-store.ts
+├── lib
+│   ├── animation.ts
+│   ├── auth.ts
+│   ├── ga.ts
+│   ├── menu-list.ts
+│   ├── motion.ts
+│   ├── prisma.ts
+│   └── utils.ts
+├── next-auth.d.ts
+├── next.config.ts
+├── next-env.d.ts
+├── package.json
+├── package-lock.json
+├── postcss.config.mjs
+├── prisma
+│   ├── migrations
+│   │   ├── 20260222081716_init
+│   │   │   └── migration.sql
+│   │   ├── 20260410071303_refactor_structure_table
+│   │   │   └── migration.sql
+│   │   ├── 20260410072359_change_scopre
+│   │   │   └── migration.sql
+│   │   └── migration_lock.toml
+│   └── schema.prisma
+├── prisma.config.ts
+├── proxy.ts
+├── public
+│   ├── abouts.webp
+│   ├── bar.png
+│   ├── blog2.webp
+│   ├── blog3.webp
+│   ├── blog.webp
+│   ├── client
+│   │   ├── alfitrahbaru.png
+│   │   ├── cendekiamuda.png
+│   │   ├── kcm.png
+│   │   ├── mutiara-hati.png
+│   │   ├── raudhatul-jannah.png
+│   │   └── sekolahitqan.png
+│   ├── Dashboard.mp4
+│   ├── favicon.ico
+│   ├── highlight.mp4
+│   ├── landing.webp
+│   ├── logo
+│   │   ├── logo-color.png
+│   │   └── logo-white.png
+│   ├── navbar
+│   │   └── services
+│   │       ├── ai-tech.svg
+│   │       ├── design-marketing.svg
+│   │       ├── equipment-provision.svg
+│   │       ├── eRapor.svg
+│   │       ├── google-workspace.svg
+│   │       ├── hybrid-learning.svg
+│   │       ├── it-training.svg
+│   │       ├── lesson-plan.svg
+│   │       ├── live-streaming.svg
+│   │       ├── photography-videography.svg
+│   │       ├── smart-asset.svg
+│   │       ├── smart-class.svg
+│   │       ├── smart-management.svg
+│   │       ├── smart-school.svg
+│   │       └── smart-talent.svg
+│   ├── photography1.webp
+│   ├── photography2.webp
+│   ├── photography3.webp
+│   ├── porto
+│   │   ├── appsheet1.webp
+│   │   └── looker.webp
+│   ├── services
+│   │   ├── additionalservice.webp
+│   │   ├── ai-technology
+│   │   │   └── ai-technology.webp
+│   │   ├── alur.jpeg
+│   │   ├── chromebook.webp
+│   │   ├── equipment.webp
+│   │   ├── hybrid-learning
+│   │   │   ├── bracket_coocaa.webp
+│   │   │   ├── bracket_ifp.webp
+│   │   │   ├── coocaa.webp
+│   │   │   ├── ekonomis.webp
+│   │   │   ├── extension.webp
+│   │   │   ├── hdmii.webp
+│   │   │   ├── ifp.webp
+│   │   │   ├── kamera11.webp
+│   │   │   ├── kamera21.webp
+│   │   │   ├── keyboard.webp
+│   │   │   ├── mic1.jpg
+│   │   │   ├── mic2.webp
+│   │   │   ├── monopod.jpg
+│   │   │   ├── mouse.webp
+│   │   │   ├── p1.png
+│   │   │   ├── p2.png
+│   │   │   ├── p3.png
+│   │   │   ├── pc1.jpg
+│   │   │   ├── pc2.jpg
+│   │   │   ├── premium.webp
+│   │   │   ├── setup2.webp
+│   │   │   └── tripod.jpg
+│   │   ├── marketing1.webp
+│   │   ├── smart-asset
+│   │   │   └── smartasset.png
+│   │   ├── smart-class
+│   │   │   ├── icon2.svg
+│   │   │   ├── icon3.svg
+│   │   │   └── icon.svg
+│   │   ├── smart-school.webp
+│   │   ├── smart-talent
+│   │   │   └── smarttalent.png
+│   │   ├── streaming.webp
+│   │   ├── training1.webp
+│   │   ├── training-it
+│   │   │   └── trainingit.webp
+│   │   └── training.mp4
+│   ├── smartschool.webp
+│   └── wave.webp
+├── README.md
+├── services
+│   ├── getDataStok.ts
+│   └── postFormChromeBook.ts
+├── src
+├── structure.txt
+├── tsconfig.json
+└── tsconfig.tsbuildinfo
