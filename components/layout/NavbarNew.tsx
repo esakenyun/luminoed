@@ -144,7 +144,7 @@ function MegaMenu() {
         },
         {
           label: t("navbar.megamenu.trainingItems.googleWorkspace"),
-          href: "services/training/google-workspace",
+          href: "services/training/google-workspace-for-education",
         },
       ],
     },
