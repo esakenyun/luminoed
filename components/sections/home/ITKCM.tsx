@@ -10,7 +10,6 @@ export default function ITKCM() {
 
   return (
     <section className="w-full relative py-24 lg:py-32 overflow-hidden bg-white">
-      {/* Main About Section */}
       <div className="max-w-7xl mx-auto px-5 xl:px-0 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -39,10 +38,11 @@ export default function ITKCM() {
         >
           <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl border-8 border-white bg-neutral-100">
             <Image
-              src="/bar.png"
+              src="/bar.webp"
               fill
               alt="Dashboard Preview"
               className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
           <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary-green rounded-3xl -z-10" />
@@ -50,7 +50,6 @@ export default function ITKCM() {
         </motion.div>
       </div>
 
-      {/* Why Choose Us Section */}
       <div className="max-w-7xl mx-auto px-5 xl:px-0 mb-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -104,7 +103,6 @@ export default function ITKCM() {
         </div>
       </div>
 
-      {/* Transformation Video Section */}
       <div className="max-w-7xl mx-auto px-5 xl:px-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div

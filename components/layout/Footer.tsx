@@ -124,7 +124,8 @@ export default function Footer() {
               alt="LuminoED Logo"
               width={250}
               height={50}
-              className="object-contain"
+              className="object-contain w-auto h-auto"
+              priority
             />
           </div>
         </div>

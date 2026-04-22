@@ -10,14 +10,12 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-white">
-      {/* Subtle Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-secondary-blue-100/30 -skew-x-12 transform origin-top-right" />
       </div>
 
       <div className="max-w-7xl mx-auto px-5 xl:px-0 w-full relative z-10">
         <div className="grid xl:grid-cols-2 gap-12 items-center ">
-          {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -46,7 +44,6 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -60,10 +57,10 @@ export default function Hero() {
                 alt="LuminoED Platform"
                 className="object-cover"
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 80vw, 50vw"
               />
             </div>
 
-            {/* Minimalist Accent */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary-green/20 rounded-full blur-2xl -z-10" />
             <div className="absolute -top-6 -left-6 w-32 h-32 bg-secondary-blue-500/10 rounded-full blur-2xl -z-10" />
           </motion.div>

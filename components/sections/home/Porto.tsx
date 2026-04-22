@@ -119,7 +119,6 @@ export default function Portfolio() {
           {projects.map((item, index) => {
             let offset = index - active;
 
-            // Normalize offset untuk circular carousel
             if (offset > projects.length / 2) {
               offset -= projects.length;
             } else if (offset < -projects.length / 2) {
@@ -155,6 +154,8 @@ export default function Portfolio() {
                     alt={item.title}
                     fill
                     className="object-cover"
+                    sizes="520px"
+                    priority={index === 0}
                   />
                   <div className="absolute inset-0 bg-black/10" />
                 </motion.div>
