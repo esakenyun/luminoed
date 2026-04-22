@@ -177,9 +177,9 @@ export default function NavbarMobile() {
     }
   > = {
     home: {
-      logoSrc: "/logo/logo-white.png",
+      logoSrc: "/logo/logo-color.png",
       menuClass:
-        "py-1.5 px-3 rounded-full bg-slate-100/10 backdrop-blur-lg text-white",
+        "py-1.5 px-3 rounded-full bg-primary-green/50 backdrop-blur-lg text-white",
     },
     services: {
       logoSrc: "/logo/logo-color.png",

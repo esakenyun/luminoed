@@ -1,0 +1,138 @@
+{
+  "navbar": {
+    "home": "Beranda",
+    "services": "Layanan",
+    "blog": "Blog",
+    "about": "Tentang Kami",
+    "contactSales": "Hubungi sales",
+    "megamenu": {
+      "training": "Pelatihan",
+      "trainingItems": {
+        "trainingIt": "Pelatihan IT",
+        "aiTechnology": "Teknologi AI",
+        "googleWorkspace": "Google Workspace untuk Pendidikan"
+      },
+      "marketing": "Pemasaran",
+      "marketingItems": {
+        "designMarketing": "Desain & Pemasaran"
+      },
+      "streaming": "Siaran & Rekaman",
+      "streamingItems": {
+        "liveStreaming": "Siaran Langsung",
+        "hybridLearning": "Pembelajaran Campuran",
+        "photographyVideography": "Fotografi & Videografi"
+      },
+      "equipmentProvision": "Penyediaan Alat",
+      "equipmentProvisionItems": {
+        "discoverMore": "Lihat Selengkapnya"
+      },
+      "smartSchoolManagement": "Manajemen Sekolah Pintar",
+      "smartSchoolManagementItems": {
+        "smartClass": "Kelas Pintar",
+        "smartTalent": "Bakat Pintar",
+        "smartAsset": "Aset Pintar",
+        "smartManagement": "Manajemen Pintar"
+      },
+      "additionalServices": "Layanan Tambahan",
+      "additionalServicesItems": {
+        "lessonPlan": "Rencana Pelajaran",
+        "eRapor": "e-Rapor"
+      }
+    }
+  },
+  "hero": {
+    "title": "Bertenaga Teknologi, <br />Berpandukan Iman.",
+    "description": "Ekosistem digital terpadu untuk manajemen sekolah modern dan pembelajaran berbasis AI.",
+    "cta": "Bergabung Sekarang"
+  },
+  "services": {
+    "title": "Layanan Kami",
+    "training": {
+      "title": "Pelatihan",
+      "description": "Berdayakan pendidik dengan pelatihan praktis mengenai alat digital, teknologi kelas, dan alur kerja pembelajaran berbasis AI."
+    },
+    "marketing": {
+      "title": "Pemasaran",
+      "description": "Tingkatkan visibilitas sekolah Anda dengan pemasaran digital, branding, dan manajemen media sosial berbasis data."
+    },
+    "streaming": {
+      "title": "Siaran & Rekaman",
+      "description": "Siaran langsung profesional untuk acara sekolah—siaran yang jernih, stabil, dan berkualitas tinggi ditangani oleh tim ahli kami."
+    },
+    "equipmentProvision": {
+      "title": "Penyediaan Alat",
+      "description": "Peralatan berkualitas tinggi untuk pembelajaran dan operasi, termasuk kamera, pencahayaan, alat audio, laptop, dan banyak lagi."
+    },
+    "smartSchoolManagement": {
+      "title": "Manajemen Sekolah Pintar",
+      "description": "Sistem terintegrasi penuh untuk mengelola akademik, staf, aset, dan operasi sekolah dalam satu platform digital terpadu."
+    },
+    "additionalServices": {
+      "title": "Layanan Tambahan",
+      "description": "Dukungan ekstra termasuk rencana pelajaran digital, sistem e-Rapor, templat, dan alat untuk menyederhanakan administrasi sekolah."
+    },
+    "startWith": "Mulai dengan"
+  },
+  "clients": {
+    "title": "Klien yang Tumbuh Bersama Kami",
+    "description": "Klien kami adalah prioritas utama kami, dan kami berkomitmen untuk memberikan tingkat layanan tertinggi kepada mereka."
+  },
+  "portfolio": {
+    "title": "Implementasi & Kustomisasi Perangkat Lunak",
+    "description": "Berikut adalah beberapa proyek yang telah kami kerjakan untuk mengimplementasikan dan menyesuaikan solusi perangkat lunak sesuai kebutuhan klien kami di berbagai sektor.",
+    "projects": {
+      "smartTeacher": {
+        "title": "App Sheet Smart Teacher",
+        "detail": "AppSheet Smart Teacher adalah aplikasi manajemen aktivitas guru berbasis AppSheet yang dirancang untuk membantu sekolah dalam mendata, memantau, dan mengevaluasi kegiatan guru selama masa kerja secara terstruktur, digital, dan real-time. Aplikasi ini menjadi solusi praktis untuk menggantikan pencatatan manual sehingga proses administrasi menjadi lebih efisien, akurat, dan transparan."
+      },
+      "smartTalent": {
+        "title": "Smart Talent",
+        "detail": "Smart Talent adalah sistem manajemen SDM sekolah yang memungkinkan manajemen memantau presensi, keterlambatan, jurnal kerja, dan mutabaah pendidik serta tenaga kependidikan secara real-time melalui dashboard terintegrasi. Pendidik dan tenaga kependidikan juga dapat melihat capaian kinerja pribadi sebagai bahan evaluasi untuk meningkatkan performa kerja."
+      }
+    }
+  },
+  "itkcm": {
+    "about": {
+      "title": "IT KCM",
+      "subtitle": "PT Kibar Cendekia Muda",
+      "description": "Kibar Cendekia Muda adalah perusahaan pengembang teknologi informasi yang berfokus pada solusi untuk pendidikan, khususnya dalam implementasi Smart School dan Smart Class. Kami menyediakan berbagai produk dan layanan yang dirancang untuk memenuhi kebutuhan administrasi sekolah modern dan meningkatkan pengalaman belajar siswa."
+    },
+    "whyChooseUs": {
+      "title": "MENGAPA ANDA HARUS MEMILIH KAMI?",
+      "innovation": {
+        "title": "Inovasi",
+        "description": "Menghadirkan inovasi teknologi untuk meningkatkan kualitas pendidikan di Indonesia melalui solusi Smart School dan Smart Class yang terintegrasi. Menyediakan platform yang dapat mengotomatisasi pengelolaan sekolah dan meningkatkan efisiensi proses belajar mengajar dengan teknologi terkini."
+      },
+      "dataBased": {
+        "title": "Berbasis Data",
+        "description": "Teknologi Terkini: Menggunakan teknologi terbaru seperti kecerdasan buatan dan analisis data untuk meningkatkan efisiensi dan efektivitas proses pendidikan. Integrasi Mudah: Platform yang mudah diimplementasikan dan diintegrasikan dengan infrastruktur teknologi yang ada di sekolah."
+      }
+    },
+    "transformation": {
+      "title": "Mendukung Transformasi Digital Pendidikan",
+      "description": "Mendukung transformasi digital di lingkungan pendidikan melalui sistem yang terintegrasi, efisien, dan mudah digunakan. Solusi ini dirancang untuk membantu institusi pendidikan mengelola aktivitas pembelajaran dan administrasi secara lebih tertata, modern, dan berkelanjutan.",
+      "list": {
+        "structured": "Pengelolaan aktivitas pendidikan yang lebih terstruktur",
+        "efficient": "Proses kerja yang efisien dan terdokumentasi dengan baik",
+        "easyAccess": "Akses informasi yang mudah dan terintegrasi"
+      },
+      "cta": "Lihat Produk Kami"
+    }
+  },
+  "footer": {
+    "links": {
+      "home": "Beranda",
+      "blog": "Blog",
+      "about": "Tentang Kami",
+      "privacy": "Kebijakan Privasi"
+    },
+    "followUs": "Ikuti Kami Di",
+    "contactUs": "Hubungi Kami",
+    "cta": {
+      "title": "Tingkatkan bisnis Anda sekarang, dengan solusi kreatif!",
+      "button": "Mulai Proyek Anda"
+    },
+    "copyright": "Copyright © 2025 LuminoED",
+    "trademark": "LuminoEd adalah merek dagang dari PT Kibar Cendekia Muda. Terdaftar di Direktorat Jenderal Kekayaan Intelektual Republik Indonesia."
+  }
+}

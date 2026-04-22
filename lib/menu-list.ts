@@ -3,6 +3,7 @@ import {
   ChartScatter,
   LayoutGrid,
   LucideIcon,
+  Monitor,
   Settings,
   SquarePen,
 } from "lucide-react";
@@ -72,6 +73,12 @@ export function getMenuList(pathname: string, role?: string): Group[] {
           label: "Analytics",
           icon: ChartScatter,
           active: pathname.startsWith("/admin/dashboard/analytics"),
+        },
+        {
+          href: "/admin/dashboard/monitoring",
+          label: "Monitoring",
+          icon: Monitor,
+          active: pathname.startsWith("/admin/dashboard/monitoring"),
         },
       ],
     },

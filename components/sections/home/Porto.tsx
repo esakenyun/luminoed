@@ -5,34 +5,28 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { textVariants } from "@/lib/motion";
+import { useTranslation } from "@/components/providers/I18nProvider";
 
 const CARD_WIDTH = 520;
 const CARD_HEIGHT = 480;
 
-type ImageProject = {
-  title: string;
-  image: string;
-  detail: string;
-};
-
-const projects: ImageProject[] = [
-  {
-    title: "App Sheet Smart Teacher",
-    image: "/porto/appsheet1.webp",
-    detail:
-      "AppSheet Smart Teacher adalah aplikasi manajemen aktivitas guru berbasis AppSheet yang dirancang untuk membantu sekolah dalam mendata, memantau, dan mengevaluasi kegiatan guru selama masa kerja secara terstruktur, digital, dan real-time. Aplikasi ini menjadi solusi praktis untuk menggantikan pencatatan manual sehingga proses administrasi menjadi lebih efisien, akurat, dan transparan.",
-  },
-  {
-    title: "Smart Talent",
-    image: "/porto/looker.webp",
-    detail:
-      "Smart Talent adalah sistem manajemen SDM sekolah yang memungkinkan manajemen memantau presensi, keterlambatan, jurnal kerja, dan mutabaah pendidik serta tenaga kependidikan secara real-time melalui dashboard terintegrasi. Pendidik dan tenaga kependidikan juga dapat melihat capaian kinerja pribadi sebagai bahan evaluasi untuk meningkatkan performa kerja.",
-  },
-];
-
-export default function PortfolioSection() {
+export default function Portfolio() {
+  const { t } = useTranslation();
   const [active, setActive] = useState(0);
   const autoSlideRef = useRef<NodeJS.Timeout | null>(null);
+
+  const projects = [
+    {
+      title: t("portfolio.projects.smartTeacher.title"),
+      image: "/porto/appsheet1.webp",
+      detail: t("portfolio.projects.smartTeacher.detail"),
+    },
+    {
+      title: t("portfolio.projects.smartTalent.title"),
+      image: "/porto/looker.webp",
+      detail: t("portfolio.projects.smartTalent.detail"),
+    },
+  ];
 
   const handleNext = () => {
     setActive((p) => (p + 1) % projects.length);
@@ -65,7 +59,7 @@ export default function PortfolioSection() {
         clearInterval(autoSlideRef.current);
       }
     };
-  }, []);
+  }, [projects.length]);
 
   const getTranslateX = () => {
     let offsetX = 0;
@@ -90,26 +84,30 @@ export default function PortfolioSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          Software Implementation <br />& Customization
+          {t("portfolio.title")
+            .split("&")
+            .map((part, i) => (
+              <span key={i}>
+                {part}
+                {i === 0 && <br />}
+              </span>
+            ))}
         </motion.h2>
 
         <motion.p
-          className="text-lg text-white/50 mb-20"
+          className="text-lg text-white/80 mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          Berikut adalah beberapa proyek yang telah kami kerjakan untuk
-          mengimplementasikan dan menyesuaikan solusi perangkat lunak sesuai
-          kebutuhan klien kami di berbagai sektor.
+          {t("portfolio.description")}
         </motion.p>
       </div>
 
-      <div className="relative overflow-hidden w-full flex items-center justify-center [perspective:1400px]">
+      <div className="relative overflow-hidden w-full flex items-center justify-center perspective-[1400px]">
         <motion.div
-          className="flex items-center [transform-style:preserve-3d] will-change-transforms"
-          
+          className="flex items-center transform-3d will-change-transforms"
           animate={{
             x: getTranslateX(),
           }}
@@ -120,7 +118,7 @@ export default function PortfolioSection() {
         >
           {projects.map((item, index) => {
             let offset = index - active;
-            
+
             // Normalize offset untuk circular carousel
             if (offset > projects.length / 2) {
               offset -= projects.length;
@@ -149,8 +147,7 @@ export default function PortfolioSection() {
                 <motion.div
                   className="relative h-full w-full overflow-hidden rounded-lg shadow-2xl"
                   animate={{
-                    clipPath:
-                      "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
+                    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                   }}
                 >
                   <Image

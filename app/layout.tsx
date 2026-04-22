@@ -5,8 +5,10 @@ import Footer from "@/components/layout/Footer";
 import { sitemetadata } from "./metadata";
 import { Toaster } from "sonner";
 import NavbarWrapper from "@/components/layout/NavbarWrapper";
-import { AuthProvider } from "@/components/providers/session-provider";
 import Script from "next/script";
+import { cookies } from "next/headers";
+import { defaultLocale, getDictionary, Locale } from "@/lib/i18n";
+import { I18nProvider } from "@/components/providers/I18nProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -18,13 +20,18 @@ export const metadata: Metadata = sitemetadata;
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const GSV = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const localeCookie = cookieStore.get("NEXT_LOCALE");
+  const locale = (localeCookie?.value ?? defaultLocale) as Locale;
+  const dictionary = await getDictionary(locale);
+
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang={locale} data-scroll-behavior="smooth">
       <head>
         <meta name="google-site-verification" content={`${GSV}`} />
         <Script
@@ -43,14 +50,14 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${inter.variable} antialiased`}>
-        <AuthProvider>
+        <I18nProvider dictionary={dictionary} initialLocale={locale}>
           <Toaster position="top-right" richColors />
           {/* <Navbar /> */}
           <NavbarWrapper />
           {/* <NavbarMobile /> */}
           {children}
           <Footer />
-        </AuthProvider>
+        </I18nProvider>
       </body>
     </html>
   );

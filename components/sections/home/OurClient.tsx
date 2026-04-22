@@ -1,6 +1,8 @@
 "use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslation } from "@/components/providers/I18nProvider";
 
 type Client = {
   name: string;
@@ -31,43 +33,73 @@ const clients: Client[] = [
   {
     name: "Raudhatul Jannah",
     imageUrl: "/client/raudhatul-jannah.png",
-  }
+  },
 ];
 
+// Double the list for infinite marquee effect
+const marqueeClients = [...clients, ...clients];
+
 export default function OurClient() {
+  const { t } = useTranslation();
+
   return (
-    <div>
-      <motion.blockquote
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="text-center font-black uppercase text-primary-blue text-lg md:text-3xl tracking-wide"
-      >
-        Clients That Grows With Us
-      </motion.blockquote>
-      <motion.blockquote
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="text-center my-1 font-medium text-sm px-4 md:text-lg leading-relaxed text-neutral-400 mb-20"
-      >
-        Our clients are our top priority, and we are committed to providing them
-        with the highest level of services.
-      </motion.blockquote>
-      <div className="max-w-7xl mx-auto grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-2 pb-30 place-items-center">
-        {clients.map((client: Client, index: number) => (
-          <Image
-            key={index}
-            src={client.imageUrl}
-            alt={client.name}
-            className="w-24 md:w-52 h-max"
-            width={500}
-            height={300}
-          />
-        ))}
+    <section className="relative py-24 lg:py-32 overflow-hidden bg-white">
+      <div className="max-w-7xl mx-auto px-5 xl:px-0">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-20"
+        >
+          <h2 className="mb-2 font-bold uppercase text-primary-blue text-3xl md:text-5xl tracking-tight">
+            {t("clients.title")}
+          </h2>
+          <div className="h-1.5 w-24 bg-primary-green mx-auto rounded-full mb-6"></div>
+          <p className="max-w-2xl mx-auto text-neutral-400 text-sm md:text-lg leading-relaxed">
+            {t("clients.description")}
+          </p>
+        </motion.div>
+
+        {/* Marquee Container */}
+        <div className="relative mt-10">
+          {/* Fading Masks */}
+          <div className="absolute inset-y-0 left-0 w-20 md:w-40 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-20 md:w-40 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
+
+          <div className="flex overflow-hidden">
+            <motion.div
+              className="flex gap-12 md:gap-24 items-center whitespace-nowrap py-4"
+              animate={{
+                x: [0, -100 * clients.length],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 15,
+                  ease: "linear",
+                },
+              }}
+            >
+              {marqueeClients.map((client, index) => (
+                <div
+                  key={index}
+                  className="shrink-0 w-28 md:w-44 h-16 md:h-24 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-default"
+                >
+                  <Image
+                    src={client.imageUrl}
+                    alt={client.name}
+                    width={180}
+                    height={100}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

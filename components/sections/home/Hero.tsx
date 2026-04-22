@@ -2,55 +2,71 @@
 
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { useTranslation } from "@/components/providers/I18nProvider";
 
 export default function Hero() {
+  const { t } = useTranslation();
+
   return (
-    <section className="relative z-10 pt-24 pb-24 lg:pt-24 lg:pb-32">
-      <div className="absolute inset-0 w-full -skew-y-12 origin-top-left overflow-hidden pointer-events-none -z-10">
-        <div className="absolute -z-2 top-0 w-full h-3/4 lg:h-full left-0 bg-primary-blue"></div>
+    <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-white">
+      {/* Subtle Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-secondary-blue-100/30 -skew-x-12 transform origin-top-right" />
       </div>
-      <div className="grid tablet-landscape-max:grid-cols-2 gap-12 lg:gap-1 items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-8 xl:max-w-2xl text-white md:items-center xl:items-start">
-          <h1 className="text-5xl sm:text-6xl lg:text-[77px] font-extrabold tracking-tight leading-[1.1] text-heading-light md:mt-20 md:text-center xl:text-left lg:mt-40 xl:mt-0">
-            Powered by Technology, <br />
-            Guided by Faith. <br />
-          </h1>
-          <p className="text-lg sm:text-xl lg:text-[16px] leading-relaxed xl:max-w-xl text-neutral-400 md:text-center xl:text-left">
-            Join the growing number of schools that use LuminoED to integrate
-            learning, teacher and student management, academic administration,
-            and asset monitoring into a single digital ecosystem. LuminoED
-            delivers AI-driven learning tools, automated administrative
-            workflows, and Google for Education Premium to create a more
-            efficient, measurable, and meaningful educational experience.
-          </p>
-          <div>
-            <button
-              onClick={() => (window.location.href = "/contact")}
-              className="flex gap-0.5 cursor-pointer py-3 px-6 bg-primary-green text-xl font-bold text-white rounded-full hover:text-primary-blue"
-            >
-              Let&apos;s Join With Us
-              <ChevronRight className="mt-1" />
-            </button>
-          </div>
-        </div>
 
-        <div className="hidden md:block h-[450px] xl:hidden"></div>
+      <div className="max-w-7xl mx-auto px-5 xl:px-0 w-full relative z-10">
+        <div className="grid xl:grid-cols-2 gap-12 items-center ">
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col gap-6 items-center text-center xl:items-start xl:text-left max-w-xl mx-auto xl:mx-0"
+          >
+            <h1
+              className="text-5xl xl:text-7xl font-bold tracking-tight text-primary-blue leading-tight"
+              dangerouslySetInnerHTML={{ __html: t("hero.title") }}
+            />
 
-        <div className="md:hidden xl:block">
-          <div className="relative lg:h-[600px] flex items-center justify-end tablet-landscape-max:justify-end overflow-visible">
-            <div className="absolute right-6 tablet-landscape-max:right-[-100px] top-[-10px] w-[420px] h-[540px] bg-lime-200/50 rounded-[20px] z-0" />
+            <p className="text-lg text-neutral-600 xl:max-w-lg leading-relaxed">
+              {t("hero.description")}
+            </p>
 
-            <div className="relative w-full max-w-[420px] h-[540px] rounded-[20px] overflow-hidden shadow-2xl bg-white z-10">
+            <div className="pt-4">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => (window.location.href = "/contact")}
+                className="group flex items-center gap-2 py-4 px-10 bg-primary-blue text-white rounded-xl font-bold transition-all shadow-lg shadow-primary-blue/20"
+              >
+                {t("hero.cta")}
+                <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </motion.button>
+            </div>
+          </motion.div>
+
+          {/* Right Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative aspect-4/3 rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
               <Image
-                src="/landing.webp"
-                width={500}
-                height={500}
-                alt="Dashboard Preview"
-                className="w-full h-full object-cover"
+                src="/hero.webp"
+                fill
+                alt="LuminoED Platform"
+                className="object-cover"
                 priority
               />
             </div>
-          </div>
+
+            {/* Minimalist Accent */}
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary-green/20 rounded-full blur-2xl -z-10" />
+            <div className="absolute -top-6 -left-6 w-32 h-32 bg-secondary-blue-500/10 rounded-full blur-2xl -z-10" />
+          </motion.div>
         </div>
       </div>
     </section>

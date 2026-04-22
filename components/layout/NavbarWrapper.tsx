@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
+import NavbarNew from "./NavbarNew";
 
 const Navbar = dynamic(() => import("./Navbar"), {
   ssr: false,
@@ -20,8 +21,8 @@ export default function NavbarWrapper() {
 
   return (
     <>
-      <Navbar />
-      {/* <NavbarNew /> */}
+      {/* <Navbar /> */}
+      <NavbarNew />
       <NavbarMobile />
     </>
   );

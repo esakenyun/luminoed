@@ -7,7 +7,7 @@ import OurClient from "@/components/sections/home/OurClient";
 
 export default function AboutUsSection() {
   return (
-    <section className="relative text-white overflow-hidden mt-20">
+    <section className="relative text-white overflow-hidden pt-20">
       <div className="relative min-h-screen flex items-center py-20">
         <Image
           src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"

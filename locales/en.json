@@ -1,0 +1,138 @@
+{
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "blog": "Blog",
+    "about": "About",
+    "contactSales": "Contact sales",
+    "megamenu": {
+      "training": "Training",
+      "trainingItems": {
+        "trainingIt": "Training IT",
+        "aiTechnology": "AI Technology",
+        "googleWorkspace": "Google Workspace for Education"
+      },
+      "marketing": "Marketing",
+      "marketingItems": {
+        "designMarketing": "Design & Marketing"
+      },
+      "streaming": "Streaming",
+      "streamingItems": {
+        "liveStreaming": "Live Streaming",
+        "hybridLearning": "Hybrid Learning",
+        "photographyVideography": "Photography and Videography"
+      },
+      "equipmentProvision": "Equipment Provision",
+      "equipmentProvisionItems": {
+        "discoverMore": "Discover More"
+      },
+      "smartSchoolManagement": "SmartSchool Management",
+      "smartSchoolManagementItems": {
+        "smartClass": "Smart Class",
+        "smartTalent": "Smart Talent",
+        "smartAsset": "Smart Asset",
+        "smartManagement": "Smart Management"
+      },
+      "additionalServices": "Additional Services",
+      "additionalServicesItems": {
+        "lessonPlan": "Lesson Plan",
+        "eRapor": "eRapor"
+      }
+    }
+  },
+  "hero": {
+    "title": "Tech Powered, Faith Guided.",
+    "description": "All-in-one digital ecosystem for modern school management and AI-driven learning.",
+    "cta": "Join Us"
+  },
+  "services": {
+    "title": "Our Services",
+    "training": {
+      "title": "Training",
+      "description": "Empower educators with practical training on digital tools, classroom technology, and AI-powered learning workflows."
+    },
+    "marketing": {
+      "title": "Marketing",
+      "description": "Boost your school’s visibility with data-driven digital marketing, branding, and social media management."
+    },
+    "streaming": {
+      "title": "Streaming",
+      "description": "Professional live streaming for school events—clear, stable, and high-quality broadcasts handled by our expert team."
+    },
+    "equipmentProvision": {
+      "title": "Equipment Provision",
+      "description": "High-quality equipment for learning and operations, including cameras, lighting, audio gear, laptops, and more."
+    },
+    "smartSchoolManagement": {
+      "title": "SmartSchool Management",
+      "description": "A fully integrated system to manage academics, staff, assets, and school operations in one unified digital platform."
+    },
+    "additionalServices": {
+      "title": "Additional Services",
+      "description": "Extra support including digital lesson plans, e-Report systems, templates, and tools to streamline school administration."
+    },
+    "startWith": "Start with"
+  },
+  "clients": {
+    "title": "Clients That Grow With Us",
+    "description": "Our clients are our top priority, and we are committed to providing them with the highest level of service."
+  },
+  "portfolio": {
+    "title": "Software Implementation & Customization",
+    "description": "Here are some of the projects we have worked on to implement and customize software solutions according to our clients' needs across various sectors.",
+    "projects": {
+      "smartTeacher": {
+        "title": "App Sheet Smart Teacher",
+        "detail": "AppSheet Smart Teacher is an AppSheet-based teacher activity management application designed to help schools record, monitor, and evaluate teacher activities during working hours in a structured, digital, and real-time manner. This application is a practical solution to replace manual recording, making administrative processes more efficient, accurate, and transparent."
+      },
+      "smartTalent": {
+        "title": "Smart Talent",
+        "detail": "Smart Talent is a school HR management system that allows management to monitor attendance, lateness, work journals, and staff mutabaah in real-time through an integrated dashboard. Educators and staff can also view their personal performance achievements as evaluation material to improve work performance."
+      }
+    }
+  },
+  "itkcm": {
+    "about": {
+      "title": "IT KCM",
+      "subtitle": "PT Kibar Cendekia Muda",
+      "description": "Kibar Cendekia Muda is an information technology development company focusing on solutions for education, particularly in the implementation of Smart School and Smart Class. We provide various products and services designed to meet modern school administration needs and enhance student learning experiences."
+    },
+    "whyChooseUs": {
+      "title": "WHY SHOULD YOU CHOOSE US?",
+      "innovation": {
+        "title": "Innovation",
+        "description": "Bringing technological innovation to improve the quality of education in Indonesia through integrated Smart School and Smart Class solutions. Providing platforms that can automate school management and increase teaching-learning efficiency with the latest technology."
+      },
+      "dataBased": {
+        "title": "Data Based",
+        "description": "Latest Technology: Using the latest technologies like artificial intelligence and data analysis to improve the efficiency and effectiveness of the educational process. Easy Integration: Platforms that are easy to implement and integrate with existing school technology infrastructure."
+      }
+    },
+    "transformation": {
+      "title": "Supporting Digital Educational Transformation",
+      "description": "Supporting digital transformation in the educational environment through systems that are integrated, efficient, and easy to use. These solutions are designed to help educational institutions manage learning and administrative activities in a more organized, modern, and sustainable way.",
+      "list": {
+        "structured": "More structured educational activity management",
+        "efficient": "Efficient and well-documented work processes",
+        "easyAccess": "Easy and integrated information access"
+      },
+      "cta": "See Our Products"
+    }
+  },
+  "footer": {
+    "links": {
+      "home": "Home",
+      "blog": "Blog",
+      "about": "About Us",
+      "privacy": "Privacy Policy"
+    },
+    "followUs": "Follow Us On",
+    "contactUs": "Contact Us",
+    "cta": {
+      "title": "Elevate your business now, with creative solutions!",
+      "button": "Start Your Project"
+    },
+    "copyright": "Copyright © 2025 LuminoED",
+    "trademark": "LuminoEd is a trademark of PT Kibar Cendekia Muda. Registered in the Directorate General of Intellectual Property of the Republic of Indonesia."
+  }
+}

@@ -1,9 +1,14 @@
 import DashboardPanelLayout from "@/components/dashboard-panel/dashboard-layout";
+import { AuthProvider } from "@/components/providers/session-provider";
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <DashboardPanelLayout>{children}</DashboardPanelLayout>;
+  return (
+    <AuthProvider>
+      <DashboardPanelLayout>{children}</DashboardPanelLayout>
+    </AuthProvider>
+  );
 }
