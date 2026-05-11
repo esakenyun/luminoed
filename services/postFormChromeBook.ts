@@ -1,6 +1,6 @@
 export default async function postFormChromeBook(formData: FormData) {
   try {
-    const url = "https://script.google.com/macros/s/AKfycbx8PAiwvLaTSc_xVQr5UTQUT_ZgiIHfXrGaokRQ4oX6OZIayZGfwWtuQ6siwosP2ZDiLQ/exec";
+    const url = "https://script.google.com/macros/s/AKfycbyV3LtRy1ynBkIADLlwfZQ7q72CDU0CcV5chPxvfsODsA2LfdrfgP3wsvwy-z_X0VF9/exec";
 
     if (!url) {
       throw new Error("Apps Script URL belum diset di ENV");
