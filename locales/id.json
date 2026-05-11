@@ -43,10 +43,13 @@
   "hero": {
     "title": "Berbasis Teknologi, Berlandaskan Iman.",
     "description": "Ekosistem digital terpadu untuk manajemen sekolah modern dan pembelajaran berbasis AI.",
-    "cta": "Bergabung Sekarang"
+    "cta": "Bergabung Sekarang",
+    "scrollCue": "Gulir untuk menjelajah"
   },
   "services": {
+    "label": "Yang Kami Tawarkan",
     "title": "Layanan Kami",
+    "description": "Solusi menyeluruh untuk membantu sekolah modern beroperasi, mengajar, dan berkembang dengan lebih baik.",
     "training": {
       "title": "Pelatihan",
       "description": "Berdayakan pendidik dengan pelatihan praktis mengenai alat digital, teknologi kelas, dan alur kerja pembelajaran berbasis AI."
@@ -71,13 +74,18 @@
       "title": "Layanan Tambahan",
       "description": "Dukungan ekstra termasuk rencana pelajaran digital, sistem e-Rapor, templat, dan alat untuk menyederhanakan administrasi sekolah."
     },
-    "startWith": "Mulai dengan"
+    "startWith": "Mulai dengan",
+    "learnMore": "Pelajari lebih lanjut"
   },
   "clients": {
+    "label": "Mitra Tepercaya",
     "title": "Klien yang Tumbuh Bersama Kami",
-    "description": "Klien kami adalah prioritas utama kami, dan kami berkomitmen untuk memberikan tingkat layanan tertinggi kepada mereka."
+    "description": "Klien kami adalah prioritas utama kami, dan kami berkomitmen untuk memberikan tingkat layanan tertinggi kepada mereka.",
+    "ctaDescription": "Siap bergabung dengan jaringan sekolah mitra kami yang terus berkembang?",
+    "ctaButton": "Hubungi Kami"
   },
   "portfolio": {
+    "label": "Karya Unggulan",
     "title": "Implementasi & Kustomisasi Perangkat Lunak",
     "description": "Berikut adalah beberapa proyek yang telah kami kerjakan untuk mengimplementasikan dan menyesuaikan solusi perangkat lunak sesuai kebutuhan klien kami di berbagai sektor.",
     "projects": {
@@ -93,11 +101,18 @@
   },
   "itkcm": {
     "about": {
+      "label": "Siapa Kami",
       "title": "IT KCM",
       "subtitle": "PT Kibar Cendekia Muda",
-      "description": "Kibar Cendekia Muda adalah perusahaan pengembang teknologi informasi yang berfokus pada solusi untuk pendidikan, khususnya dalam implementasi Smart School dan Smart Class. Kami menyediakan berbagai produk dan layanan yang dirancang untuk memenuhi kebutuhan administrasi sekolah modern dan meningkatkan pengalaman belajar siswa."
+      "description": "Kibar Cendekia Muda adalah perusahaan pengembang teknologi informasi yang berfokus pada solusi untuk pendidikan, khususnya dalam implementasi Smart School dan Smart Class. Kami menyediakan berbagai produk dan layanan yang dirancang untuk memenuhi kebutuhan administrasi sekolah modern dan meningkatkan pengalaman belajar siswa.",
+      "stats": {
+        "schoolsServed": "Sekolah Terlayani",
+        "yearsExperience": "Tahun Pengalaman",
+        "servicesOffered": "Layanan Tersedia"
+      }
     },
     "whyChooseUs": {
+      "label": "Keunggulan Kami",
       "title": "MENGAPA ANDA HARUS MEMILIH KAMI?",
       "innovation": {
         "title": "Inovasi",
@@ -109,6 +124,7 @@
       }
     },
     "transformation": {
+      "label": "Transformasi Digital",
       "title": "Mendukung Transformasi Digital Pendidikan",
       "description": "Mendukung transformasi digital di lingkungan pendidikan melalui sistem yang terintegrasi, efisien, dan mudah digunakan. Solusi ini dirancang untuk membantu institusi pendidikan mengelola aktivitas pembelajaran dan administrasi secara lebih tertata, modern, dan berkelanjutan.",
       "list": {

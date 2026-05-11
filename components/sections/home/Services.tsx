@@ -38,7 +38,7 @@ export default function Services() {
       description: t("services.training.description"),
       href: "/services/training",
       icon: <GraduationCap className="w-8 h-8" />,
-      color: "#4F46E5",
+      color: "#2c1c93",
     },
     {
       id: "marketing",
@@ -46,7 +46,7 @@ export default function Services() {
       description: t("services.marketing.description"),
       href: "/services/marketing",
       icon: <Megaphone className="w-8 h-8" />,
-      color: "#E63946",
+      color: "#110a34",
     },
     {
       id: "streaming",
@@ -54,7 +54,7 @@ export default function Services() {
       description: t("services.streaming.description"),
       href: "/services/streaming",
       icon: <Users className="w-8 h-8" />,
-      color: "#2EC4B6",
+      color: "#bedf3e",
     },
     {
       id: "equipment",
@@ -62,7 +62,7 @@ export default function Services() {
       description: t("services.equipmentProvision.description"),
       href: "/services/equipment-provision",
       icon: <Puzzle className="w-8 h-8" />,
-      color: "#F59E0B",
+      color: "#7c9d13",
     },
     {
       id: "smart-school",
@@ -70,7 +70,7 @@ export default function Services() {
       description: t("services.smartSchoolManagement.description"),
       href: "/services/smart-school",
       icon: <Sparkles className="w-8 h-8" />,
-      color: "#0A2463",
+      color: "#110a34",
     },
     {
       id: "additional",
@@ -78,7 +78,7 @@ export default function Services() {
       description: t("services.additionalServices.description"),
       href: "/services/additional",
       icon: <Globe className="w-8 h-8" />,
-      color: "#7C3AED",
+      color: "#7c9d13",
     },
   ];
 
@@ -160,32 +160,35 @@ export default function Services() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 lg:py-32 overflow-hidden bg-[#F5F5F3]"
+      className="relative py-24 lg:py-32 overflow-hidden bg-linear-to-b from-secondary-blue-50 to-secondary-green-50"
     >
       {/* decorative background shapes */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-[#0A2463]/4 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2EC4B6]/6 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-0 w-72 h-72 bg-primary-blue/6 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-green/10 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5">
         {/* heading */}
         <div className="srv-heading mb-16">
-          <p className="text-sm font-bold tracking-[0.25em] uppercase text-[#2EC4B6] mb-3">
-            What We Offer
+          <p className="text-sm font-bold tracking-[0.25em] uppercase text-primary-green mb-3">
+            {t("services.label")}
           </p>
-          <h2 className="font-extrabold uppercase text-[#0A2463] text-3xl md:text-5xl tracking-tight mb-3">
+          <h2 className="font-extrabold uppercase text-primary-blue text-3xl md:text-5xl tracking-tight mb-3">
             {t("services.title")}
           </h2>
-          <div className="srv-bar h-1.5 w-24 bg-[#2EC4B6] rounded-full" />
+          <div className="srv-bar h-1.5 w-24 bg-primary-green rounded-full" />
           <p className="mt-4 text-neutral-500 max-w-xl text-lg leading-relaxed">
-            End-to-end solutions that transform how modern schools operate,
-            teach, and grow.
+            {t("services.description")}
           </p>
         </div>
 
         {/* cards grid */}
         <div className="srv-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
           {SERVICES.map((service) => (
-            <ServiceCard key={service.id} service={service} />
+            <ServiceCard
+              key={service.id}
+              service={service}
+              learnMoreLabel={t("services.learnMore")}
+            />
           ))}
         </div>
       </div>
@@ -193,9 +196,15 @@ export default function Services() {
   );
 }
 
-function ServiceCard({ service }: { service: Service }) {
+function ServiceCard({
+  service,
+  learnMoreLabel,
+}: {
+  service: Service;
+  learnMoreLabel: string;
+}) {
   return (
-    <div className="srv-card group relative p-8 md:p-10 rounded-[32px] bg-white text-[#0A2463] flex flex-col justify-between min-h-[320px] shadow-sm cursor-pointer will-change-transform">
+    <div className="srv-card group relative p-8 md:p-10 rounded-[32px] bg-white text-primary-blue flex flex-col justify-between min-h-[320px] shadow-sm ring-1 ring-primary-blue/5 cursor-pointer will-change-transform">
       <Link
         href={service.href}
         className="flex flex-col h-full justify-between"
@@ -221,7 +230,7 @@ function ServiceCard({ service }: { service: Service }) {
           className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider transition-all duration-300 group-hover:gap-3"
           style={{ color: service.color }}
         >
-          Learn more
+          {learnMoreLabel}
           <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
         </div>
       </Link>
