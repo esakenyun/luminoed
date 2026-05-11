@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { fadeUp, fadeLeft, fadeRight, stagger } from "@/lib/motion";
-import Image from "next/image";
 import OurClient from "@/components/sections/home/OurClient";
 
 export default function DesignMarketingServices() {
@@ -205,17 +204,7 @@ export default function DesignMarketingServices() {
         </motion.div>
       </section>
 
-      <div className="relative overflow-hidden">
-        <Image
-          src="/wave.webp"
-          width={1920}
-          height={400}
-          alt="Wave"
-          className="w-full"
-        />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto">
         <OurClient />
       </div>
 

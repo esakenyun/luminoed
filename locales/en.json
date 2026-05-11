@@ -134,5 +134,66 @@
     },
     "copyright": "Copyright © 2025 LuminoED",
     "trademark": "LuminoEd is a trademark of PT Kibar Cendekia Muda. Registered in the Directorate General of Intellectual Property of the Republic of Indonesia."
+  },
+
+  "marketingPage": {
+    "hero": {
+      "title": "Design & Marketing for Educational Institutions",
+      "description": "Implement a measurable digital marketing ecosystem to significantly increase your school's appeal and parent trust.",
+      "button": "Explore Our Services"
+    },
+    "features": {
+      "branding": {
+        "title": "Educational Branding",
+        "description": "Professional, consistent visual identity that reflects educational values."
+      },
+      "strategy": {
+        "title": "Digital Strategy",
+        "description": "Data-driven marketing approach to reach students and parents."
+      },
+      "content": {
+        "title": "Quality Content",
+        "description": "Relevant, communicative, and education-oriented design and content."
+      }
+    },
+    "services": {
+      "title": "Design & Marketing Services",
+      "items": {
+        "brandIdentity": "Brand Identity & Logo",
+        "socialMedia": "Social Media Design",
+        "companyProfile": "School Company Profile",
+        "websiteLanding": "Website & Landing Page",
+        "videoPromotion": "Promotional & Educational Video",
+        "digitalCampaign": "Digital Campaign",
+        "copywriting": "Educational Copywriting",
+        "aiContent": "AI-Assisted Content"
+      }
+    },
+    "process": {
+      "title": "Our Work Process",
+      "steps": {
+        "analysis": {
+          "title": "Need Analysis",
+          "description": "Understanding the vision, mission, and target audience of your institution."
+        },
+        "strategy": {
+          "title": "Strategy Design",
+          "description": "Developing an effective and targeted marketing roadmap."
+        },
+        "production": {
+          "title": "Content Production",
+          "description": "Creative execution with high-quality standards."
+        },
+        "optimization": {
+          "title": "Evaluation & Optimization",
+          "description": "Performance analysis and continuous strategy refinement."
+        }
+      }
+    },
+    "cta": {
+      "title": "Enhance Your School's Image with LuminoED",
+      "description": "Realize educational marketing strategies that are professional, modern, and meaningful.",
+      "button": "Consult Now"
+    }
   }
 }

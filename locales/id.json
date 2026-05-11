@@ -41,7 +41,7 @@
     }
   },
   "hero": {
-    "title": "Bertenaga Teknologi, <br />Berpandukan Iman.",
+    "title": "Berbasis Teknologi, Berlandaskan Iman.",
     "description": "Ekosistem digital terpadu untuk manajemen sekolah modern dan pembelajaran berbasis AI.",
     "cta": "Bergabung Sekarang"
   },
@@ -134,5 +134,66 @@
     },
     "copyright": "Copyright © 2025 LuminoED",
     "trademark": "LuminoEd adalah merek dagang dari PT Kibar Cendekia Muda. Terdaftar di Direktorat Jenderal Kekayaan Intelektual Republik Indonesia."
+  },
+
+  "marketingPage": {
+    "hero": {
+      "title": "Design & Marketing untuk Institusi Pendidikan",
+      "description": "Wujudkan ekosistem pemasaran digital yang terukur untuk meningkatkan daya tarik dan kepercayaan orang tua siswa secara signifikan.",
+      "button": "Lihat Detail Layanan"
+    },
+    "features": {
+      "branding": {
+        "title": "Branding Edukatif",
+        "description": "Identitas visual yang profesional, konsisten, dan mencerminkan nilai pendidikan."
+      },
+      "strategy": {
+        "title": "Strategi Digital",
+        "description": "Pendekatan pemasaran berbasis data untuk menjangkau siswa dan orang tua."
+      },
+      "content": {
+        "title": "Konten Berkualitas",
+        "description": "Desain dan konten yang relevan, komunikatif, dan berorientasi edukasi."
+      }
+    },
+    "services": {
+      "title": "Layanan Design & Marketing",
+      "items": {
+        "brandIdentity": "Brand Identity & Logo",
+        "socialMedia": "Desain Media Sosial",
+        "companyProfile": "Company Profile Sekolah",
+        "websiteLanding": "Website & Landing Page",
+        "videoPromotion": "Video Promosi & Edukasi",
+        "digitalCampaign": "Digital Campaign",
+        "copywriting": "Copywriting Edukatif",
+        "aiContent": "Konten AI-Assisted"
+      }
+    },
+    "process": {
+      "title": "Proses Kerja Kami",
+      "steps": {
+        "analysis": {
+          "title": "Analisis Kebutuhan",
+          "description": "Memahami visi, misi, dan target audiens institusi Anda."
+        },
+        "strategy": {
+          "title": "Perancangan Strategi",
+          "description": "Menyusun roadmap pemasaran yang efektif dan tepat sasaran."
+        },
+        "production": {
+          "title": "Produksi Konten",
+          "description": "Eksekusi kreatif dengan standar kualitas tinggi."
+        },
+        "optimization": {
+          "title": "Evaluasi & Optimasi",
+          "description": "Analisis performa dan penyempurnaan strategi berkelanjutan."
+        }
+      }
+    },
+    "cta": {
+      "title": "Tingkatkan Citra Sekolah Anda Bersama LuminoED",
+      "description": "Wujudkan strategi pemasaran pendidikan yang profesional, modern, dan bermakna.",
+      "button": "Konsultasi Sekarang"
+    }
   }
 }

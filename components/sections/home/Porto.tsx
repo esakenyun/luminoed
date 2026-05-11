@@ -1,205 +1,229 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { textVariants } from "@/lib/motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import { useTranslation } from "@/components/providers/I18nProvider";
 
-const CARD_WIDTH = 520;
-const CARD_HEIGHT = 480;
+gsap.registerPlugin(ScrollTrigger);
+
+const CARD_W = 520;
+const CARD_H = 460;
 
 export default function Portfolio() {
   const { t } = useTranslation();
+  const sectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const infoRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
-  const autoSlideRef = useRef<NodeJS.Timeout | null>(null);
+  const tweenRef = useRef<gsap.core.Tween | null>(null);
+  const autoRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const projects = [
+  const PROJECTS = [
     {
       title: t("portfolio.projects.smartTeacher.title"),
       image: "/porto/appsheet1.webp",
       detail: t("portfolio.projects.smartTeacher.detail"),
+      tag: t("navbar.megamenu.smartSchoolManagementItems.smartClass"),
     },
     {
       title: t("portfolio.projects.smartTalent.title"),
       image: "/porto/looker.webp",
       detail: t("portfolio.projects.smartTalent.detail"),
+      tag: t("navbar.megamenu.smartSchoolManagementItems.smartTalent"),
     },
   ];
 
-  const handleNext = () => {
-    setActive((p) => (p + 1) % projects.length);
-    resetAutoSlide();
-  };
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ".porto-head",
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".porto-head", start: "top 82%" },
+        },
+      );
+    },
+    { scope: sectionRef },
+  );
 
-  const handlePrev = () => {
-    setActive((p) => (p - 1 + projects.length) % projects.length);
-    resetAutoSlide();
-  };
+  const gotoSlide = (idx: number, instant = false) => {
+    if (!trackRef.current) return;
+    const offset = -(idx * CARD_W) + (window.innerWidth / 2 - CARD_W / 2);
+    gsap.to(trackRef.current, {
+      x: offset,
+      duration: instant ? 0 : 0.75,
+      ease: "power3.inOut",
+    });
 
-  const resetAutoSlide = () => {
-    if (autoSlideRef.current) {
-      clearInterval(autoSlideRef.current);
+    const cards = trackRef.current.querySelectorAll<HTMLElement>(".porto-card");
+    cards.forEach((card, i) => {
+      const rel = i - idx;
+      gsap.to(card, {
+        scale: rel === 0 ? 1 : 0.87,
+        rotateY: rel === 0 ? 0 : rel < 0 ? 14 : -14,
+        y: rel === 0 ? 0 : 14,
+        duration: 0.65,
+        ease: "power2.out",
+      });
+    });
+
+    if (infoRef.current) {
+      gsap.to(infoRef.current, {
+        opacity: 0,
+        y: 10,
+        duration: 0.2,
+        onComplete: () => {
+          setActive(idx);
+          gsap.to(infoRef.current, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: "power2.out",
+          });
+        },
+      });
+    } else {
+      setActive(idx);
     }
-    startAutoSlide();
-  };
-
-  const startAutoSlide = () => {
-    autoSlideRef.current = setInterval(() => {
-      setActive((p) => (p + 1) % projects.length);
-    }, 9000);
   };
 
   useEffect(() => {
-    startAutoSlide();
-
+    gotoSlide(0, true);
+    autoRef.current = setInterval(() => {
+      setActive((prev) => {
+        const next = (prev + 1) % PROJECTS.length;
+        gotoSlide(next);
+        return next;
+      });
+    }, 7000);
     return () => {
-      if (autoSlideRef.current) {
-        clearInterval(autoSlideRef.current);
-      }
+      if (autoRef.current) clearInterval(autoRef.current);
     };
-  }, [projects.length]);
+  }, []);
 
-  const getTranslateX = () => {
-    let offsetX = 0;
-
-    for (let i = 0; i < active; i++) {
-      offsetX += CARD_WIDTH;
-    }
-
-    return `calc(50% - ${CARD_WIDTH / 2}px - ${offsetX}px)`;
+  const nav = (dir: 1 | -1) => {
+    if (autoRef.current) clearInterval(autoRef.current);
+    const next = (active + dir + PROJECTS.length) % PROJECTS.length;
+    gotoSlide(next);
+    autoRef.current = setInterval(() => {
+      setActive((prev) => {
+        const n = (prev + 1) % PROJECTS.length;
+        gotoSlide(n);
+        return n;
+      });
+    }, 7000);
   };
 
   return (
     <section
+      ref={sectionRef}
       id="portfolio"
-      className="py-32 text-white overflow-hidden bg-linear-to-br from-primary-blue via-primary-blue to-primary-green mt-40"
+      className="py-28 text-white overflow-hidden bg-linear-to-br from-primary-blue via-primary-blue to-[#0d6670] mt-32"
     >
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <motion.h2
-          className="text-4xl md:text-5xl font-extrabold leading-tight mb-5"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+      <div className="porto-head max-w-7xl mx-auto px-6 text-center mb-16">
+        <p className="text-sm font-bold tracking-[0.25em] uppercase text-primary-green mb-3">
+          {t("portfolio.label")}
+        </p>
+        <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-5">
           {t("portfolio.title")
             .split("&")
             .map((part, i) => (
               <span key={i}>
                 {part}
-                {i === 0 && <br />}
+                {i === 0 && (
+                  <>
+                    <br />
+                  </>
+                )}
               </span>
             ))}
-        </motion.h2>
-
-        <motion.p
-          className="text-lg text-white/80 mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+        </h2>
+        <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
           {t("portfolio.description")}
-        </motion.p>
+        </p>
       </div>
 
-      <div className="relative overflow-hidden w-full flex items-center justify-center perspective-[1400px]">
-        <motion.div
-          className="flex items-center transform-3d will-change-transforms"
-          animate={{
-            x: getTranslateX(),
-          }}
-          transition={{
-            duration: 0.7,
-            ease: [0.22, 1, 0.36, 1],
-          }}
+      <div
+        className="relative overflow-hidden w-full flex items-center"
+        style={{ perspective: "1400px", height: CARD_H + 40 }}
+      >
+        <div
+          ref={trackRef}
+          className="flex items-center gap-0 absolute will-change-transform"
+          style={{ transformStyle: "preserve-3d" }}
         >
-          {projects.map((item, index) => {
-            let offset = index - active;
-
-            if (offset > projects.length / 2) {
-              offset -= projects.length;
-            } else if (offset < -projects.length / 2) {
-              offset += projects.length;
-            }
-
-            return (
-              <motion.div
-                key={index}
-                className="relative shrink-0 overflow-visible will-change-transform"
-                style={{
-                  width: CARD_WIDTH,
-                  height: CARD_HEIGHT,
-                }}
-                animate={{
-                  scale: offset === 0 ? 1 : 0.86,
-                  y: offset === 0 ? 0 : 12,
-                  rotateY: offset === 0 ? 0 : offset < 0 ? 16 : -16,
-                }}
-                transition={{
-                  duration: 0.7,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-                <motion.div
-                  className="relative h-full w-full overflow-hidden rounded-lg shadow-2xl"
-                  animate={{
-                    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                  }}
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 520px"
-                  />
-                  <div className="absolute inset-0 bg-black/10" />
-                </motion.div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+          {PROJECTS.map((item, i) => (
+            <div
+              key={i}
+              className="porto-card relative shrink-0 rounded-2xl overflow-hidden shadow-2xl cursor-pointer will-change-transform"
+              style={{
+                width: CARD_W,
+                height: CARD_H,
+                transformStyle: "preserve-3d",
+              }}
+              onClick={() => {
+                if (autoRef.current) clearInterval(autoRef.current);
+                gotoSlide(i);
+              }}
+            >
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                className="object-cover"
+                sizes="520px"
+              />
+              <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary-green text-primary-blue text-xs font-bold uppercase tracking-wider">
+                {item.tag}
+              </span>
+              <div className="absolute inset-0 bg-linear-to-t from-primary-blue/40 to-transparent" />
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 mt-20 grid grid-cols-1 md:grid-cols-[1fr_auto]">
-        <div className="md:ml-20 min-h-[220px]">
-          <motion.h3
-            key={projects[active].title}
-            variants={textVariants}
-            initial="hidden"
-            animate="show"
-            className="text-2xl md:text-3xl font-bold"
-          >
-            {projects[active].title}
-          </motion.h3>
-
-          <motion.p
-            key={projects[active].detail}
-            variants={textVariants}
-            initial="hidden"
-            animate="show"
-            transition={{ delay: 0.1 }}
-            className="mt-4 text-gray-300 leading-relaxed"
-          >
-            {projects[active].detail}
-          </motion.p>
+      <div className="max-w-7xl mx-auto px-6 mt-14 flex flex-col md:flex-row md:items-start gap-8 h-[200px]">
+        <div ref={infoRef} className="flex-1 md:ml-16 overflow-hidden h-full">
+          <h3 className="text-2xl md:text-3xl font-bold mb-3 line-clamp-2">
+            {PROJECTS[active].title}
+          </h3>
+          <p className="text-white/70 leading-relaxed max-w-xl line-clamp-4">
+            {PROJECTS[active].detail}
+          </p>
         </div>
 
-        <div className="flex gap-4 p-6">
+        <div className="flex items-center gap-5 shrink-0 pt-1">
+          <div className="flex gap-2">
+            {PROJECTS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  if (autoRef.current) clearInterval(autoRef.current);
+                  gotoSlide(i);
+                }}
+                className={`h-2 rounded-full transition-all duration-300 ${i === active ? "w-8 bg-primary-green" : "w-2 bg-white/30"}`}
+              />
+            ))}
+          </div>
           <button
-            onClick={handlePrev}
-            className="w-12 h-12 rounded-full bg-primary-blue hover:scale-105 active:scale-110 flex items-center justify-center"
+            onClick={() => nav(-1)}
+            className="w-12 h-12 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} />
           </button>
           <button
-            onClick={handleNext}
-            className="w-12 h-12 rounded-full bg-primary-blue hover:scale-105 active:scale-110 flex items-center justify-center"
+            onClick={() => nav(1)}
+            className="w-12 h-12 rounded-full bg-primary-green hover:bg-primary-green/90 flex items-center justify-center transition-colors"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={20} />
           </button>
         </div>
       </div>

@@ -119,4 +119,10 @@ model Blog {
   publishedAt DateTime?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  // Indexes for fast paginated reads on the public blog listing
+  @@index([status, publishedAt(sort: Desc)], name: "blog_status_publishedAt_idx")
+  @@index([status, createdAt(sort: Desc)],   name: "blog_status_createdAt_idx")
+  @@index([categoryId],                       name: "blog_categoryId_idx")
+  @@index([authorId],                         name: "blog_authorId_idx")
 }
