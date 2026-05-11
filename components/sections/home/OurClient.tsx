@@ -25,6 +25,7 @@ export default function OurClient() {
   const sectionRef = useRef<HTMLElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const marqueeTweenRef = useRef<gsap.core.Tween | null>(null);
 
   useGSAP(
     () => {
@@ -66,18 +67,30 @@ export default function OurClient() {
       );
 
       if (!marqueeRef.current) return;
-      gsap.to(marqueeRef.current, {
+      marqueeTweenRef.current = gsap.to(marqueeRef.current, {
         xPercent: -50,
         duration: 22,
         ease: "none",
         repeat: -1,
       });
 
-      const track = marqueeRef.current;
-      const pause = () => gsap.to(track, { timeScale: 0, duration: 0.4 });
-      const resume = () => gsap.to(track, { timeScale: 1, duration: 0.4 });
-      containerRef.current?.addEventListener("mouseenter", pause);
-      containerRef.current?.addEventListener("mouseleave", resume);
+      const pause = () =>
+        marqueeTweenRef.current &&
+        gsap.to(marqueeTweenRef.current, { timeScale: 0, duration: 0.4 });
+      const resume = () =>
+        marqueeTweenRef.current &&
+        gsap.to(marqueeTweenRef.current, { timeScale: 1, duration: 0.4 });
+
+      const container = containerRef.current;
+      container?.addEventListener("mouseenter", pause);
+      container?.addEventListener("mouseleave", resume);
+
+      return () => {
+        container?.removeEventListener("mouseenter", pause);
+        container?.removeEventListener("mouseleave", resume);
+        marqueeTweenRef.current?.kill();
+        marqueeTweenRef.current = null;
+      };
     },
     { scope: sectionRef },
   );

@@ -186,17 +186,16 @@ export default function ITKCM() {
         </div>
 
         <div className="itk-about-img relative">
-          <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl border-8 border-white bg-neutral-100">
+          <div className="relative aspect-video rounded-3xl overflow-hidden border border-primary-blue/10 bg-white shadow-[0_18px_45px_rgba(17,10,52,0.16)]">
             <Image
               src="/bar.webp"
               fill
               alt="Dashboard Preview"
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
+              loading="eager"
             />
           </div>
-          <div className="absolute -bottom-5 -right-5 w-28 h-28 bg-primary-green rounded-3xl -z-10" />
-          <div className="absolute -top-5  -left-5  w-28 h-28 bg-primary-blue rounded-3xl -z-10" />
         </div>
       </div>
 
@@ -228,7 +227,7 @@ export default function ITKCM() {
           ].map((card) => (
             <div
               key={card.title}
-              className="itk-why-card p-10 rounded-[40px] bg-linear-to-br from-secondary-blue-50 to-secondary-green-50 hover:shadow-xl transition-shadow duration-300"
+              className="itk-why-card p-10 rounded-[40px] bg-linear-to-br from-white via-secondary-blue-50/35 to-secondary-green-50/30 border border-primary-blue/6 shadow-sm hover:shadow-xl transition-shadow duration-300"
             >
               <div
                 className={`w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-md mb-8 ${card.iconBg}`}
