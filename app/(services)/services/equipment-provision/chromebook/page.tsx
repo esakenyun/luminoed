@@ -56,6 +56,19 @@ export default function ChromebookPage() {
     });
   };
 
+  const acerPrice = useMotionValue(0);
+  const acerRounded = useTransform(acerPrice, (v) =>
+    Math.round(v).toLocaleString("id-ID"),
+  );
+
+  const startAcerCountUp = () => {
+    acerPrice.set(0);
+    animate(acerPrice, 8700000, {
+      duration: 1.8,
+      ease: "easeOut",
+    });
+  };
+
   useEffect(() => {
     const fetchStok = async () => {
       const stokData = await getStokData();
@@ -652,6 +665,18 @@ export default function ChromebookPage() {
               <span className="text-primary-blue">namun dengan solusi biaya yang lebih efisien</span>
             </p>
 
+            {/* Sisa kuota */}
+            <motion.div
+              className="mt-6 mb-10 flex items-center gap-1.5 w-fit mx-auto px-4 py-2 bg-primary-blue/10 text-primary-blue font-semibold rounded-full"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              <span>Sisa Kuota:</span>
+              <span className="font-bold">{stok}</span>
+              <span>Unit</span>
+            </motion.div>
+
             {/* BATCH 2 PRICING */}
             <motion.div
               initial={{ opacity: 0, scale: 0.85 }}
@@ -659,7 +684,7 @@ export default function ChromebookPage() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.6 }}
               onViewportEnter={startCountUp}
-              className="relative inline-block mt-16"
+              className="relative block w-fit mx-auto mt-6"
             >
               {/* Glow */}
               <motion.div
@@ -707,6 +732,241 @@ export default function ChromebookPage() {
               Amankan Unit Sekarang
             </motion.a>
           </motion.div>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ACER PROMO */}
+      <section className="py-24 bg-gradient-to-b from-white via-emerald-50 to-white relative overflow-hidden">
+        <motion.div
+          className="max-w-4xl mx-auto px-6 text-center relative z-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.h2
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-blue mb-12"
+            initial={{ y: 10 }}
+            whileInView={{ y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Unit Baru Tersedia: Acer Chromebook CB311
+          </motion.h2>
+
+          <motion.div
+            className="p-12 rounded-3xl bg-gradient-to-br from-emerald-100 to-cyan-100 border-2 border-emerald-400 shadow-2xl relative overflow-hidden"
+            initial={{ scale: 0.95, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <motion.div
+              className="text-2xl sm:text-3xl font-bold text-primary-blue mb-4 relative z-10"
+              initial={{ y: 10 }}
+              whileInView={{ y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              Acer Chromebook CB311 (11.6&quot; Touch)
+            </motion.div>
+            <p className="text-lg text-gray-800 relative z-10 font-medium">
+              Opsi unit baru dengan layar sentuh dan Chrome Education Upgrade
+            </p>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.85 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.6 }}
+              onViewportEnter={startAcerCountUp}
+              className="relative inline-block mt-16"
+            >
+              <motion.div
+                animate={{ opacity: [0.4, 0.8, 0.4] }}
+                transition={{ duration: 2.5, repeat: Infinity }}
+                className="absolute -inset-3 rounded-3xl bg-emerald-400/40 blur-2xl"
+              />
+
+              <motion.div
+                className="relative px-12 py-8 rounded-3xl bg-gradient-to-br from-primary-blue to-cyan-500 text-white shadow-2xl"
+                whileHover={{ scale: 1.03 }}
+              >
+                <motion.div className="absolute -top-5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-emerald-600 text-xs font-semibold shadow-lg">
+                  Unit Baru
+                </motion.div>
+
+                <p className="text-sm opacity-95 font-medium">Harga Spesial</p>
+                <div className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-wide">
+                  Rp <motion.span>{acerRounded}</motion.span>
+                </div>
+                <p className="mt-2 text-xs opacity-95">per unit (All-in Package)</p>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              className="mt-10"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              <motion.a
+                href="#order"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-primary-blue via-cyan-600 to-emerald-500 text-white font-semibold shadow-xl border border-white/30"
+                whileHover={{ scale: 1.06, y: -3, boxShadow: "0 16px 35px rgba(8, 145, 178, 0.35)" }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Pilih Unit Acer di Form
+                <span aria-hidden="true">→</span>
+              </motion.a>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ACER CONTENT */}
+      <section className="py-20 bg-gradient-to-b from-emerald-50 via-cyan-50/40 to-white relative overflow-hidden">
+        <motion.div
+          className="absolute -top-10 -left-10 w-72 h-72 rounded-full bg-emerald-300/20 blur-3xl"
+          animate={{ x: [0, 20, 0], y: [0, 10, 0] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute -bottom-10 right-0 w-80 h-80 rounded-full bg-cyan-300/20 blur-3xl"
+          animate={{ x: [0, -24, 0], y: [0, -14, 0] }}
+          transition={{ duration: 9, repeat: Infinity }}
+        />
+
+        <motion.div
+          className="max-w-6xl mx-auto px-6 relative z-10"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="mb-8 sm:mb-10 text-center"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <span className="inline-block px-4 py-1 rounded-full bg-primary-blue text-white text-xs font-bold tracking-wide">
+              ACER CB311 HIGHLIGHT
+            </span>
+            <h3 className="mt-4 text-2xl sm:text-3xl font-bold text-primary-blue">
+              Siap Untuk Kelas Digital Modern
+            </h3>
+            <p className="mt-2 text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+              Dua sudut pandang produk untuk membantu sekolah melihat nilai perangkat secara utuh.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="bg-gradient-to-br from-white to-emerald-50/60 rounded-3xl border border-emerald-200 p-7 sm:p-8 shadow-xl"
+            whileHover={{ y: -4 }}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+              <div>
+                <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-md">
+                  <Image
+                    src="/services/acer.webp"
+                    width={1200}
+                    height={900}
+                    alt="Acer Chromebook CB311"
+                      className="w-full h-auto object-cover"
+                    />
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-primary-blue text-white text-xs font-semibold">
+                    Visual Unit
+                  </div>
+                  <div className="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-emerald-600 text-white text-xs font-semibold shadow-lg">
+                    11.6&quot; Touch
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold border border-emerald-200">
+                  UNIT BARU ACER
+                </div>
+                <h3 className="text-2xl font-bold text-primary-blue mt-3">
+                  Keunggulan Acer CB311 untuk Sekolah
+                </h3>
+                <p className="mt-3 text-gray-700 text-sm sm:text-base">
+                  Cocok untuk sekolah yang butuh perangkat belajar interaktif, ringan dikelola, dan tahan dipakai harian.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {["Chrome Edu Upgrade", "Up to 10 Jam", "Dual USB-C", "Celeron N4020"].map((chip) => (
+                    <span
+                      key={chip}
+                      className="px-3 py-1 rounded-full bg-white border border-emerald-200 text-xs font-semibold text-primary-blue"
+                    >
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+                <ul className="mt-5 space-y-3 text-sm sm:text-base text-gray-700">
+                  <li>Panel sentuh 11.6 inci untuk pembelajaran aktif di kelas.</li>
+                  <li>Chrome OS + Chrome Education Upgrade untuk manajemen terpusat.</li>
+                  <li>Baterai hingga 10 jam untuk operasional seharian.</li>
+                  <li>2x USB Type-C dan 2x USB 3.1 Gen 1 untuk fleksibilitas koneksi.</li>
+                  <li>Form factor ringkas untuk mobilitas siswa dan guru.</li>
+                </ul>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="mt-8 bg-gradient-to-br from-white to-cyan-50/60 rounded-3xl border border-cyan-200 p-7 sm:p-8 shadow-xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -4 }}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+              <div className="order-1 lg:order-2">
+                <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-md">
+                  <Image
+                    src="/services/acer2.webp"
+                    width={1200}
+                    height={900}
+                    alt="Acer Chromebook CB311 - Detail View"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-primary-blue text-white text-xs font-semibold">
+                    Detail Unit
+                  </div>
+                  <div className="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-cyan-600 text-white text-xs font-semibold shadow-lg">
+                    Build for Class
+                  </div>
+                </div>
+              </div>
+
+              <div className="order-2 lg:order-1">
+                <h3 className="text-2xl font-bold text-primary-blue mb-3">
+                  Spesifikasi Acer Chromebook CB311
+                </h3>
+                <p className="text-sm text-gray-600 mb-6">
+                  Ringkas, efisien, dan siap pakai untuk kebutuhan pembelajaran digital harian.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm sm:text-base text-gray-800">
+                  <p><strong>Prosesor:</strong> Intel Celeron Dual Core N4020 (4MB cache, base 1.1GHz)</p>
+                  <p><strong>RAM:</strong> 4GB</p>
+                  <p><strong>Penyimpanan:</strong> 32GB eMMC</p>
+                  <p><strong>Grafis:</strong> Intel UHD Graphics</p>
+                  <p><strong>Layar:</strong> 11.6 inci Touch</p>
+                  <p><strong>Sistem Operasi:</strong> Chrome OS + Chrome Education Upgrade</p>
+                  <p><strong>Webcam:</strong> 1280 x 720, 720p HD recording</p>
+                  <p><strong>Audio:</strong> Dual stereo speaker + built-in microphone</p>
+                  <p><strong>Adaptor:</strong> USB Type-C 45W Google PD</p>
+                  <p><strong>Baterai:</strong> 38Wh 3-cell Li-ion, hingga 10 jam</p>
+                  <p><strong>Keyboard:</strong> Acer FineTip 74/75/78-key, moisture resistant</p>
+                  <p><strong>Touchpad:</strong> Click-anywhere, multi-gesture</p>
+                  <p><strong>Port:</strong> 2x USB Type-C, 2x USB 3.1 Gen 1, 1x headset/speaker jack</p>
+                  <p><strong>Garansi:</strong> 1/1/0 (P/L/O)</p>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -824,14 +1084,15 @@ export default function ChromebookPage() {
                   >
                     ⭐ BATCH 2 - DIBUKA
                   </motion.div>
-                  <h4 className="text-2xl font-bold text-primary-blue mb-6 group-hover:text-cyan-600 transition-colors">Non-Touchscreen</h4>
+                  <h4 className="text-2xl font-bold text-primary-blue mb-6 group-hover:text-cyan-600 transition-colors">Dua Opsi Unit</h4>
                   
                   <div className="space-y-4 mb-8">
                     {[
-                      { title: "Layar Standar 11.6 inci (Non-Touch)", desc: "Performa visual tetap jernih dan tajam" },
+                      { title: "Lenovo 300e (Non-Touch) - Rp 4.400.000", desc: "Opsi efisien untuk pengadaan skala besar" },
+                      { title: "Acer CB311 (Touch) - Rp 8.700.000", desc: "Opsi baru dengan layar sentuh 11.6 inci" },
                       { title: "Rugged & Tahan Banting", desc: "Desain lipat, tahan jatuh dan tekanan" },
-                      { title: "Prosesor Intel Celeron N4020", desc: "Performa stabil identik dengan Batch 1" },
-                      { title: "RAM 4GB + Storage 32GB", desc: "Spesifikasi sama dengan Batch 1" },
+                      { title: "Prosesor Intel Celeron N4020", desc: "Performa stabil untuk aktivitas pembelajaran" },
+                      { title: "RAM 4GB + Storage 32GB", desc: "Memadai untuk operasional kelas digital" },
                       { title: "CEU License Seumur Hidup", desc: "Manajemen terpusat dan kontrol penuh sekolah" },
                     ].map((feature, idx) => (
                       <motion.div 
@@ -862,9 +1123,10 @@ export default function ChromebookPage() {
                   >
                     <p className="text-sm text-gray-700">
                       <strong className="text-primary-blue">💰 Harga Batch 2:</strong><br />
-                      <span className="text-lg font-bold text-primary-blue">Rp. 4.400.000</span>
+                      <span className="text-base font-bold text-primary-blue">Lenovo 300e: Rp 4.400.000</span><br />
+                      <span className="text-base font-bold text-primary-blue">Acer CB311: Rp 8.700.000</span>
                     </p>
-                    <p className="text-xs text-gray-600 mt-2">✓ Per unit (All-in Package)</p>
+                    <p className="text-xs text-gray-600 mt-2">✓ Per unit (All-in Package), sesuai pilihan unit</p>
                   </motion.div>
                 </div>
               </motion.div>
@@ -895,20 +1157,20 @@ export default function ChromebookPage() {
             {[
               {
                 icon: "📢",
-                title: "Mengapa Batch 2 Non-Touchscreen?",
-                desc: "Berdasarkan feedback dan kebutuhan biaya operasional sekolah, kami menyediakan opsi Chromebook tanpa touchscreen untuk memberikan solusi yang lebih terjangkau tanpa mengurangi kualitas pembelajaran dan manajemen sekolah.",
+                title: "Update Batch 2: Kini Tersedia 2 Pilihan Unit",
+                desc: "Batch 2 kini mencakup Lenovo 300e Non-Touchscreen dan Acer Chromebook CB311 Touchscreen. Sekolah dapat memilih unit sesuai kebutuhan pembelajaran dan prioritas anggaran.",
                 color: "from-blue-50 to-cyan-50",
                 borderColor: "border-blue-400",
                 textColor: "text-blue-700"
               },
-              {
-                icon: "⚠️",
-                title: "Catatan Tentang Harga & Kuota",
-                desc: "Ketersediaan stok untuk Batch 2 belum ditentukan. Harap tunggu pengumuman resmi dari PT Kibar Cendekia Muda.",
-                color: "from-yellow-50 to-orange-50",
-                borderColor: "border-yellow-400",
-                textColor: "text-yellow-700"
-              },
+              // {
+              //   icon: "⚠️",
+              //   title: "Catatan Tentang Harga & Kuota",
+              //   desc: "Ketersediaan stok untuk Batch 2 belum ditentukan. Harap tunggu pengumuman resmi dari PT Kibar Cendekia Muda.",
+              //   color: "from-yellow-50 to-orange-50",
+              //   borderColor: "border-yellow-400",
+              //   textColor: "text-yellow-700"
+              // },
               {
                 icon: "💡",
                 title: "Tips Bagi Sekolah",
@@ -1017,7 +1279,7 @@ export default function ChromebookPage() {
                 <line x1="12" x2="12.01" y1="8" y2="8" />
               </motion.svg>
               <span>
-                <strong className="text-blue-900">Informasi:</strong> Batch 1 telah selesai dengan kuota penuh. Batch 2 telah dibuka dan sedang dalam tahap penetapan kuota. Silakan daftarkan ketertarikan Anda melalui form di bawah.
+                <strong className="text-blue-900">Informasi:</strong> Batch 1 telah selesai dengan kuota penuh. Batch 2 kini tersedia dengan 2 pilihan unit (Lenovo 300e Non-Touchscreen dan Acer CB311 Touchscreen). Silakan pilih unit yang diinginkan dan daftarkan ketertarikan Anda melalui form di bawah.
               </span>
             </motion.p>
           </motion.div>
@@ -1031,13 +1293,55 @@ export default function ChromebookPage() {
             Form Pemesanan Chromebook
           </motion.h2>
 
-          <motion.form
+            <motion.form
             className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 p-8 rounded-3xl bg-white/50 backdrop-blur-sm border border-gray-200/50 shadow-lg"
             onSubmit={handleSubmit}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
+            <motion.div
+              className="sm:col-span-2 p-4 rounded-2xl bg-gradient-to-r from-primary-blue/5 to-emerald-50 border border-primary-blue/20"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05 }}
+            >
+              <label
+                htmlFor="unit_choice"
+                className="block text-sm font-semibold text-primary-blue mb-2"
+              >
+                Pilih Unit Chromebook
+              </label>
+              <p className="text-xs text-gray-600 mb-3">
+                Harga akan mengikuti unit yang dipilih.
+              </p>
+              <div className="relative">
+                <select
+                  id="unit_choice"
+                  name="unit_choice"
+                  defaultValue="lenovo"
+                  required
+                  className="w-full appearance-none border-2 border-primary-blue/30 focus:border-primary-green focus:outline-none rounded-xl px-4 py-3 pr-11 transition-all duration-300 bg-white text-gray-800 font-medium"
+                >
+                  <option value="Lenovo 300e">Lenovo 300e - Rp4.400.000</option>
+                  <option value="Acer CB311">Acer CB311 - Rp8.700.000</option>
+                </select>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-blue"
+                  aria-hidden="true"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </div>
+            </motion.div>
+
             {[
               { name: "order_name", placeholder: "Nama Pemesan", type: "text" },
               { name: "student_name", placeholder: "Nama Lengkap Siswa", type: "text" },
@@ -1123,3 +1427,4 @@ export default function ChromebookPage() {
     </main>
   );
 }
+//
