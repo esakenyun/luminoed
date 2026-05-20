@@ -180,6 +180,7 @@ export default function Portfolio() {
                 fill
                 className="object-cover"
                 sizes="520px"
+                loading="eager"
               />
               <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary-green text-primary-blue text-xs font-bold uppercase tracking-wider">
                 {item.tag}

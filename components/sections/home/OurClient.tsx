@@ -25,6 +25,7 @@ export default function OurClient() {
   const sectionRef = useRef<HTMLElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const marqueeTweenRef = useRef<gsap.core.Tween | null>(null);
 
   useGSAP(
     () => {
@@ -66,18 +67,30 @@ export default function OurClient() {
       );
 
       if (!marqueeRef.current) return;
-      gsap.to(marqueeRef.current, {
+      marqueeTweenRef.current = gsap.to(marqueeRef.current, {
         xPercent: -50,
         duration: 22,
         ease: "none",
         repeat: -1,
       });
 
-      const track = marqueeRef.current;
-      const pause = () => gsap.to(track, { timeScale: 0, duration: 0.4 });
-      const resume = () => gsap.to(track, { timeScale: 1, duration: 0.4 });
-      containerRef.current?.addEventListener("mouseenter", pause);
-      containerRef.current?.addEventListener("mouseleave", resume);
+      const pause = () =>
+        marqueeTweenRef.current &&
+        gsap.to(marqueeTweenRef.current, { timeScale: 0, duration: 0.4 });
+      const resume = () =>
+        marqueeTweenRef.current &&
+        gsap.to(marqueeTweenRef.current, { timeScale: 1, duration: 0.4 });
+
+      const container = containerRef.current;
+      container?.addEventListener("mouseenter", pause);
+      container?.addEventListener("mouseleave", resume);
+
+      return () => {
+        container?.removeEventListener("mouseenter", pause);
+        container?.removeEventListener("mouseleave", resume);
+        marqueeTweenRef.current?.kill();
+        marqueeTweenRef.current = null;
+      };
     },
     { scope: sectionRef },
   );
@@ -91,20 +104,20 @@ export default function OurClient() {
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(#0A2463 1px,transparent 1px),linear-gradient(90deg,#0A2463 1px,transparent 1px)",
+            "linear-gradient(#110a34 1px,transparent 1px),linear-gradient(90deg,#110a34 1px,transparent 1px)",
           backgroundSize: "48px 48px",
         }}
       />
 
       <div className="max-w-7xl mx-auto px-5 xl:px-0 relative z-10">
         <div className="cl-heading text-center mb-16">
-          <p className="text-sm font-bold tracking-[0.25em] uppercase text-[#2EC4B6] mb-3">
-            Trusted Partners
+          <p className="text-sm font-bold tracking-[0.25em] uppercase text-primary-green mb-3">
+            {t("clients.label")}
           </p>
-          <h2 className="mb-3 font-extrabold uppercase text-[#0A2463] text-3xl md:text-5xl tracking-tight">
+          <h2 className="mb-3 font-extrabold uppercase text-primary-blue text-3xl md:text-5xl tracking-tight">
             {t("clients.title")}
           </h2>
-          <div className="cl-bar h-1.5 w-24 bg-[#2EC4B6] mx-auto rounded-full mb-5" />
+          <div className="cl-bar h-1.5 w-24 bg-primary-green mx-auto rounded-full mb-5" />
           <p className="cl-desc max-w-2xl mx-auto text-neutral-400 text-base md:text-lg leading-relaxed">
             {t("clients.description")}
           </p>
@@ -139,13 +152,13 @@ export default function OurClient() {
 
         <div className="mt-20 text-center">
           <p className="text-neutral-400 text-base mb-5">
-            Ready to join our growing network of partner schools?
+            {t("clients.ctaDescription")}
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-[#0A2463] text-white font-bold text-sm hover:bg-[#0d2f7a] transition-colors shadow-lg shadow-[#0A2463]/20"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-primary-green text-primary-blue font-bold text-sm hover:bg-secondary-green-300 transition-colors shadow-lg shadow-primary-green/25"
           >
-            Get in Touch
+            {t("clients.ctaButton")}
           </a>
         </div>
       </div>
