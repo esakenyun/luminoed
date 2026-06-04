@@ -1,5 +1,5 @@
 // "use client";
-
+// feat lenovo close
 import Hero from "@/components/sections/home/Hero";
 import dynamic from "next/dynamic";
 
