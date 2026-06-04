@@ -1279,7 +1279,7 @@ export default function ChromebookPage() {
                 <line x1="12" x2="12.01" y1="8" y2="8" />
               </motion.svg>
               <span>
-                <strong className="text-blue-900">Informasi:</strong> Batch 1 telah selesai dengan kuota penuh. Batch 2 kini tersedia dengan 2 pilihan unit (Lenovo 300e Non-Touchscreen dan Acer CB311 Touchscreen). Silakan pilih unit yang diinginkan dan daftarkan ketertarikan Anda melalui form di bawah.
+                <strong className="text-blue-900">Informasi:</strong> Lenovo 300e Batch 2 sudah ditutup. Saat ini hanya <strong>Acer CB311 Chromebook</strong> yang tersedia. Silakan daftarkan ketertarikan Anda melalui form di bawah.
               </span>
             </motion.p>
           </motion.div>
@@ -1323,7 +1323,7 @@ export default function ChromebookPage() {
                   required
                   className="w-full appearance-none border-2 border-primary-blue/30 focus:border-primary-green focus:outline-none rounded-xl px-4 py-3 pr-11 transition-all duration-300 bg-white text-gray-800 font-medium"
                 >
-                  <option value="Lenovo 300e">Lenovo 300e - Rp4.400.000</option>
+                  {/* <option value="Lenovo 300e">Lenovo 300e - Rp4.400.000</option> */}
                   <option value="Acer CB311">Acer CB311 - Rp8.700.000</option>
                 </select>
                 <svg
