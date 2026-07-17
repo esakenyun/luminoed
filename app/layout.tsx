@@ -32,6 +32,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} data-scroll-behavior="smooth">
+      {/* Dari sini */}
       <head>
         <meta name="google-site-verification" content={`${GSV}`} />
         <Script
@@ -49,6 +50,7 @@ export default async function RootLayout({
             `}
         </Script>
       </head>
+      {/* Sampai sini */}
       <body className={`${inter.variable} antialiased`}>
         <I18nProvider dictionary={dictionary} initialLocale={locale}>
           <Toaster position="top-right" richColors />
