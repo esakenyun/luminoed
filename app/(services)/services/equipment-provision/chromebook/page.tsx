@@ -50,7 +50,7 @@ export default function ChromebookPage() {
 
   const startCountUp = () => {
     price.set(0);
-    animate(price, 4400000, {
+    animate(price, 5000000, {
       duration: 1.8,
       ease: "easeOut",
     });
@@ -1088,7 +1088,7 @@ export default function ChromebookPage() {
                   
                   <div className="space-y-4 mb-8">
                     {[
-                      { title: "Lenovo 300e (Non-Touch) - Rp 4.400.000", desc: "Opsi efisien untuk pengadaan skala besar" },
+                      { title: "Lenovo 300e (Non-Touch) - Rp 5.000.000", desc: "Opsi efisien untuk pengadaan skala besar" },
                       { title: "Acer CB311 (Touch) - Rp 8.700.000", desc: "Opsi baru dengan layar sentuh 11.6 inci" },
                       { title: "Rugged & Tahan Banting", desc: "Desain lipat, tahan jatuh dan tekanan" },
                       { title: "Prosesor Intel Celeron N4020", desc: "Performa stabil untuk aktivitas pembelajaran" },
@@ -1123,7 +1123,7 @@ export default function ChromebookPage() {
                   >
                     <p className="text-sm text-gray-700">
                       <strong className="text-primary-blue">💰 Harga Batch 2:</strong><br />
-                      <span className="text-base font-bold text-primary-blue">Lenovo 300e: Rp 4.400.000</span><br />
+                      <span className="text-base font-bold text-primary-blue">Lenovo 300e: Rp 5.000.000</span><br />
                       <span className="text-base font-bold text-primary-blue">Acer CB311: Rp 8.700.000</span>
                     </p>
                     <p className="text-xs text-gray-600 mt-2">✓ Per unit (All-in Package), sesuai pilihan unit</p>
@@ -1279,7 +1279,7 @@ export default function ChromebookPage() {
                 <line x1="12" x2="12.01" y1="8" y2="8" />
               </motion.svg>
               <span>
-                <strong className="text-blue-900">Informasi:</strong> Lenovo 300e Batch 2 sudah ditutup. Saat ini hanya <strong>Acer CB311 Chromebook</strong> yang tersedia. Silakan daftarkan ketertarikan Anda melalui form di bawah.
+                <strong className="text-blue-900">Informasi:</strong> Lenovo 300e Batch 2 <strong>sisa 4 unit.</strong> Silakan daftarkan ketertarikan Anda melalui form di bawah.
               </span>
             </motion.p>
           </motion.div>
@@ -1323,7 +1323,7 @@ export default function ChromebookPage() {
                   required
                   className="w-full appearance-none border-2 border-primary-blue/30 focus:border-primary-green focus:outline-none rounded-xl px-4 py-3 pr-11 transition-all duration-300 bg-white text-gray-800 font-medium"
                 >
-                  {/* <option value="Lenovo 300e">Lenovo 300e - Rp4.400.000</option> */}
+                  <option value="Lenovo 300e">Lenovo 300e - Rp5.000.000</option>
                   <option value="Acer CB311">Acer CB311 - Rp8.700.000</option>
                 </select>
                 <svg
